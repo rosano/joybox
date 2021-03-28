@@ -1,0 +1,79 @@
+{
+  "scripts": {
+    "postinstall": "node ./package-postinstall.js",
+    
+    "setup": "olsk-bundle",
+    
+    "start": "olsk-express",
+
+    "test": "olsk-spec",
+
+    "build": "olsk-rollup",
+    "watch": "olsk-rollup-watch"
+  },
+  "dependencies": {
+    "// OLDSKOOL": null,
+    "OLSKExpress": "olsk/OLSKExpress",
+
+    "// STORAGE": null,
+    "zerodatawrap": "0dataapp/0datawrap",
+    "webnative": "^0.21.3",
+    "OLSKRemoteStorage": "olsk/OLSKRemoteStorage",
+    "OLSKCloud": "olsk/OLSKCloud",
+    "OLSKObject": "olsk/OLSKObject",
+    "ulid": "latest",
+
+    "// _shared": null,
+    "normalize.css": "latest",
+    "OLSKDecor": "olsk/OLSKDecor",
+    "OLSKUIAssets": "olsk/OLSKUIAssets",
+    "OLSKLanguageSwitcher": "olsk/OLSKLanguageSwitcher",
+
+    "// open-vitrine": null,
+    "OLSKLanding": "olsk/OLSKLanding",
+    "OLSKAppFeatureList": "olsk/OLSKAppFeatureList",
+    "OLSKGazette": "olsk/OLSKGazette",
+    "OLSKWording": "olsk/OLSKWording",
+    "OLSKRootLink": "olsk/OLSKRootLink",
+    "ROCORootLink": "rationalcreative/ROCORootLink",
+
+    "// open-main": null,
+    "OLSKCatalog": "olsk/OLSKCatalog",
+    "OLSKAppToolbar": "olsk/OLSKAppToolbar",
+    "OLSKModalView": "olsk/OLSKModalView",
+    "OLSKApropos": "olsk/OLSKApropos",
+    "OLSKServiceWorker": "olsk/OLSKServiceWorker",
+    "OLSKInstall": "olsk/OLSKInstall",
+    "OLSKFund": "olsk/OLSKFund",
+    "OLSKWebView": "olsk/OLSKWebView",
+    "OLSKThrottle": "olsk/OLSKThrottle",
+    "OLSKRouting": "olsk/OLSKRouting",
+    "launchlet": "latest",
+
+    "// tech-robots": null,
+    "OLSKRobots": "olsk/OLSKRobots",
+
+    "// I sacrifice myself for the commas of others": null
+  },
+  "devDependencies": {
+    "// SVELTE": null,
+    "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
+
+    "// LIVERELOAD": null,
+    "livereload": "latest",
+
+    "// PRODUCTION BUILD": null,
+    "OLSKDisk": "olsk/OLSKDisk",
+
+    "// SPEC": null,
+    "OLSKSpec": "olsk/OLSKSpec",
+    
+    "// HOTFIX": null,
+    "OLSKHotfix": "olsk/OLSKHotfix",
+    
+    "// BUNDLE": null,
+    "OLSKBundle": "olsk/OLSKBundle",
+
+    "// I sacrifice myself for the commas of others": null    
+  }
+}
