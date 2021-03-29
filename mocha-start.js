@@ -12,6 +12,7 @@
 				ZDRScopeSchemas: [
 					require('./os-app/_shared/JOXDocument/main.js').default,
 					require('./os-app/_shared/JOXSetting/main.js').default,
+					require('./os-app/_shared/JOXTransport/main.js').default,
 					],
 			}],
 			_ZDRParamDispatchJSONPreStringify: require('OLSKObject').default.OLSKObjectSafeCopy,
