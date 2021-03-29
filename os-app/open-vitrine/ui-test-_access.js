@@ -55,10 +55,6 @@ describe('JOXVitrine_Access', function () {
 		browser.assert.elements(JOXVitrineFeaturesHeading, 1);
 	});
 
-	it('shows JOXFeatureList', function () {
-		browser.assert.elements('.JOXFeatureList', 1);
-	});
-
 	it('shows OLSKAppFeatureList', function () {
 		browser.assert.elements('.OLSKAppFeatureList', 1);
 	});
