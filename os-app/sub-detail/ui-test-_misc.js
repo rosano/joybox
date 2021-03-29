@@ -4,7 +4,7 @@ describe('JOXPlayDetail_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid()),
+			JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
@@ -116,7 +116,7 @@ describe('JOXPlayDetail_Misc', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid({
+				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
 					JOXDocumentIsArchived: true,
 				})),
 			});
@@ -240,7 +240,7 @@ describe('JOXPlayDetail_Misc', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid({
+				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
 					JOXDocumentIsArchived: true,
 				})),
 			});

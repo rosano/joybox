@@ -6,7 +6,7 @@ describe('JOXPlayListItem_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayListItemObject: JSON.stringify(StubNoteObjectValid({
+			JOXPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
 				JOXDocumentNotes,
 			})),
 		});
@@ -32,7 +32,7 @@ describe('JOXPlayListItem_Misc', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayListItemObject: JSON.stringify(StubNoteObjectValid({
+				JOXPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
 					JOXDocumentIsArchived: true,
 				})),
 			});

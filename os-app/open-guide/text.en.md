@@ -20,8 +20,8 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 | Select previous or next card, if filter field is focused | `Up` or `Down` |
 | Clear filter text and selected card, focus filter field | `Escape` |
 | Close, if filter field is focused | `Escape` |
-| `JOXTrackLauncherItemImportJSONText` | Launcher |
-| `JOXTrackLauncherItemExportJSONText` | Launcher |
+| `JOXPlayLauncherItemImportJSONText` | Launcher |
+| `JOXPlayLauncherItemExportJSONText` | Launcher |
 | `JOXBrowseInfoLauncherItemDebugText` | Launcher |
 
 | Global ||
@@ -42,7 +42,7 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 
 This web app can be 'installed' and used as if it were a native mobile app (with an icon, working without internet access, running as a standalone app outside of the browser).
 
-1. [Open the app](JOXTrackRoute) in your browser, then follow the steps based on your operating system:
+1. [Open the app](JOXPlayRoute) in your browser, then follow the steps based on your operating system:
 
 ## iOS + Safari
 2. Tap the Share button <img height="22" valign="middle" alt="Share button icon" src="/_shared/__external/OLSKUIAssets/_OLSKSharediOSShare.svg" />

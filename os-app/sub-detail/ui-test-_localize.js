@@ -13,7 +13,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
-					JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid()),
+					JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
 				});
 			});
 
@@ -48,7 +48,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				before(function() {
 					return browser.OLSKVisit(kDefaultRoute, {
 						OLSKRoutingLanguage,
-						JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid({
+						JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
 							JOXDocumentIsArchived: true,
 						})),
 					});

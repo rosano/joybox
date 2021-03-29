@@ -12,7 +12,7 @@ describe('JOXPlayListItem_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayListItemObject: JSON.stringify(StubNoteObjectValid()),
+			JOXPlayListItemObject: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 

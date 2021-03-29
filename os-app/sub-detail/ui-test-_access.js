@@ -23,7 +23,7 @@ describe('JOXPlayDetail_Access', function () {
 	
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid()),
+			JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
@@ -75,7 +75,7 @@ describe('JOXPlayDetail_Access', function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(StubNoteObjectValid({
+				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
 					JOXDocumentIsArchived: true,
 				})),
 			});
