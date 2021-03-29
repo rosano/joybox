@@ -1,0 +1,7 @@
+JOXPlayTitle: Play
+JOXPlayToggleFormButtonText: Add
+JOXPlayRevealArchiveButtonText: Reveal archive
+JOXPlayLauncherItemImportJSONText: Import JSON (beta)
+JOXPlayLauncherItemImportJSONErrorNotFilledAlertText: Input not filled
+JOXPlayLauncherItemImportJSONErrorNotValidAlertText: Input not valid
+JOXPlayLauncherItemExportJSONText: Export JSON (beta)
