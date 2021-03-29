@@ -108,6 +108,10 @@ describe('JOXPlayExactSortFunction', function test_JOXPlayExactSortFunction() {
 
 describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 
+	const uItems = function (inputData) {
+		return Array.from(Array(Math.max(1, Date.now() % 10))).map(inputData);
+	};
+
 	it('throws if not string', function () {
 		throws(function () {
 			mod.JOXPlayDocuments(null);
@@ -118,18 +122,10 @@ describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 		deepEqual(mod.JOXPlayDocuments(''), []);
 	});
 
-	it('parses single line', function () {
-		const item = Math.random().toString();
-		deepEqual(mod.JOXPlayDocuments(item), [{
-			JOXDocumentNotes: item,
-		}]);
-	});
-
-	it('parses multiple lines', function () {
-		const item = [
-			Math.random().toString(),
-			Math.random().toString(),
-		];
+	it('parses strings', function () {
+		const item = uItems(function () {
+			return Math.random().toString();
+		});
 		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
 			return {
 				JOXDocumentNotes: e,
