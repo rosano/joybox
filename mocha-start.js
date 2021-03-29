@@ -11,6 +11,7 @@
 				ZDRScopeDirectory: 'joybox',
 				ZDRScopeSchemas: [
 					require('./os-app/_shared/JOXDocument/main.js').default,
+					require('./os-app/_shared/JOXSetting/main.js').default,
 					],
 			}],
 			_ZDRParamDispatchJSONPreStringify: require('OLSKObject').default.OLSKObjectSafeCopy,
@@ -37,6 +38,13 @@
 				JOXDocumentCreationDate: new Date(),
 				JOXDocumentModificationDate: new Date(),
 			}, inputData));
+		},
+
+		StubSettingObjectValid (inputData = {}) {
+			return Object.assign({
+				JOXSettingKey: Math.random().toString(),
+				JOXSettingValue: Math.random().toString(),
+			}, inputData);
 		},
 
 	}).map(function (e) {
