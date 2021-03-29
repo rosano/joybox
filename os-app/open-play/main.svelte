@@ -707,3 +707,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		OLSKAproposFeedbackValue={ `javascript:window.location.href = window.atob('${ window.btoa(OLSKString.OLSKStringFormatted(window.atob('OLSK_APROPOS_FEEDBACK_EMAIL_SWAP_TOKEN'), 'RP_X' + (mod._ValueFundClue ? '+' + mod._ValueFundClue : ''))) }')` }
 		/>
 </OLSKModalView>
+
+<style>
+.JOXPlayForm {
+	font-size: unset;
+}
+
+.JOXPlayForm p:last-child {
+	margin-bottom: 0;
+}
+</style>
