@@ -1,0 +1,39 @@
+<%
+locals.OLSKPageAssets = [
+	'/_shared/__external/normalize.css/normalize.css',
+	'__compiled/ui-style.css',
+
+	'/_shared/__external/launchlet/__compiled/launchlet.js',
+	'/_shared/__external/launchlet/__compiled/launchlet.css',
+];
+locals.OLSKPagePublicConstants = {
+	OLSKSharedPageCurrentLanguage,
+};
+%>
+
+<script src="/<%= OLSKSharedPageControllerSlug %>/__compiled/ui-behaviour.js"></script>
+
+<p>
+	<strong>JOXPlayDetailDispatchBack</strong>
+	<span id="TestJOXPlayDetailDispatchBack">0</span>
+</p>
+
+<p>
+	<strong>JOXPlayDetailDispatchArchive</strong>
+	<span id="TestJOXPlayDetailDispatchArchive">0</span>
+</p>
+
+<p>
+	<strong>JOXPlayDetailDispatchUnarchive</strong>
+	<span id="TestJOXPlayDetailDispatchUnarchive">0</span>
+</p>
+
+<p>
+	<strong>JOXPlayDetailDispatchUpdate</strong>
+	<span id="TestJOXPlayDetailDispatchUpdate">0</span>
+</p>
+
+<p>
+	<strong>JOXPlayDetailDispatchDiscard</strong>
+	<span id="TestJOXPlayDetailDispatchDiscard">0</span>
+</p>
