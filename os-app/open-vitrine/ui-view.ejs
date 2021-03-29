@@ -1,0 +1,57 @@
+<%
+locals.OLSKPageTitle = OLSKLocalized('JOXVitrineTitle');
+locals.OLSKPageDescription = OLSKLocalized('JOXVitrineDescription');
+locals.OLSKPageManifest = OLSKCanonical('JOXManifestRoute');
+locals.OLSKPageAssets = [
+	'/_shared/__external/normalize.css/normalize.css',
+	'/_shared/__external/OLSKDecor/ui-style.css',
+	'/_shared/common/ui-style.css',
+	'ui-style.css',
+];
+locals.OLSKPageUseLivereload = process.env.NODE_ENV === 'development';
+locals.OLSKPagePublicConstants = {
+	OLSKSharedPageCurrentLanguage: OLSKSharedPageCurrentLanguage,
+};
+%>
+
+<div class="JOXVitrine OLSKDecor OLSKDecorCapped">	
+
+<div class="JOXVitrineToolbar OLSKToolbar OLSKToolbarJustify OLSKStickyHeader OLSKCommonEdgeBottom">
+	<div class="JOXVitrineCrown OLSKCommonCard OLSKCommonCrownCardMini">
+		<img class="JOXVitrineCrownIcon" src="/_shared/JOXRootLink/ui-assets/identity.svg" role="presentation" />
+		<section>
+			<span class="JOXVitrineCrownName"><%= OLSKLocalized('JOXVitrineTitle') %></span>
+		</section>
+	</div>
+
+	<%- include('../../node_modules/OLSKLanguageSwitcher/main.ejs') %>
+</div>
+
+<%- include('../../node_modules/OLSKLanding/main.ejs', {
+	OLSKLandingHeadingText: OLSKLocalized('JOXVitrineDescription'),
+	OLSKLandingBlurbText: OLSKLocalized('OLSKLandingBlurbText'),
+	OLSKLandingActionText: OLSKLocalized('OLSKWordingOpenApp'),
+	OLSKLandingActionHref: OLSKCanonical('JOXPlayRoute'),
+}) %>
+
+<h1 class="JOXVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
+
+<%- include('../../node_modules/OLSKAppFeatureList/main.ejs', {
+	OLSKAppFeatureListRepoURL: process.env.OLSK_REPO_URL,
+}).replace(/node_modules/g, '_shared/__external') %>
+
+<a class="JOXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JOXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
+
+<h1 class="JOXVitrineGazetteHeading"><%= OLSKLocalized('OLSKGazetteHeadingText') %></h1>
+<%- include('../../node_modules/OLSKGazette/main.ejs', {
+	OLSKGazetteProject: 'RP_X',
+}) %>
+
+<h1 class="JOXVitrineSupportHeading"><%= OLSKLocalized('OLSKWordingFeedbackHeading') %></h1>
+<p class="JOXVitrineSupportBlurb"><%= OLSKLocalized('OLSKWordingFeedbackBlurb') %></p>
+
+<hr role="presentation" />
+
+<%- include('../../node_modules/ROCORootLink/main.ejs') %>
+
+</div>
