@@ -51,6 +51,20 @@ const mod = {
 		}).shift();
 	},
 
+	JOXPlayDocuments (inputData) {
+		if (typeof inputData !== 'string') {
+			throw new Error('JOXErrorInputNotValid');
+		}
+
+		return inputData.split('\n').filter(function (e) {
+			return !!e.trim();
+		}).map(function (e) {
+			return {
+				JOXDocumentNotes: e,
+			};
+		});
+	},
+
 };
 
 export default mod;

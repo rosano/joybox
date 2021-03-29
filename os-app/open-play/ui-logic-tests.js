@@ -105,3 +105,36 @@ describe('JOXPlayExactSortFunction', function test_JOXPlayExactSortFunction() {
 	});
 
 });
+
+describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
+
+	it('throws if not string', function () {
+		throws(function () {
+			mod.JOXPlayDocuments(null);
+		}, /JOXErrorInputNotValid/);
+	});
+
+	it('returns array', function () {
+		deepEqual(mod.JOXPlayDocuments(''), []);
+	});
+
+	it('parses single line', function () {
+		const item = Math.random().toString();
+		deepEqual(mod.JOXPlayDocuments(item), [{
+			JOXDocumentNotes: item,
+		}]);
+	});
+
+	it('parses multiple lines', function () {
+		const item = [
+			Math.random().toString(),
+			Math.random().toString(),
+		];
+		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
+			return {
+				JOXDocumentNotes: e,
+			};
+		}));
+	});
+
+});

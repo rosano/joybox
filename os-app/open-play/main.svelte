@@ -200,7 +200,7 @@ const mod = {
 	InterfaceFormSubmitButtonDidClick (event) {
 		event.preventDefault();
 
-		mod._ValueFormData.split('\n').map(mod.ControlDocumentAdd);
+		JOXPlayLogic.JOXPlayDocuments(mod._ValueFormData).map(mod.ControlDocumentAdd);
 
 		mod._ValueFormIsVisible = false;
 		mod._ValueFormData = '';
@@ -232,9 +232,7 @@ const mod = {
 	},
 
 	async ControlDocumentAdd (inputData) {
-		mod._OLSKCatalog.modPublic.OLSKCatalogInsert(await mod._ValueZDRWrap.App.JOXDocument.JOXDocumentCreate({
-			JOXDocumentNotes: inputData || '',
-		}));
+		mod._OLSKCatalog.modPublic.OLSKCatalogInsert(await mod._ValueZDRWrap.App.JOXDocument.JOXDocumentCreate(inputData));
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {
