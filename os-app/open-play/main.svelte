@@ -622,7 +622,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	{#if mod._ValueFormIsVisible }
 		<div class="JOXPlayForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
 			<p>
-				<textarea class="JOXPlayFormField" bind:value={ mod._ValueFormData } autofocus></textarea>
+				<textarea class="JOXPlayFormField" placeholder={ OLSKLocalized('JOXPlayFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
 			</p>
 			<p>
 				<button class="JOXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }></button>

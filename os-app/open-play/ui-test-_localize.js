@@ -64,11 +64,19 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		context('archive', function test_archive () {
+		describe('JOXPlayFormField', function test_JOXPlayFormField () {
 
 			before(function () {
 				return browser.pressButton(JOXPlayToggleFormButton);
 			});
+
+			it('localizes JOXPlayFormField', function () {
+				browser.assert.attribute(JOXPlayFormField, 'placeholder', uLocalized('JOXPlayFormFieldText'));
+			});
+			
+		});
+
+		context('archive', function test_archive () {
 
 			before(function () {
 				browser.fill(JOXPlayFormField, Math.random().toString());
