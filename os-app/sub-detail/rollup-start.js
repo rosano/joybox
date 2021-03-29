@@ -5,9 +5,6 @@ import OLSKRemoteStorage from 'OLSKRemoteStorage';
 const JOXPlayDetail = new RollupStart({
 	target: document.body,
 	props: Object.assign({
-		JOXPlayDetailPublicURLFor: (function  (inputData) {
-			return '[public]/' + inputData.JOXDocumentPublicID;
-		}),
 		JOXPlayDetailDispatchBack: (function  () {
 			window.TestJOXPlayDetailDispatchBack.innerHTML = parseInt(window.TestJOXPlayDetailDispatchBack.innerHTML) + 1;
 		}),

@@ -19,7 +19,7 @@ describe('JOXPlayDetail_Misc', function () {
 		});
 
 		it('classes OLSKMobileViewHeader', function () {
-			browser.assert.hasClass(JOXPlayDetailHeader, 'OLSKMobileViewHeader');
+			browser.assert.hasClass(JOXPlayDetailToolbar, 'OLSKMobileViewHeader');
 		});
 		
 		it('classes OLSKCommonEdgeBottom', function () {
@@ -104,7 +104,7 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
-	describe('JOXPlayDetailToolbarArchiveButtonImage', function test_JOXPlayDetailToolbarArchiveButtonImage () {
+	describe.skip('JOXPlayDetailToolbarArchiveButtonImage', function test_JOXPlayDetailToolbarArchiveButtonImage () {
 
 		it('sets src', function () {
 			browser.assert.elements(`${ JOXPlayDetailToolbarArchiveButtonImage } #_OLSKSharedArchive`, 1);
@@ -152,7 +152,7 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
-	describe('JOXPlayDetailToolbarUnarchiveButtonImage', function test_JOXPlayDetailToolbarUnarchiveButtonImage () {
+	describe.skip('JOXPlayDetailToolbarUnarchiveButtonImage', function test_JOXPlayDetailToolbarUnarchiveButtonImage () {
 
 		it('sets src', function () {
 			browser.assert.elements(`${ JOXPlayDetailToolbarUnarchiveButtonImage } #_OLSKSharedUnarchive`, 1);
