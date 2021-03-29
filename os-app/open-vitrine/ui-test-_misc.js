@@ -101,7 +101,7 @@ describe('JOXVitrine_Misc', function () {
 	describe('OLSKGazette', function test_OLSKGazette () {
 
 		it('sets src', function () {
-			browser.assert.attribute('.OLSKGazetteProjectField', 'value', 'RP_007');
+			browser.assert.attribute('.OLSKGazetteProjectField', 'value', 'RP_X');
 		});
 
 	});
