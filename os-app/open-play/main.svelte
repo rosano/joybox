@@ -620,9 +620,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER BODY HEAD -->
 
 	{#if mod._ValueFormIsVisible }
-		<div class="JOXPlayForm">
-			<textarea class="JOXPlayFormField" bind:value={ mod._ValueFormData } autofocus></textarea>
-			<button class="JOXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }></button>
+		<div class="JOXPlayForm OLSKDecor OLSKDecorBigForm OLSKCommonEdgeBottom">
+			<p>
+				<textarea class="JOXPlayFormField" bind:value={ mod._ValueFormData } autofocus></textarea>
+			</p>
+			<p>
+				<button class="JOXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }></button>
+			</p>
 		</div>
 	{/if}
 

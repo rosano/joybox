@@ -16,6 +16,7 @@ Object.entries({
 	JOXPlayDetailToolbarDiscardButton: '.JOXPlayDetailToolbarDiscardButton',	
 	JOXPlayDetailToolbarDiscardButtonImage: '.JOXPlayDetailToolbarDiscardButtonImage',
 
+	JOXPlayDetailForm: '.JOXPlayDetailForm',
 	JOXPlayDetailFormNotesField: '.JOXPlayDetailFormNotesField',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
@@ -63,6 +64,10 @@ describe('JOXPlayDetail_Access', function () {
 
 	it('shows JOXPlayDetailToolbarDiscardButtonImage', function () {
 		browser.assert.elements(JOXPlayDetailToolbarDiscardButtonImage, 1);
+	});
+
+	it('shows JOXPlayDetailForm', function () {
+		browser.assert.elements(JOXPlayDetailForm, 1);
 	});
 
 	it('shows JOXPlayDetailFormNotesField', function () {

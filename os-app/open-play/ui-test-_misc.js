@@ -46,11 +46,27 @@ describe('JOXPlay_Misc', function () {
 	
 	});
 
-	describe('JOXPlayFormField', function test_JOXPlayFormField () {
+	describe('JOXPlayForm', function test_JOXPlayForm () {
 
 		before(function () {
 			return browser.pressButton(JOXPlayToggleFormButton);
 		});
+
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass(JOXPlayForm, 'OLSKDecor');
+		});
+
+		it('classes OLSKDecorBigForm', function () {
+			browser.assert.hasClass(JOXPlayForm, 'OLSKDecorBigForm');
+		});
+
+		it('classes OLSKCommonEdgeBottom', function () {
+			browser.assert.hasClass(JOXPlayForm, 'OLSKCommonEdgeBottom');
+		});
+	
+	});
+
+	describe('JOXPlayFormField', function test_JOXPlayFormField () {
 
 		it('sets autofocus', function () {
 			browser.assert.attribute(JOXPlayFormField, 'autofocus', '');

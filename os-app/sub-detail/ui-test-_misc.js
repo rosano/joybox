@@ -220,6 +220,18 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
+	describe('JOXPlayDetailForm', function test_JOXPlayDetailForm () {
+
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass(JOXPlayDetailForm, 'OLSKDecor');
+		});
+
+		it('classes OLSKDecorBigForm', function () {
+			browser.assert.hasClass(JOXPlayDetailForm, 'OLSKDecorBigForm');
+		});
+	
+	});
+
 	describe('JOXPlayDetailFormNotesField', function test_JOXPlayDetailFormNotesField () {
 
 		const item = StubDocumentObjectValid();
