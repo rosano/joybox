@@ -14,7 +14,9 @@ Object.entries({
 	JOXPlayDetailToolbarUnarchiveButtonImage: '.JOXPlayDetailToolbarUnarchiveButtonImage',
 
 	JOXPlayDetailToolbarDiscardButton: '.JOXPlayDetailToolbarDiscardButton',	
-	JOXPlayDetailToolbarDiscardButtonImage: '.JOXPlayDetailToolbarDiscardButtonImage',	
+	JOXPlayDetailToolbarDiscardButtonImage: '.JOXPlayDetailToolbarDiscardButtonImage',
+
+	JOXPlayDetailFormNotesField: '.JOXPlayDetailFormNotesField',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -61,6 +63,10 @@ describe('JOXPlayDetail_Access', function () {
 
 	it('shows JOXPlayDetailToolbarDiscardButtonImage', function () {
 		browser.assert.elements(JOXPlayDetailToolbarDiscardButtonImage, 1);
+	});
+
+	it('shows JOXPlayDetailFormNotesField', function () {
+		browser.assert.elements(JOXPlayDetailFormNotesField, 1);
 	});
 
 	it('shows JOXPlayDetailLauncherItemArchive', function () {

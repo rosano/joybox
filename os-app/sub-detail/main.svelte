@@ -89,6 +89,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
+<div>
+
+<textarea class="JOXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JOXPlayDetailFormNotesFieldText') }" bind:value={ JOXPlayDetailItem.JOXDocumentNotes } on:input={ JOXPlayDetailDispatchUpdate }></textarea>
+
+</div>
+
 {#if _DebugLauncher && OLSK_SPEC_UI() }
 	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataPlayDetailRecipes() }) }></button>	
 {/if}

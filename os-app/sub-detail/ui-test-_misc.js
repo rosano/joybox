@@ -220,6 +220,22 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
+	describe('JOXPlayDetailFormNotesField', function test_JOXPlayDetailFormNotesField () {
+
+		const item = StubDocumentObjectValid();
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JOXPlayDetailItem: JSON.stringify(item),
+			});
+		});
+
+		it('sets binds JOXDocumentNotes', function () {
+			browser.assert.input(JOXPlayDetailFormNotesField, item.JOXDocumentNotes);
+		});
+	
+	});
+
 	describe('JOXPlayDetailLauncherItemArchive', function test_JOXPlayDetailLauncherItemArchive() {
 		
 		before(function () {
