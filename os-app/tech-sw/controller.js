@@ -1,6 +1,6 @@
 const kJOXServiceWorkerVersionID = Date.now().toString();
 
-const OLSKServiceWorker = require('../_shared/__external/OLSKServiceWorker/main.js');
+const OLSKServiceWorker = require('../../node_modules/OLSKServiceWorker/main.js');
 
 exports.OLSKControllerRoutes = function() {
 	return {
