@@ -1,4 +1,4 @@
-(function JBXMochaWrap() {
+(function JOXMochaWrap() {
 	if (process.env.OLSK_SPEC_MOCHA_INTERFACE === 'true') {
 		return;
 	}
@@ -9,7 +9,9 @@
 			ZDRParamScopes: [{
 				ZDRScopeKey: 'App',
 				ZDRScopeDirectory: 'joybox',
-				ZDRScopeSchemas: [],
+				ZDRScopeSchemas: [
+					require('./os-app/_shared/JOXDocument/main.js').default,
+					],
 			}],
 			_ZDRParamDispatchJSONPreStringify: require('OLSKObject').default.OLSKObjectSafeCopy,
 		});
@@ -20,8 +22,24 @@
 	});
 })();
 
-(function JBXMochaStubs() {
-	Object.entries({}).map(function (e) {
+(function JOXMochaStubs() {
+	Object.entries({
+
+		StubDocumentObject(inputData) {
+			return Object.assign({
+				JOXDocumentNotes: Math.random().toString(),
+			}, inputData);
+		},
+
+		StubDocumentObjectValid(inputData) {
+			return StubDocumentObject(Object.assign({
+				JOXDocumentID: Math.random().toString(),
+				JOXDocumentCreationDate: new Date(),
+				JOXDocumentModificationDate: new Date(),
+			}, inputData));
+		},
+
+	}).map(function (e) {
 		return global[e.shift()]  = e.pop();
 	});
 })();
