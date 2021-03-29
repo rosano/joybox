@@ -2,7 +2,7 @@
 
 <%- include('../../../node_modules/OLSKRootLink/main.ejs', {
 	OLSKRootLinkURL: OLSKCanonicalLocalized('JOXVitrineRoute'),
-	OLSKRootLinkImageURL: '/_shared/JOXRootLink/ui-assets/identity.svg',
+	OLSKRootLinkImageURL: process.env.OLSK_LAYOUT_TOUCH_ICON_URL,
 }) %>
 
 </div>
