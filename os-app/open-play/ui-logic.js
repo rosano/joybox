@@ -59,9 +59,32 @@ const mod = {
 		return inputData.split('\n').filter(function (e) {
 			return !!e.trim();
 		}).map(function (e) {
-			return {
-				JOXDocumentNotes: e,
+			const outputData = {};
+
+			const urls = e.split(/\s/).filter(function (e) {
+				try {
+					const item = new URL('', e);
+					if (item.hostname) {
+						return true;
+					}
+				} catch (err) {
+					return false;
+				}
+			});
+
+			const text = urls.reduce(function (coll, item) {
+				return coll.split(item).join(' ');
+			}, e).trim();
+
+			if (urls.length) {
+				Object.assign(outputData, {
+					JOXDocumentURL: urls[0],
+				});
 			};
+
+			return Object.assign(outputData, {
+				JOXDocumentNotes: text,
+			});
 		});
 	},
 

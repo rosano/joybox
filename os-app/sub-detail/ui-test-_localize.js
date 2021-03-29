@@ -29,6 +29,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.attribute(JOXPlayDetailToolbarDiscardButton, 'title', uLocalized('JOXPlayDetailToolbarDiscardButtonText'));
 			});
 
+			it('localizes JOXPlayDetailFormURLField', function () {
+				browser.assert.attribute(JOXPlayDetailFormURLField, 'placeholder', uLocalized('JOXPlayDetailFormURLFieldText'));
+			});
+
 			it('localizes JOXPlayDetailFormNotesField', function () {
 				browser.assert.attribute(JOXPlayDetailFormNotesField, 'placeholder', uLocalized('JOXPlayDetailFormNotesFieldText'));
 			});

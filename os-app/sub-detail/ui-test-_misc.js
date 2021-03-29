@@ -2,6 +2,10 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 describe('JOXPlayDetail_Misc', function () {
 
+	const item = StubDocumentObjectValid({
+		JOXDocumentURL: Math.random().toString(),
+	});
+
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
 			JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
@@ -234,8 +238,6 @@ describe('JOXPlayDetail_Misc', function () {
 
 	describe('JOXPlayDetailFormNotesField', function test_JOXPlayDetailFormNotesField () {
 
-		const item = StubDocumentObjectValid();
-
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JOXPlayDetailItem: JSON.stringify(item),
@@ -244,6 +246,22 @@ describe('JOXPlayDetail_Misc', function () {
 
 		it('sets binds JOXDocumentNotes', function () {
 			browser.assert.input(JOXPlayDetailFormNotesField, item.JOXDocumentNotes);
+		});
+	
+	});
+
+	describe('JOXPlayDetailFormURLField', function test_JOXPlayDetailFormURLField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(JOXPlayDetailFormURLField, 'type', 	'text');
+		});
+
+		it('sets disabled', function () {
+			browser.assert.attribute(JOXPlayDetailFormURLField, 'disabled', 	'');
+		});
+
+		it('sets binds JOXDocumentURL', function () {
+			browser.assert.input(JOXPlayDetailFormURLField, item.JOXDocumentURL);
 		});
 	
 	});

@@ -133,4 +133,34 @@ describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 		}));
 	});
 
+	it('parses urls', function () {
+		const item = uItems(function () {
+			return uRandomElement('http', 'https') + '://example.com/' + Math.random().toString();
+		});
+		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
+			return {
+				JOXDocumentURL: e,
+				JOXDocumentNotes: '',
+			};
+		}));
+	});
+
+	it('parses combined', function () {
+		const textFirst = uRandomElement(true, false);
+
+		const item = uItems(function () {
+			const text = Math.random().toString();
+			const link = 'https://example.com';
+			return (textFirst ? [text, link] : [link, text]).join(' ');
+		});
+
+		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
+			const [ text, link ] = textFirst ? e.split(' ') : e.split(' ').reverse();
+			return {
+				JOXDocumentURL: link,
+				JOXDocumentNotes: text,
+			};
+		}));
+	});
+
 });
