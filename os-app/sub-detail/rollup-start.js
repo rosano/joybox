@@ -37,6 +37,4 @@ const JOXPlayDetail = new RollupStart({
 	}))),
 });
 
-window.JOXPlayDetailBehaviour = mod;
-
 export default JOXPlayDetail;
