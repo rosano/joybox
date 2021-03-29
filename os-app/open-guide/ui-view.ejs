@@ -1,0 +1,29 @@
+<%
+locals.OLSKPageTitle = OLSKLocalized('JOXGuideTitle');
+locals.OLSKPageDescription = OLSKLocalized('JOXGuideDescription');
+locals.OLSKPageAssets = [
+	'/_shared/__external/normalize.css/normalize.css',
+	'/_shared/__external/OLSKDecor/ui-style.css',
+	'/_shared/common/ui-style.css',
+	'ui-style.css',
+];
+locals.OLSKPageUseLivereload = process.env.NODE_ENV === 'development';
+%>
+
+<div class="JOXGuide OLSKDecor OLSKDecorCapped">
+
+<div class="JOXGuideCrown OLSKCommonCard OLSKCommonCrownCard">
+	<section>
+		<span class="JOXGuideCrownName"><%= OLSKLocalized('JOXGuideTitle') %></span>
+	</section>
+</div>
+
+<div class="JOXGuideContent">
+<%- JOXGuideContent %>
+</div>
+
+<hr role="presentation" />
+
+<%- include('../_shared/JOXRootLink/main.ejs') %>
+
+</div>
