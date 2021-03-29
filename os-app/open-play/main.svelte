@@ -625,7 +625,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 				<textarea class="JOXPlayFormField" placeholder={ OLSKLocalized('JOXPlayFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
 			</p>
 			<p>
-				<button class="JOXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }></button>
+				<button class="JOXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('JOXPlayFormSubmitButtonText') }</button>
 			</p>
 		</div>
 	{/if}

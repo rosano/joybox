@@ -1,6 +1,7 @@
 JOXPlayTitle: Play
 JOXPlayToggleFormButtonText: Add
 JOXPlayFormFieldText: Links
+JOXPlayFormSubmitButtonText: Submit
 JOXPlayRevealArchiveButtonText: Reveal archive
 JOXPlayLauncherItemImportJSONText: Import JSON (beta)
 JOXPlayLauncherItemImportJSONErrorNotFilledAlertText: Input not filled

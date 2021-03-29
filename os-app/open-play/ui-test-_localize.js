@@ -76,6 +76,14 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			
 		});
 
+		describe('JOXPlayFormSubmitButton', function test_JOXPlayFormSubmitButton () {
+
+			it('localizes JOXPlayFormSubmitButton', function () {
+				browser.assert.text(JOXPlayFormSubmitButton, uLocalized('JOXPlayFormSubmitButtonText'));
+			});
+			
+		});
+
 		context('archive', function test_archive () {
 
 			before(function () {
