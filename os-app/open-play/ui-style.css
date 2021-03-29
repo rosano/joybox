@@ -1,3 +1,27 @@
+:root {
+	--OLSKCommonBackground: #333;
+	--OLSKCommonForeground: rgb(254, 247, 177);
+	--OLSKCommonBorderColor: #777;
+	--OLSKCommonEdgeColor: #444;
+
+	--OLSKMasterListItemSelectedColorDefault: #555;
+	--OLSKMasterListItemSelectedColorActive: rgba(243, 83, 35);
+	--OLSKMasterListItemSelectedColorActiveInverse: white;
+}
+
+svg * {
+	stroke: var(--OLSKCommonForeground);
+}
+
+#_OLSKSharedApropos * {
+	fill: var(--OLSKCommonForeground);
+	stroke: none;
+}
+
+.OLSKToolbar a {
+	color: var(--OLSKCommonForeground) !important;
+}
+
 body {
 	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 	font-size: 9pt;

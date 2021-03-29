@@ -20,5 +20,7 @@ export let JOXPlayListItemObject;
 .JOXPlayListItemSnippet {
 	display: block;
 	margin-top: 5px;
+	
+	color: var(--OLSKCommonForeground);
 }
 </style>

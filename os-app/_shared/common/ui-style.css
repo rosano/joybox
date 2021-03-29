@@ -1,4 +1,8 @@
 :root {
-	--OLSKCommonBackground: #fcfcfc;
+	--OLSKCommonBackground: rgb(254, 247, 177);
 	--OLSKCommonForeground: #333;
+}
+
+body {
+	background: var(--OLSKCommonBackground);
 }
