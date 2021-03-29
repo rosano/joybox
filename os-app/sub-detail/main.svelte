@@ -87,6 +87,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	</div>
 </header>
 
+</div>
+
 {#if _DebugLauncher && OLSK_SPEC_UI() }
 	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataPlayDetailRecipes() }) }></button>	
 {/if}
