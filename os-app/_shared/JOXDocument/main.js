@@ -39,6 +39,14 @@ const mod = {
 			];
 		}
 
+		if (typeof inputData.JOXDocumentURL !== 'undefined') {
+			if (typeof inputData.JOXDocumentURL !== 'string') {
+				errors.JOXDocumentURL = [
+					'JOXErrorNotString',
+				];
+			}
+		}
+
 		return Object.entries(errors).length ? errors : null;
 	},
 	

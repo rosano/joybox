@@ -66,6 +66,26 @@ describe('JOXDocumentErrors', function test_JOXDocumentErrors() {
 		deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid()), null);
 	});
 
+	context('JOXDocumentURL', function() {
+
+		it('returns object if not string', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentURL: null,
+			})), {
+				JOXDocumentURL: [
+					'JOXErrorNotString',
+				],
+			});
+		});
+
+		it('returns null', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentURL: Math.random().toString(),
+			})), null);
+		});
+
+	});
+
 });
 
 describe('JOXDocumentDirectory', function test_JOXDocumentDirectory() {
