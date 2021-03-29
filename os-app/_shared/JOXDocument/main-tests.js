@@ -86,6 +86,26 @@ describe('JOXDocumentErrors', function test_JOXDocumentErrors() {
 
 	});
 
+	context('JOXDocumentIsArchived', function() {
+
+		it('returns object if not boolean', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentIsArchived: null,
+			})), {
+				JOXDocumentIsArchived: [
+					'JOXErrorNotBoolean',
+				],
+			});
+		});
+
+		it('returns null', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentIsArchived: true,
+			})), null);
+		});
+
+	});
+
 });
 
 describe('JOXDocumentDirectory', function test_JOXDocumentDirectory() {

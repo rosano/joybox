@@ -47,6 +47,14 @@ const mod = {
 			}
 		}
 
+		if (typeof inputData.JOXDocumentIsArchived !== 'undefined') {
+			if (typeof inputData.JOXDocumentIsArchived !== 'boolean') {
+				errors.JOXDocumentIsArchived = [
+					'JOXErrorNotBoolean',
+				];
+			}
+		}
+
 		return Object.entries(errors).length ? errors : null;
 	},
 	
