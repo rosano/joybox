@@ -186,7 +186,7 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 					fetch,
 				},
 			});
-		}), [JOXDocumentURL]);
+		}), ['JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + JOXDocumentURL]);
 	});
 
 	it('sets JOXDocumentName', async function () {

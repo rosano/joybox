@@ -95,7 +95,7 @@ const mod = {
 
 		if (inputData.JOXDocumentURL) {
 			Object.assign(inputData, {
-				JOXDocumentName: ((await (await (debug.window || window).fetch(inputData.JOXDocumentURL)).text()).split('<title>')[1] || '').split('</title>')[0],
+				JOXDocumentName: ((await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JOXDocumentURL))).text()).split('<title>')[1] || '').split('</title>')[0],
 				JOXDocumentDidFetch: true,
 			})
 		}
