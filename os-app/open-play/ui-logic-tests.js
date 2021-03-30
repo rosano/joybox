@@ -1,6 +1,7 @@
 const { throws, rejects, deepEqual } = require('assert');
 
 const mod = require('./ui-logic.js').default;
+import { JSDOM } from 'jsdom';
 
 const uLocalized = function (inputData) {
 	return inputData + '-LOCALIZED';
@@ -203,6 +204,7 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 					};
 				}),
 			},
+			JSDOM: JSDOM.fragment,
 		})).JOXDocumentName, item);
 	});
 
@@ -220,6 +222,7 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 					};
 				}),
 			},
+			JSDOM: JSDOM.fragment,
 		})).JOXDocumentDidFetch, true);
 	});
 

@@ -94,10 +94,13 @@ const mod = {
 		}
 
 		if (inputData.JOXDocumentURL) {
+			const html = (await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JOXDocumentURL))).text());
+			const doc = debug.JSDOM ? debug.JSDOM(html) : new DOMParser().parseFromString(html, 'text/html');
+			
 			Object.assign(inputData, {
-				JOXDocumentName: ((await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JOXDocumentURL))).text()).split('<title>')[1] || '').split('</title>')[0],
+				JOXDocumentName: (doc.querySelector('title') || {}).innerHTML,
 				JOXDocumentDidFetch: true,
-			})
+			});
 		}
 
 		return inputData;
