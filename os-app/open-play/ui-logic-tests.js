@@ -68,13 +68,13 @@ describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
 
 	it('returns false if no match', function() {
 		deepEqual(mod.JBXPlayIsMatch({
-			JBXDocumentNotes: 'alfa',
+			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: 'alfa',
 		}, 'bravo'), false);
 	});
 
 	it('matches OLSKStringMatch', function() {
 		deepEqual(mod.JBXPlayIsMatch({
-			JBXDocumentNotes: uRandomElement('alfa', 'álfa'),
+			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 
@@ -91,17 +91,17 @@ describe('JBXPlayExactSortFunction', function test_JBXPlayExactSortFunction() {
 	it('bumps startsWith', function() {
 		const item = Math.random().toString();
 		deepEqual(mod.JBXPlayExactSortFunction(item, {
-			JBXDocumentNotes: Math.random().toString() + item,
+			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: Math.random().toString() + item,
 		}, {
-			JBXDocumentNotes: item + Math.random().toString(),
+			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: item + Math.random().toString(),
 		}), 1);
 	});
 
 	it('matches OLSKStringMatch', function() {
 		deepEqual(mod.JBXPlayExactSortFunction(uRandomElement('alf', 'alfa', 'ALF'), {
-			JBXDocumentNotes: Math.random().toString(),
+			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: Math.random().toString(),
 		}, {
-			JBXDocumentNotes: uRandomElement('alfa', 'álfa'),
+			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
 		}), 1);
 	});
 

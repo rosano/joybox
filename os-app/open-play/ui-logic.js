@@ -36,7 +36,9 @@ const mod = {
 			throw new Error('JBXErrorInputNotValid');
 		}
 
-		return OLSKString.OLSKStringMatch(param2, param1.JBXDocumentNotes);
+		return ['JBXDocumentName', 'JBXDocumentNotes'].filter(function (e) {
+			return param1[e] && OLSKString.OLSKStringMatch(param2, param1[e]);
+		}).length;
 	},
 
 	JBXPlayExactSortFunction (needle, a, b) {
@@ -44,9 +46,9 @@ const mod = {
 			throw new Error('JBXErrorInputNotValid');
 		}
 
-		return ['startsWith', undefined].map(function (e) {
-			return uDescending(OLSKString.OLSKStringMatch(needle, a.JBXDocumentNotes, e), OLSKString.OLSKStringMatch(needle, b.JBXDocumentNotes, e));
-		}).filter(function (e) {
+		return ['JBXDocumentName', 'JBXDocumentNotes'].reduce(function (coll, item) {
+			return coll.concat(uDescending(OLSKString.OLSKStringMatch(needle, a[item] || '', 'startsWith'), OLSKString.OLSKStringMatch(needle, b[item] || '', 'startsWith')));
+		}, []).filter(function (e) {
 			return e !== 0;
 		}).shift();
 	},
