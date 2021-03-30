@@ -18,6 +18,7 @@ Object.entries({
 
 	JOXPlayDetailForm: '.JOXPlayDetailForm',
 	JOXPlayDetailFormURLField: '.JOXPlayDetailFormURLField',
+	JOXPlayDetailFormNameField: '.JOXPlayDetailFormNameField',
 	JOXPlayDetailFormNotesField: '.JOXPlayDetailFormNotesField',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
@@ -73,6 +74,10 @@ describe('JOXPlayDetail_Access', function () {
 
 	it('shows JOXPlayDetailFormURLField', function () {
 		browser.assert.elements(JOXPlayDetailFormURLField, 1);
+	});
+
+	it('shows JOXPlayDetailFormNameField', function () {
+		browser.assert.elements(JOXPlayDetailFormNameField, 1);
 	});
 
 	it('shows JOXPlayDetailFormNotesField', function () {

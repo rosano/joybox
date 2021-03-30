@@ -4,6 +4,7 @@ describe('JOXPlayDetail_Misc', function () {
 
 	const item = StubDocumentObjectValid({
 		JOXDocumentURL: Math.random().toString(),
+		JOXDocumentName: Math.random().toString(),
 	});
 
 	before(function() {
@@ -262,6 +263,18 @@ describe('JOXPlayDetail_Misc', function () {
 
 		it('sets binds JOXDocumentURL', function () {
 			browser.assert.input(JOXPlayDetailFormURLField, item.JOXDocumentURL);
+		});
+	
+	});
+
+	describe('JOXPlayDetailFormNameField', function test_JOXPlayDetailFormNameField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(JOXPlayDetailFormNameField, 'type', 	'text');
+		});
+
+		it('sets binds JOXDocumentName', function () {
+			browser.assert.input(JOXPlayDetailFormNameField, item.JOXDocumentName);
 		});
 	
 	});

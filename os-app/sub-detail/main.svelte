@@ -95,6 +95,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<input class="JOXPlayDetailFormURLField" placeholder={ OLSKLocalized('JOXPlayDetailFormURLFieldText') } type="text" disabled bind:value={ JOXPlayDetailItem.JOXDocumentURL } />
 </p>
 
+<p>
+	<input class="JOXPlayDetailFormNameField" placeholder={ OLSKLocalized('JOXPlayDetailFormNameFieldText') } type="text" bind:value={ JOXPlayDetailItem.JOXDocumentName } />
+</p>
+
 <textarea class="JOXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JOXPlayDetailFormNotesFieldText') }" bind:value={ JOXPlayDetailItem.JOXDocumentNotes } on:input={ JOXPlayDetailDispatchUpdate }></textarea>
 
 </div>
