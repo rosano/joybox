@@ -88,7 +88,7 @@ const mod = {
 		});
 	},
 
-	async JOXPlayFetch (inputData, debug) {
+	async JOXPlayFetch (inputData, debug = {}) {
 		if (JOXDocument.JOXDocumentErrors(inputData)) {
 			throw new Error('JOXErrorInputNotValid');
 		}
