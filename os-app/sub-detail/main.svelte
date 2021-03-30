@@ -72,13 +72,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<div class="OLSKToolbarElementGroup">
 		{#if !JBXPlayDetailItem.JBXDocumentIsArchived }
 			<button class="JBXPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText') } on:click={ JBXPlayDetailDispatchArchive }>
-				<div class="JBXPlayDetailToolbarArchiveButtonImage"></div>
+				<div class="JBXPlayDetailToolbarArchiveButtonImage">{@html OLSKUIAssets._OLSKSharedArchive }</div>
 			</button>
 		{/if}
 
 		{#if JBXPlayDetailItem.JBXDocumentIsArchived }
 			<button class="JBXPlayDetailToolbarUnarchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarUnarchiveButtonText') } on:click={ JBXPlayDetailDispatchUnarchive }>
-				<div class="JBXPlayDetailToolbarUnarchiveButtonImage"></div>
+				<div class="JBXPlayDetailToolbarUnarchiveButtonImage">{@html OLSKUIAssets._OLSKSharedUnarchive }</div>
 			</button>
 		{/if}
 

@@ -110,7 +110,7 @@ describe('JBXPlayDetail_Misc', function () {
 	
 	});
 
-	describe.skip('JBXPlayDetailToolbarArchiveButtonImage', function test_JBXPlayDetailToolbarArchiveButtonImage () {
+	describe('JBXPlayDetailToolbarArchiveButtonImage', function test_JBXPlayDetailToolbarArchiveButtonImage () {
 
 		it('sets src', function () {
 			browser.assert.elements(`${ JBXPlayDetailToolbarArchiveButtonImage } #_OLSKSharedArchive`, 1);
@@ -158,7 +158,7 @@ describe('JBXPlayDetail_Misc', function () {
 	
 	});
 
-	describe.skip('JBXPlayDetailToolbarUnarchiveButtonImage', function test_JBXPlayDetailToolbarUnarchiveButtonImage () {
+	describe('JBXPlayDetailToolbarUnarchiveButtonImage', function test_JBXPlayDetailToolbarUnarchiveButtonImage () {
 
 		it('sets src', function () {
 			browser.assert.elements(`${ JBXPlayDetailToolbarUnarchiveButtonImage } #_OLSKSharedUnarchive`, 1);
