@@ -1,4 +1,4 @@
-const { throws, deepEqual } = require('assert');
+const { throws, rejects, deepEqual } = require('assert');
 
 const mod = require('./ui-logic.js').default;
 
@@ -161,6 +161,66 @@ describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 				JOXDocumentNotes: text,
 			};
 		}));
+	});
+
+});
+
+describe('JOXPlayFetch', function test_JOXPlayFetch () {
+
+	it('rejects if not valid', async function () {
+		await rejects(mod.JOXPlayFetch({}), /JOXErrorInputNotValid/);
+	});
+
+	it('returns inputData', async function () {
+		const item = StubDocumentObjectValid();
+		deepEqual(await mod.JOXPlayFetch(item), item);
+	});
+
+	it('calls window.fetch', function () {
+		const JOXDocumentURL = Math.random().toString();
+		deepEqual(uCapture(function (fetch) {
+			mod.JOXPlayFetch(StubDocumentObjectValid({
+				JOXDocumentURL,
+			}), {
+				window: {
+					fetch,
+				},
+			});
+		}), [JOXDocumentURL]);
+	});
+
+	it('sets JOXDocumentName', async function () {
+		const item = Math.random().toString();
+		deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({
+			JOXDocumentURL: Math.random().toString(),
+		}), {
+			window: {
+				fetch: (function () {
+					return {
+						text: (function () {
+							return `<title>${ item }</title>`;
+						}),
+					};
+				}),
+			},
+		})).JOXDocumentName, item);
+	});
+
+	it('sets JOXDocumentDidFetch', async function () {
+		const item = Math.random().toString();
+		deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({
+			JOXDocumentURL: Math.random().toString(),
+		}), {
+			window: {
+				fetch: (function () {
+					return {
+						text: (function () {
+							return Math.random().toString();
+						}),
+					};
+				}),
+			},
+		})).JOXDocumentDidFetch, true);
 	});
 
 });

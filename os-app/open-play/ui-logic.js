@@ -88,6 +88,21 @@ const mod = {
 		});
 	},
 
+	async JOXPlayFetch (inputData, debug) {
+		if (JOXDocument.JOXDocumentErrors(inputData)) {
+			throw new Error('JOXErrorInputNotValid');
+		}
+
+		if (inputData.JOXDocumentURL) {
+			Object.assign(inputData, {
+				JOXDocumentName: ((await (await (debug.window || window).fetch(inputData.JOXDocumentURL)).text()).split('<title>')[1] || '').split('</title>')[0],
+				JOXDocumentDidFetch: true,
+			})
+		}
+
+		return inputData;
+	},
+
 };
 
 export default mod;
