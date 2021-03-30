@@ -47,6 +47,14 @@ const mod = {
 			}
 		}
 
+		if (typeof inputData.JOXDocumentName !== 'undefined') {
+			if (typeof inputData.JOXDocumentName !== 'string') {
+				errors.JOXDocumentName = [
+					'JOXErrorNotString',
+				];
+			}
+		}
+
 		if (typeof inputData.JOXDocumentIsArchived !== 'undefined') {
 			if (typeof inputData.JOXDocumentIsArchived !== 'boolean') {
 				errors.JOXDocumentIsArchived = [

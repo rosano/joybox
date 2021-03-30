@@ -86,6 +86,26 @@ describe('JOXDocumentErrors', function test_JOXDocumentErrors() {
 
 	});
 
+	context('JOXDocumentName', function() {
+
+		it('returns object if not string', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentName: null,
+			})), {
+				JOXDocumentName: [
+					'JOXErrorNotString',
+				],
+			});
+		});
+
+		it('returns null', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentName: Math.random().toString(),
+			})), null);
+		});
+
+	});
+
 	context('JOXDocumentIsArchived', function() {
 
 		it('returns object if not boolean', function() {
