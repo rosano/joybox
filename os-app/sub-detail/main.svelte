@@ -3,6 +3,7 @@ export let JOXPlayDetailItem;
 export let JOXPlayDetailDispatchBack;
 export let JOXPlayDetailDispatchArchive;
 export let JOXPlayDetailDispatchUnarchive;
+export let JOXPlayDetailDispatchFetch;
 export let JOXPlayDetailDispatchUpdate;
 export let JOXPlayDetailDispatchDiscard;
 export let _DebugLauncher = false;
@@ -93,6 +94,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 <p>
 	<input class="JOXPlayDetailFormURLField" placeholder={ OLSKLocalized('JOXPlayDetailFormURLFieldText') } type="text" disabled bind:value={ JOXPlayDetailItem.JOXDocumentURL } />
+</p>
+
+<p>
+	<button class="JOXPlayDetailFormFetchButton" on:click={ JOXPlayDetailDispatchFetch }>{ OLSKLocalized('JOXPlayDetailFormFetchButtonText') }</button>
 </p>
 
 <p>

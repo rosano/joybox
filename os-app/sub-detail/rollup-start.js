@@ -14,6 +14,9 @@ const JOXPlayDetail = new RollupStart({
 		JOXPlayDetailDispatchUnarchive: (function  () {
 			window.TestJOXPlayDetailDispatchUnarchive.innerHTML = parseInt(window.TestJOXPlayDetailDispatchUnarchive.innerHTML) + 1;
 		}),
+		JOXPlayDetailDispatchFetch: (function  () {
+			window.TestJOXPlayDetailDispatchFetch.innerHTML = parseInt(window.TestJOXPlayDetailDispatchFetch.innerHTML) + 1;
+		}),
 		JOXPlayDetailDispatchUpdate: (function  () {
 			window.TestJOXPlayDetailDispatchUpdate.innerHTML = parseInt(window.TestJOXPlayDetailDispatchUpdate.innerHTML) + 1;
 		}),

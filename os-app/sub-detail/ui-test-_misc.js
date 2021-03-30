@@ -267,6 +267,26 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
+	describe('JOXPlayDetailFormFetchButton', function test_JOXPlayDetailFormFetchButton () {
+		
+		context('click', function () {
+			
+			before(function () {
+				browser.assert.text('#TestJOXPlayDetailDispatchFetch', '0');
+			});
+			
+			before(function () {
+				return browser.pressButton(JOXPlayDetailFormFetchButton);
+			});
+
+			it('sends JOXPlayDetailDispatchFetch', function () {
+				browser.assert.text('#TestJOXPlayDetailDispatchFetch', '1');
+			});
+		
+		});
+	
+	});
+
 	describe('JOXPlayDetailFormNameField', function test_JOXPlayDetailFormNameField () {
 
 		it('sets type', function () {
