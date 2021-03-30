@@ -208,6 +208,38 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 		})).JOXDocumentName, item);
 	});
 
+	const item = Math.random().toString();
+	Object.entries({
+		'og:video': `<meta property="og:video" content="${ item }" />`,
+		'og:video:url': `<meta property="og:video:url" content="${ item }" />`,
+		'og:video:secure_url': `<meta property="og:video:secure_url" content="${ item }" />`,
+		'meta embedUrl': `<meta itemprop="embedUrl" content="${ item }"/>`,
+		'link embedUrl': `<link itemprop="embedUrl" href="${ item }"/>`,
+		'json-ld': `<script type="application/ld+json">[{"embedUrl":"${ item }"}]</script>`,
+	}).forEach(function ([key, value]) {
+
+		it('sets JOXDocumentEmbedURL ' + key, async function () {
+			deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({
+				JOXDocumentURL: Math.random().toString(),
+			}), {
+				window: {
+					fetch: (function () {
+						return {
+							text: (function () {
+								return key === 'og:video:secure_url' ? [
+									`<meta property="og:video" content="${ item }" />`,
+									value,
+								].join('') : value;
+							}),
+						};
+					}),
+				},
+				JSDOM: JSDOM.fragment,
+			})).JOXDocumentEmbedURL, item);
+		});
+
+	})
+
 	it('sets JOXDocumentDidFetch', async function () {
 		const item = Math.random().toString();
 		deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({

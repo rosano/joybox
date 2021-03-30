@@ -96,9 +96,31 @@ const mod = {
 		if (inputData.JOXDocumentURL) {
 			const html = (await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JOXDocumentURL))).text());
 			const doc = debug.JSDOM ? debug.JSDOM(html) : new DOMParser().parseFromString(html, 'text/html');
-			
+
+			const metadata = Array.from(doc.querySelectorAll('[property],[itemprop]')).reduce(function (coll, item) {
+				const key = item.getAttribute('property') || item.getAttribute('itemprop');
+
+				if (!key) {
+					return coll;
+				}
+
+				return Object.assign(coll, {
+					[key]: item.getAttribute('content') || item.getAttribute('href'),
+				})
+			}, [].concat.apply([], [JSON.parse((doc.querySelector('script[type="application/ld+json"]') || {}).innerHTML || '[]')]).reduce(function (coll, item) {
+				return coll || (item.embedUrl ? item : coll);
+			}, undefined) || {});
+
 			Object.assign(inputData, {
 				JOXDocumentName: (doc.querySelector('title') || {}).innerHTML,
+				JOXDocumentEmbedURL: [
+					'og:video:secure_url',
+					'og:video:url',
+					'og:video',
+					'embedUrl',
+				].reduce(function (coll, item) {
+					return coll || metadata[item];
+				}, undefined),
 				JOXDocumentDidFetch: true,
 			});
 		}
