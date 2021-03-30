@@ -55,6 +55,14 @@ const mod = {
 			}
 		}
 
+		if (typeof inputData.JOXDocumentDidFetch !== 'undefined') {
+			if (typeof inputData.JOXDocumentDidFetch !== 'boolean') {
+				errors.JOXDocumentDidFetch = [
+					'JOXErrorNotBoolean',
+				];
+			}
+		}
+
 		if (typeof inputData.JOXDocumentIsArchived !== 'undefined') {
 			if (typeof inputData.JOXDocumentIsArchived !== 'boolean') {
 				errors.JOXDocumentIsArchived = [

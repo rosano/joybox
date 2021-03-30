@@ -106,6 +106,26 @@ describe('JOXDocumentErrors', function test_JOXDocumentErrors() {
 
 	});
 
+	context('JOXDocumentDidFetch', function() {
+
+		it('returns object if not boolean', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentDidFetch: null,
+			})), {
+				JOXDocumentDidFetch: [
+					'JOXErrorNotBoolean',
+				],
+			});
+		});
+
+		it('returns null', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentDidFetch: true,
+			})), null);
+		});
+
+	});
+
 	context('JOXDocumentIsArchived', function() {
 
 		it('returns object if not boolean', function() {
