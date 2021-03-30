@@ -25,6 +25,7 @@ import OLSKServiceWorker from 'OLSKServiceWorker';
 import RemoteStorage from 'remotestoragejs';
 import OLSKString from 'OLSKString';
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
+import OLSKQueue from 'OLSKQueue';
 import zerodatawrap from 'zerodatawrap';
 
 const mod = {
@@ -245,6 +246,12 @@ const mod = {
 
 	async ControlDocumentAdd (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogInsert(await mod._ValueZDRWrap.App.JOXDocument.JOXDocumentCreate(inputData));
+
+		if (OLSK_SPEC_UI()) {
+			return;
+		}
+
+		mod.ControlDocumentFetch(inputData);
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {
@@ -280,6 +287,14 @@ const mod = {
 		mod.ControlDocumentSave(inputData);
 
 		mod.ControlDocumentActivate(inputData); // #purge-svelte-force-update
+	},
+	
+	async ControlDocumentFetch (inputData) {
+		mod.ControlDocumentSave(await mod._ValueFetchQueue.OLSKQueueAdd(function () {
+			return JOXPlayLogic.JOXPlayFetch(inputData);
+		}));
+
+		mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(inputData);
 	},
 	
 	ControlDocumentDiscard (inputData) {
@@ -391,6 +406,10 @@ const mod = {
 
 	JOXPlayDetailDispatchUnarchive () {
 		mod.ControlDocumentUnarchive(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
+	},
+
+	JOXPlayDetailDispatchFetch () {
+		mod.ControlDocumentFetch(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
 	JOXPlayDetailDispatchUpdate () {
@@ -542,6 +561,10 @@ const mod = {
 		}));
 	},
 
+	async SetupValueFetchQueue() {
+		mod._ValueFetchQueue = OLSKQueue.OLSKQueueAPI();
+	},
+
 	SetupLoading () {
 		mod._ValueIsLoading = false;
 
@@ -650,6 +673,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			JOXPlayDetailDispatchBack={ mod.JOXPlayDetailDispatchBack }
 			JOXPlayDetailDispatchArchive={ mod.JOXPlayDetailDispatchArchive }
 			JOXPlayDetailDispatchUnarchive={ mod.JOXPlayDetailDispatchUnarchive }
+			JOXPlayDetailDispatchFetch={ mod.JOXPlayDetailDispatchFetch }
 			JOXPlayDetailDispatchUpdate={ mod.JOXPlayDetailDispatchUpdate }
 			JOXPlayDetailDispatchDiscard={ mod.JOXPlayDetailDispatchDiscard }
 			bind:this={ mod._JOXPlayDetail }

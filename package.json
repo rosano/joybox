@@ -48,6 +48,7 @@
     "OLSKWebView": "olsk/OLSKWebView",
     "OLSKThrottle": "olsk/OLSKThrottle",
     "OLSKRouting": "olsk/OLSKRouting",
+    "OLSKQueue": "olsk/OLSKQueue",
     "launchlet": "latest",
 
     "// tech-robots": null,
@@ -73,6 +74,9 @@
     
     "// BUNDLE": null,
     "OLSKBundle": "olsk/OLSKBundle",
+    
+    "// PROXY": null,
+    "node-fetch": "latest",
 
     "// I sacrifice myself for the commas of others": null    
   }
