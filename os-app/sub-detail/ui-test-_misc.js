@@ -5,7 +5,7 @@ describe('JOXPlayDetail_Misc', function () {
 	const item = StubDocumentObjectValid({
 		JOXDocumentURL: Math.random().toString(),
 		JOXDocumentName: Math.random().toString(),
-		JOXDocumentEmbedURL: Math.random().toString(),
+		JOXDocumentEmbedURL: '/?' + Math.random().toString(),
 	});
 
 	before(function() {

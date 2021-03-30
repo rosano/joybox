@@ -108,7 +108,7 @@ describe('JOXPlayDetail_Access', function () {
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JOXDocumentEmbedURL: Math.random().toString(),
+					JOXDocumentEmbedURL: '/?' + Math.random().toString(),
 				})),
 			});
 		});
