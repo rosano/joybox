@@ -20,6 +20,11 @@ export let JBXPlayListItemObject;
 	text-overflow: ellipsis;
 }
 
+.JBXPlayListItemArchived {
+	border-left: 10px solid var(--OLSKCommonForeground);
+	opacity: 0.8;
+}
+
 .JBXPlayListItemTitle {
 	font-weight: bold;
 }

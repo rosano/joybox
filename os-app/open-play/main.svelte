@@ -740,4 +740,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 .JBXPlayForm p:last-child {
 	margin-bottom: 0;
 }
+
+.OLSKMasterListBodyTail {
+	padding: 10px;
+	
+	/* @OLSKMasterListBodyTailFlexbox:Parent */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 </style>
