@@ -2,6 +2,18 @@
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
 
+const uSerial2 = function (inputData) {
+	return inputData.reduce(async function (coll, e) {
+		return (await coll).concat(await new Promise(function (res, rej) {
+			try {
+				res(e());
+			} catch (error) {
+				rej(error);
+			}
+		}));
+	}, Promise.resolve([]));
+};
+
 import JOXDocument from '../_shared/JOXDocument/main.js';
 import JOXSetting from '../_shared/JOXSetting/main.js';
 import JOXTransport from '../_shared/JOXTransport/main.js';
@@ -484,16 +496,6 @@ const mod = {
 
 	// SETUP
 
-	async SetupEverything () {
-		await mod.SetupStorageClient();
-
-		await mod.SetupCatalog();
-		
-		await mod.SetupValueSettingsAll();
-
-		mod.ReactIsLoading(mod._ValueIsLoading = false);
-	},
-
 	DataStorageClient (inputData) {
 		return zerodatawrap.ZDRWrap({
 			ZDRParamLibrary: (function() {
@@ -556,10 +558,18 @@ const mod = {
 		}));
 	},
 
+	SetupLoading () {
+		mod.ReactIsLoading(mod._ValueIsLoading = false);
+	},
+
 	// LIFECYCLE
 
 	LifecycleModuleWillMount() {
-		mod.SetupEverything();
+		return uSerial2(Object.keys(mod).filter(function (e) {
+			return e.match(/^Setup/);
+		}).map(function (e) {
+			return mod[e];
+		}));
 	},
 
 };
