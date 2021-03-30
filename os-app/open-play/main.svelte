@@ -478,22 +478,6 @@ const mod = {
 		mod._ValueZDRWrap.ZDRStorageClient().stopSync();
 	},
 
-	// REACT
-
-	ReactIsLoading (inputData) {
-		if (inputData) {
-			return;
-		}
-
-		if (mod.DataIsMobile()) {
-			return;
-		}
-
-		setTimeout(function () {
-			document.querySelector('.OLSKMasterListFilterField').focus();
-		})
-	},
-
 	// SETUP
 
 	DataStorageClient (inputData) {
@@ -559,7 +543,15 @@ const mod = {
 	},
 
 	SetupLoading () {
-		mod.ReactIsLoading(mod._ValueIsLoading = false);
+		mod._ValueIsLoading = false;
+
+		if (mod.DataIsMobile()) {
+			return;
+		}
+
+		setTimeout(function () {
+			document.querySelector('.OLSKMasterListFilterField').focus();
+		})
 	},
 
 	// LIFECYCLE
