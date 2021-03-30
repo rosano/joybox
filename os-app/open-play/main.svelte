@@ -442,6 +442,11 @@ const mod = {
 		}, OLSK_SPEC_UI() ? 0 : 500);
 	},
 
+	async OLSKCloudFormDispatchSubmit (inputData) {
+		const protocol = zerodatawrap.ZDRPreferenceProtocolConnect(inputData);
+		(zerodatawrap.ZDRPreferenceProtocolMigrate() ? await mod.DataStorageClient(protocol) : mod._ValueZDRWrap).ZDRCloudConnect(inputData);
+	},
+
 	OLSKCloudDispatchRenew () {
 		mod._ValueZDRWrap.ZDRCloudReconnect(mod._ValueCloudIdentity);
 	},
