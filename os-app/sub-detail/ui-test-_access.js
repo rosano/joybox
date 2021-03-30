@@ -16,6 +16,8 @@ Object.entries({
 	JOXPlayDetailToolbarDiscardButton: '.JOXPlayDetailToolbarDiscardButton',	
 	JOXPlayDetailToolbarDiscardButtonImage: '.JOXPlayDetailToolbarDiscardButtonImage',
 
+	JOXPlayDetailPlayer: '.JOXPlayDetailPlayer',
+
 	JOXPlayDetailForm: '.JOXPlayDetailForm',
 	JOXPlayDetailFormURLField: '.JOXPlayDetailFormURLField',
 	JOXPlayDetailFormFetchButton: '.JOXPlayDetailFormFetchButton',
@@ -69,6 +71,10 @@ describe('JOXPlayDetail_Access', function () {
 		browser.assert.elements(JOXPlayDetailToolbarDiscardButtonImage, 1);
 	});
 
+	it('hides JOXPlayDetailPlayer', function () {
+		browser.assert.elements(JOXPlayDetailPlayer, 0);
+	});
+
 	it('shows JOXPlayDetailForm', function () {
 		browser.assert.elements(JOXPlayDetailForm, 1);
 	});
@@ -95,6 +101,22 @@ describe('JOXPlayDetail_Access', function () {
 
 	it('hides JOXPlayDetailLauncherItemUnarchive', function () {
 		return browser.assert.OLSKLauncherItems('JOXPlayDetailLauncherItemUnarchive', 0);
+	});
+
+	context('JOXDocumentEmbedURL', function() {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					JOXDocumentEmbedURL: Math.random().toString(),
+				})),
+			});
+		});
+
+		it('shows JOXPlayDetailPlayer', function () {
+			browser.assert.elements(JOXPlayDetailPlayer, 1);
+		});
+
 	});
 
 	context('JOXDocumentIsArchived', function() {

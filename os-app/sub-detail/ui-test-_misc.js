@@ -5,6 +5,7 @@ describe('JOXPlayDetail_Misc', function () {
 	const item = StubDocumentObjectValid({
 		JOXDocumentURL: Math.random().toString(),
 		JOXDocumentName: Math.random().toString(),
+		JOXDocumentEmbedURL: Math.random().toString(),
 	});
 
 	before(function() {
@@ -225,6 +226,20 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
+	describe('JOXPlayDetailPlayer', function test_JOXPlayDetailPlayer () {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JOXPlayDetailItem: JSON.stringify(item),
+			});
+		});
+
+		it('sets binds JOXDocumentEmbedURL', function () {
+			browser.assert.attribute(JOXPlayDetailPlayer, 'src', item.JOXDocumentEmbedURL);
+		});
+
+	});
+
 	describe('JOXPlayDetailForm', function test_JOXPlayDetailForm () {
 
 		it('classes OLSKDecor', function () {
@@ -238,12 +253,6 @@ describe('JOXPlayDetail_Misc', function () {
 	});
 
 	describe('JOXPlayDetailFormNotesField', function test_JOXPlayDetailFormNotesField () {
-
-		before(function() {
-			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(item),
-			});
-		});
 
 		it('sets binds JOXDocumentNotes', function () {
 			browser.assert.input(JOXPlayDetailFormNotesField, item.JOXDocumentNotes);

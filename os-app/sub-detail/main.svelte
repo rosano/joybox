@@ -90,6 +90,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
+{#if JOXPlayDetailItem.JOXDocumentEmbedURL }
+	<iframe class="JOXPlayDetailPlayer" width="100%" height="280" src={ JOXPlayDetailItem.JOXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{/if}
+
 <div class="JOXPlayDetailForm OLSKDecor OLSKDecorBigForm">
 
 <p>
