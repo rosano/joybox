@@ -55,6 +55,14 @@ const mod = {
 			}
 		}
 
+		if (typeof inputData.JOXDocumentEmbedURL !== 'undefined') {
+			if (typeof inputData.JOXDocumentEmbedURL !== 'string') {
+				errors.JOXDocumentEmbedURL = [
+					'JOXErrorNotString',
+				];
+			}
+		}
+
 		if (typeof inputData.JOXDocumentDidFetch !== 'undefined') {
 			if (typeof inputData.JOXDocumentDidFetch !== 'boolean') {
 				errors.JOXDocumentDidFetch = [

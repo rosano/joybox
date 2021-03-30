@@ -106,6 +106,26 @@ describe('JOXDocumentErrors', function test_JOXDocumentErrors() {
 
 	});
 
+	context('JOXDocumentEmbedURL', function() {
+
+		it('returns object if not string', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentEmbedURL: null,
+			})), {
+				JOXDocumentEmbedURL: [
+					'JOXErrorNotString',
+				],
+			});
+		});
+
+		it('returns null', function() {
+			deepEqual(mod.JOXDocumentErrors(StubDocumentObjectValid({
+				JOXDocumentEmbedURL: Math.random().toString(),
+			})), null);
+		});
+
+	});
+
 	context('JOXDocumentDidFetch', function() {
 
 		it('returns object if not boolean', function() {
