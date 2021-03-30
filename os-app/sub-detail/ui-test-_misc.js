@@ -1,183 +1,183 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXPlayDetail_Misc', function () {
+describe('JBXPlayDetail_Misc', function () {
 
 	const item = StubDocumentObjectValid({
-		JOXDocumentURL: Math.random().toString(),
-		JOXDocumentName: Math.random().toString(),
-		JOXDocumentEmbedURL: '/?' + Math.random().toString(),
+		JBXDocumentURL: Math.random().toString(),
+		JBXDocumentName: Math.random().toString(),
+		JBXDocumentEmbedURL: '/?' + Math.random().toString(),
 	});
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
+			JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	describe('JOXPlayDetailToolbar', function test_JOXPlayDetailToolbar () {
+	describe('JBXPlayDetailToolbar', function test_JBXPlayDetailToolbar () {
 
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(JBXPlayDetailToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(JBXPlayDetailToolbar, 'OLSKToolbarJustify');
 		});
 
 		it('classes OLSKMobileViewHeader', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbar, 'OLSKMobileViewHeader');
+			browser.assert.hasClass(JBXPlayDetailToolbar, 'OLSKMobileViewHeader');
 		});
 		
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbar, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(JBXPlayDetailToolbar, 'OLSKCommonEdgeBottom');
 		});
 		
 	});
 
-	describe('JOXPlayDetailToolbarBackButton', function test_JOXPlayDetailToolbarBackButton () {
+	describe('JBXPlayDetailToolbarBackButton', function test_JBXPlayDetailToolbarBackButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarBackButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(JBXPlayDetailToolbarBackButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarBackButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(JBXPlayDetailToolbarBackButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarBackButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(JBXPlayDetailToolbarBackButton, 'OLSKToolbarButton');
 		});
 
 		it('classes OLSKVisibilityMobile', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarBackButton, 'OLSKVisibilityMobile');
+			browser.assert.hasClass(JBXPlayDetailToolbarBackButton, 'OLSKVisibilityMobile');
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchBack', '0');
+				browser.assert.text('#TestJBXPlayDetailDispatchBack', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(JOXPlayDetailToolbarBackButton);
+				return browser.pressButton(JBXPlayDetailToolbarBackButton);
 			});
 
-			it('sends JOXPlayDetailDispatchBack', function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchBack', '1');
+			it('sends JBXPlayDetailDispatchBack', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchBack', '1');
 			});
 		
 		});
 	
 	});
 
-	describe('JOXPlayDetailToolbarBackButtonImage', function test_JOXPlayDetailToolbarBackButtonImage () {
+	describe('JBXPlayDetailToolbarBackButtonImage', function test_JBXPlayDetailToolbarBackButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JOXPlayDetailToolbarBackButtonImage } #_OLSKSharedBack`, 1);
+			browser.assert.elements(`${ JBXPlayDetailToolbarBackButtonImage } #_OLSKSharedBack`, 1);
 		});
 	
 	});
 
-	describe('JOXPlayDetailToolbarArchiveButton', function test_JOXPlayDetailToolbarArchiveButton () {
+	describe('JBXPlayDetailToolbarArchiveButton', function test_JBXPlayDetailToolbarArchiveButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarArchiveButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(JBXPlayDetailToolbarArchiveButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarArchiveButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(JBXPlayDetailToolbarArchiveButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarArchiveButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(JBXPlayDetailToolbarArchiveButton, 'OLSKToolbarButton');
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchArchive', '0');
+				browser.assert.text('#TestJBXPlayDetailDispatchArchive', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(JOXPlayDetailToolbarArchiveButton);
+				return browser.pressButton(JBXPlayDetailToolbarArchiveButton);
 			});
 
-			it('sends JOXPlayDetailDispatchArchive', function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchArchive', '1');
+			it('sends JBXPlayDetailDispatchArchive', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchArchive', '1');
 			});
 		
 		});
 	
 	});
 
-	describe.skip('JOXPlayDetailToolbarArchiveButtonImage', function test_JOXPlayDetailToolbarArchiveButtonImage () {
+	describe.skip('JBXPlayDetailToolbarArchiveButtonImage', function test_JBXPlayDetailToolbarArchiveButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JOXPlayDetailToolbarArchiveButtonImage } #_OLSKSharedArchive`, 1);
+			browser.assert.elements(`${ JBXPlayDetailToolbarArchiveButtonImage } #_OLSKSharedArchive`, 1);
 		});
 	
 	});
 
-	describe('JOXPlayDetailToolbarUnarchiveButton', function test_JOXPlayDetailToolbarUnarchiveButton () {
+	describe('JBXPlayDetailToolbarUnarchiveButton', function test_JBXPlayDetailToolbarUnarchiveButton () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JOXDocumentIsArchived: true,
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					JBXDocumentIsArchived: true,
 				})),
 			});
 		});
 
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarUnarchiveButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(JBXPlayDetailToolbarUnarchiveButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarUnarchiveButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(JBXPlayDetailToolbarUnarchiveButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarUnarchiveButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(JBXPlayDetailToolbarUnarchiveButton, 'OLSKToolbarButton');
 		});
 
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchUnarchive', '0');
+				browser.assert.text('#TestJBXPlayDetailDispatchUnarchive', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(JOXPlayDetailToolbarUnarchiveButton);
+				return browser.pressButton(JBXPlayDetailToolbarUnarchiveButton);
 			});
 
-			it('sends JOXPlayDetailDispatchUnarchive', function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchUnarchive', '1');
+			it('sends JBXPlayDetailDispatchUnarchive', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchUnarchive', '1');
 			});
 		
 		});
 	
 	});
 
-	describe.skip('JOXPlayDetailToolbarUnarchiveButtonImage', function test_JOXPlayDetailToolbarUnarchiveButtonImage () {
+	describe.skip('JBXPlayDetailToolbarUnarchiveButtonImage', function test_JBXPlayDetailToolbarUnarchiveButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JOXPlayDetailToolbarUnarchiveButtonImage } #_OLSKSharedUnarchive`, 1);
+			browser.assert.elements(`${ JBXPlayDetailToolbarUnarchiveButtonImage } #_OLSKSharedUnarchive`, 1);
 		});
 	
 	});
 
-	describe('JOXPlayDetailToolbarDiscardButton', function test_JOXPlayDetailToolbarDiscardButton () {
+	describe('JBXPlayDetailToolbarDiscardButton', function test_JBXPlayDetailToolbarDiscardButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarDiscardButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(JBXPlayDetailToolbarDiscardButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarDiscardButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(JBXPlayDetailToolbarDiscardButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JOXPlayDetailToolbarDiscardButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(JBXPlayDetailToolbarDiscardButton, 'OLSKToolbarButton');
 		});
 
 		context('click', function () {
@@ -185,11 +185,11 @@ describe('JOXPlayDetail_Misc', function () {
 			context('cancel', function () {
 				
 				before(function () {
-					browser.assert.text('#TestJOXPlayDetailDispatchDiscard', '0');
+					browser.assert.text('#TestJBXPlayDetailDispatchDiscard', '0');
 				});
 
 				return browser.OLSKConfirm(function () {
-					return browser.pressButton(JOXPlayDetailToolbarDiscardButton);
+					return browser.pressButton(JBXPlayDetailToolbarDiscardButton);
 				}, function (dialog) {
 					dialog.response = false;
 
@@ -197,7 +197,7 @@ describe('JOXPlayDetail_Misc', function () {
 				});
 
 				it('does nothing', function () {
-					browser.assert.text('#TestJOXPlayDetailDispatchDiscard', '0');
+					browser.assert.text('#TestJBXPlayDetailDispatchDiscard', '0');
 				});
 			
 			});
@@ -205,11 +205,11 @@ describe('JOXPlayDetail_Misc', function () {
 			context('confirm', function () {
 				
 				before(function () {
-					return browser.pressButton(JOXPlayDetailToolbarDiscardButton);
+					return browser.pressButton(JBXPlayDetailToolbarDiscardButton);
 				});
 
-				it('sends JOXPlayDetailDispatchDiscard', function () {
-					browser.assert.text('#TestJOXPlayDetailDispatchDiscard', '1');
+				it('sends JBXPlayDetailDispatchDiscard', function () {
+					browser.assert.text('#TestJBXPlayDetailDispatchDiscard', '1');
 				});
 			
 			});
@@ -218,132 +218,132 @@ describe('JOXPlayDetail_Misc', function () {
 	
 	});
 
-	describe('JOXPlayDetailToolbarDiscardButtonImage', function test_JOXPlayDetailToolbarDiscardButtonImage () {
+	describe('JBXPlayDetailToolbarDiscardButtonImage', function test_JBXPlayDetailToolbarDiscardButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JOXPlayDetailToolbarDiscardButtonImage } #_OLSKSharedDiscard`, 1);
+			browser.assert.elements(`${ JBXPlayDetailToolbarDiscardButtonImage } #_OLSKSharedDiscard`, 1);
 		});
 	
 	});
 
-	describe('JOXPlayDetailPlayer', function test_JOXPlayDetailPlayer () {
+	describe('JBXPlayDetailPlayer', function test_JBXPlayDetailPlayer () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(item),
+				JBXPlayDetailItem: JSON.stringify(item),
 			});
 		});
 
-		it('sets binds JOXDocumentEmbedURL', function () {
-			browser.assert.attribute(JOXPlayDetailPlayer, 'src', item.JOXDocumentEmbedURL);
+		it('sets binds JBXDocumentEmbedURL', function () {
+			browser.assert.attribute(JBXPlayDetailPlayer, 'src', item.JBXDocumentEmbedURL);
 		});
 
 	});
 
-	describe('JOXPlayDetailForm', function test_JOXPlayDetailForm () {
+	describe('JBXPlayDetailForm', function test_JBXPlayDetailForm () {
 
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(JOXPlayDetailForm, 'OLSKDecor');
+			browser.assert.hasClass(JBXPlayDetailForm, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorBigForm', function () {
-			browser.assert.hasClass(JOXPlayDetailForm, 'OLSKDecorBigForm');
+			browser.assert.hasClass(JBXPlayDetailForm, 'OLSKDecorBigForm');
 		});
 	
 	});
 
-	describe('JOXPlayDetailFormNotesField', function test_JOXPlayDetailFormNotesField () {
+	describe('JBXPlayDetailFormNotesField', function test_JBXPlayDetailFormNotesField () {
 
-		it('sets binds JOXDocumentNotes', function () {
-			browser.assert.input(JOXPlayDetailFormNotesField, item.JOXDocumentNotes);
+		it('sets binds JBXDocumentNotes', function () {
+			browser.assert.input(JBXPlayDetailFormNotesField, item.JBXDocumentNotes);
 		});
 	
 	});
 
-	describe('JOXPlayDetailFormURLField', function test_JOXPlayDetailFormURLField () {
+	describe('JBXPlayDetailFormURLField', function test_JBXPlayDetailFormURLField () {
 
 		it('sets type', function () {
-			browser.assert.attribute(JOXPlayDetailFormURLField, 'type', 	'text');
+			browser.assert.attribute(JBXPlayDetailFormURLField, 'type', 	'text');
 		});
 
 		it('sets disabled', function () {
-			browser.assert.attribute(JOXPlayDetailFormURLField, 'disabled', 	'');
+			browser.assert.attribute(JBXPlayDetailFormURLField, 'disabled', 	'');
 		});
 
-		it('sets binds JOXDocumentURL', function () {
-			browser.assert.input(JOXPlayDetailFormURLField, item.JOXDocumentURL);
+		it('sets binds JBXDocumentURL', function () {
+			browser.assert.input(JBXPlayDetailFormURLField, item.JBXDocumentURL);
 		});
 	
 	});
 
-	describe('JOXPlayDetailFormFetchButton', function test_JOXPlayDetailFormFetchButton () {
+	describe('JBXPlayDetailFormFetchButton', function test_JBXPlayDetailFormFetchButton () {
 		
 		context('click', function () {
 			
 			before(function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchFetch', '0');
+				browser.assert.text('#TestJBXPlayDetailDispatchFetch', '0');
 			});
 			
 			before(function () {
-				return browser.pressButton(JOXPlayDetailFormFetchButton);
+				return browser.pressButton(JBXPlayDetailFormFetchButton);
 			});
 
-			it('sends JOXPlayDetailDispatchFetch', function () {
-				browser.assert.text('#TestJOXPlayDetailDispatchFetch', '1');
+			it('sends JBXPlayDetailDispatchFetch', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchFetch', '1');
 			});
 		
 		});
 	
 	});
 
-	describe('JOXPlayDetailFormNameField', function test_JOXPlayDetailFormNameField () {
+	describe('JBXPlayDetailFormNameField', function test_JBXPlayDetailFormNameField () {
 
 		it('sets type', function () {
-			browser.assert.attribute(JOXPlayDetailFormNameField, 'type', 	'text');
+			browser.assert.attribute(JBXPlayDetailFormNameField, 'type', 	'text');
 		});
 
-		it('sets binds JOXDocumentName', function () {
-			browser.assert.input(JOXPlayDetailFormNameField, item.JOXDocumentName);
+		it('sets binds JBXDocumentName', function () {
+			browser.assert.input(JBXPlayDetailFormNameField, item.JBXDocumentName);
 		});
 	
 	});
 
-	describe('JOXPlayDetailLauncherItemArchive', function test_JOXPlayDetailLauncherItemArchive() {
+	describe('JBXPlayDetailLauncherItemArchive', function test_JBXPlayDetailLauncherItemArchive() {
 		
 		before(function () {
-			browser.assert.text('#TestJOXPlayDetailDispatchArchive', '0');
+			browser.assert.text('#TestJBXPlayDetailDispatchArchive', '0');
 		});
 		
 		before(function () {
-			return browser.OLSKLauncherRun('JOXPlayDetailLauncherItemArchive');
+			return browser.OLSKLauncherRun('JBXPlayDetailLauncherItemArchive');
 		});
 
-		it('sends JOXPlayDetailDispatchArchive', function () {
-			browser.assert.text('#TestJOXPlayDetailDispatchArchive', '1');
+		it('sends JBXPlayDetailDispatchArchive', function () {
+			browser.assert.text('#TestJBXPlayDetailDispatchArchive', '1');
 		});
 
 	});
 
-	describe('JOXPlayDetailLauncherItemUnarchive', function test_JOXPlayDetailLauncherItemUnarchive() {
+	describe('JBXPlayDetailLauncherItemUnarchive', function test_JBXPlayDetailLauncherItemUnarchive() {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JOXDocumentIsArchived: true,
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					JBXDocumentIsArchived: true,
 				})),
 			});
 		});
 
 		before(function () {
-			browser.assert.text('#TestJOXPlayDetailDispatchUnarchive', '0');
+			browser.assert.text('#TestJBXPlayDetailDispatchUnarchive', '0');
 		});
 		
 		before(function () {
-			return browser.OLSKLauncherRun('JOXPlayDetailLauncherItemUnarchive');
+			return browser.OLSKLauncherRun('JBXPlayDetailLauncherItemUnarchive');
 		});
 
-		it('sends JOXPlayDetailDispatchUnarchive', function () {
-			browser.assert.text('#TestJOXPlayDetailDispatchUnarchive', '1');
+		it('sends JBXPlayDetailDispatchUnarchive', function () {
+			browser.assert.text('#TestJBXPlayDetailDispatchUnarchive', '1');
 		});
 
 	});

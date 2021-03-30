@@ -1,56 +1,56 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXPlayListItem_Misc', function () {
+describe('JBXPlayListItem_Misc', function () {
 
-	const JOXDocumentName = uRandomElement(undefined, Math.random().toString());
+	const JBXDocumentName = uRandomElement(undefined, Math.random().toString());
 
 	const item = StubDocumentObjectValid({
-		JOXDocumentName,
-		JOXDocumentNotes: Math.random().toString(),
+		JBXDocumentName,
+		JBXDocumentNotes: Math.random().toString(),
 	});
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayListItemObject: JSON.stringify(item),
+			JBXPlayListItemObject: JSON.stringify(item),
 		});
 	});
 
-	describe('JOXPlayListItem', function test_JOXPlayListItem () {
+	describe('JBXPlayListItem', function test_JBXPlayListItem () {
 
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JOXPlayListItem, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(JBXPlayListItem, 'OLSKCommonEdgeBottom');
 		});
 		
 	});
 
-	describe('JOXPlayListItemTitle', function test_JOXPlayListItemTitle () {
+	describe('JBXPlayListItemTitle', function test_JBXPlayListItemTitle () {
 		
-		it('binds JOXDocumentNotes', function () {
-			browser.assert.text(JOXPlayListItemTitle, item.JOXDocumentName || '');
-		});
-	
-	});
-
-	describe('JOXPlayListItemSnippet', function test_JOXPlayListItemSnippet () {
-		
-		it('binds JOXDocumentNotes', function () {
-			browser.assert.text(JOXPlayListItemSnippet, item.JOXDocumentNotes);
+		it('binds JBXDocumentNotes', function () {
+			browser.assert.text(JBXPlayListItemTitle, item.JBXDocumentName || '');
 		});
 	
 	});
 
-	context('JOXDocumentIsArchived', function () {
+	describe('JBXPlayListItemSnippet', function test_JBXPlayListItemSnippet () {
+		
+		it('binds JBXDocumentNotes', function () {
+			browser.assert.text(JBXPlayListItemSnippet, item.JBXDocumentNotes);
+		});
+	
+	});
+
+	context('JBXDocumentIsArchived', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
-				JOXPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
-					JOXDocumentIsArchived: true,
+				JBXPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
+					JBXDocumentIsArchived: true,
 				})),
 			});
 		});
 
-		it('classes JOXPlayListItemArchived', function () {
-			browser.assert.hasClass(JOXPlayListItem, 'JOXPlayListItemArchived');
+		it('classes JBXPlayListItemArchived', function () {
+			browser.assert.hasClass(JBXPlayListItem, 'JBXPlayListItemArchived');
 		});
 	
 	});

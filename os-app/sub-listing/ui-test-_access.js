@@ -1,33 +1,33 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	JOXPlayListItem: '.JOXPlayListItem',
+	JBXPlayListItem: '.JBXPlayListItem',
 
-	JOXPlayListItemTitle: '.JOXPlayListItemTitle',
+	JBXPlayListItemTitle: '.JBXPlayListItemTitle',
 
-	JOXPlayListItemSnippet: '.JOXPlayListItemSnippet',
+	JBXPlayListItemSnippet: '.JBXPlayListItemSnippet',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
 
-describe('JOXPlayListItem_Access', function () {
+describe('JBXPlayListItem_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			JOXPlayListItemObject: JSON.stringify(StubDocumentObjectValid()),
+			JBXPlayListItemObject: JSON.stringify(StubDocumentObjectValid()),
 		});
 	});
 
-	it('shows JOXPlayListItem', function () {
-		browser.assert.elements(JOXPlayListItem, 1);
+	it('shows JBXPlayListItem', function () {
+		browser.assert.elements(JBXPlayListItem, 1);
 	});
 
-	it('shows JOXPlayListItemTitle', function () {
-		browser.assert.elements(JOXPlayListItemTitle, 1);
+	it('shows JBXPlayListItemTitle', function () {
+		browser.assert.elements(JBXPlayListItemTitle, 1);
 	});
 
-	it('shows JOXPlayListItemSnippet', function () {
-		browser.assert.elements(JOXPlayListItemSnippet, 1);
+	it('shows JBXPlayListItemSnippet', function () {
+		browser.assert.elements(JBXPlayListItemSnippet, 1);
 	});
 
 });

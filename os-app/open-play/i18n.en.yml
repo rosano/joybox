@@ -1,9 +1,9 @@
-JOXPlayTitle: Play
-JOXPlayToggleFormButtonText: Add
-JOXPlayFormFieldText: Paste your links here
-JOXPlayFormSubmitButtonText: Submit
-JOXPlayRevealArchiveButtonText: Reveal archive
-JOXPlayLauncherItemImportJSONText: Import JSON (beta)
-JOXPlayLauncherItemImportJSONErrorNotFilledAlertText: Input not filled
-JOXPlayLauncherItemImportJSONErrorNotValidAlertText: Input not valid
-JOXPlayLauncherItemExportJSONText: Export JSON (beta)
+JBXPlayTitle: Play
+JBXPlayToggleFormButtonText: Add
+JBXPlayFormFieldText: Paste your links here
+JBXPlayFormSubmitButtonText: Submit
+JBXPlayRevealArchiveButtonText: Reveal archive
+JBXPlayLauncherItemImportJSONText: Import JSON (beta)
+JBXPlayLauncherItemImportJSONErrorNotFilledAlertText: Input not filled
+JBXPlayLauncherItemImportJSONErrorNotValidAlertText: Input not valid
+JBXPlayLauncherItemExportJSONText: Export JSON (beta)

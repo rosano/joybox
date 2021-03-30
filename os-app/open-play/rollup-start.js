@@ -1,7 +1,7 @@
 import RollupStart from './main.svelte';
 
-const JOXPlay = new RollupStart({
+const JBXPlay = new RollupStart({
 	target: document.body,
 });
 
-export default JOXPlay;
+export default JBXPlay;

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXVitrine_Misc', function () {
+describe('JBXVitrine_Misc', function () {
 
 	before(function () {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
@@ -10,58 +10,58 @@ describe('JOXVitrine_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
 
-	describe('JOXVitrine', function () {
+	describe('JBXVitrine', function () {
 		
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(JOXVitrine, 'OLSKDecor');
+			browser.assert.hasClass(JBXVitrine, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorCapped', function () {
-			browser.assert.hasClass(JOXVitrine, 'OLSKDecorCapped');
+			browser.assert.hasClass(JBXVitrine, 'OLSKDecorCapped');
 		});
 	
 	});
 
-	describe('JOXVitrineToolbar', function () {
+	describe('JBXVitrineToolbar', function () {
 		
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(JOXVitrineToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(JOXVitrineToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKToolbarJustify');
 		});
 
 		it('classes OLSKStickyHeader', function () {
-			browser.assert.hasClass(JOXVitrineToolbar, 'OLSKStickyHeader');
+			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKStickyHeader');
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JOXVitrineToolbar, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKCommonEdgeBottom');
 		});
 	
 	});
 
-	describe('JOXVitrineCrown', function test_JOXVitrineCrown() {
+	describe('JBXVitrineCrown', function test_JBXVitrineCrown() {
 
 		it('classes OLSKCommonCard', function () {
-			browser.assert.hasClass(JOXVitrineCrown, 'OLSKCommonCard');
+			browser.assert.hasClass(JBXVitrineCrown, 'OLSKCommonCard');
 		});
 
 		it('classes OLSKCommonCrownCardMini', function () {
-			browser.assert.hasClass(JOXVitrineCrown, 'OLSKCommonCrownCardMini');
+			browser.assert.hasClass(JBXVitrineCrown, 'OLSKCommonCrownCardMini');
 		});
 		
 	});
 
-	describe('JOXVitrineCrownIcon', function () {
+	describe('JBXVitrineCrownIcon', function () {
 
 		it('sets role', function () {
-			browser.assert.attribute(JOXVitrineCrownIcon, 'role', 'presentation');
+			browser.assert.attribute(JBXVitrineCrownIcon, 'role', 'presentation');
 		});
 
 		it('sets src', function () {
-			browser.assert.attribute(JOXVitrineCrownIcon, 'src', '/_shared/JOXRootLink/ui-assets/identity.svg');
+			browser.assert.attribute(JBXVitrineCrownIcon, 'src', '/_shared/JBXRootLink/ui-assets/identity.svg');
 		});
 
 	});
@@ -82,18 +82,18 @@ describe('JOXVitrine_Misc', function () {
 	
 	});
 
-	describe('JOXVitrineGuideButton', function test_JOXVitrineGuideButton () {
+	describe('JBXVitrineGuideButton', function test_JBXVitrineGuideButton () {
 
 		it('classes OLSKDecorPress', function () {
-			browser.assert.hasClass(JOXVitrineGuideButton, 'OLSKDecorPress');
+			browser.assert.hasClass(JBXVitrineGuideButton, 'OLSKDecorPress');
 		});
 		
 		it('classes OLSKDecorPressCall', function () {
-			browser.assert.hasClass(JOXVitrineGuideButton, 'OLSKDecorPressCall');
+			browser.assert.hasClass(JBXVitrineGuideButton, 'OLSKDecorPressCall');
 		});
 		
 		it('sets href', function () {
-			browser.assert.attribute(JOXVitrineGuideButton, 'href', OLSKTestingCanonical(require('../open-guide/controller.js').OLSKControllerRoutes().shift()));
+			browser.assert.attribute(JBXVitrineGuideButton, 'href', OLSKTestingCanonical(require('../open-guide/controller.js').OLSKControllerRoutes().shift()));
 		});
 	
 	});

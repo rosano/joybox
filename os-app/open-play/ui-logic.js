@@ -1,5 +1,5 @@
 import OLSKString from 'OLSKString';
-import JOXDocument from '../_shared/JOXDocument/main.js';
+import JBXDocument from '../_shared/JBXDocument/main.js';
 
 const uAscending = function (a, b) {
   return (a < b) ? -1 : ((a > b) ? 1 : 0);
@@ -11,49 +11,49 @@ const uDescending = function (a, b) {
 
 const mod = {
 
-	JOXPlayAccessibilitySummary (inputData) {
-		if (JOXDocument.JOXDocumentErrors(inputData)) {
-			throw new Error('JOXErrorInputNotValid');
+	JBXPlayAccessibilitySummary (inputData) {
+		if (JBXDocument.JBXDocumentErrors(inputData)) {
+			throw new Error('JBXErrorInputNotValid');
 		}
 
-		return OLSKString.OLSKStringSnippet(inputData.JOXDocumentNotes);
+		return OLSKString.OLSKStringSnippet(inputData.JBXDocumentNotes);
 	},
 
-	JOXPlaySortFunction (a, b, log) {
-		if (a.JOXDocumentIsArchived !== b.JOXDocumentIsArchived) {
-			return uAscending(!!a.JOXDocumentIsArchived, !!b.JOXDocumentIsArchived);
+	JBXPlaySortFunction (a, b, log) {
+		if (a.JBXDocumentIsArchived !== b.JBXDocumentIsArchived) {
+			return uAscending(!!a.JBXDocumentIsArchived, !!b.JBXDocumentIsArchived);
 		}
 
 		return (function(e) {
 			return uDescending(a[e], b[e]);
-		})(['JOXDocumentCreationDate'].filter(function (e) {
+		})(['JBXDocumentCreationDate'].filter(function (e) {
 			return a[e] && b[e];
 		}).shift());
 	},
 
-	JOXPlayIsMatch (param1, param2) {
+	JBXPlayIsMatch (param1, param2) {
 		if (typeof param2 !== 'string') {
-			throw new Error('JOXErrorInputNotValid');
+			throw new Error('JBXErrorInputNotValid');
 		}
 
-		return OLSKString.OLSKStringMatch(param2, param1.JOXDocumentNotes);
+		return OLSKString.OLSKStringMatch(param2, param1.JBXDocumentNotes);
 	},
 
-	JOXPlayExactSortFunction (needle, a, b) {
+	JBXPlayExactSortFunction (needle, a, b) {
 		if (typeof needle !== 'string') {
-			throw new Error('JOXErrorInputNotValid');
+			throw new Error('JBXErrorInputNotValid');
 		}
 
 		return ['startsWith', undefined].map(function (e) {
-			return uDescending(OLSKString.OLSKStringMatch(needle, a.JOXDocumentNotes, e), OLSKString.OLSKStringMatch(needle, b.JOXDocumentNotes, e));
+			return uDescending(OLSKString.OLSKStringMatch(needle, a.JBXDocumentNotes, e), OLSKString.OLSKStringMatch(needle, b.JBXDocumentNotes, e));
 		}).filter(function (e) {
 			return e !== 0;
 		}).shift();
 	},
 
-	JOXPlayDocuments (inputData) {
+	JBXPlayDocuments (inputData) {
 		if (typeof inputData !== 'string') {
-			throw new Error('JOXErrorInputNotValid');
+			throw new Error('JBXErrorInputNotValid');
 		}
 
 		return inputData.split('\n').filter(function (e) {
@@ -78,23 +78,23 @@ const mod = {
 
 			if (urls.length) {
 				Object.assign(outputData, {
-					JOXDocumentURL: urls[0],
+					JBXDocumentURL: urls[0],
 				});
 			};
 
 			return Object.assign(outputData, {
-				JOXDocumentNotes: text,
+				JBXDocumentNotes: text,
 			});
 		});
 	},
 
-	async JOXPlayFetch (inputData, debug = {}) {
-		if (JOXDocument.JOXDocumentErrors(inputData)) {
-			throw new Error('JOXErrorInputNotValid');
+	async JBXPlayFetch (inputData, debug = {}) {
+		if (JBXDocument.JBXDocumentErrors(inputData)) {
+			throw new Error('JBXErrorInputNotValid');
 		}
 
-		if (inputData.JOXDocumentURL) {
-			const html = (await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JOXDocumentURL))).text());
+		if (inputData.JBXDocumentURL) {
+			const html = (await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text());
 			const doc = debug.JSDOM ? debug.JSDOM(html) : new DOMParser().parseFromString(html, 'text/html');
 
 			const metadata = Array.from(doc.querySelectorAll('[property],[itemprop]')).reduce(function (coll, item) {
@@ -112,8 +112,8 @@ const mod = {
 			}, undefined) || {});
 
 			Object.assign(inputData, {
-				JOXDocumentName: (doc.querySelector('title') || {}).innerHTML,
-				JOXDocumentEmbedURL: [
+				JBXDocumentName: (doc.querySelector('title') || {}).innerHTML,
+				JBXDocumentEmbedURL: [
 					'og:video:secure_url',
 					'og:video:url',
 					'og:video',
@@ -121,7 +121,7 @@ const mod = {
 				].reduce(function (coll, item) {
 					return coll || metadata[item];
 				}, undefined),
-				JOXDocumentDidFetch: true,
+				JBXDocumentDidFetch: true,
 			});
 		}
 

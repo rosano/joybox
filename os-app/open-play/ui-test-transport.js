@@ -1,12 +1,12 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXPlay_Transport', function () {	
+describe('JBXPlay_Transport', function () {	
 
 	const json = {};
 
-	describe('JOXPlayLauncherItemImportJSON', function test_JOXPlayLauncherItemImportJSON() {
+	describe('JBXPlayLauncherItemImportJSON', function test_JBXPlayLauncherItemImportJSON() {
 
-		const JOXDocumentNotes = Math.random().toString();
+		const JBXDocumentNotes = Math.random().toString();
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute);
@@ -17,7 +17,7 @@ describe('JOXPlay_Transport', function () {
 		});
 
 		before(function () {
-			return browser.fill('.LCHLauncherFilterInput', 'JOXPlayLauncherItemDebug_PromptFakeImportSerialized');
+			return browser.fill('.LCHLauncherFilterInput', 'JBXPlayLauncherItemDebug_PromptFakeImportSerialized');
 		});
 
 		before(function () {
@@ -25,10 +25,10 @@ describe('JOXPlay_Transport', function () {
 				return browser.click('.LCHLauncherPipeItem');
 			}, function (dialog) {
 				dialog.response = JSON.stringify({
-					JOXDocument: [StubDocumentObjectValid({
-						JOXDocumentNotes,
+					JBXDocument: [StubDocumentObjectValid({
+						JBXDocumentNotes,
 					})],
-					JOXSetting: [StubSettingObjectValid()],
+					JBXSetting: [StubSettingObjectValid()],
 				});
 
 				Object.assign(json, JSON.parse(dialog.response));
@@ -38,7 +38,7 @@ describe('JOXPlay_Transport', function () {
 		});
 
 		it('creates note', function () {
-			browser.assert.text('.JOXPlayListItemSnippet', JOXDocumentNotes);
+			browser.assert.text('.JBXPlayListItemSnippet', JBXDocumentNotes);
 		});
 
 	});
@@ -50,7 +50,7 @@ describe('JOXPlay_Transport', function () {
 		});
 
 		before(function () {
-			return browser.fill('.LCHLauncherFilterInput', 'JOXPlayLauncherItemDebug_AlertFakeExportSerialized');
+			return browser.fill('.LCHLauncherFilterInput', 'JBXPlayLauncherItemDebug_AlertFakeExportSerialized');
 		});
 
 		it('exports file', async function() {

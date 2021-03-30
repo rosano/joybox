@@ -1,17 +1,17 @@
 <script>
-export let JOXPlayListItemObject;
+export let JBXPlayListItemObject;
 </script>
 
-<div class="JOXPlayListItem OLSKCommonEdgeBottom" class:JOXPlayListItemArchived={ JOXPlayListItemObject.JOXDocumentIsArchived }>
+<div class="JBXPlayListItem OLSKCommonEdgeBottom" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentIsArchived }>
 
-<span class="JOXPlayListItemTitle">{ JOXPlayListItemObject.JOXDocumentName || '' }</span>
+<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || '' }</span>
 
-<span class="JOXPlayListItemSnippet">{ JOXPlayListItemObject.JOXDocumentNotes }</span>
+<span class="JBXPlayListItemSnippet">{ JBXPlayListItemObject.JBXDocumentNotes }</span>
 
 </div>
 
 <style>
-.JOXPlayListItem {
+.JBXPlayListItem {
 	min-height: 46px;
 	padding: 10px;
 
@@ -20,11 +20,11 @@ export let JOXPlayListItemObject;
 	text-overflow: ellipsis;
 }
 
-.JOXPlayListItemTitle {
+.JBXPlayListItemTitle {
 	font-weight: bold;
 }
 
-.JOXPlayListItemSnippet {
+.JBXPlayListItemSnippet {
 	display: block;
 	
 	margin-top: 5px;

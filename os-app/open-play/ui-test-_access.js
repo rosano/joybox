@@ -1,66 +1,66 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	JOXPlay: '.JOXPlay',
+	JBXPlay: '.JBXPlay',
 	
-	JOXPlayToggleFormButton: '.JOXPlayToggleFormButton',
-	JOXPlayToggleFormButtonImage: '.JOXPlayToggleFormButtonImage',
+	JBXPlayToggleFormButton: '.JBXPlayToggleFormButton',
+	JBXPlayToggleFormButtonImage: '.JBXPlayToggleFormButtonImage',
 
-	JOXPlayForm: '.JOXPlayForm',
-	JOXPlayFormField: '.JOXPlayFormField',
-	JOXPlayFormSubmitButton: '.JOXPlayFormSubmitButton',
+	JBXPlayForm: '.JBXPlayForm',
+	JBXPlayFormField: '.JBXPlayFormField',
+	JBXPlayFormSubmitButton: '.JBXPlayFormSubmitButton',
 
-	JOXPlayListItem: '.JOXPlayListItem',
+	JBXPlayListItem: '.JBXPlayListItem',
 
-	JOXPlayRevealArchiveButton: '.JOXPlayRevealArchiveButton',
+	JBXPlayRevealArchiveButton: '.JBXPlayRevealArchiveButton',
 
-	JOXPlayViewportFooter: '.JOXPlayViewportFooter',
+	JBXPlayViewportFooter: '.JBXPlayViewportFooter',
 	
-	JOXPlayCloudToolbar: '.JOXPlayCloudToolbar',
+	JBXPlayCloudToolbar: '.JBXPlayCloudToolbar',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
 
-describe('JOXPlay_Access', function () {
+describe('JBXPlay_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	it('shows JOXPlay', function () {
-		browser.assert.elements(JOXPlay, 1);
+	it('shows JBXPlay', function () {
+		browser.assert.elements(JBXPlay, 1);
 	});
 
 	it('shows OLSKCatalog', function () {
 		browser.assert.elements('.OLSKCatalog', 1);
 	});
 
-	it('shows JOXPlayToggleFormButton', function () {
-		browser.assert.elements(JOXPlayToggleFormButton, 1);
+	it('shows JBXPlayToggleFormButton', function () {
+		browser.assert.elements(JBXPlayToggleFormButton, 1);
 	});
 
-	it('shows JOXPlayToggleFormButtonImage', function () {
-		browser.assert.elements(JOXPlayToggleFormButtonImage, 1);
+	it('shows JBXPlayToggleFormButtonImage', function () {
+		browser.assert.elements(JBXPlayToggleFormButtonImage, 1);
 	});
 
-	it('hides JOXPlayForm', function () {
-		browser.assert.elements(JOXPlayForm, 0);
+	it('hides JBXPlayForm', function () {
+		browser.assert.elements(JBXPlayForm, 0);
 	});
 
-	it('hides JOXPlayListItem', function () {
-		browser.assert.elements(JOXPlayListItem, 0);
+	it('hides JBXPlayListItem', function () {
+		browser.assert.elements(JBXPlayListItem, 0);
 	});
 
-	it('hides JOXPlayRevealArchiveButton', function () {
-		browser.assert.elements(JOXPlayRevealArchiveButton, 0);
+	it('hides JBXPlayRevealArchiveButton', function () {
+		browser.assert.elements(JBXPlayRevealArchiveButton, 0);
 	});
 
-	it('shows JOXPlayViewportFooter', function () {
-		browser.assert.elements(JOXPlayViewportFooter, 1);
+	it('shows JBXPlayViewportFooter', function () {
+		browser.assert.elements(JBXPlayViewportFooter, 1);
 	});
 
-	it('hides JOXPlayCloudToolbar', function () {
-		browser.assert.elements(JOXPlayCloudToolbar, 0);
+	it('hides JBXPlayCloudToolbar', function () {
+		browser.assert.elements(JBXPlayCloudToolbar, 0);
 	});
 
 	it('shows OLSKAppToolbar', function () {
@@ -99,16 +99,16 @@ describe('JOXPlay_Access', function () {
 		return browser.assert.OLSKLauncherItems('OLSKServiceWorkerLauncherFakeItemProxy', 1);
 	});
 
-	it('hides JOXPlayDetailLauncherFakeItemProxy', function () {
-		return browser.assert.OLSKLauncherItems('JOXPlayDetailLauncherFakeItemProxy', 0);
+	it('hides JBXPlayDetailLauncherFakeItemProxy', function () {
+		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherFakeItemProxy', 0);
 	});
 
-	it('shows JOXPlayLauncherItemImportJSON', function () {
-		return browser.assert.OLSKLauncherItems('JOXPlayLauncherItemImportJSON', 1);
+	it('shows JBXPlayLauncherItemImportJSON', function () {
+		return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemImportJSON', 1);
 	});
 
-	it('shows JOXPlayLauncherItemExportJSON', function () {
-		return browser.assert.OLSKLauncherItems('JOXPlayLauncherItemExportJSON', 1);
+	it('shows JBXPlayLauncherItemExportJSON', function () {
+		return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemExportJSON', 1);
 	});
 
 	describe('tongue', function test_tongue() {
@@ -137,8 +137,8 @@ describe('JOXPlay_Access', function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
-		it('shows JOXPlayCloudToolbar', function () {
-			browser.assert.elements(JOXPlayCloudToolbar, 1);
+		it('shows JBXPlayCloudToolbar', function () {
+			browser.assert.elements(JBXPlayCloudToolbar, 1);
 		});
 
 		it('shows OLSKCloud', function () {
@@ -176,19 +176,19 @@ describe('JOXPlay_Access', function () {
 	context('toggle_form', function test_toggle_form () {
 
 		before(function () {
-			return browser.pressButton(JOXPlayToggleFormButton);
+			return browser.pressButton(JBXPlayToggleFormButton);
 		});
 
-		it('shows JOXPlayForm', function () {
-			browser.assert.elements(JOXPlayForm, 1);
+		it('shows JBXPlayForm', function () {
+			browser.assert.elements(JBXPlayForm, 1);
 		});
 
-		it('shows JOXPlayFormField', function () {
-			browser.assert.elements(JOXPlayFormField, 1);
+		it('shows JBXPlayFormField', function () {
+			browser.assert.elements(JBXPlayFormField, 1);
 		});
 
-		it('shows JOXPlayFormSubmitButton', function () {
-			browser.assert.elements(JOXPlayFormSubmitButton, 1);
+		it('shows JBXPlayFormSubmitButton', function () {
+			browser.assert.elements(JBXPlayFormSubmitButton, 1);
 		});
 
 		context('create', function test_create() {
@@ -196,23 +196,23 @@ describe('JOXPlay_Access', function () {
 			const count = Math.max(1, Date.now() % 10);
 			
 			before(function () {
-				browser.pressButton(JOXPlayToggleFormButton);
+				browser.pressButton(JBXPlayToggleFormButton);
 			});
 
 			before(function () {
-				browser.fill(JOXPlayFormField, Array.from(Array(count)).map(Math.random).join('\n'));
+				browser.fill(JBXPlayFormField, Array.from(Array(count)).map(Math.random).join('\n'));
 			});
 
 			before(function () {
-				return browser.pressButton(JOXPlayFormSubmitButton);
+				return browser.pressButton(JBXPlayFormSubmitButton);
 			});
 
-			it('hides JOXPlayForm', function () {
-				browser.assert.elements(JOXPlayForm, 0);
+			it('hides JBXPlayForm', function () {
+				browser.assert.elements(JBXPlayForm, 0);
 			});
 
-			it('shows JOXPlayListItem', function () {
-				browser.assert.elements(JOXPlayListItem, count);
+			it('shows JBXPlayListItem', function () {
+				browser.assert.elements(JBXPlayListItem, count);
 			});
 		
 		});
@@ -222,11 +222,11 @@ describe('JOXPlay_Access', function () {
 	context('select', function test_select() {
 
 		before(function () {
-			return browser.click(JOXPlayListItem);
+			return browser.click(JBXPlayListItem);
 		});
 
-		it('shows JOXPlayDetailLauncherFakeItemProxy', function () {
-			return browser.assert.OLSKLauncherItems('JOXPlayDetailLauncherFakeItemProxy', 1);
+		it('shows JBXPlayDetailLauncherFakeItemProxy', function () {
+			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherFakeItemProxy', 1);
 		});
 	
 	});
@@ -234,15 +234,15 @@ describe('JOXPlay_Access', function () {
 	context('archive', function test_archive () {
 
 		before(function () {
-			return browser.pressButton('.JOXPlayDetailToolbarArchiveButton');
+			return browser.pressButton('.JBXPlayDetailToolbarArchiveButton');
 		});
 
-		it('hides JOXPlayRevealArchiveButton', function () {
-			browser.assert.elements('.JOXPlayRevealArchiveButton', 0);
+		it('hides JBXPlayRevealArchiveButton', function () {
+			browser.assert.elements('.JBXPlayRevealArchiveButton', 0);
 		});
 
-		it('hides JOXPlayLauncherItemRevealArchive', function () {
-			return browser.assert.OLSKLauncherItems('JOXPlayLauncherItemRevealArchive', 0);
+		it('hides JBXPlayLauncherItemRevealArchive', function () {
+			return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemRevealArchive', 0);
 		});
 
 		context('clear_selection', function () {
@@ -251,12 +251,12 @@ describe('JOXPlay_Access', function () {
 				return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
 			});
 
-			it('shows JOXPlayRevealArchiveButton', function () {
-				browser.assert.elements('.JOXPlayRevealArchiveButton', 1);
+			it('shows JBXPlayRevealArchiveButton', function () {
+				browser.assert.elements('.JBXPlayRevealArchiveButton', 1);
 			});
 
-			it('shows JOXPlayLauncherItemRevealArchive', function () {
-				return browser.assert.OLSKLauncherItems('JOXPlayLauncherItemRevealArchive', 1);
+			it('shows JBXPlayLauncherItemRevealArchive', function () {
+				return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemRevealArchive', 1);
 			});
 		
 		});

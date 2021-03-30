@@ -1,11 +1,11 @@
 exports.OLSKControllerRoutes = function() {
 	return [{
-		OLSKRoutePath: '/stub/JOXRootLink',
+		OLSKRoutePath: '/stub/JBXRootLink',
 		OLSKRouteMethod: 'get',
 		OLSKRouteFunction (req, res, next) {
 			return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'main'));
 		},
-		OLSKRouteSignature: 'JOXRootLinkStubRoute',
+		OLSKRouteSignature: 'JBXRootLinkStubRoute',
 		OLSKRouteLanguageCodes: ['en'],
 		OLSKRouteIsHidden: process.env.NODE_ENV === 'production',
 	}];

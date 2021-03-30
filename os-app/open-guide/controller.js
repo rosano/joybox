@@ -6,10 +6,10 @@ exports.OLSKControllerRoutes = function () {
 	return [{
 		OLSKRoutePath: '/guide',
 		OLSKRouteMethod: 'get',
-		OLSKRouteSignature: 'JOXGuideRoute',
+		OLSKRouteSignature: 'JBXGuideRoute',
 		OLSKRouteFunction(req, res, next) {
 			return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'ui-view'), {
-				JOXGuideContent: res.OLSKMarkdownContent(require('path').join(__dirname, `text.${ res.locals.OLSKSharedPageCurrentLanguage }.md`), {}),
+				JBXGuideContent: res.OLSKMarkdownContent(require('path').join(__dirname, `text.${ res.locals.OLSKSharedPageCurrentLanguage }.md`), {}),
 			});
 		},
 		_OLSKRouteLanguageCodes: ['en'],

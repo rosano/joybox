@@ -1,6 +1,6 @@
 <%
-locals.OLSKPageTitle = OLSKLocalized('JOXGuideTitle');
-locals.OLSKPageDescription = OLSKLocalized('JOXGuideDescription');
+locals.OLSKPageTitle = OLSKLocalized('JBXGuideTitle');
+locals.OLSKPageDescription = OLSKLocalized('JBXGuideDescription');
 locals.OLSKPageAssets = [
 	'/_shared/__external/normalize.css/normalize.css',
 	'/_shared/__external/OLSKDecor/ui-style.css',
@@ -10,20 +10,20 @@ locals.OLSKPageAssets = [
 locals.OLSKPageUseLivereload = process.env.NODE_ENV === 'development';
 %>
 
-<div class="JOXGuide OLSKDecor OLSKDecorCapped">
+<div class="JBXGuide OLSKDecor OLSKDecorCapped">
 
-<div class="JOXGuideCrown OLSKCommonCard OLSKCommonCrownCard">
+<div class="JBXGuideCrown OLSKCommonCard OLSKCommonCrownCard">
 	<section>
-		<span class="JOXGuideCrownName"><%= OLSKLocalized('JOXGuideTitle') %></span>
+		<span class="JBXGuideCrownName"><%= OLSKLocalized('JBXGuideTitle') %></span>
 	</section>
 </div>
 
-<div class="JOXGuideContent">
-<%- JOXGuideContent %>
+<div class="JBXGuideContent">
+<%- JBXGuideContent %>
 </div>
 
 <hr role="presentation" />
 
-<%- include('../_shared/JOXRootLink/main.ejs') %>
+<%- include('../_shared/JBXRootLink/main.ejs') %>
 
 </div>

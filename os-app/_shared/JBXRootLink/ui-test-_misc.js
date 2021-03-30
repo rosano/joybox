@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXRootLink_Misc', function () {
+describe('JBXRootLink_Misc', function () {
 
 	before(function () {
 		return browser.OLSKVisit(kDefaultRoute);

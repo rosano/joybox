@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXPlay_Sync', function () {	
+describe('JBXPlay_Sync', function () {	
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -43,7 +43,7 @@ describe('JOXPlay_Sync', function () {
 			});
 
 			before(function () {
-				return browser.fill('.JOXPlayDetailFormNotesField', 'FakeZDRSchemaDispatchSyncCreateDocument');
+				return browser.fill('.JBXPlayDetailFormNotesField', 'FakeZDRSchemaDispatchSyncCreateDocument');
 			});
 
 			before(function () {
@@ -51,7 +51,7 @@ describe('JOXPlay_Sync', function () {
 			});
 
 			it('updates detail', function () {
-				browser.assert.input('.JOXPlayDetailFormNotesField', 'FakeZDRSchemaDispatchSyncUpdateDocument');
+				browser.assert.input('.JBXPlayDetailFormNotesField', 'FakeZDRSchemaDispatchSyncUpdateDocument');
 			});
 
 		});
@@ -83,7 +83,7 @@ describe('JOXPlay_Sync', function () {
 			});
 
 			it('clears detail', function () {
-				browser.assert.elements('.JOXPlayDetail', 0);
+				browser.assert.elements('.JBXPlayDetail', 0);
 			});
 		
 		});
@@ -93,23 +93,23 @@ describe('JOXPlay_Sync', function () {
 	describe('ZDRSchemaDispatchSyncConflictDocument', function test_ZDRSchemaDispatchSyncConflictDocument () {
 
 		before(function () {
-			return browser.pressButton(JOXPlayToggleFormButton);
+			return browser.pressButton(JBXPlayToggleFormButton);
 		});
 
 		before(function () {
-			browser.fill(JOXPlayFormField, Math.random().toString());
+			browser.fill(JBXPlayFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JOXPlayFormSubmitButton);
+			return browser.pressButton(JBXPlayFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.click(JOXPlayListItem);
+			return browser.click(JBXPlayListItem);
 		});
 
 		before(function () {
-			return browser.fill('.JOXPlayDetailFormNotesField', 'FakeZDRSchemaDispatchSyncConflictDocument');
+			return browser.fill('.JBXPlayDetailFormNotesField', 'FakeZDRSchemaDispatchSyncConflictDocument');
 		});
 
 		before(function () {

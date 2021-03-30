@@ -1,16 +1,16 @@
 <script>
-export let JOXPlayDetailItem;
-export let JOXPlayDetailDispatchBack;
-export let JOXPlayDetailDispatchArchive;
-export let JOXPlayDetailDispatchUnarchive;
-export let JOXPlayDetailDispatchFetch;
-export let JOXPlayDetailDispatchUpdate;
-export let JOXPlayDetailDispatchDiscard;
+export let JBXPlayDetailItem;
+export let JBXPlayDetailDispatchBack;
+export let JBXPlayDetailDispatchArchive;
+export let JBXPlayDetailDispatchUnarchive;
+export let JBXPlayDetailDispatchFetch;
+export let JBXPlayDetailDispatchUpdate;
+export let JBXPlayDetailDispatchDiscard;
 export let _DebugLauncher = false;
 
 export const modPublic = {
 
-	JOXPlayDetailRecipes () {
+	JBXPlayDetailRecipes () {
 		return mod.DataPlayDetailRecipes();
 	},
 
@@ -26,30 +26,30 @@ const mod = {
 	DataPlayDetailRecipes () {
 		const outputData = [];
 
-		if (!JOXPlayDetailItem.JOXDocumentIsArchived) {
+		if (!JBXPlayDetailItem.JBXDocumentIsArchived) {
 			outputData.push({
-				LCHRecipeSignature: 'JOXPlayDetailLauncherItemArchive',
-				LCHRecipeName: OLSKLocalized('JOXPlayDetailToolbarArchiveButtonText'),
-				LCHRecipeCallback: function JOXPlayDetailLauncherItemArchive () {
-					JOXPlayDetailDispatchArchive()
+				LCHRecipeSignature: 'JBXPlayDetailLauncherItemArchive',
+				LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText'),
+				LCHRecipeCallback: function JBXPlayDetailLauncherItemArchive () {
+					JBXPlayDetailDispatchArchive()
 				},
 			})
 		}
 
-		if (JOXPlayDetailItem.JOXDocumentIsArchived) {
+		if (JBXPlayDetailItem.JBXDocumentIsArchived) {
 			outputData.push({
-				LCHRecipeSignature: 'JOXPlayDetailLauncherItemUnarchive',
-				LCHRecipeName: OLSKLocalized('JOXPlayDetailToolbarUnarchiveButtonText'),
-				LCHRecipeCallback: function JOXPlayDetailLauncherItemUnarchive () {
-					JOXPlayDetailDispatchUnarchive()
+				LCHRecipeSignature: 'JBXPlayDetailLauncherItemUnarchive',
+				LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarUnarchiveButtonText'),
+				LCHRecipeCallback: function JBXPlayDetailLauncherItemUnarchive () {
+					JBXPlayDetailDispatchUnarchive()
 				},
 			})
 		}
 
 		if (OLSK_SPEC_UI()) {
 			outputData.push({
-				LCHRecipeName: 'JOXPlayDetailLauncherFakeItemProxy',
-				LCHRecipeCallback: function JOXPlayDetailLauncherFakeItemProxy () {},
+				LCHRecipeName: 'JBXPlayDetailLauncherFakeItemProxy',
+				LCHRecipeCallback: function JBXPlayDetailLauncherFakeItemProxy () {},
 			});
 		}
 
@@ -60,55 +60,55 @@ const mod = {
 import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 
-<div class="JOXPlayDetail">
+<div class="JBXPlayDetail">
 
-<header class="JOXPlayDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom">
+<header class="JBXPlayDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom">
 	<div class="OLSKToolbarElementGroup">
-		<button class="JOXPlayDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile" title={ OLSKLocalized('JOXPlayDetailToolbarBackButtonText') } on:click={ JOXPlayDetailDispatchBack }>
-			<div class="JOXPlayDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
+		<button class="JBXPlayDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile" title={ OLSKLocalized('JBXPlayDetailToolbarBackButtonText') } on:click={ JBXPlayDetailDispatchBack }>
+			<div class="JBXPlayDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
 		</button>
 	</div>
 
 	<div class="OLSKToolbarElementGroup">
-		{#if !JOXPlayDetailItem.JOXDocumentIsArchived }
-			<button class="JOXPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JOXPlayDetailToolbarArchiveButtonText') } on:click={ JOXPlayDetailDispatchArchive }>
-				<div class="JOXPlayDetailToolbarArchiveButtonImage"></div>
+		{#if !JBXPlayDetailItem.JBXDocumentIsArchived }
+			<button class="JBXPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText') } on:click={ JBXPlayDetailDispatchArchive }>
+				<div class="JBXPlayDetailToolbarArchiveButtonImage"></div>
 			</button>
 		{/if}
 
-		{#if JOXPlayDetailItem.JOXDocumentIsArchived }
-			<button class="JOXPlayDetailToolbarUnarchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JOXPlayDetailToolbarUnarchiveButtonText') } on:click={ JOXPlayDetailDispatchUnarchive }>
-				<div class="JOXPlayDetailToolbarUnarchiveButtonImage"></div>
+		{#if JBXPlayDetailItem.JBXDocumentIsArchived }
+			<button class="JBXPlayDetailToolbarUnarchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarUnarchiveButtonText') } on:click={ JBXPlayDetailDispatchUnarchive }>
+				<div class="JBXPlayDetailToolbarUnarchiveButtonImage"></div>
 			</button>
 		{/if}
 
-		<button class="JOXPlayDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JOXPlayDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('JOXPlayDetailDiscardConfirmText')) && JOXPlayDetailDispatchDiscard() }>
-			<div class="JOXPlayDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
+		<button class="JBXPlayDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('JBXPlayDetailDiscardConfirmText')) && JBXPlayDetailDispatchDiscard() }>
+			<div class="JBXPlayDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
 		</button>
 	</div>
 </header>
 
 </div>
 
-{#if JOXPlayDetailItem.JOXDocumentEmbedURL }
-	<iframe class="JOXPlayDetailPlayer" width="100%" height="280" src={ JOXPlayDetailItem.JOXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{#if JBXPlayDetailItem.JBXDocumentEmbedURL }
+	<iframe class="JBXPlayDetailPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 {/if}
 
-<div class="JOXPlayDetailForm OLSKDecor OLSKDecorBigForm">
+<div class="JBXPlayDetailForm OLSKDecor OLSKDecorBigForm">
 
 <p>
-	<input class="JOXPlayDetailFormURLField" placeholder={ OLSKLocalized('JOXPlayDetailFormURLFieldText') } type="text" disabled bind:value={ JOXPlayDetailItem.JOXDocumentURL } />
+	<input class="JBXPlayDetailFormURLField" placeholder={ OLSKLocalized('JBXPlayDetailFormURLFieldText') } type="text" disabled bind:value={ JBXPlayDetailItem.JBXDocumentURL } />
 </p>
 
 <p>
-	<button class="JOXPlayDetailFormFetchButton" on:click={ JOXPlayDetailDispatchFetch }>{ OLSKLocalized('JOXPlayDetailFormFetchButtonText') }</button>
+	<button class="JBXPlayDetailFormFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailFormFetchButtonText') }</button>
 </p>
 
 <p>
-	<input class="JOXPlayDetailFormNameField" placeholder={ OLSKLocalized('JOXPlayDetailFormNameFieldText') } type="text" bind:value={ JOXPlayDetailItem.JOXDocumentName } />
+	<input class="JBXPlayDetailFormNameField" placeholder={ OLSKLocalized('JBXPlayDetailFormNameFieldText') } type="text" bind:value={ JBXPlayDetailItem.JBXDocumentName } />
 </p>
 
-<textarea class="JOXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JOXPlayDetailFormNotesFieldText') }" bind:value={ JOXPlayDetailItem.JOXDocumentNotes } on:input={ JOXPlayDetailDispatchUpdate }></textarea>
+<textarea class="JBXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JBXPlayDetailFormNotesFieldText') }" bind:value={ JBXPlayDetailItem.JBXDocumentNotes } on:input={ JBXPlayDetailDispatchUpdate }></textarea>
 
 </div>
 

@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXPlay_Catalog', function () {
+describe('JBXPlay_Catalog', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -9,19 +9,19 @@ describe('JOXPlay_Catalog', function () {
 	context('create', function test_create () {
 		
 		before(function () {
-			return browser.pressButton(JOXPlayToggleFormButton);
+			return browser.pressButton(JBXPlayToggleFormButton);
 		});
 
 		before(function () {
-			browser.fill(JOXPlayFormField, Math.random().toString());
+			browser.fill(JBXPlayFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JOXPlayFormSubmitButton);
+			return browser.pressButton(JBXPlayFormSubmitButton);
 		});
 
 		it('adds item', function () {
-			browser.assert.elements(JOXPlayListItem, 1);
+			browser.assert.elements(JBXPlayListItem, 1);
 		});
 	
 	});
@@ -29,15 +29,15 @@ describe('JOXPlay_Catalog', function () {
 	context('OLSKCatalogDispatchClick', function test_OLSKCatalogDispatchClick () {
 		
 		before(function () {
-			browser.assert.elements('.JOXPlayDetail', 0);
+			browser.assert.elements('.JBXPlayDetail', 0);
 		});
 
 		before(function () {
-			return browser.click(JOXPlayListItem);
+			return browser.click(JBXPlayListItem);
 		});
 
 		it('selects item', function () {
-			browser.assert.elements('.JOXPlayDetail', 1);
+			browser.assert.elements('.JBXPlayDetail', 1);
 		});
 	
 	});
@@ -45,7 +45,7 @@ describe('JOXPlay_Catalog', function () {
 	context('back', function test_back () {
 
 		before(function () {
-			return browser.pressButton('.JOXPlayDetailToolbarBackButton');
+			return browser.pressButton('.JBXPlayDetailToolbarBackButton');
 		});
 
 		it('sets focus', function () {
@@ -60,7 +60,7 @@ describe('JOXPlay_Catalog', function () {
 			
 			before(async function () {
 				return browser.OLSKConfirm(function () {
-					browser.pressButton('.JOXPlayDetailToolbarDiscardButton');
+					browser.pressButton('.JBXPlayDetailToolbarDiscardButton');
 				}, function (dialog) {
 					dialog.response = false;
 
@@ -69,7 +69,7 @@ describe('JOXPlay_Catalog', function () {
 			});
 
 			it('does nothing', function () {
-				browser.assert.elements('.JOXPlayDetail', 1);
+				browser.assert.elements('.JBXPlayDetail', 1);
 			});
 		
 		});
@@ -78,12 +78,12 @@ describe('JOXPlay_Catalog', function () {
 			
 			before(async function () {
 				return browser.OLSKConfirm(function () {
-					return browser.pressButton('.JOXPlayDetailToolbarDiscardButton');
+					return browser.pressButton('.JBXPlayDetailToolbarDiscardButton');
 				});
 			});
 
 			it('removes item', function () {
-				browser.assert.elements(JOXPlayListItem, 0);
+				browser.assert.elements(JBXPlayListItem, 0);
 			});
 		
 		});
@@ -93,19 +93,19 @@ describe('JOXPlay_Catalog', function () {
 	context('OLSKCatalogDispatchArrow', function test_OLSKCatalogDispatchArrow () {
 		
 		before(function () {
-			return browser.pressButton(JOXPlayToggleFormButton);
+			return browser.pressButton(JBXPlayToggleFormButton);
 		});
 
 		before(function () {
-			browser.fill(JOXPlayFormField, Math.random().toString() + '\n' + Math.random().toString());
+			browser.fill(JBXPlayFormField, Math.random().toString() + '\n' + Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JOXPlayFormSubmitButton);
+			return browser.pressButton(JBXPlayFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.click(JOXPlayListItem);
+			return browser.click(JBXPlayListItem);
 		});
 
 		before(function () {

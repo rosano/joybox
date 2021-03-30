@@ -1,7 +1,7 @@
 <%
-locals.OLSKPageTitle = OLSKLocalized('JOXVitrineTitle');
-locals.OLSKPageDescription = OLSKLocalized('JOXVitrineDescription');
-locals.OLSKPageManifest = OLSKCanonical('JOXManifestRoute');
+locals.OLSKPageTitle = OLSKLocalized('JBXVitrineTitle');
+locals.OLSKPageDescription = OLSKLocalized('JBXVitrineDescription');
+locals.OLSKPageManifest = OLSKCanonical('JBXManifestRoute');
 locals.OLSKPageAssets = [
 	'/_shared/__external/normalize.css/normalize.css',
 	'/_shared/__external/OLSKDecor/ui-style.css',
@@ -14,13 +14,13 @@ locals.OLSKPagePublicConstants = {
 };
 %>
 
-<div class="JOXVitrine OLSKDecor OLSKDecorCapped">	
+<div class="JBXVitrine OLSKDecor OLSKDecorCapped">	
 
-<div class="JOXVitrineToolbar OLSKToolbar OLSKToolbarJustify OLSKStickyHeader OLSKCommonEdgeBottom">
-	<div class="JOXVitrineCrown OLSKCommonCard OLSKCommonCrownCardMini">
-		<img class="JOXVitrineCrownIcon" src="/_shared/JOXRootLink/ui-assets/identity.svg" role="presentation" />
+<div class="JBXVitrineToolbar OLSKToolbar OLSKToolbarJustify OLSKStickyHeader OLSKCommonEdgeBottom">
+	<div class="JBXVitrineCrown OLSKCommonCard OLSKCommonCrownCardMini">
+		<img class="JBXVitrineCrownIcon" src="/_shared/JBXRootLink/ui-assets/identity.svg" role="presentation" />
 		<section>
-			<span class="JOXVitrineCrownName"><%= OLSKLocalized('JOXVitrineTitle') %></span>
+			<span class="JBXVitrineCrownName"><%= OLSKLocalized('JBXVitrineTitle') %></span>
 		</section>
 	</div>
 
@@ -28,27 +28,27 @@ locals.OLSKPagePublicConstants = {
 </div>
 
 <%- include('../../node_modules/OLSKLanding/main.ejs', {
-	OLSKLandingHeadingText: OLSKLocalized('JOXVitrineDescription'),
+	OLSKLandingHeadingText: OLSKLocalized('JBXVitrineDescription'),
 	OLSKLandingBlurbText: OLSKLocalized('OLSKLandingBlurbText'),
 	OLSKLandingActionText: OLSKLocalized('OLSKWordingOpenApp'),
-	OLSKLandingActionHref: OLSKCanonical('JOXPlayRoute'),
+	OLSKLandingActionHref: OLSKCanonical('JBXPlayRoute'),
 }) %>
 
-<h1 class="JOXVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
+<h1 class="JBXVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
 
 <%- include('../../node_modules/OLSKAppFeatureList/main.ejs', {
 	OLSKAppFeatureListRepoURL: process.env.OLSK_REPO_URL,
 }).replace(/node_modules/g, '_shared/__external') %>
 
-<a class="JOXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JOXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
+<a class="JBXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JBXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
 
-<h1 class="JOXVitrineGazetteHeading"><%= OLSKLocalized('OLSKGazetteHeadingText') %></h1>
+<h1 class="JBXVitrineGazetteHeading"><%= OLSKLocalized('OLSKGazetteHeadingText') %></h1>
 <%- include('../../node_modules/OLSKGazette/main.ejs', {
 	OLSKGazetteProject: 'RP_X',
 }) %>
 
-<h1 class="JOXVitrineSupportHeading"><%= OLSKLocalized('OLSKWordingFeedbackHeading') %></h1>
-<p class="JOXVitrineSupportBlurb"><%= OLSKLocalized('OLSKWordingFeedbackBlurb') %></p>
+<h1 class="JBXVitrineSupportHeading"><%= OLSKLocalized('OLSKWordingFeedbackHeading') %></h1>
+<p class="JBXVitrineSupportBlurb"><%= OLSKLocalized('OLSKWordingFeedbackBlurb') %></p>
 
 <hr role="presentation" />
 

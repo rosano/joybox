@@ -1,9 +1,9 @@
-JOXPlayDetailToolbarBackButtonText: Back
-JOXPlayDetailToolbarArchiveButtonText: Archive
-JOXPlayDetailToolbarUnarchiveButtonText: Unarchive
-JOXPlayDetailToolbarDiscardButtonText: Discard
-JOXPlayDetailDiscardConfirmText: Are you sure?
-JOXPlayDetailFormURLFieldText: URL
-JOXPlayDetailFormFetchButtonText: Fetch
-JOXPlayDetailFormNameFieldText: Name
-JOXPlayDetailFormNotesFieldText: Notes
+JBXPlayDetailToolbarBackButtonText: Back
+JBXPlayDetailToolbarArchiveButtonText: Archive
+JBXPlayDetailToolbarUnarchiveButtonText: Unarchive
+JBXPlayDetailToolbarDiscardButtonText: Discard
+JBXPlayDetailDiscardConfirmText: Are you sure?
+JBXPlayDetailFormURLFieldText: URL
+JBXPlayDetailFormFetchButtonText: Fetch
+JBXPlayDetailFormNameFieldText: Name
+JBXPlayDetailFormNotesFieldText: Notes

@@ -1,31 +1,31 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXGuide_Misc', function () {
+describe('JBXGuide_Misc', function () {
 
 	before(function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	context('JOXGuide', function () {
+	context('JBXGuide', function () {
 		
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(JOXGuide, 'OLSKDecor');
+			browser.assert.hasClass(JBXGuide, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorCapped', function () {
-			browser.assert.hasClass(JOXGuide, 'OLSKDecorCapped');
+			browser.assert.hasClass(JBXGuide, 'OLSKDecorCapped');
 		});
 	
 	});
 
-	describe('JOXGuideCrown', function test_JOXGuideCrown() {
+	describe('JBXGuideCrown', function test_JBXGuideCrown() {
 
 		it('classes OLSKCommonCard', function () {
-			browser.assert.hasClass(JOXGuideCrown, 'OLSKCommonCard');
+			browser.assert.hasClass(JBXGuideCrown, 'OLSKCommonCard');
 		});
 
 		it('classes OLSKCommonCrownCard', function () {
-			browser.assert.hasClass(JOXGuideCrown, 'OLSKCommonCrownCard');
+			browser.assert.hasClass(JBXGuideCrown, 'OLSKCommonCrownCard');
 		});
 		
 	});

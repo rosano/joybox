@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-const JOXPlayLogic = require('./ui-logic.js').default;
+const JBXPlayLogic = require('./ui-logic.js').default;
 
 kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
@@ -8,7 +8,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe(`JOXPlay_Localize-${ OLSKRoutingLanguage }`, function () {
+	describe(`JBXPlay_Localize-${ OLSKRoutingLanguage }`, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -17,19 +17,19 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		});
 
 		it('localizes title', function() {
-			browser.assert.text('title', uLocalized('JOXPlayTitle'));
+			browser.assert.text('title', uLocalized('JBXPlayTitle'));
 		});
 
-		it('localizes JOXPlayToggleFormButton', function () {
-			browser.assert.attribute(JOXPlayToggleFormButton, 'title', uLocalized('JOXPlayToggleFormButtonText'));
+		it('localizes JBXPlayToggleFormButton', function () {
+			browser.assert.attribute(JBXPlayToggleFormButton, 'title', uLocalized('JBXPlayToggleFormButtonText'));
 		});
 
-		it('localizes JOXPlayLauncherItemImportJSON', function () {
-			return browser.assert.OLSKLauncherItemText('JOXPlayLauncherItemImportJSON', uLocalized('JOXPlayLauncherItemImportJSONText'));
+		it('localizes JBXPlayLauncherItemImportJSON', function () {
+			return browser.assert.OLSKLauncherItemText('JBXPlayLauncherItemImportJSON', uLocalized('JBXPlayLauncherItemImportJSONText'));
 		});
 
-		it('localizes JOXPlayLauncherItemExportJSON', function () {
-			return browser.assert.OLSKLauncherItemText('JOXPlayLauncherItemExportJSON', uLocalized('JOXPlayLauncherItemExportJSONText'));
+		it('localizes JBXPlayLauncherItemExportJSON', function () {
+			return browser.assert.OLSKLauncherItemText('JBXPlayLauncherItemExportJSON', uLocalized('JBXPlayLauncherItemExportJSONText'));
 		});
 
 		describe('OLSKAppToolbarLauncherButton', function test_OLSKAppToolbarLauncherButton () {
@@ -64,22 +64,22 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe('JOXPlayFormField', function test_JOXPlayFormField () {
+		describe('JBXPlayFormField', function test_JBXPlayFormField () {
 
 			before(function () {
-				return browser.pressButton(JOXPlayToggleFormButton);
+				return browser.pressButton(JBXPlayToggleFormButton);
 			});
 
-			it('localizes JOXPlayFormField', function () {
-				browser.assert.attribute(JOXPlayFormField, 'placeholder', uLocalized('JOXPlayFormFieldText'));
+			it('localizes JBXPlayFormField', function () {
+				browser.assert.attribute(JBXPlayFormField, 'placeholder', uLocalized('JBXPlayFormFieldText'));
 			});
 			
 		});
 
-		describe('JOXPlayFormSubmitButton', function test_JOXPlayFormSubmitButton () {
+		describe('JBXPlayFormSubmitButton', function test_JBXPlayFormSubmitButton () {
 
-			it('localizes JOXPlayFormSubmitButton', function () {
-				browser.assert.text(JOXPlayFormSubmitButton, uLocalized('JOXPlayFormSubmitButtonText'));
+			it('localizes JBXPlayFormSubmitButton', function () {
+				browser.assert.text(JBXPlayFormSubmitButton, uLocalized('JBXPlayFormSubmitButtonText'));
 			});
 			
 		});
@@ -87,31 +87,31 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		context('archive', function test_archive () {
 
 			before(function () {
-				browser.fill(JOXPlayFormField, Math.random().toString());
+				browser.fill(JBXPlayFormField, Math.random().toString());
 			});
 
 			before(function () {
-				return browser.pressButton(JOXPlayFormSubmitButton);
+				return browser.pressButton(JBXPlayFormSubmitButton);
 			});
 
 			before(function () {
-				return browser.click(JOXPlayListItem);
+				return browser.click(JBXPlayListItem);
 			});
 
 			before(function () {
-				return browser.pressButton('.JOXPlayDetailToolbarArchiveButton');
+				return browser.pressButton('.JBXPlayDetailToolbarArchiveButton');
 			});
 
 			before(function () {
 				return browser.OLSKFireKeyboardEvent(browser.window, 'Escape');
 			});
 
-			it('localizes JOXPlayRevealArchiveButton', function () {
-				browser.assert.text(JOXPlayRevealArchiveButton, uLocalized('JOXPlayRevealArchiveButtonText'));
+			it('localizes JBXPlayRevealArchiveButton', function () {
+				browser.assert.text(JBXPlayRevealArchiveButton, uLocalized('JBXPlayRevealArchiveButtonText'));
 			});
 
-			it('localizes JOXPlayLauncherItemRevealArchive', function () {
-				return browser.assert.OLSKLauncherItemText('JOXPlayLauncherItemRevealArchive', uLocalized('JOXPlayRevealArchiveButtonText'));
+			it('localizes JBXPlayLauncherItemRevealArchive', function () {
+				return browser.assert.OLSKLauncherItemText('JBXPlayLauncherItemRevealArchive', uLocalized('JBXPlayRevealArchiveButtonText'));
 			});
 
 		});
@@ -160,7 +160,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
-		describe('JOXPlayLauncherItemImportJSON', function test_JOXPlayLauncherItemImportJSON() {
+		describe('JBXPlayLauncherItemImportJSON', function test_JBXPlayLauncherItemImportJSON() {
 
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
@@ -175,7 +175,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				});
 
 				before(async function () {
-					return browser.fill('.LCHLauncherFilterInput', 'JOXPlayLauncherItemDebug_PromptFakeImportSerialized');
+					return browser.fill('.LCHLauncherFilterInput', 'JBXPlayLauncherItemDebug_PromptFakeImportSerialized');
 				});
 
 				it('alerts if not filled', function () {
@@ -187,7 +187,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 							return dialog;
 						});
-					}, uLocalized('JOXPlayLauncherItemImportJSONErrorNotFilledAlertText'));
+					}, uLocalized('JBXPlayLauncherItemImportJSONErrorNotFilledAlertText'));
 				});
 			
 			});
@@ -199,7 +199,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				});
 
 				before(async function () {
-					return browser.fill('.LCHLauncherFilterInput', 'JOXPlayLauncherItemDebug_PromptFakeImportSerialized');
+					return browser.fill('.LCHLauncherFilterInput', 'JBXPlayLauncherItemDebug_PromptFakeImportSerialized');
 				});
 
 				it('alerts if not json', function () {
@@ -211,7 +211,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 							return dialog;
 						});
-					}, uLocalized('JOXPlayLauncherItemImportJSONErrorNotValidAlertText'));
+					}, uLocalized('JBXPlayLauncherItemImportJSONErrorNotValidAlertText'));
 				});
 			
 			});
@@ -223,7 +223,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				});
 
 				before(async function () {
-					return browser.fill('.LCHLauncherFilterInput', 'JOXPlayLauncherItemDebug_PromptFakeImportSerialized');
+					return browser.fill('.LCHLauncherFilterInput', 'JBXPlayLauncherItemDebug_PromptFakeImportSerialized');
 				});
 
 				it('alerts if not valid', function () {
@@ -237,7 +237,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 							return dialog;
 						});
-					}, uLocalized('JOXPlayLauncherItemImportJSONErrorNotValidAlertText'));
+					}, uLocalized('JBXPlayLauncherItemImportJSONErrorNotValidAlertText'));
 				});
 			
 			});

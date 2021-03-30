@@ -1,6 +1,6 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
-describe('JOXPlay_Misc', function () {
+describe('JBXPlay_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -18,58 +18,58 @@ describe('JOXPlay_Misc', function () {
 		browser.assert.attribute('meta[name=apple-mobile-web-app-capable]', 'content', 'yes');
 	});
 
-	describe('JOXPlayToggleFormButton', function test_JOXPlayToggleFormButton () {
+	describe('JBXPlayToggleFormButton', function test_JBXPlayToggleFormButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
-			browser.assert.hasClass(JOXPlayToggleFormButton, 'OLSKDecorButtonNoStyle');
+			browser.assert.hasClass(JBXPlayToggleFormButton, 'OLSKDecorButtonNoStyle');
 		});
 
 		it('classes OLSKDecorTappable', function () {
-			browser.assert.hasClass(JOXPlayToggleFormButton, 'OLSKDecorTappable');
+			browser.assert.hasClass(JBXPlayToggleFormButton, 'OLSKDecorTappable');
 		});
 
 		it('classes OLSKToolbarButton', function () {
-			browser.assert.hasClass(JOXPlayToggleFormButton, 'OLSKToolbarButton');
+			browser.assert.hasClass(JBXPlayToggleFormButton, 'OLSKToolbarButton');
 		});
 		
 		it('sets accesskey', function () {
-			browser.assert.attribute(JOXPlayToggleFormButton, 'accesskey', 'n');
+			browser.assert.attribute(JBXPlayToggleFormButton, 'accesskey', 'n');
 		});
 	
 	});
 
-	describe('JOXPlayToggleFormButtonImage', function test_JOXPlayToggleFormButtonImage () {
+	describe('JBXPlayToggleFormButtonImage', function test_JBXPlayToggleFormButtonImage () {
 
 		it('sets src', function () {
-			browser.assert.elements(`${ JOXPlayToggleFormButtonImage } #_OLSKSharedCreate`, 1);
+			browser.assert.elements(`${ JBXPlayToggleFormButtonImage } #_OLSKSharedCreate`, 1);
 		});
 	
 	});
 
-	describe('JOXPlayForm', function test_JOXPlayForm () {
+	describe('JBXPlayForm', function test_JBXPlayForm () {
 
 		before(function () {
-			return browser.pressButton(JOXPlayToggleFormButton);
+			return browser.pressButton(JBXPlayToggleFormButton);
 		});
 
 		it('classes OLSKDecor', function () {
-			browser.assert.hasClass(JOXPlayForm, 'OLSKDecor');
+			browser.assert.hasClass(JBXPlayForm, 'OLSKDecor');
 		});
 
 		it('classes OLSKDecorBigForm', function () {
-			browser.assert.hasClass(JOXPlayForm, 'OLSKDecorBigForm');
+			browser.assert.hasClass(JBXPlayForm, 'OLSKDecorBigForm');
 		});
 
 		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JOXPlayForm, 'OLSKCommonEdgeBottom');
+			browser.assert.hasClass(JBXPlayForm, 'OLSKCommonEdgeBottom');
 		});
 	
 	});
 
-	describe('JOXPlayFormField', function test_JOXPlayFormField () {
+	describe('JBXPlayFormField', function test_JBXPlayFormField () {
 
 		it('sets autofocus', function () {
-			browser.assert.attribute(JOXPlayFormField, 'autofocus', '');
+			browser.assert.attribute(JBXPlayFormField, 'autofocus', '');
 		});
 	
 	});
@@ -77,31 +77,31 @@ describe('JOXPlay_Misc', function () {
 	context('select', function test_select () {
 		
 		before(function () {
-			browser.fill(JOXPlayFormField, Math.random().toString());
+			browser.fill(JBXPlayFormField, Math.random().toString());
 		});
 
 		before(function () {
-			return browser.pressButton(JOXPlayFormSubmitButton);
+			return browser.pressButton(JBXPlayFormSubmitButton);
 		});
 
 		before(function () {
-			return browser.click(JOXPlayListItem);
+			return browser.click(JBXPlayListItem);
 		});
 
-		it('sets JOXPlayListItemSelected', function () {
+		it('sets JBXPlayListItemSelected', function () {
 			browser.assert.elements('.OLSKResultsListItemSelected', 1);
 		});
 
-		it('sets JOXPlayDetailItem', function () {
-			browser.assert.elements('.JOXPlayDetail', 1);
+		it('sets JBXPlayDetailItem', function () {
+			browser.assert.elements('.JBXPlayDetail', 1);
 		});
 
 	});
 
-	describe('JOXPlayViewportFooter', function test_JOXPlayViewportFooter () {
+	describe('JBXPlayViewportFooter', function test_JBXPlayViewportFooter () {
 
 		it('classes OLSKMobileViewFooter', function () {
-			browser.assert.hasClass(JOXPlayViewportFooter, 'OLSKMobileViewFooter');
+			browser.assert.hasClass(JBXPlayViewportFooter, 'OLSKMobileViewFooter');
 		});
 
 	});
@@ -130,22 +130,22 @@ describe('JOXPlay_Misc', function () {
 
 	});
 
-	describe('JOXPlayCloudToolbar', function test_JOXPlayCloudToolbar () {
+	describe('JBXPlayCloudToolbar', function test_JBXPlayCloudToolbar () {
 
 		before(function () {
 			return browser.pressButton('.OLSKAppToolbarCloudButton');
 		});
 
 		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(JOXPlayCloudToolbar, 'OLSKToolbar');
+			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKToolbar');
 		});
 
 		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(JOXPlayCloudToolbar, 'OLSKToolbarJustify');
+			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKToolbarJustify');
 		});
 		
 		it('classes OLSKCommonEdgeTop', function () {
-			browser.assert.hasClass(JOXPlayCloudToolbar, 'OLSKCommonEdgeTop');
+			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKCommonEdgeTop');
 		});
 	
 	});

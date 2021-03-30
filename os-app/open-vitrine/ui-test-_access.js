@@ -1,58 +1,58 @@
 const kDefaultRoutePath = require('./controller.js').OLSKControllerRoutes().shift().OLSKRoutePath;
 
 Object.entries({
-	JOXVitrine: '.JOXVitrine',
+	JBXVitrine: '.JBXVitrine',
 	
-	JOXVitrineToolbar: '.JOXVitrineToolbar',
+	JBXVitrineToolbar: '.JBXVitrineToolbar',
 	
-	JOXVitrineCrown: '.JOXVitrineCrown',
-	JOXVitrineCrownIcon: '.JOXVitrineCrownIcon',
-	JOXVitrineCrownName: '.JOXVitrineCrownName',
+	JBXVitrineCrown: '.JBXVitrineCrown',
+	JBXVitrineCrownIcon: '.JBXVitrineCrownIcon',
+	JBXVitrineCrownName: '.JBXVitrineCrownName',
 
-	JOXVitrineFeaturesHeading: '.JOXVitrineFeaturesHeading',
+	JBXVitrineFeaturesHeading: '.JBXVitrineFeaturesHeading',
 
-	JOXVitrineGuideButton: '.JOXVitrineGuideButton',
+	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
 
-	JOXVitrineGazetteHeading: '.JOXVitrineGazetteHeading',
+	JBXVitrineGazetteHeading: '.JBXVitrineGazetteHeading',
 
-	JOXVitrineSupportHeading: '.JOXVitrineSupportHeading',
-	JOXVitrineSupportBlurb: '.JOXVitrineSupportBlurb',
+	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
+	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
 
-describe('JOXVitrine_Access', function () {
+describe('JBXVitrine_Access', function () {
 
 	before(function() {
 		return browser.visit(kDefaultRoutePath);
 	});
 	
-	it('shows JOXVitrine', function() {
-		browser.assert.elements(JOXVitrine, 1);
+	it('shows JBXVitrine', function() {
+		browser.assert.elements(JBXVitrine, 1);
 	});
 	
 	it('shows OLSKLanguageSwitcher', function() {
 		browser.assert.elements('.OLSKLanguageSwitcher', 1);
 	});
 	
-	it('shows JOXVitrineCrown', function() {
-		browser.assert.elements(JOXVitrineCrown, 1);
+	it('shows JBXVitrineCrown', function() {
+		browser.assert.elements(JBXVitrineCrown, 1);
 	});
 	
-	it('shows JOXVitrineCrownIcon', function() {
-		browser.assert.elements(JOXVitrineCrownIcon, 1);
+	it('shows JBXVitrineCrownIcon', function() {
+		browser.assert.elements(JBXVitrineCrownIcon, 1);
 	});
 	
-	it('shows JOXVitrineCrownName', function() {
-		browser.assert.elements(JOXVitrineCrownName, 1);
+	it('shows JBXVitrineCrownName', function() {
+		browser.assert.elements(JBXVitrineCrownName, 1);
 	});
 
 	it('shows OLSKLanding', function() {
 		browser.assert.elements('.OLSKLanding', 1);
 	});
 
-	it('shows JOXVitrineFeaturesHeading', function () {
-		browser.assert.elements(JOXVitrineFeaturesHeading, 1);
+	it('shows JBXVitrineFeaturesHeading', function () {
+		browser.assert.elements(JBXVitrineFeaturesHeading, 1);
 	});
 
 	it('shows OLSKAppFeatureList', function () {
@@ -63,20 +63,20 @@ describe('JOXVitrine_Access', function () {
 		browser.assert.elements('.OLSKAppFeatureListItemOpenSource', 1);
 	});
 
-	it('shows JOXVitrineGuideButton', function () {
-		browser.assert.elements(JOXVitrineGuideButton, 1);
+	it('shows JBXVitrineGuideButton', function () {
+		browser.assert.elements(JBXVitrineGuideButton, 1);
 	});
 
-	it('shows JOXVitrineGazetteHeading', function () {
-		browser.assert.elements(JOXVitrineGazetteHeading, 1);
+	it('shows JBXVitrineGazetteHeading', function () {
+		browser.assert.elements(JBXVitrineGazetteHeading, 1);
 	});
 
-	it('shows JOXVitrineSupportHeading', function () {
-		browser.assert.elements(JOXVitrineSupportHeading, 1);
+	it('shows JBXVitrineSupportHeading', function () {
+		browser.assert.elements(JBXVitrineSupportHeading, 1);
 	});
 
-	it('shows JOXVitrineSupportBlurb', function () {
-		browser.assert.elements(JOXVitrineSupportBlurb, 1);
+	it('shows JBXVitrineSupportBlurb', function () {
+		browser.assert.elements(JBXVitrineSupportBlurb, 1);
 	});
 
 	it('shows OLSKGazette', function () {

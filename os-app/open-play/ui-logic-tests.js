@@ -7,107 +7,107 @@ const uLocalized = function (inputData) {
 	return inputData + '-LOCALIZED';
 };
 
-describe('JOXPlayAccessibilitySummary', function test_JOXPlayAccessibilitySummary() {
+describe('JBXPlayAccessibilitySummary', function test_JBXPlayAccessibilitySummary() {
 
 	it('throws if not valid', function () {
 		throws(function () {
-			mod.JOXPlayAccessibilitySummary({});
-		}, /JOXErrorInputNotValid/);
+			mod.JBXPlayAccessibilitySummary({});
+		}, /JBXErrorInputNotValid/);
 	});
 
 	it('returns string', function() {
-		const JOXDocumentNotes = Math.random().toString();
-		deepEqual(mod.JOXPlayAccessibilitySummary(StubDocumentObjectValid({
-			JOXDocumentNotes,
-		})), JOXDocumentNotes);
+		const JBXDocumentNotes = Math.random().toString();
+		deepEqual(mod.JBXPlayAccessibilitySummary(StubDocumentObjectValid({
+			JBXDocumentNotes,
+		})), JBXDocumentNotes);
 	});
 
 	it('truncates long string', function() {
 		const item = Array.from(Array(100)).map(Math.random).join(' ');
-		deepEqual(mod.JOXPlayAccessibilitySummary(StubDocumentObjectValid({
-			JOXDocumentNotes: item,
+		deepEqual(mod.JBXPlayAccessibilitySummary(StubDocumentObjectValid({
+			JBXDocumentNotes: item,
 		})), require('OLSKString').OLSKStringSnippet(item));
 	});
 
 });
 
-describe('JOXPlaySortFunction', function test_JOXPlaySortFunction() {
+describe('JBXPlaySortFunction', function test_JBXPlaySortFunction() {
 
-	it('sorts by JOXDocumentCreationDate descending', function() {
+	it('sorts by JBXDocumentCreationDate descending', function() {
 		const item1 = {
-			JOXDocumentCreationDate: new Date(0),
+			JBXDocumentCreationDate: new Date(0),
 		};
 		const item2 = {
-			JOXDocumentCreationDate: new Date(1),
+			JBXDocumentCreationDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.JOXPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
 	});
 
-	it('sorts JOXDocumentIsArchived below others', function() {
+	it('sorts JBXDocumentIsArchived below others', function() {
 		const item1 = {
-			JOXDocumentCreationDate: new Date(0),
-			JOXDocumentIsArchived: true,
+			JBXDocumentCreationDate: new Date(0),
+			JBXDocumentIsArchived: true,
 		};
 		const item2 = {
-			JOXDocumentCreationDate: new Date(1),
+			JBXDocumentCreationDate: new Date(1),
 		};
 
-		deepEqual([item1, item2].sort(mod.JOXPlaySortFunction), [item2, item1]);
+		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
 	});
 
 });
 
-describe('JOXPlayIsMatch', function test_JOXPlayIsMatch() {
+describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
 
 	it('throws error param2 if not string', function() {
 		throws(function() {
-			mod.JOXPlayIsMatch({}, null);
-		}, /JOXErrorInputNotValid/);
+			mod.JBXPlayIsMatch({}, null);
+		}, /JBXErrorInputNotValid/);
 	});
 
 	it('returns false if no match', function() {
-		deepEqual(mod.JOXPlayIsMatch({
-			JOXDocumentNotes: 'alfa',
+		deepEqual(mod.JBXPlayIsMatch({
+			JBXDocumentNotes: 'alfa',
 		}, 'bravo'), false);
 	});
 
 	it('matches OLSKStringMatch', function() {
-		deepEqual(mod.JOXPlayIsMatch({
-			JOXDocumentNotes: uRandomElement('alfa', 'álfa'),
+		deepEqual(mod.JBXPlayIsMatch({
+			JBXDocumentNotes: uRandomElement('alfa', 'álfa'),
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 
 });
 
-describe('JOXPlayExactSortFunction', function test_JOXPlayExactSortFunction() {
+describe('JBXPlayExactSortFunction', function test_JBXPlayExactSortFunction() {
 
 	it('throws if param1 not string', function () {
 		throws(function () {
-			mod.JOXPlayExactSortFunction(null, Math.random().toString(), Math.random().toString());
-		}, /JOXErrorInputNotValid/);
+			mod.JBXPlayExactSortFunction(null, Math.random().toString(), Math.random().toString());
+		}, /JBXErrorInputNotValid/);
 	});
 
 	it('bumps startsWith', function() {
 		const item = Math.random().toString();
-		deepEqual(mod.JOXPlayExactSortFunction(item, {
-			JOXDocumentNotes: Math.random().toString() + item,
+		deepEqual(mod.JBXPlayExactSortFunction(item, {
+			JBXDocumentNotes: Math.random().toString() + item,
 		}, {
-			JOXDocumentNotes: item + Math.random().toString(),
+			JBXDocumentNotes: item + Math.random().toString(),
 		}), 1);
 	});
 
 	it('matches OLSKStringMatch', function() {
-		deepEqual(mod.JOXPlayExactSortFunction(uRandomElement('alf', 'alfa', 'ALF'), {
-			JOXDocumentNotes: Math.random().toString(),
+		deepEqual(mod.JBXPlayExactSortFunction(uRandomElement('alf', 'alfa', 'ALF'), {
+			JBXDocumentNotes: Math.random().toString(),
 		}, {
-			JOXDocumentNotes: uRandomElement('alfa', 'álfa'),
+			JBXDocumentNotes: uRandomElement('alfa', 'álfa'),
 		}), 1);
 	});
 
 });
 
-describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
+describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 
 	const uItems = function (inputData) {
 		return Array.from(Array(Math.max(1, Date.now() % 10))).map(inputData);
@@ -115,21 +115,21 @@ describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 
 	it('throws if not string', function () {
 		throws(function () {
-			mod.JOXPlayDocuments(null);
-		}, /JOXErrorInputNotValid/);
+			mod.JBXPlayDocuments(null);
+		}, /JBXErrorInputNotValid/);
 	});
 
 	it('returns array', function () {
-		deepEqual(mod.JOXPlayDocuments(''), []);
+		deepEqual(mod.JBXPlayDocuments(''), []);
 	});
 
 	it('parses strings', function () {
 		const item = uItems(function () {
 			return Math.random().toString();
 		});
-		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.JBXPlayDocuments(item.join('\n')), item.map(function (e) {
 			return {
-				JOXDocumentNotes: e,
+				JBXDocumentNotes: e,
 			};
 		}));
 	});
@@ -138,10 +138,10 @@ describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 		const item = uItems(function () {
 			return uRandomElement('http', 'https') + '://example.com/' + Math.random().toString();
 		});
-		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.JBXPlayDocuments(item.join('\n')), item.map(function (e) {
 			return {
-				JOXDocumentURL: e,
-				JOXDocumentNotes: '',
+				JBXDocumentURL: e,
+				JBXDocumentNotes: '',
 			};
 		}));
 	});
@@ -155,45 +155,45 @@ describe('JOXPlayDocuments', function test_JOXPlayDocuments () {
 			return (textFirst ? [text, link] : [link, text]).join(' ');
 		});
 
-		deepEqual(mod.JOXPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.JBXPlayDocuments(item.join('\n')), item.map(function (e) {
 			const [ text, link ] = textFirst ? e.split(' ') : e.split(' ').reverse();
 			return {
-				JOXDocumentURL: link,
-				JOXDocumentNotes: text,
+				JBXDocumentURL: link,
+				JBXDocumentNotes: text,
 			};
 		}));
 	});
 
 });
 
-describe('JOXPlayFetch', function test_JOXPlayFetch () {
+describe('JBXPlayFetch', function test_JBXPlayFetch () {
 
 	it('rejects if not valid', async function () {
-		await rejects(mod.JOXPlayFetch({}), /JOXErrorInputNotValid/);
+		await rejects(mod.JBXPlayFetch({}), /JBXErrorInputNotValid/);
 	});
 
 	it('returns inputData', async function () {
 		const item = StubDocumentObjectValid();
-		deepEqual(await mod.JOXPlayFetch(item), item);
+		deepEqual(await mod.JBXPlayFetch(item), item);
 	});
 
 	it('calls window.fetch', function () {
-		const JOXDocumentURL = Math.random().toString();
+		const JBXDocumentURL = Math.random().toString();
 		deepEqual(uCapture(function (fetch) {
-			mod.JOXPlayFetch(StubDocumentObjectValid({
-				JOXDocumentURL,
+			mod.JBXPlayFetch(StubDocumentObjectValid({
+				JBXDocumentURL,
 			}), {
 				window: {
 					fetch,
 				},
 			});
-		}), ['JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + JOXDocumentURL]);
+		}), ['JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + JBXDocumentURL]);
 	});
 
-	it('sets JOXDocumentName', async function () {
+	it('sets JBXDocumentName', async function () {
 		const item = Math.random().toString();
-		deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({
-			JOXDocumentURL: Math.random().toString(),
+		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+			JBXDocumentURL: Math.random().toString(),
 		}), {
 			window: {
 				fetch: (function () {
@@ -205,7 +205,7 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 				}),
 			},
 			JSDOM: JSDOM.fragment,
-		})).JOXDocumentName, item);
+		})).JBXDocumentName, item);
 	});
 
 	const item = Math.random().toString();
@@ -218,9 +218,9 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 		'json-ld': `<script type="application/ld+json">[{"embedUrl":"${ item }"}]</script>`,
 	}).forEach(function ([key, value]) {
 
-		it('sets JOXDocumentEmbedURL ' + key, async function () {
-			deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({
-				JOXDocumentURL: Math.random().toString(),
+		it('sets JBXDocumentEmbedURL ' + key, async function () {
+			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+				JBXDocumentURL: Math.random().toString(),
 			}), {
 				window: {
 					fetch: (function () {
@@ -235,15 +235,15 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 					}),
 				},
 				JSDOM: JSDOM.fragment,
-			})).JOXDocumentEmbedURL, item);
+			})).JBXDocumentEmbedURL, item);
 		});
 
 	})
 
-	it('sets JOXDocumentDidFetch', async function () {
+	it('sets JBXDocumentDidFetch', async function () {
 		const item = Math.random().toString();
-		deepEqual((await mod.JOXPlayFetch(StubDocumentObjectValid({
-			JOXDocumentURL: Math.random().toString(),
+		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+			JBXDocumentURL: Math.random().toString(),
 		}), {
 			window: {
 				fetch: (function () {
@@ -255,7 +255,7 @@ describe('JOXPlayFetch', function test_JOXPlayFetch () {
 				}),
 			},
 			JSDOM: JSDOM.fragment,
-		})).JOXDocumentDidFetch, true);
+		})).JBXDocumentDidFetch, true);
 	});
 
 });

@@ -1,36 +1,36 @@
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
 
 export default {
-	ZDRSchemaKey: 'JOXTransport',
+	ZDRSchemaKey: 'JBXTransport',
 	ZDRSchemaDispatchValidate: (function () {}),
 	ZDRSchemaPath: (function () {}),
 	ZDRSchemaStub: (function () {}),
 	ZDRSchemaMethods: {
 
-		async JOXTransportImport (inputData) {
+		async JBXTransportImport (inputData) {
 			if (typeof inputData !== 'object' || inputData === null) {
-				throw new Error('JOXErrorInputNotValid');
+				throw new Error('JBXErrorInputNotValid');
 			}
 
 			const _this = this;
 
 			return Object.fromEntries(await Promise.all(Object.entries(inputData).map(async function ([key, value]) {
 				if (!Array.isArray(value)) {
-					throw new Error('JOXErrorInputNotValid');
+					throw new Error('JBXErrorInputNotValid');
 				}
 
 				return [key, await ({
-					JOXDocument: (function () {
+					JBXDocument: (function () {
 						return Promise.all(value.map(function (e) {
-							return _this.App.JOXDocument.JOXDocumentCreate(e).catch(function () {
-								throw new Error('JOXErrorInputNotValid');
+							return _this.App.JBXDocument.JBXDocumentCreate(e).catch(function () {
+								throw new Error('JBXErrorInputNotValid');
 							});
 						}));
 					}),
-					JOXSetting: (function () {
+					JBXSetting: (function () {
 						return Promise.all(value.map(function (e) {
-							return _this.App.JOXSetting.ZDRModelWriteObject(e).catch(function () {
-								throw new Error('JOXErrorInputNotValid');
+							return _this.App.JBXSetting.ZDRModelWriteObject(e).catch(function () {
+								throw new Error('JBXErrorInputNotValid');
 							});
 						}));
 					}),
@@ -38,14 +38,14 @@ export default {
 			})));
 		},
 
-		JOXTransportExport (inputData) {
+		JBXTransportExport (inputData) {
 			if (typeof inputData !== 'object' || inputData === null) {
-				throw new Error('JOXErrorInputNotValid');
+				throw new Error('JBXErrorInputNotValid');
 			}
 
 			return Object.entries(inputData).reduce(function (coll, [key, value]) {
 				if (!Array.isArray(value)) {
-					throw new Error('JOXErrorInputNotValid');
+					throw new Error('JBXErrorInputNotValid');
 				}
 
 				if (!value.length) {
