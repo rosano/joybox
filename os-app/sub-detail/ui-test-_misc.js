@@ -252,14 +252,6 @@ describe('JBXPlayDetail_Misc', function () {
 	
 	});
 
-	describe('JBXPlayDetailFormNotesField', function test_JBXPlayDetailFormNotesField () {
-
-		it('sets binds JBXDocumentNotes', function () {
-			browser.assert.input(JBXPlayDetailFormNotesField, item.JBXDocumentNotes);
-		});
-	
-	});
-
 	describe('JBXPlayDetailFormURLField', function test_JBXPlayDetailFormURLField () {
 
 		it('sets type', function () {
@@ -304,6 +296,46 @@ describe('JBXPlayDetail_Misc', function () {
 
 		it('sets binds JBXDocumentName', function () {
 			browser.assert.input(JBXPlayDetailFormNameField, item.JBXDocumentName);
+		});
+
+		context('input', function () {
+
+			before(function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchUpdate', '0');
+			});
+
+			before(function () {
+				browser.fill(JBXPlayDetailFormNameField, Math.random().toString());
+			});
+
+			it('sends JBXPlayDetailDispatchUpdate', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchUpdate', '1');
+			});
+		
+		});
+	
+	});
+
+	describe('JBXPlayDetailFormNotesField', function test_JBXPlayDetailFormNotesField () {
+
+		it('sets binds JBXDocumentNotes', function () {
+			browser.assert.input(JBXPlayDetailFormNotesField, item.JBXDocumentNotes);
+		});
+
+		context('input', function () {
+
+			before(function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchUpdate', '1');
+			});
+
+			before(function () {
+				browser.fill(JBXPlayDetailFormNotesField, Math.random().toString());
+			});
+
+			it('sends JBXPlayDetailDispatchUpdate', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchUpdate', '2');
+			});
+		
 		});
 	
 	});
