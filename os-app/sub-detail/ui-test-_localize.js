@@ -35,6 +35,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.attribute(JBXPlayDetailMediaURLField, 'placeholder', uLocalized('JBXPlayDetailMediaURLFieldText'));
 			});
 
+			it('localizes JBXPlayDetailMediaOpenButton', function () {
+				browser.assert.text(JBXPlayDetailMediaOpenButton, uLocalized('JBXPlayDetailMediaOpenButtonText'));
+			});
+
 			it('localizes JBXPlayDetailMediaFetchButton', function () {
 				browser.assert.text(JBXPlayDetailMediaFetchButton, uLocalized('JBXPlayDetailMediaFetchButtonText'));
 			});

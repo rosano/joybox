@@ -102,8 +102,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	</p>
 
 	<p>
+		<a class="JBXPlayDetailMediaOpenButton OLSKDecorPress" href={ JBXPlayDetailItem.JBXDocumentURL } target="_blank">{ OLSKLocalized('JBXPlayDetailMediaOpenButtonText') }</a>
+
 		<button class="JBXPlayDetailMediaFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailMediaFetchButtonText') }</button>
 	</p>
+
+	<hr role="presentation" />
 
 </div>
 {/if}

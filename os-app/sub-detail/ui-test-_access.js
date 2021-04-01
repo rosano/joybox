@@ -19,6 +19,7 @@ Object.entries({
 	JBXPlayDetailMedia: '.JBXPlayDetailMedia',
 	JBXPlayDetailMediaPlayer: '.JBXPlayDetailMediaPlayer',
 	JBXPlayDetailMediaURLField: '.JBXPlayDetailMediaURLField',
+	JBXPlayDetailMediaOpenButton: '.JBXPlayDetailMediaOpenButton',
 	JBXPlayDetailMediaFetchButton: '.JBXPlayDetailMediaFetchButton',
 
 	JBXPlayDetailForm: '.JBXPlayDetailForm',
@@ -116,6 +117,10 @@ describe('JBXPlayDetail_Access', function () {
 
 		it('shows JBXPlayDetailMediaURLField', function () {
 			browser.assert.elements(JBXPlayDetailMediaURLField, 1);
+		});
+
+		it('shows JBXPlayDetailMediaOpenButton', function () {
+			browser.assert.elements(JBXPlayDetailMediaOpenButton, 1);
 		});
 
 		it('shows JBXPlayDetailMediaFetchButton', function () {

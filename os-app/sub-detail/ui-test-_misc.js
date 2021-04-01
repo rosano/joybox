@@ -269,6 +269,22 @@ describe('JBXPlayDetail_Misc', function () {
 	
 	});
 
+	describe('JBXPlayDetailMediaOpenButton', function test_JBXPlayDetailMediaOpenButton () {
+
+		it('sets href', function () {
+			browser.assert.attribute(JBXPlayDetailMediaOpenButton, 'href', item.JBXDocumentURL);
+		});
+		
+		it('sets _target', function () {
+			browser.assert.attribute(JBXPlayDetailMediaOpenButton, 'target', 	'_blank');
+		});
+
+		it('classes OLSKDecorPress', function () {
+			browser.assert.hasClass(JBXPlayDetailMediaOpenButton, 'OLSKDecorPress');
+		});
+	
+	});
+
 	describe('JBXPlayDetailMediaFetchButton', function test_JBXPlayDetailMediaFetchButton () {
 		
 		context('click', function () {
