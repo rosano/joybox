@@ -3,7 +3,7 @@ JBXPlayDetailToolbarArchiveButtonText: Archive
 JBXPlayDetailToolbarUnarchiveButtonText: Unarchive
 JBXPlayDetailToolbarDiscardButtonText: Discard
 JBXPlayDetailDiscardConfirmText: Are you sure?
-JBXPlayDetailFormURLFieldText: URL
-JBXPlayDetailFormFetchButtonText: Fetch
+JBXPlayDetailMediaURLFieldText: URL
+JBXPlayDetailMediaFetchButtonText: Fetch
 JBXPlayDetailFormNameFieldText: Name
 JBXPlayDetailFormNotesFieldText: Notes

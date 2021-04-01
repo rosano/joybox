@@ -13,7 +13,9 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
-					JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
+					JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+						JBXDocumentURL: Math.random().toString(),
+					})),
 				});
 			});
 
@@ -29,12 +31,12 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.attribute(JBXPlayDetailToolbarDiscardButton, 'title', uLocalized('JBXPlayDetailToolbarDiscardButtonText'));
 			});
 
-			it('localizes JBXPlayDetailFormURLField', function () {
-				browser.assert.attribute(JBXPlayDetailFormURLField, 'placeholder', uLocalized('JBXPlayDetailFormURLFieldText'));
+			it('localizes JBXPlayDetailMediaURLField', function () {
+				browser.assert.attribute(JBXPlayDetailMediaURLField, 'placeholder', uLocalized('JBXPlayDetailMediaURLFieldText'));
 			});
 
-			it('localizes JBXPlayDetailFormFetchButton', function () {
-				browser.assert.text(JBXPlayDetailFormFetchButton, uLocalized('JBXPlayDetailFormFetchButtonText'));
+			it('localizes JBXPlayDetailMediaFetchButton', function () {
+				browser.assert.text(JBXPlayDetailMediaFetchButton, uLocalized('JBXPlayDetailMediaFetchButtonText'));
 			});
 
 			it('localizes JBXPlayDetailFormNameField', function () {

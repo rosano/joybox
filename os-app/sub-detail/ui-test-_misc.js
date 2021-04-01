@@ -5,6 +5,7 @@ describe('JBXPlayDetail_Misc', function () {
 	const item = StubDocumentObjectValid({
 		JBXDocumentURL: Math.random().toString(),
 		JBXDocumentName: Math.random().toString(),
+		JBXDocumentURL: '/?' + Math.random().toString(),
 		JBXDocumentEmbedURL: '/?' + Math.random().toString(),
 	});
 
@@ -226,7 +227,7 @@ describe('JBXPlayDetail_Misc', function () {
 	
 	});
 
-	describe('JBXPlayDetailPlayer', function test_JBXPlayDetailPlayer () {
+	describe('JBXPlayDetailMedia', function test_JBXPlayDetailMedia () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -234,10 +235,58 @@ describe('JBXPlayDetail_Misc', function () {
 			});
 		});
 
-		it('sets binds JBXDocumentEmbedURL', function () {
-			browser.assert.attribute(JBXPlayDetailPlayer, 'src', item.JBXDocumentEmbedURL);
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass(JBXPlayDetailMedia, 'OLSKDecor');
 		});
 
+		it('classes OLSKDecorBigForm', function () {
+			browser.assert.hasClass(JBXPlayDetailMedia, 'OLSKDecorBigForm');
+		});
+	
+	});
+
+	describe('JBXPlayDetailMediaPlayer', function test_JBXPlayDetailMediaPlayer () {
+
+		it('sets binds JBXDocumentEmbedURL', function () {
+			browser.assert.attribute(JBXPlayDetailMediaPlayer, 'src', item.JBXDocumentEmbedURL);
+		});
+
+	});
+
+	describe('JBXPlayDetailMediaURLField', function test_JBXPlayDetailMediaURLField () {
+
+		it('sets type', function () {
+			browser.assert.attribute(JBXPlayDetailMediaURLField, 'type', 	'text');
+		});
+
+		it('sets disabled', function () {
+			browser.assert.attribute(JBXPlayDetailMediaURLField, 'disabled', 	'');
+		});
+
+		it('sets binds JBXDocumentURL', function () {
+			browser.assert.input(JBXPlayDetailMediaURLField, item.JBXDocumentURL);
+		});
+	
+	});
+
+	describe('JBXPlayDetailMediaFetchButton', function test_JBXPlayDetailMediaFetchButton () {
+		
+		context('click', function () {
+			
+			before(function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchFetch', '0');
+			});
+			
+			before(function () {
+				return browser.pressButton(JBXPlayDetailMediaFetchButton);
+			});
+
+			it('sends JBXPlayDetailDispatchFetch', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchFetch', '1');
+			});
+		
+		});
+	
 	});
 
 	describe('JBXPlayDetailForm', function test_JBXPlayDetailForm () {
@@ -248,42 +297,6 @@ describe('JBXPlayDetail_Misc', function () {
 
 		it('classes OLSKDecorBigForm', function () {
 			browser.assert.hasClass(JBXPlayDetailForm, 'OLSKDecorBigForm');
-		});
-	
-	});
-
-	describe('JBXPlayDetailFormURLField', function test_JBXPlayDetailFormURLField () {
-
-		it('sets type', function () {
-			browser.assert.attribute(JBXPlayDetailFormURLField, 'type', 	'text');
-		});
-
-		it('sets disabled', function () {
-			browser.assert.attribute(JBXPlayDetailFormURLField, 'disabled', 	'');
-		});
-
-		it('sets binds JBXDocumentURL', function () {
-			browser.assert.input(JBXPlayDetailFormURLField, item.JBXDocumentURL);
-		});
-	
-	});
-
-	describe('JBXPlayDetailFormFetchButton', function test_JBXPlayDetailFormFetchButton () {
-		
-		context('click', function () {
-			
-			before(function () {
-				browser.assert.text('#TestJBXPlayDetailDispatchFetch', '0');
-			});
-			
-			before(function () {
-				return browser.pressButton(JBXPlayDetailFormFetchButton);
-			});
-
-			it('sends JBXPlayDetailDispatchFetch', function () {
-				browser.assert.text('#TestJBXPlayDetailDispatchFetch', '1');
-			});
-		
 		});
 	
 	});

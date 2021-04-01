@@ -16,11 +16,12 @@ Object.entries({
 	JBXPlayDetailToolbarDiscardButton: '.JBXPlayDetailToolbarDiscardButton',	
 	JBXPlayDetailToolbarDiscardButtonImage: '.JBXPlayDetailToolbarDiscardButtonImage',
 
-	JBXPlayDetailPlayer: '.JBXPlayDetailPlayer',
+	JBXPlayDetailMedia: '.JBXPlayDetailMedia',
+	JBXPlayDetailMediaPlayer: '.JBXPlayDetailMediaPlayer',
+	JBXPlayDetailMediaURLField: '.JBXPlayDetailMediaURLField',
+	JBXPlayDetailMediaFetchButton: '.JBXPlayDetailMediaFetchButton',
 
 	JBXPlayDetailForm: '.JBXPlayDetailForm',
-	JBXPlayDetailFormURLField: '.JBXPlayDetailFormURLField',
-	JBXPlayDetailFormFetchButton: '.JBXPlayDetailFormFetchButton',
 	JBXPlayDetailFormNameField: '.JBXPlayDetailFormNameField',
 	JBXPlayDetailFormNotesField: '.JBXPlayDetailFormNotesField',
 }).map(function (e) {
@@ -71,20 +72,12 @@ describe('JBXPlayDetail_Access', function () {
 		browser.assert.elements(JBXPlayDetailToolbarDiscardButtonImage, 1);
 	});
 
-	it('hides JBXPlayDetailPlayer', function () {
-		browser.assert.elements(JBXPlayDetailPlayer, 0);
+	it('hides JBXPlayDetailMedia', function () {
+		browser.assert.elements(JBXPlayDetailMedia, 0);
 	});
 
 	it('shows JBXPlayDetailForm', function () {
 		browser.assert.elements(JBXPlayDetailForm, 1);
-	});
-
-	it('shows JBXPlayDetailFormURLField', function () {
-		browser.assert.elements(JBXPlayDetailFormURLField, 1);
-	});
-
-	it('shows JBXPlayDetailFormFetchButton', function () {
-		browser.assert.elements(JBXPlayDetailFormFetchButton, 1);
 	});
 
 	it('shows JBXPlayDetailFormNameField', function () {
@@ -103,18 +96,47 @@ describe('JBXPlayDetail_Access', function () {
 		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemUnarchive', 0);
 	});
 
+	context('JBXDocumentURL', function() {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					JBXDocumentURL: Math.random().toString(),
+				})),
+			});
+		});
+
+		it('shows JBXPlayDetailMedia', function () {
+			browser.assert.elements(JBXPlayDetailMedia, 1);
+		});
+
+		it('hides JBXPlayDetailMediaPlayer', function () {
+			browser.assert.elements(JBXPlayDetailMediaPlayer, 0);
+		});
+
+		it('shows JBXPlayDetailMediaURLField', function () {
+			browser.assert.elements(JBXPlayDetailMediaURLField, 1);
+		});
+
+		it('shows JBXPlayDetailMediaFetchButton', function () {
+			browser.assert.elements(JBXPlayDetailMediaFetchButton, 1);
+		});
+
+	});
+
 	context('JBXDocumentEmbedURL', function() {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					JBXDocumentURL: Math.random().toString(),
 					JBXDocumentEmbedURL: '/?' + Math.random().toString(),
 				})),
 			});
 		});
 
-		it('shows JBXPlayDetailPlayer', function () {
-			browser.assert.elements(JBXPlayDetailPlayer, 1);
+		it('shows JBXPlayDetailMediaPlayer', function () {
+			browser.assert.elements(JBXPlayDetailMediaPlayer, 1);
 		});
 
 	});

@@ -90,19 +90,25 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
-{#if JBXPlayDetailItem.JBXDocumentEmbedURL }
-	<iframe class="JBXPlayDetailPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{#if JBXPlayDetailItem.JBXDocumentURL }
+<div class="JBXPlayDetailMedia OLSKDecor OLSKDecorBigForm">
+
+	{#if JBXPlayDetailItem.JBXDocumentEmbedURL }
+		<iframe class="JBXPlayDetailMediaPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	{/if}
+
+	<p>
+		<input class="JBXPlayDetailMediaURLField" placeholder={ OLSKLocalized('JBXPlayDetailMediaURLFieldText') } type="text" disabled bind:value={ JBXPlayDetailItem.JBXDocumentURL } />
+	</p>
+
+	<p>
+		<button class="JBXPlayDetailMediaFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailMediaFetchButtonText') }</button>
+	</p>
+
+</div>
 {/if}
 
 <div class="JBXPlayDetailForm OLSKDecor OLSKDecorBigForm">
-
-<p>
-	<input class="JBXPlayDetailFormURLField" placeholder={ OLSKLocalized('JBXPlayDetailFormURLFieldText') } type="text" disabled bind:value={ JBXPlayDetailItem.JBXDocumentURL } />
-</p>
-
-<p>
-	<button class="JBXPlayDetailFormFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailFormFetchButtonText') }</button>
-</p>
 
 <p>
 	<input class="JBXPlayDetailFormNameField" placeholder={ OLSKLocalized('JBXPlayDetailFormNameFieldText') } type="text" bind:value={ JBXPlayDetailItem.JBXDocumentName } on:input={ JBXPlayDetailDispatchUpdate } />
