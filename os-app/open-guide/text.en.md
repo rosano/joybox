@@ -22,7 +22,6 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 | Close, if filter field is focused | `Escape` |
 | `JBXPlayLauncherItemImportJSONText` | Launcher |
 | `JBXPlayLauncherItemExportJSONText` | Launcher |
-| `JBXBrowseInfoLauncherItemDebugText` | Launcher |
 
 | Global ||
 :--- | ---
