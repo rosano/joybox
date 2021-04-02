@@ -49,6 +49,7 @@
     "OLSKThrottle": "olsk/OLSKThrottle",
     "OLSKRouting": "olsk/OLSKRouting",
     "OLSKQueue": "olsk/OLSKQueue",
+    "OLSKDOM": "olsk/OLSKDOM",
     "launchlet": "latest",
 
     "// tech-robots": null,

@@ -1,4 +1,5 @@
 import OLSKString from 'OLSKString';
+import OLSKDOM from 'OLSKDOM';
 import JBXDocument from '../_shared/JBXDocument/main.js';
 
 const uAscending = function (a, b) {
@@ -95,39 +96,24 @@ const mod = {
 			throw new Error('JBXErrorInputNotValid');
 		}
 
-		if (inputData.JBXDocumentURL) {
-			const html = (await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text());
-			const doc = debug.JSDOM ? debug.JSDOM(html) : new DOMParser().parseFromString(html, 'text/html');
-
-			const metadata = Array.from(doc.querySelectorAll('[property],[itemprop]')).reduce(function (coll, item) {
-				const key = item.getAttribute('property') || item.getAttribute('itemprop');
-
-				if (!key) {
-					return coll;
-				}
-
-				return Object.assign(coll, {
-					[key]: item.getAttribute('content') || item.getAttribute('href'),
-				})
-			}, [].concat.apply([], [JSON.parse((doc.querySelector('script[type="application/ld+json"]') || {}).innerHTML || '[]')]).reduce(function (coll, item) {
-				return coll || (item.embedUrl ? item : coll);
-			}, undefined) || {});
-
-			Object.assign(inputData, {
-				JBXDocumentName: (doc.querySelector('title') || {}).innerHTML,
-				JBXDocumentEmbedURL: [
-					'og:video:secure_url',
-					'og:video:url',
-					'og:video',
-					'embedUrl',
-				].reduce(function (coll, item) {
-					return coll || metadata[item];
-				}, undefined),
-				JBXDocumentDidFetch: true,
-			});
+		if (!inputData.JBXDocumentURL) {
+			return inputData;
 		}
 
-		return inputData;
+		const metadata = OLSKDOM.OLSKDOMMetadata((await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text()), debug);
+
+		return Object.assign(inputData, {
+			JBXDocumentName: metadata.title,
+			JBXDocumentEmbedURL: [
+				'og:video:secure_url',
+				'og:video:url',
+				'og:video',
+				'embedUrl',
+			].reduce(function (coll, item) {
+				return coll || metadata[item];
+			}, undefined),
+			JBXDocumentDidFetch: true,
+		});
 	},
 
 };
