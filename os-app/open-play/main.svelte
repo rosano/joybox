@@ -26,6 +26,7 @@ import RemoteStorage from 'remotestoragejs';
 import OLSKString from 'OLSKString';
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
 import OLSKQueue from 'OLSKQueue';
+import OLSKTransport from 'OLSKTransport';
 import zerodatawrap from 'zerodatawrap';
 
 const mod = {
@@ -68,22 +69,8 @@ const mod = {
 		};
 	},
 
-	DataWriteRecipes () {
-		const outputData = [{
-			LCHRecipeSignature: 'JBXPlayLauncherItemImportJSON',
-			LCHRecipeName: OLSKLocalized('JBXPlayLauncherItemImportJSONText'),
-			LCHRecipeCallback: async function JBXPlayLauncherItemImportJSON () {
-				return mod.ControlDocumentsImportJSON(await this.api.LCHReadTextFile({
-					accept: '.json',
-				}));
-			},
-		}, {
-			LCHRecipeSignature: 'JBXPlayLauncherItemExportJSON',
-			LCHRecipeName: OLSKLocalized('JBXPlayLauncherItemExportJSONText'),
-			LCHRecipeCallback: async function JBXPlayLauncherItemExportJSON () {
-				return this.api.LCHSaveFile(await mod.DataExportJSON(), mod.DataExportJSONFilename());
-			},
-		}];
+	DataPlayRecipes () {
+		const outputData = [];
 
 		if (OLSK_SPEC_UI()) {
 			outputData.push(...[
@@ -128,25 +115,20 @@ const mod = {
 							}))),
 						});
 					},
-				}, {
-					LCHRecipeName: 'JBXPlayLauncherItemDebug_PromptFakeImportSerialized',
-					LCHRecipeCallback: function JBXPlayLauncherItemDebug_PromptFakeImportSerialized () {
-						return mod.ControlDocumentsImportJSON(window.prompt());
-					},
-				}, {
-					LCHRecipeName: 'JBXPlayLauncherItemDebug_AlertFakeExportSerialized',
-					LCHRecipeCallback: async function JBXPlayLauncherItemDebug_AlertFakeExportSerialized () {
-						return window.alert(JSON.stringify({
-							OLSKDownloadName: mod.DataExportJSONFilename(),
-							OLSKDownloadData: await mod.DataExportJSON(),
-						}));
-					},
 				},
 			]);
 		}
 
 		outputData.push(...zerodatawrap.ZDRRecipes({
 			ParamMod: mod,
+			ParamSpecUI: OLSK_SPEC_UI(),
+		}));
+
+		outputData.push(...OLSKTransport.OLSKTransportRecipes({
+			ParamWindow: window,
+			OLSKLocalized: OLSKLocalized,
+			OLSKTransportDispatchImportJSON: mod.OLSKTransportDispatchImportJSON,
+			OLSKTransportDispatchExportInput: mod.OLSKTransportDispatchExportInput,
 			ParamSpecUI: OLSK_SPEC_UI(),
 		}));
 
@@ -177,21 +159,6 @@ const mod = {
 		}
 
 		return outputData;
-	},
-
-	async DataExportJSON () {
-		return JSON.stringify(mod._ValueZDRWrap.App.JBXTransport.JBXTransportExport({
-			JBXDocument: mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll(),
-			JBXSetting: await mod._ValueZDRWrap.App.JBXSetting.JBXSettingList(),
-		}));
-	},
-
-	DataExportBasename () {
-		return `${ window.location.hostname }-${ Date.now() }`;
-	},
-
-	DataExportJSONFilename () {
-		return `${ mod.DataExportBasename() }.json`;
 	},
 
 	DataIsMobile () {
@@ -307,19 +274,6 @@ const mod = {
 		mod._ValueRevealArchiveIsVisible = false;
 	},
 
-	async ControlDocumentsImportJSON (inputData) {
-		if (!inputData.trim()) {
-			return window.alert(OLSKLocalized('JBXPlayLauncherItemImportJSONErrorNotFilledAlertText'))
-		}
-
-		try {
-			await mod._ValueZDRWrap.App.JBXTransport.JBXTransportImport(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(JSON.parse(inputData)));
-			await mod.SetupCatalog();
-		} catch (e) {
-			window.alert(OLSKLocalized('JBXPlayLauncherItemImportJSONErrorNotValidAlertText'));
-		}
-	},
-
 	// MESSAGE
 
 	_OLSKCatalogDispatchKey (inputData) {
@@ -391,7 +345,7 @@ const mod = {
 		}
 
 		window.Launchlet.LCHSingletonCreate({
-			LCHOptionRecipes: mod.DataWriteRecipes(),
+			LCHOptionRecipes: mod.DataPlayRecipes(),
 			LCHOptionLanguage: window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'),
 		});
 	},
@@ -418,6 +372,19 @@ const mod = {
 
 	JBXPlayDetailDispatchDiscard () {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
+	},
+
+	async OLSKTransportDispatchImportJSON (inputData) {
+		await mod._ValueZDRWrap.App.JBXTransport.JBXTransportImport(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(inputData));
+
+		await mod.SetupCatalog();
+	},
+
+	async OLSKTransportDispatchExportInput () {
+		return mod._ValueZDRWrap.App.JBXTransport.JBXTransportExport({
+			JBXDocument: mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll(),
+			JBXSetting: await mod._ValueZDRWrap.App.JBXSetting.JBXSettingList(),
+		});
 	},
 
 	ZDRSchemaDispatchSyncCreateDocument (inputData) {

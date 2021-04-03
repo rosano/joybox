@@ -3,7 +3,3 @@ JBXPlayToggleFormButtonText: Add
 JBXPlayFormFieldText: Paste your links here
 JBXPlayFormSubmitButtonText: Submit
 JBXPlayRevealArchiveButtonText: Reveal archive
-JBXPlayLauncherItemImportJSONText: Import JSON (beta)
-JBXPlayLauncherItemImportJSONErrorNotFilledAlertText: Input not filled
-JBXPlayLauncherItemImportJSONErrorNotValidAlertText: Input not valid
-JBXPlayLauncherItemExportJSONText: Export JSON (beta)

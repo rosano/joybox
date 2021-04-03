@@ -87,8 +87,16 @@ describe('JBXPlay_Access', function () {
 		browser.assert.elements('.OLSKInstall', 1);
 	});
 
+	it('hides JBXPlayDetailLauncherFakeItemProxy', function () {
+		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherFakeItemProxy', 0);
+	});
+
 	it('shows ZDRLauncherFakeItemProxy', function () {
 		return browser.assert.OLSKLauncherItems('ZDRLauncherFakeItemProxy', 1);
+	});
+
+	it('shows OLSKTransportLauncherFakeItemProxy', function () {
+		return browser.assert.OLSKLauncherItems('OLSKTransportLauncherFakeItemProxy', 1);
 	});
 
 	it('shows OLSKRemoteStorageLauncherFakeItemProxy', function () {
@@ -97,18 +105,6 @@ describe('JBXPlay_Access', function () {
 
 	it('shows OLSKServiceWorkerLauncherFakeItemProxy', function () {
 		return browser.assert.OLSKLauncherItems('OLSKServiceWorkerLauncherFakeItemProxy', 1);
-	});
-
-	it('hides JBXPlayDetailLauncherFakeItemProxy', function () {
-		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherFakeItemProxy', 0);
-	});
-
-	it('shows JBXPlayLauncherItemImportJSON', function () {
-		return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemImportJSON', 1);
-	});
-
-	it('shows JBXPlayLauncherItemExportJSON', function () {
-		return browser.assert.OLSKLauncherItems('JBXPlayLauncherItemExportJSON', 1);
 	});
 
 	describe('tongue', function test_tongue() {

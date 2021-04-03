@@ -21,6 +21,7 @@
     "OLSKRemoteStorage": "olsk/OLSKRemoteStorage",
     "OLSKCloud": "olsk/OLSKCloud",
     "OLSKObject": "olsk/OLSKObject",
+    "OLSKTransport": "olsk/OLSKTransport",
     "ulid": "latest",
 
     "// _shared": null,

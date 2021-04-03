@@ -20,8 +20,8 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 | Select previous or next card, if filter field is focused | `Up` or `Down` |
 | Clear filter text and selected card, focus filter field | `Escape` |
 | Close, if filter field is focused | `Escape` |
-| `JBXPlayLauncherItemImportJSONText` | Launcher |
-| `JBXPlayLauncherItemExportJSONText` | Launcher |
+| `OLSKTransportLauncherItemImportJSONText` | Launcher |
+| `OLSKTransportLauncherItemExportJSONText` | Launcher |
 
 | Global ||
 :--- | ---
