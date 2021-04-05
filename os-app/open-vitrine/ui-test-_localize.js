@@ -22,10 +22,6 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.attribute('meta[name=description]', 'content', uLocalized('JBXVitrineDescription'));
 		});
 
-		it('localizes JBXVitrineCrownName', function () {
-			browser.assert.text(JBXVitrineCrownName, uLocalized('JBXVitrineTitle'));
-		});
-
 		it('localizes JBXVitrineFeaturesHeading', function () {
 			browser.assert.text(JBXVitrineFeaturesHeading, uLocalized('OLSKWordingFeatures'));
 		});
@@ -44,6 +40,14 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		it('localizes JBXVitrineSupportBlurb', function () {
 			browser.assert.text(JBXVitrineSupportBlurb, uLocalized('OLSKWordingFeedbackBlurb'));
+		});
+
+		context('OLSKCrown', function test_OLSKCrown () {
+
+			it('localizes OLSKCrownCardName', function () {
+				browser.assert.text('.OLSKCrownCardName', uLocalized('JBXVitrineTitle'));
+			});
+		
 		});
 
 		context('OLSKLanding', function test_OLSKLanding () {

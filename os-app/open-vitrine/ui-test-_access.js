@@ -3,12 +3,6 @@ const kDefaultRoutePath = require('./controller.js').OLSKControllerRoutes().shif
 Object.entries({
 	JBXVitrine: '.JBXVitrine',
 	
-	JBXVitrineToolbar: '.JBXVitrineToolbar',
-	
-	JBXVitrineCrown: '.JBXVitrineCrown',
-	JBXVitrineCrownIcon: '.JBXVitrineCrownIcon',
-	JBXVitrineCrownName: '.JBXVitrineCrownName',
-
 	JBXVitrineFeaturesHeading: '.JBXVitrineFeaturesHeading',
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
@@ -31,22 +25,10 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements(JBXVitrine, 1);
 	});
 	
-	it('shows OLSKLanguageSwitcher', function() {
-		browser.assert.elements('.OLSKLanguageSwitcher', 1);
+	it('shows OLSKCrown', function() {
+		browser.assert.elements('.OLSKCrown', 1);
 	});
 	
-	it('shows JBXVitrineCrown', function() {
-		browser.assert.elements(JBXVitrineCrown, 1);
-	});
-	
-	it('shows JBXVitrineCrownIcon', function() {
-		browser.assert.elements(JBXVitrineCrownIcon, 1);
-	});
-	
-	it('shows JBXVitrineCrownName', function() {
-		browser.assert.elements(JBXVitrineCrownName, 1);
-	});
-
 	it('shows OLSKLanding', function() {
 		browser.assert.elements('.OLSKLanding', 1);
 	});

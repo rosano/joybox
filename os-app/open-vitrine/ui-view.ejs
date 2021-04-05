@@ -16,16 +16,10 @@ locals.OLSKPagePublicConstants = {
 
 <div class="JBXVitrine OLSKDecor OLSKDecorCapped">	
 
-<div class="JBXVitrineToolbar OLSKToolbar OLSKToolbarJustify OLSKStickyHeader OLSKCommonEdgeBottom">
-	<div class="JBXVitrineCrown OLSKCommonCard OLSKCommonCrownCardMini">
-		<img class="JBXVitrineCrownIcon" src="/_shared/JBXRootLink/ui-assets/identity.svg" role="presentation" />
-		<section>
-			<span class="JBXVitrineCrownName"><%= OLSKLocalized('JBXVitrineTitle') %></span>
-		</section>
-	</div>
-
-	<%- include('../../node_modules/OLSKLanguageSwitcher/main.ejs') %>
-</div>
+<%- include('../../node_modules/OLSKCrown/main.ejs', {
+	OLSKCrownCardImageURL: '/_shared/JBXRootLink/ui-assets/identity.svg',
+	OLSKCrownCardNameText: OLSKLocalized('JBXVitrineTitle'),
+}) %>
 
 <%- include('../../node_modules/OLSKLanding/main.ejs', {
 	OLSKLandingHeadingText: OLSKLocalized('JBXVitrineDescription'),

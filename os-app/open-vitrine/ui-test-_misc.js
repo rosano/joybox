@@ -22,48 +22,12 @@ describe('JBXVitrine_Misc', function () {
 	
 	});
 
-	describe('JBXVitrineToolbar', function () {
-		
-		it('classes OLSKToolbar', function () {
-			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKToolbar');
-		});
+	describe('OLSKCrown', function test_OLSKCrown () {
 
-		it('classes OLSKToolbarJustify', function () {
-			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKToolbarJustify');
-		});
-
-		it('classes OLSKStickyHeader', function () {
-			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKStickyHeader');
-		});
-
-		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JBXVitrineToolbar, 'OLSKCommonEdgeBottom');
+		it('sets OLSKCrownCardImageURL', function () {
+			browser.assert.attribute('.OLSKCrownCardImage', 'src', '/_shared/JBXRootLink/ui-assets/identity.svg');
 		});
 	
-	});
-
-	describe('JBXVitrineCrown', function test_JBXVitrineCrown() {
-
-		it('classes OLSKCommonCard', function () {
-			browser.assert.hasClass(JBXVitrineCrown, 'OLSKCommonCard');
-		});
-
-		it('classes OLSKCommonCrownCardMini', function () {
-			browser.assert.hasClass(JBXVitrineCrown, 'OLSKCommonCrownCardMini');
-		});
-		
-	});
-
-	describe('JBXVitrineCrownIcon', function () {
-
-		it('sets role', function () {
-			browser.assert.attribute(JBXVitrineCrownIcon, 'role', 'presentation');
-		});
-
-		it('sets src', function () {
-			browser.assert.attribute(JBXVitrineCrownIcon, 'src', '/_shared/JBXRootLink/ui-assets/identity.svg');
-		});
-
 	});
 
 	describe('OLSKLanding', function test_OLSKLanding () {
