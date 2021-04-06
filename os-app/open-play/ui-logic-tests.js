@@ -68,13 +68,13 @@ describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
 
 	it('returns false if no match', function() {
 		deepEqual(mod.JBXPlayIsMatch({
-			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: 'alfa',
+			[uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes')]: 'alfa',
 		}, 'bravo'), false);
 	});
 
 	it('matches OLSKStringMatch', function() {
 		deepEqual(mod.JBXPlayIsMatch({
-			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
+			[uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 
