@@ -180,7 +180,17 @@ const mod = {
 	InterfaceFormSubmitButtonDidClick (event) {
 		event.preventDefault();
 
-		JBXPlayLogic.JBXPlayDocuments(mod._ValueFormData).map(mod.ControlDocumentAdd);
+		const disableDuplicateURLs = false;
+
+		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
+			return e.JBXDocumentURL;
+		}).filter(function (e) {
+			return !!e;
+		});
+
+		JBXPlayLogic.JBXPlayDocuments(mod._ValueFormData).filter(function (e) {
+			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
+		}).map(mod.ControlDocumentAdd);
 
 		mod._ValueFormIsVisible = false;
 		mod._ValueFormData = '';
