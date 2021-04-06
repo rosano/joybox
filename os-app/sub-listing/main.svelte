@@ -22,6 +22,7 @@ import JBXPlayListItemLogic from './ui-logic.js';
 .JBXPlayListItem {
 	min-height: 46px;
 	padding: 10px;
+	max-width: var(--OLSKViewportMasterWidth);
 
 	color: var(--OLSKCommonForeground);
 	overflow: hidden;
