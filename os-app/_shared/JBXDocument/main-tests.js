@@ -126,6 +126,26 @@ describe('JBXDocumentErrors', function test_JBXDocumentErrors() {
 
 	});
 
+	context('JBXDocumentImageURL', function() {
+
+		it('returns object if not string', function() {
+			deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
+				JBXDocumentImageURL: null,
+			})), {
+				JBXDocumentImageURL: [
+					'JBXErrorNotString',
+				],
+			});
+		});
+
+		it('returns null', function() {
+			deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
+				JBXDocumentImageURL: Math.random().toString(),
+			})), null);
+		});
+
+	});
+
 	context('JBXDocumentDidFetch', function() {
 
 		it('returns object if not boolean', function() {

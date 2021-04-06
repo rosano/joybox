@@ -63,6 +63,14 @@ const mod = {
 			}
 		}
 
+		if (typeof inputData.JBXDocumentImageURL !== 'undefined') {
+			if (typeof inputData.JBXDocumentImageURL !== 'string') {
+				errors.JBXDocumentImageURL = [
+					'JBXErrorNotString',
+				];
+			}
+		}
+
 		if (typeof inputData.JBXDocumentDidFetch !== 'undefined') {
 			if (typeof inputData.JBXDocumentDidFetch !== 'boolean') {
 				errors.JBXDocumentDidFetch = [
