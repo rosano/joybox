@@ -112,6 +112,11 @@ const mod = {
 			].reduce(function (coll, item) {
 				return coll || metadata[item];
 			}, undefined),
+			JBXDocumentImageURL: [
+				'og:image',
+			].reduce(function (coll, item) {
+				return coll || metadata[item];
+			}, undefined),
 			JBXDocumentDidFetch: true,
 		});
 	},

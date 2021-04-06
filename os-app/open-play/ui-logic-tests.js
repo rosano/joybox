@@ -244,6 +244,34 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 	
 	});
 
+	context('JBXDocumentImageURL', function () {
+		
+		const item = Math.random().toString();
+		Object.entries({
+			'og:image': `<meta property="og:image" content="${ item }" />`,
+		}).forEach(function ([key, value]) {
+
+			it('extracts ' + key, async function () {
+				deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+					JBXDocumentURL: Math.random().toString(),
+				}), {
+					window: {
+						fetch: (function () {
+							return {
+								text: (function () {
+									return value;
+								}),
+							};
+						}),
+					},
+					JSDOM: JSDOM.fragment,
+				})).JBXDocumentImageURL, item);
+			});
+
+		});
+	
+	});
+
 	it('sets JBXDocumentDidFetch', async function () {
 		const item = Math.random().toString();
 		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
