@@ -1,11 +1,14 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
+const JBXPlayListItemLogic = require('./ui-logic.js').default;
+
 describe('JBXPlayListItem_Misc', function () {
 
 	const JBXDocumentName = uRandomElement(undefined, Math.random().toString());
 
 	const item = StubDocumentObjectValid({
 		JBXDocumentName,
+		JBXDocumentURL: 'https://www.example.com/' + Math.random().toString(),
 		JBXDocumentNotes: Math.random().toString(),
 	});
 
@@ -26,7 +29,7 @@ describe('JBXPlayListItem_Misc', function () {
 	describe('JBXPlayListItemTitle', function test_JBXPlayListItemTitle () {
 		
 		it('binds JBXDocumentNotes', function () {
-			browser.assert.text(JBXPlayListItemTitle, item.JBXDocumentName || '');
+			browser.assert.text(JBXPlayListItemTitle, item.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(item.JBXDocumentURL));
 		});
 	
 	});

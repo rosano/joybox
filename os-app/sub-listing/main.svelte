@@ -1,10 +1,12 @@
 <script>
 export let JBXPlayListItemObject;
+
+import JBXPlayListItemLogic from './ui-logic.js';
 </script>
 
 <div class="JBXPlayListItem OLSKCommonEdgeBottom" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentIsArchived }>
 
-<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || '' }</span>
+<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '') }</span>
 
 <span class="JBXPlayListItemSnippet">{ JBXPlayListItemObject.JBXDocumentNotes }</span>
 
