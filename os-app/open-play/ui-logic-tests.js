@@ -208,37 +208,41 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 		})).JBXDocumentName, item);
 	});
 
-	const item = Math.random().toString();
-	Object.entries({
-		'og:video': `<meta property="og:video" content="${ item }" />`,
-		'og:video:url': `<meta property="og:video:url" content="${ item }" />`,
-		'og:video:secure_url': `<meta property="og:video:secure_url" content="${ item }" />`,
-		'meta embedUrl': `<meta itemprop="embedUrl" content="${ item }"/>`,
-		'link embedUrl': `<link itemprop="embedUrl" href="${ item }"/>`,
-		'json-ld': `<script type="application/ld+json">[{"embedUrl":"${ item }"}]</script>`,
-	}).forEach(function ([key, value]) {
+	context('JBXDocumentEmbedURL', function () {
 
-		it('sets JBXDocumentEmbedURL ' + key, async function () {
-			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
-				JBXDocumentURL: Math.random().toString(),
-			}), {
-				window: {
-					fetch: (function () {
-						return {
-							text: (function () {
-								return key === 'og:video:secure_url' ? [
-									`<meta property="og:video" content="${ item }" />`,
-									value,
-								].join('') : value;
-							}),
-						};
-					}),
-				},
-				JSDOM: JSDOM.fragment,
-			})).JBXDocumentEmbedURL, item);
+		const item = Math.random().toString();
+		Object.entries({
+			'og:video': `<meta property="og:video" content="${ item }" />`,
+			'og:video:url': `<meta property="og:video:url" content="${ item }" />`,
+			'og:video:secure_url': `<meta property="og:video:secure_url" content="${ item }" />`,
+			'meta embedUrl': `<meta itemprop="embedUrl" content="${ item }"/>`,
+			'link embedUrl': `<link itemprop="embedUrl" href="${ item }"/>`,
+			'json-ld': `<script type="application/ld+json">[{"embedUrl":"${ item }"}]</script>`,
+		}).forEach(function ([key, value]) {
+
+			it('extracts ' + key, async function () {
+				deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+					JBXDocumentURL: Math.random().toString(),
+				}), {
+					window: {
+						fetch: (function () {
+							return {
+								text: (function () {
+									return key === 'og:video:secure_url' ? [
+										`<meta property="og:video" content="${ item }" />`,
+										value,
+									].join('') : value;
+								}),
+							};
+						}),
+					},
+					JSDOM: JSDOM.fragment,
+				})).JBXDocumentEmbedURL, item);
+			});
+
 		});
-
-	})
+	
+	});
 
 	it('sets JBXDocumentDidFetch', async function () {
 		const item = Math.random().toString();
