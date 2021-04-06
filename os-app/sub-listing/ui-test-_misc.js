@@ -9,6 +9,7 @@ describe('JBXPlayListItem_Misc', function () {
 	const item = StubDocumentObjectValid({
 		JBXDocumentName,
 		JBXDocumentURL: 'https://www.example.com/' + Math.random().toString(),
+		JBXDocumentImageURL: 'https://www.example.com/' + Math.random().toString(),
 		JBXDocumentNotes: Math.random().toString(),
 	});
 
@@ -20,10 +21,26 @@ describe('JBXPlayListItem_Misc', function () {
 
 	describe('JBXPlayListItem', function test_JBXPlayListItem () {
 
+		it('classes OLSKCommonCard', function () {
+			browser.assert.hasClass(JBXPlayListItem, 'OLSKCommonCard');
+		});
+
 		it('classes OLSKCommonEdgeBottom', function () {
 			browser.assert.hasClass(JBXPlayListItem, 'OLSKCommonEdgeBottom');
 		});
 		
+	});
+
+	describe('JBXPlayListItemImage', function test_JBXPlayListItemImage () {
+		
+		it('sets aria-role', function () {
+			browser.assert.attribute(JBXPlayListItemImage, 'aria-role', 'presentation');
+		});
+		
+		it('binds JBXDocumentImageURL', function () {
+			browser.assert.attribute(JBXPlayListItemImage, 'src', item.JBXDocumentImageURL);
+		});
+	
 	});
 
 	describe('JBXPlayListItemTitle', function test_JBXPlayListItemTitle () {

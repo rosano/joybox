@@ -4,11 +4,17 @@ export let JBXPlayListItemObject;
 import JBXPlayListItemLogic from './ui-logic.js';
 </script>
 
-<div class="JBXPlayListItem OLSKCommonEdgeBottom" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentIsArchived }>
+<div class="JBXPlayListItem OLSKCommonCard OLSKCommonEdgeBottom" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentIsArchived }>
 
-<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '') }</span>
+{#if JBXPlayListItemObject.JBXDocumentImageURL }
+	<img class="JBXPlayListItemImage" src={ JBXPlayListItemObject.JBXDocumentImageURL } aria-role="presentation" />
+{/if}
 
-<span class="JBXPlayListItemSnippet">{ JBXPlayListItemObject.JBXDocumentNotes }</span>
+<section>
+	<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '') }</span>
+
+	<span class="JBXPlayListItemSnippet">{ JBXPlayListItemObject.JBXDocumentNotes }</span>
+</section>
 
 </div>
 
