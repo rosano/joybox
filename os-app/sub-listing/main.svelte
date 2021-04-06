@@ -7,7 +7,7 @@ import JBXPlayListItemLogic from './ui-logic.js';
 <div class="JBXPlayListItem OLSKCommonCard OLSKCommonEdgeBottom" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentIsArchived }>
 
 {#if JBXPlayListItemObject.JBXDocumentImageURL }
-	<img class="JBXPlayListItemImage" src={ JBXPlayListItemObject.JBXDocumentImageURL } aria-role="presentation" />
+	<img class="JBXPlayListItemImage" src={ JBXPlayListItemObject.JBXDocumentImageURL } role="presentation" />
 {/if}
 
 <section>

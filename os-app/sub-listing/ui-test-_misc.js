@@ -33,8 +33,8 @@ describe('JBXPlayListItem_Misc', function () {
 
 	describe('JBXPlayListItemImage', function test_JBXPlayListItemImage () {
 		
-		it('sets aria-role', function () {
-			browser.assert.attribute(JBXPlayListItemImage, 'aria-role', 'presentation');
+		it('sets role', function () {
+			browser.assert.attribute(JBXPlayListItemImage, 'role', 'presentation');
 		});
 		
 		it('binds JBXDocumentImageURL', function () {
