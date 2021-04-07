@@ -117,7 +117,7 @@ describe('JBXPlay_Catalog', function () {
 		});
 
 		it('binds OLSKCollectionItemsLocus', function () {
-			browser.assert.hasClass('.OLSKResultsListItem:nth-child(2)', 'OLSKResultsListItemSelected');
+			browser.assert.hasClass('.OLSKResultsListItem:nth-child(2)', 'OLSKCollectionItemLocus');
 		});
 	
 	});

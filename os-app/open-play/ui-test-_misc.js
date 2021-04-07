@@ -89,7 +89,7 @@ describe('JBXPlay_Misc', function () {
 		});
 
 		it('sets JBXPlayListItemSelected', function () {
-			browser.assert.elements('.OLSKResultsListItemSelected', 1);
+			browser.assert.elements('.OLSKCollectionItemLocus', 1);
 		});
 
 		it('sets JBXPlayDetailItem', function () {
