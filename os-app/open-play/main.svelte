@@ -637,7 +637,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 	<!-- MASTER LIST ITEM -->
 
-	<div slot="OLSKMasterListItem">
+	<div slot="OLSKCollectionItem">
 		<JBXPlayListItem JBXPlayListItemObject={ OLSKResultsListItem } />
 	</div>
 
