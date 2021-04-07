@@ -9,7 +9,7 @@ describe('JBXPlay_Sync', function () {
 	describe('ZDRSchemaDispatchSyncCreateDocument', function test_ZDRSchemaDispatchSyncCreateDocument () {
 
 		before(function () {
-			browser.assert.elements('.OLSKResultsListItem', 0);
+			browser.assert.elements('.JBLPlayListItem', 0);
 		});
 
 		before(function () {
@@ -17,7 +17,7 @@ describe('JBXPlay_Sync', function () {
 		});
 
 		it('adds item', function () {
-			browser.assert.elements('.OLSKResultsListItem', 1);
+			browser.assert.elements('.JBLPlayListItem', 1);
 		});
 
 	});
@@ -25,7 +25,7 @@ describe('JBXPlay_Sync', function () {
 	describe('ZDRSchemaDispatchSyncUpdateDocument', function test_ZDRSchemaDispatchSyncUpdateDocument () {
 
 		before(function () {
-			browser.assert.text('.OLSKResultsListItem', 'FakeZDRSchemaDispatchSyncCreateDocument');
+			browser.assert.text('.JBLPlayListItem', 'FakeZDRSchemaDispatchSyncCreateDocument');
 		});
 
 		before(function () {
@@ -33,13 +33,13 @@ describe('JBXPlay_Sync', function () {
 		});
 
 		it('updates item', function () {
-			browser.assert.text('.OLSKResultsListItem', 'FakeZDRSchemaDispatchSyncUpdateDocument');
+			browser.assert.text('.JBLPlayListItem', 'FakeZDRSchemaDispatchSyncUpdateDocument');
 		});
 
 		context('selected same', function () {
 			
 			before(function () {
-				return browser.click('.OLSKResultsListItem');
+				return browser.click('.JBLPlayListItem');
 			});
 
 			before(function () {
@@ -65,7 +65,7 @@ describe('JBXPlay_Sync', function () {
 		});
 
 		it('removes item', function () {
-			browser.assert.elements('.OLSKResultsListItem', 0);
+			browser.assert.elements('.JBLPlayListItem', 0);
 		});
 
 		context('selected same', function () {
@@ -75,7 +75,7 @@ describe('JBXPlay_Sync', function () {
 			});
 
 			before(function () {
-				return browser.click('.OLSKResultsListItem');
+				return browser.click('.JBLPlayListItem');
 			});
 
 			before(function () {
@@ -117,7 +117,7 @@ describe('JBXPlay_Sync', function () {
 		});
 
 		it('selects local', function () {
-			browser.assert.text('.OLSKResultsListItem', 'FakeZDRSchemaDispatchSyncConflictDocument-local');
+			browser.assert.text('.JBLPlayListItem', 'FakeZDRSchemaDispatchSyncConflictDocument-local');
 		});
 
 	});

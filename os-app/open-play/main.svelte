@@ -611,7 +611,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCatalogDispatchArchivedShow={ mod.OLSKCatalogDispatchArchivedShow }
 	OLSKCatalogDispatchQuantity={ mod.OLSKCatalogDispatchQuantity }
 
-	let:OLSKResultsListItem
+	let:OLSKCollectionItem
 	>
 
 	<!-- MASTER -->
@@ -638,7 +638,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER LIST ITEM -->
 
 	<div slot="OLSKCollectionItem">
-		<JBXPlayListItem JBXPlayListItemObject={ OLSKResultsListItem } />
+		<JBXPlayListItem JBXPlayListItemObject={ OLSKCollectionItem } />
 	</div>
 
 	<!-- MASTER BODY TAIL -->
