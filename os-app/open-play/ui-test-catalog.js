@@ -26,7 +26,7 @@ describe('JBXPlay_Catalog', function () {
 	
 	});
 
-	context('OLSKCatalogDispatchClick', function test_OLSKCatalogDispatchClick () {
+	context('OLSKCollectionDispatchClick', function test_OLSKCollectionDispatchClick () {
 		
 		before(function () {
 			browser.assert.elements('.JBXPlayDetail', 0);
