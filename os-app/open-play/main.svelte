@@ -595,7 +595,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 <OLSKCatalog
 	bind:this={ mod._OLSKCatalog }
 
-	OLSKMasterListItemAccessibilitySummaryFunction={ JBXPlayLogic.JBXPlayAccessibilitySummary }
+	OLSKCollectionItemAccessibilitySummaryFunction={ JBXPlayLogic.JBXPlayAccessibilitySummary }
 
 	_OLSKCatalogArchiveField={ 'JBXDocumentIsArchived' }
 	
