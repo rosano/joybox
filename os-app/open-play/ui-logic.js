@@ -121,8 +121,8 @@ const mod = {
 		});
 	},
 
-	JBXPlayAddAnchor () {
-		return 'add';
+	JBXPlayDataAnchor () {
+		return 'data';
 	},
 
 	JBXPlayNameAnchor () {

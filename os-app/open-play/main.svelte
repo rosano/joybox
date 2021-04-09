@@ -403,8 +403,8 @@ const mod = {
 	},
 
 	OLSKHashDispatchInitialize (inputData) {
-		if (inputData[JBXPlayLogic.JBXPlayAddAnchor()]) {
-			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayAddAnchor()]);
+		if (inputData[JBXPlayLogic.JBXPlayDataAnchor()]) {
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayDataAnchor()]);
 		}
 	},
 

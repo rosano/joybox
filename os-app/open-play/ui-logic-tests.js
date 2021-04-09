@@ -292,10 +292,10 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 
 });
 
-describe('JBXPlayAddAnchor', function test_JBXPlayAddAnchor() {
+describe('JBXPlayDataAnchor', function test_JBXPlayDataAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayAddAnchor(), 'add');
+		deepEqual(mod.JBXPlayDataAnchor(), 'data');
 	});
 
 });
