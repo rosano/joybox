@@ -208,6 +208,25 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 		})).JBXDocumentName, item);
 	});
 
+	it('keeps existing JBXDocumentName', async function () {
+		const JBXDocumentName = Math.random().toString();
+		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+			JBXDocumentName,
+			JBXDocumentURL: Math.random().toString(),
+		}), {
+			window: {
+				fetch: (function () {
+					return {
+						text: (function () {
+							return `<title>${ Math.random().toString() }</title>`;
+						}),
+					};
+				}),
+			},
+			JSDOM: JSDOM.fragment,
+		})).JBXDocumentName, JBXDocumentName);
+	});
+
 	context('JBXDocumentEmbedURL', function () {
 
 		const item = Math.random().toString();

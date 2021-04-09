@@ -103,7 +103,7 @@ const mod = {
 		const metadata = OLSKDOM.OLSKDOMMetadata((await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text()), debug);
 
 		return Object.assign(inputData, {
-			JBXDocumentName: metadata.title,
+			JBXDocumentName: inputData.JBXDocumentName || metadata.title,
 			JBXDocumentEmbedURL: [
 				'og:video:secure_url',
 				'og:video:url',
