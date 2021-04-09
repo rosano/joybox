@@ -180,17 +180,7 @@ const mod = {
 	InterfaceFormSubmitButtonDidClick (event) {
 		event.preventDefault();
 
-		const disableDuplicateURLs = false;
-
-		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
-			return e.JBXDocumentURL;
-		}).filter(function (e) {
-			return !!e;
-		});
-
-		JBXPlayLogic.JBXPlayDocuments(mod._ValueFormData).filter(function (e) {
-			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
-		}).map(mod.ControlDocumentAdd);
+		mod.ControlTextAdd(mod._ValueFormData);
 
 		mod._ValueFormIsVisible = false;
 		mod._ValueFormData = '';
@@ -219,6 +209,20 @@ const mod = {
 		if (OLSK_SPEC_UI()) {
 			OLSKThrottle.OLSKThrottleSkip(mod._ValueSaveDocumentThrottleMap[inputData.JBXDocumentID])	
 		}
+	},
+
+	ControlTextAdd (inputData) {
+		const disableDuplicateURLs = false;
+
+		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
+			return e.JBXDocumentURL;
+		}).filter(function (e) {
+			return !!e;
+		});
+
+		JBXPlayLogic.JBXPlayDocuments(inputData).filter(function (e) {
+			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
+		}).map(mod.ControlDocumentAdd);
 	},
 
 	async ControlDocumentAdd (inputData) {
