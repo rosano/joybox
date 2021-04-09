@@ -291,3 +291,11 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 	});
 
 });
+
+describe('JBXPlayAddAnchor', function test_JBXPlayAddAnchor() {
+
+	it('returns string', function() {
+		deepEqual(mod.JBXPlayAddAnchor(), 'add');
+	});
+
+});

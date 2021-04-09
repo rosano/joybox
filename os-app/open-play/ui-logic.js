@@ -121,6 +121,10 @@ const mod = {
 		});
 	},
 
+	JBXPlayAddAnchor () {
+		return 'add';
+	},
+
 };
 
 export default mod;
