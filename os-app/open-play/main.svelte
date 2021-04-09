@@ -27,6 +27,7 @@ import OLSKString from 'OLSKString';
 import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
 import OLSKQueue from 'OLSKQueue';
 import OLSKTransport from 'OLSKTransport';
+import OLSKHash from 'OLSKHash';
 import zerodatawrap from 'zerodatawrap';
 
 const mod = {
@@ -401,6 +402,14 @@ const mod = {
 		});
 	},
 
+	OLSKHashDispatchInitialize (inputData) {
+		if (inputData[JBXPlayLogic.JBXPlayAddAnchor()]) {
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayAddAnchor()]);
+		}
+	},
+
+	OLSKHashDispatchChange (inputData) {},
+
 	ZDRSchemaDispatchSyncCreateDocument (inputData) {
 		mod._OLSKCatalog.modPublic.OLSKCatalogInsert(inputData);
 	},
@@ -549,6 +558,10 @@ const mod = {
 
 	SetupValueFetchQueue() {
 		mod._ValueFetchQueue = OLSKQueue.OLSKQueueAPI();
+	},
+
+	SetupHash() {
+		OLSKHash.OLSKHashSetup(mod);
 	},
 
 	SetupLoading () {

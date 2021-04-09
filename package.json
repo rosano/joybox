@@ -53,6 +53,7 @@
     "OLSKRouting": "olsk/OLSKRouting",
     "OLSKQueue": "olsk/OLSKQueue",
     "OLSKDOM": "olsk/OLSKDOM",
+    "OLSKHash": "olsk/OLSKHash",
     "launchlet": "latest",
 
     "// tech-robots": null,
