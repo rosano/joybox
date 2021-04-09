@@ -543,7 +543,7 @@ const mod = {
 		}));
 	},
 
-	async SetupValueFetchQueue() {
+	SetupValueFetchQueue() {
 		mod._ValueFetchQueue = OLSKQueue.OLSKQueueAPI();
 	},
 
