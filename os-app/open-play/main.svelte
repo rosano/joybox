@@ -212,7 +212,7 @@ const mod = {
 		}
 	},
 
-	ControlTextAdd (inputData) {
+	ControlTextAdd (inputData, JBXDocumentName) {
 		const disableDuplicateURLs = false;
 
 		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
@@ -221,7 +221,11 @@ const mod = {
 			return !!e;
 		});
 
-		JBXPlayLogic.JBXPlayDocuments(inputData).filter(function (e) {
+		JBXPlayLogic.JBXPlayDocuments(inputData).map(function (e) {
+			return JBXDocumentName ? Object.assign(e, {
+				JBXDocumentName,
+			}) : e;
+		}).filter(function (e) {
 			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
 		}).map(mod.ControlDocumentAdd);
 	},
@@ -404,7 +408,7 @@ const mod = {
 
 	OLSKHashDispatchInitialize (inputData) {
 		if (inputData[JBXPlayLogic.JBXPlayDataAnchor()]) {
-			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayDataAnchor()]);
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayDataAnchor()], inputData[JBXPlayLogic.JBXPlayNameAnchor()]);
 		}
 	},
 

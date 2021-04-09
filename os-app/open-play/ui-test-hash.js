@@ -6,6 +6,7 @@ describe('JBXPlay_Hash', function () {
 
 	const OLSKRoutingHash = {
 		[JBXPlayLogic.JBXPlayDataAnchor()]: uLink(Math.random().toString()),
+		[JBXPlayLogic.JBXPlayNameAnchor()]: Math.random().toString(),
 	};
 
 	before(function() {
@@ -26,6 +27,10 @@ describe('JBXPlay_Hash', function () {
 
 		it('binds JBXDocumentURL', function () {
 			browser.assert.input(JBXPlayDetailMediaURLField, OLSKRoutingHash[JBXPlayLogic.JBXPlayDataAnchor()]);
+		});
+
+		it('binds JBXDocumentName', function () {
+			browser.assert.input(JBXPlayDetailFormNameField, OLSKRoutingHash[JBXPlayLogic.JBXPlayNameAnchor()]);
 		});
 	
 	});
