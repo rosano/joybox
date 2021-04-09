@@ -16,7 +16,7 @@ exports.OLSKControllerRoutes = function () {
 					});
 				}, {}), {
 					JBXPlayRoute: res.locals.OLSKCanonical('JBXPlayRoute'),
-					JBXGuideTokenOrigin: req.protocol + '://' + req.get('host'),
+					JBX_GUIDE_BOOKMARKLET_ORIGIN: process.env.JBX_GUIDE_BOOKMARKLET_ORIGIN,
 				})),
 			});
 		},
