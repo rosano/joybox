@@ -221,13 +221,13 @@ const mod = {
 			return !!e;
 		});
 
-		JBXPlayLogic.JBXPlayDocuments(inputData).map(function (e) {
+		return Promise.all(JBXPlayLogic.JBXPlayDocuments(inputData).map(function (e) {
 			return JBXDocumentName ? Object.assign(e, {
 				JBXDocumentName,
 			}) : e;
 		}).filter(function (e) {
 			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
-		}).map(mod.ControlDocumentAdd);
+		}).map(mod.ControlDocumentAdd));
 	},
 
 	async ControlDocumentAdd (inputData) {
@@ -408,7 +408,13 @@ const mod = {
 
 	OLSKHashDispatchInitialize (inputData) {
 		if (inputData[JBXPlayLogic.JBXPlayDataAnchor()]) {
-			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayDataAnchor()], inputData[JBXPlayLogic.JBXPlayNameAnchor()]);
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayDataAnchor()], inputData[JBXPlayLogic.JBXPlayNameAnchor()]).then(function () {
+				return !OLSK_SPEC_UI() && new Promise(function () {
+					return setTimeout(function () {
+						return window.close();
+					}, 100);
+				});
+			});
 		}
 	},
 
@@ -565,7 +571,7 @@ const mod = {
 	},
 
 	SetupHash() {
-		OLSKHash.OLSKHashSetup(mod);
+		return OLSKHash.OLSKHashSetup(mod);
 	},
 
 	SetupLoading () {
