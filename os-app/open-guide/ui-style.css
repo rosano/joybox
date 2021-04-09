@@ -1,0 +1,9 @@
+.JBXGuideBookmarklet {
+	padding: 5px;
+	display: inline-block;
+
+	border: 1px var(--OLSKCommonBorderColor) dashed;
+	border-radius: 5px;
+	
+	background: var(--OLSKCommonInteractiveFill);
+}

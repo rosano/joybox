@@ -4,6 +4,24 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 
 </div>
 
+# Add with one click
+
+The following 'bookmarklets' can be dragged to your browser's favourites to do something special.
+
+|||
+:--- | ---
+| <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBXGuideTokenOriginJBXPlayRoute#JBXPlayDataAnchor='+encodeURIComponent(location.href)+'&JBXPlayNameAnchor='+encodeURIComponent(document.title),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
+| <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBXGuideTokenOriginJBXPlayRoute#JBXPlayDataAnchor='+encodeURIComponent(window.prompt()),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
+
+# API Parameters
+
+`JBXGuideTokenOriginJBXPlayRoute#PARAM=VALUE`
+
+| PARAM | description |
+:--- | ---
+| `JBXPlayDataAnchor` | Text input, can be a URL or plain text. |
+| `JBXPlayNameAnchor` | Text to be assigned to the item name. |
+
 # Shortcuts
 
 <div class="OLSKDecorNotice">

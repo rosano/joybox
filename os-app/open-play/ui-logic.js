@@ -2,6 +2,9 @@ import OLSKString from 'OLSKString';
 import OLSKDOM from 'OLSKDOM';
 import JBXDocument from '../_shared/JBXDocument/main.js';
 
+const kJBXPlayDataAnchor = 'data';
+const kJBXPlayNameAnchor = 'name';
+
 const uAscending = function (a, b) {
   return (a < b) ? -1 : ((a > b) ? 1 : 0);
 };
@@ -122,11 +125,11 @@ const mod = {
 	},
 
 	JBXPlayDataAnchor () {
-		return 'data';
+		return kJBXPlayDataAnchor;
 	},
 
 	JBXPlayNameAnchor () {
-		return 'name';
+		return kJBXPlayNameAnchor;
 	},
 
 };
