@@ -247,7 +247,7 @@ describe('JBXPlayDetail_Misc', function () {
 
 	describe('JBXPlayDetailMediaPlayer', function test_JBXPlayDetailMediaPlayer () {
 
-		it('sets binds JBXDocumentEmbedURL', function () {
+		it('binds JBXDocumentEmbedURL', function () {
 			browser.assert.attribute(JBXPlayDetailMediaPlayer, 'src', item.JBXDocumentEmbedURL);
 		});
 
@@ -263,7 +263,7 @@ describe('JBXPlayDetail_Misc', function () {
 			browser.assert.attribute(JBXPlayDetailMediaURLField, 'disabled', 	'');
 		});
 
-		it('sets binds JBXDocumentURL', function () {
+		it('binds JBXDocumentURL', function () {
 			browser.assert.input(JBXPlayDetailMediaURLField, item.JBXDocumentURL);
 		});
 	
@@ -323,7 +323,7 @@ describe('JBXPlayDetail_Misc', function () {
 			browser.assert.attribute(JBXPlayDetailFormNameField, 'type', 	'text');
 		});
 
-		it('sets binds JBXDocumentName', function () {
+		it('binds JBXDocumentName', function () {
 			browser.assert.input(JBXPlayDetailFormNameField, item.JBXDocumentName);
 		});
 
@@ -347,7 +347,7 @@ describe('JBXPlayDetail_Misc', function () {
 
 	describe('JBXPlayDetailFormNotesField', function test_JBXPlayDetailFormNotesField () {
 
-		it('sets binds JBXDocumentNotes', function () {
+		it('binds JBXDocumentNotes', function () {
 			browser.assert.input(JBXPlayDetailFormNotesField, item.JBXDocumentNotes);
 		});
 
