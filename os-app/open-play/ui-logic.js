@@ -125,6 +125,10 @@ const mod = {
 		return 'add';
 	},
 
+	JBXPlayNameAnchor () {
+		return 'name';
+	},
+
 };
 
 export default mod;
