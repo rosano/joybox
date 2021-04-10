@@ -10,6 +10,8 @@
 
 	--OLSKChunkHeadingBorderColor: #555;
 	--OLSKChunkHeadingBackground: #444;
+
+	--OLSKInputBackground: #333;
 }
 
 svg * {
