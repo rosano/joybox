@@ -9,7 +9,7 @@ describe('JBXRootLink_Misc', function () {
 	describe('OLSKRootLink', function () {
 		
 		it('sets OLSKRootLinkImageURL', function () {
-			browser.assert.attribute('.OLSKRootLinkImage', 'src', process.env.OLSK_LAYOUT_TOUCH_ICON_URL);
+			browser.assert.attribute('.OLSKRootLinkImage', 'src', '/_shared/JBXRootLink/ui-assets/identity.svg');
 		});
 	
 	});
