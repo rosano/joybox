@@ -6,3 +6,7 @@
 body {
 	background: var(--OLSKCommonBackground);
 }
+
+a {
+	color: rgb(237, 59, 28);
+}
