@@ -1,6 +1,7 @@
 :root {
 	--OLSKCommonBackground: rgb(254, 247, 177);
 	--OLSKCommonForeground: #333;
+	--OLSKCommonEdgeColor: #999;
 }
 
 body {
