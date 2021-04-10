@@ -54,6 +54,7 @@
     "OLSKQueue": "olsk/OLSKQueue",
     "OLSKDOM": "olsk/OLSKDOM",
     "OLSKHash": "olsk/OLSKHash",
+    "OLSKMoment": "olsk/OLSKMoment",
     "launchlet": "latest",
 
     "// tech-robots": null,

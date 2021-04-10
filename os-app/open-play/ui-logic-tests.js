@@ -1,6 +1,7 @@
 const { throws, rejects, deepEqual } = require('assert');
 
 const mod = require('./ui-logic.js').default;
+const OLSKMoment = require('OLSKMoment');
 import { JSDOM } from 'jsdom';
 
 const uLocalized = function (inputData) {
@@ -103,6 +104,51 @@ describe('JBXPlayExactSortFunction', function test_JBXPlayExactSortFunction() {
 		}, {
 			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
 		}), 1);
+	});
+
+});
+
+describe('JBXPlayChunkFunction', function test_JBXPlayChunkFunction() {
+
+	const _JBXPlayChunkFunction = function (inputData) {
+		return mod.JBXPlayChunkFunction([stub], uLocalized);
+	};
+
+	it('throws if not array', function () {
+		throws(function () {
+			mod.JBXPlayChunkFunction(null);
+		}, /JBXErrorInputNotValid/);
+	});
+
+	it('returns object', function() {
+		deepEqual(mod.JBXPlayChunkFunction([]), {});
+	});
+
+	it('groups if today', function() {
+		const item = {
+			JBXDocumentCreationDate: OLSKMoment.OLSKMomentPerceptionDate(new Date()),
+		};
+		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
+			[uLocalized('JBXPlayChunkTodayText')]: [item],
+		});
+	});
+
+	it('groups if yesterday', function() {
+		const item = {
+			JBXDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1),
+		};
+		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
+			[uLocalized('JBXPlayChunkYesterdayText')]: [item],
+		});
+	});
+
+	it('groups if before yesterday', function() {
+		const item = {
+			JBXDocumentCreationDate: new Date(OLSKMoment.OLSKMomentPerceptionDate(new Date()) - 1000 * 60 * 60 * 24 - 1),
+		};
+		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
+			[OLSKMoment.OLSKMomentPerceptionDate(item.JBXDocumentCreationDate).toLocaleDateString()]: [item],
+		});
 	});
 
 });

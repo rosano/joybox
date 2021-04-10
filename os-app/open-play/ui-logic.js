@@ -1,5 +1,6 @@
 import OLSKString from 'OLSKString';
 import OLSKDOM from 'OLSKDOM';
+import OLSKMoment from 'OLSKMoment';
 import JBXDocument from '../_shared/JBXDocument/main.js';
 
 const kJBXPlayDataAnchor = 'data';
@@ -55,6 +56,33 @@ const mod = {
 		}, []).filter(function (e) {
 			return e !== 0;
 		}).shift();
+	},
+
+	_JBXPlayChunk (inputData, OLSKLocalized) {
+		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
+
+		if (inputData.JBXDocumentCreationDate >= today) {
+			return OLSKLocalized('JBXPlayChunkTodayText');
+		}
+
+		if (inputData.JBXDocumentCreationDate >= (new Date(today - 1000 * 60 * 60 * 24))) {
+			return OLSKLocalized('JBXPlayChunkYesterdayText');
+		}
+
+		return OLSKMoment.OLSKMomentPerceptionDate(inputData.JBXDocumentCreationDate).toLocaleDateString();
+	},
+
+	JBXPlayChunkFunction (inputData, OLSKLocalized) {
+		if (!Array.isArray(inputData)) {
+			throw new Error('JBXErrorInputNotValid');
+		}
+
+		return inputData.reduce(function (coll, item) {
+			const group = mod._JBXPlayChunk(item, OLSKLocalized);
+			return Object.assign(coll, {
+				[group]: (coll[group] || []).concat(item),
+			});
+		}, {});
 	},
 
 	JBXPlayDocuments (inputData) {
