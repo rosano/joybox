@@ -2,6 +2,9 @@
 	--OLSKCommonBackground: rgb(254, 247, 177);
 	--OLSKCommonForeground: #333;
 	--OLSKCommonEdgeColor: #999;
+
+	--OLSKCodeForeground: #7c7b5b;
+	--OLSKCodeBackground: #e8e1a3;
 }
 
 body {
