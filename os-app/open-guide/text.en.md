@@ -15,12 +15,12 @@ The following 'bookmarklets' can be dragged to your browser's favourites to do s
 
 # API Parameters
 
-`JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#PARAM=VALUE`
+`JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#PARAM=TEXT`
 
-| PARAM | description |
+| PARAM | TEXT |
 :--- | ---
-| `JBXPlayDataAnchor` | Text input, can be a URL or plain text. |
-| `JBXPlayNameAnchor` | Text to be assigned to the item name. |
+| `JBXPlayDataAnchor` | URL or plain text. |
+| `JBXPlayNameAnchor` | Item name. Note if multiple items are present in `JBXPlayDataAnchor`, this will set the name for all items. |
 
 # Shortcuts
 
