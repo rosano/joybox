@@ -299,6 +299,10 @@ const mod = {
 		return inputData.JBXDocumentID;
 	},
 
+	OLSKCollectionChunkFunction (inputData) {
+		return JBXPlayLogic.JBXPlayChunkFunction(inputData, OLSKLocalized);
+	},
+
 	OLSKCollectionDispatchClick (inputData) {
 		mod.ControlDocumentActivate(inputData);
 	},
@@ -631,6 +635,8 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCatalogExactSortFunction={ JBXPlayLogic.JBXPlayExactSortFunction }
 
 	_OLSKCatalogDispatchKey={ mod._OLSKCatalogDispatchKey }
+
+	OLSKCollectionChunkFunction={ mod.OLSKCollectionChunkFunction }
 
 	OLSKCollectionDispatchClick={ mod.OLSKCollectionDispatchClick }
 	OLSKCollectionDispatchArrow={ mod.OLSKCollectionDispatchArrow }
