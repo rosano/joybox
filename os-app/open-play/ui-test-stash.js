@@ -34,4 +34,24 @@ describe('JBXPlay_Stash', function () {
 		browser.assert.elements('.OLSKCollectionItemStashStatus', count);
 	});
 
+	context('OLSKCatalogDispatchStash', function () {
+		
+		Array.from(Array(stash)).forEach(function (e, i) {
+			
+			before(function () {
+				return browser.click(`.OLSKCollectionItem:nth-child(${ i + 1 })`);
+			});
+
+		});
+		
+		before(function () {
+			return browser.click('.OLSKCatalogStashDoneButton');
+		});
+
+		it('shows JBXPlayListItem', function () {
+			browser.assert.elements(`${ JBXPlayShareModal } .JBXPlayListItem`, stash);
+		});
+	
+	});
+	
 });

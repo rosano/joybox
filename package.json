@@ -57,6 +57,9 @@
     "OLSKMoment": "olsk/OLSKMoment",
     "launchlet": "latest",
 
+    "// sub-share": null,
+    "svelte-dragdroplist": "rosano/svelte-dragdroplist",
+
     "// tech-robots": null,
     "OLSKRobots": "olsk/OLSKRobots",
 

@@ -156,6 +156,40 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 		});
 
+		describe('JBXPlayShareModal', function test_JBXPlayShareModal() {
+
+			before(function() {
+				return browser.OLSKVisit(kDefaultRoute, {
+					OLSKRoutingLanguage,
+				});
+			});
+
+			before(function () {
+				return browser.pressButton(JBXPlayToggleFormButton);
+			});
+
+			before(function () {
+				browser.fill(JBXPlayFormField, Math.random().toString());
+			});
+
+			before(function () {
+				return browser.pressButton(JBXPlayFormSubmitButton);
+			});
+
+			before(function () {
+				return browser.pressButton(JBXPlayStashButton);
+			});
+
+			before(function () {
+				return browser.click('.OLSKCatalogStashDoneButton');
+			});
+
+			it('sets OLSKModalViewTitleText', function () {
+				browser.assert.text('.OLSKModalViewTitle', uLocalized('JBXPlayShareModalTitleText'));
+			});
+
+		});
+
 	});
 
 });

@@ -326,6 +326,9 @@ const mod = {
 	OLSKCatalogDispatchQuantity () {},
 
 	OLSKCatalogDispatchStash (inputData) {
+		mod._JBXPlayShareItems = inputData;
+		
+		mod._JBXPlayShareModal.modPublic.OLSKModalViewShow();
 	},
 
 	OLSKAppToolbarDispatchApropos () {
@@ -615,6 +618,7 @@ onMount(mod.LifecycleModuleWillMount);
 import OLSKCatalog from 'OLSKCatalog';
 import JBXPlayListItem from '../sub-listing/main.svelte';
 import JBXPlayDetail from '../sub-detail/main.svelte';
+import JBXPlayShare from '../sub-share/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
 import OLSKInstall from 'OLSKInstall';
@@ -757,6 +761,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<OLSKApropos
 		OLSKAproposFeedbackValue={ `javascript:window.location.href = window.atob('${ window.btoa(OLSKString.OLSKStringFormatted(window.atob('OLSK_APROPOS_FEEDBACK_EMAIL_SWAP_TOKEN'), 'RP_X' + (mod._ValueFundClue ? '+' + mod._ValueFundClue : ''))) }')` }
 		/>
+</OLSKModalView>
+
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('JBXPlayShareModalTitleText') } bind:this={ mod._JBXPlayShareModal }>
+	<div>
+		<JBXPlayShare JBXPlayShareItems={ mod._JBXPlayShareItems } />
+	</div>
 </OLSKModalView>
 
 <style>

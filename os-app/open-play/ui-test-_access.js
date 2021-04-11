@@ -20,6 +20,8 @@ Object.entries({
 	JBXPlayViewportFooter: '.JBXPlayViewportFooter',
 	
 	JBXPlayCloudToolbar: '.JBXPlayCloudToolbar',
+	
+	JBXPlayShareModal: '.OLSKModalView .JBXPlayShare',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -96,6 +98,10 @@ describe('JBXPlay_Access', function () {
 
 	it('shows OLSKInstall', function () {
 		browser.assert.elements('.OLSKInstall', 1);
+	});
+
+	it('hides JBXPlayShareModal', function () {
+		browser.assert.elements(JBXPlayShareModal, 0);
 	});
 
 	it('hides JBXPlayDetailLauncherFakeItemProxy', function () {
@@ -268,6 +274,38 @@ describe('JBXPlay_Access', function () {
 		
 		});
 
+	});
+
+	context('stash', function () {
+		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute);
+		});
+
+		before(function () {
+			return browser.pressButton(JBXPlayToggleFormButton);
+		});
+
+		before(function () {
+			browser.fill(JBXPlayFormField, Math.random().toString());
+		});
+
+		before(function () {
+			return browser.pressButton(JBXPlayFormSubmitButton);
+		});
+
+		before(function () {
+			return browser.pressButton(JBXPlayStashButton);
+		});
+
+		before(function () {
+			return browser.click('.OLSKCatalogStashDoneButton');
+		});
+
+		it('shows JBXPlayShareModal', function () {
+			browser.assert.elements(JBXPlayShareModal, 1);
+		});
+	
 	});
 
 });
