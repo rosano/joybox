@@ -24,10 +24,6 @@ describe('JBXPlayListItem_Misc', function () {
 		it('classes OLSKCommonCard', function () {
 			browser.assert.hasClass(JBXPlayListItem, 'OLSKCommonCard');
 		});
-
-		it('classes OLSKCommonEdgeBottom', function () {
-			browser.assert.hasClass(JBXPlayListItem, 'OLSKCommonEdgeBottom');
-		});
 		
 	});
 

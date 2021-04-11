@@ -84,6 +84,9 @@ describe('JBXPlay_Misc', function () {
 			return browser.pressButton(JBXPlayFormSubmitButton);
 		});
 
+		it('classes OLSKCommonEdgeBottom', function () {
+			browser.assert.hasClass('.OLSKCollectionItem', 'OLSKCommonEdgeBottom');
+		});
 		before(function () {
 			return browser.click(JBXPlayListItem);
 		});
