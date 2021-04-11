@@ -18,6 +18,30 @@ describe('JBXPlay_Misc', function () {
 		browser.assert.attribute('meta[name=apple-mobile-web-app-capable]', 'content', 'yes');
 	});
 
+	describe('JBXPlayStashButton', function test_JBXPlayStashButton () {
+		
+		it('classes OLSKDecorButtonNoStyle', function () {
+			browser.assert.hasClass(JBXPlayStashButton, 'OLSKDecorButtonNoStyle');
+		});
+
+		it('classes OLSKDecorTappable', function () {
+			browser.assert.hasClass(JBXPlayStashButton, 'OLSKDecorTappable');
+		});
+
+		it('classes OLSKToolbarButton', function () {
+			browser.assert.hasClass(JBXPlayStashButton, 'OLSKToolbarButton');
+		});
+		
+	});
+
+	describe('JBXPlayStashButtonImage', function test_JBXPlayStashButtonImage () {
+
+		it('sets src', function () {
+			browser.assert.elements(`${ JBXPlayStashButtonImage } #_OLSKSharedStash`, 1);
+		});
+	
+	});
+
 	describe('JBXPlayToggleFormButton', function test_JBXPlayToggleFormButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
@@ -74,8 +98,8 @@ describe('JBXPlay_Misc', function () {
 	
 	});
 
-	context('select', function test_select () {
-		
+	describe('OLSKCollectionItem', function test_OLSKCollectionItem () {
+
 		before(function () {
 			browser.fill(JBXPlayFormField, Math.random().toString());
 		});
@@ -87,6 +111,11 @@ describe('JBXPlay_Misc', function () {
 		it('classes OLSKCommonEdgeBottom', function () {
 			browser.assert.hasClass('.OLSKCollectionItem', 'OLSKCommonEdgeBottom');
 		});
+	
+	});
+
+	context('select', function test_select () {
+		
 		before(function () {
 			return browser.click(JBXPlayListItem);
 		});

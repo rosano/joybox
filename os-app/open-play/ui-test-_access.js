@@ -3,6 +3,9 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 Object.entries({
 	JBXPlay: '.JBXPlay',
 	
+	JBXPlayStashButton: '.JBXPlayStashButton',
+	JBXPlayStashButtonImage: '.JBXPlayStashButtonImage',
+	
 	JBXPlayToggleFormButton: '.JBXPlayToggleFormButton',
 	JBXPlayToggleFormButtonImage: '.JBXPlayToggleFormButtonImage',
 
@@ -33,6 +36,14 @@ describe('JBXPlay_Access', function () {
 
 	it('shows OLSKCatalog', function () {
 		browser.assert.elements('.OLSKCatalog', 1);
+	});
+
+	it('shows JBXPlayStashButton', function () {
+		browser.assert.elements(JBXPlayStashButton, 1);
+	});
+
+	it('shows JBXPlayStashButtonImage', function () {
+		browser.assert.elements(JBXPlayStashButtonImage, 1);
 	});
 
 	it('shows JBXPlayToggleFormButton', function () {

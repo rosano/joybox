@@ -197,6 +197,10 @@ const mod = {
 		handlerFunctions[event.key] && handlerFunctions[event.key]();
 	},
 
+	InterfaceStashButtonDidClick () {
+		mod._OLSKCatalog.modPublic.OLSKCatalogStashEnabled(true);
+	},
+
 	// CONTROL
 
 	ControlDocumentSave(inputData) {
@@ -320,6 +324,9 @@ const mod = {
 	},
 
 	OLSKCatalogDispatchQuantity () {},
+
+	OLSKCatalogDispatchStash (inputData) {
+	},
 
 	OLSKAppToolbarDispatchApropos () {
 		mod._OLSKModalView.modPublic.OLSKModalViewShow();
@@ -644,6 +651,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCatalogDispatchArchivedHide={ mod.OLSKCatalogDispatchArchivedHide }
 	OLSKCatalogDispatchArchivedShow={ mod.OLSKCatalogDispatchArchivedShow }
 	OLSKCatalogDispatchQuantity={ mod.OLSKCatalogDispatchQuantity }
+	OLSKCatalogDispatchStash={ mod.OLSKCatalogDispatchStash }
 
 	let:OLSKCollectionItem
 	>
@@ -651,6 +659,9 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<!-- MASTER -->
 
 	<div class="OLSKToolbarElementGroup" slot="OLSKMasterListToolbarTail">
+		<button class="JBXPlayStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
+			<div class="JBXPlayStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
+		</button>
 		<button class="JBXPlayToggleFormButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayToggleFormButtonText') } on:click={ mod.InterfaceAddButtonDidClick } accesskey="n">
 			<div class="JBXPlayToggleFormButtonImage">{@html OLSKUIAssets._OLSKSharedCreate }</div>
 		</button>

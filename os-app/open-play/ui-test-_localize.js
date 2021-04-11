@@ -20,6 +20,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text('title', uLocalized('JBXPlayTitle'));
 		});
 
+		it('localizes JBXPlayStashButton', function () {
+			browser.assert.attribute(JBXPlayStashButton, 'title', uLocalized('JBXPlayStashButtonText'));
+		});
+
 		it('localizes JBXPlayToggleFormButton', function () {
 			browser.assert.attribute(JBXPlayToggleFormButton, 'title', uLocalized('JBXPlayToggleFormButtonText'));
 		});
