@@ -78,7 +78,9 @@ const mod = {
 				{
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncCreateDocument () {
-						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.FakeDocumentObjectValid('FakeZDRSchemaDispatchSyncCreateDocument')));
+						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObjectValid({
+							JBXDocumentNotes: 'FakeZDRSchemaDispatchSyncCreateDocument',
+						})));
 					},
 				},
 				{
@@ -166,10 +168,12 @@ const mod = {
 		return window.innerWidth <= 760;
 	},
 
-	FakeDocumentObjectValid(inputData) {
-		return {
-			JBXDocumentNotes: inputData || '',
-		};
+	DataStubDocumentObjectValid (inputData = {}) {
+		return Object.assign({
+			JBXDocumentNotes: '',
+			JBXDocumentCreationDate: new Date(),
+			JBXDocumentModificationDate: new Date(),
+		}, inputData);
 	},
 
 	// INTERFACE
@@ -242,6 +246,10 @@ const mod = {
 		}
 
 		mod.ControlDocumentFetch(inputData);
+	},
+	
+	async ControlInboxAdd (inputData) {
+		inputData.map(mod._OLSKCatalog.modPublic.OLSKCatalogInsert);
 	},
 	
 	_ControlHotfixUpdateInPlace(inputData) {
@@ -433,6 +441,14 @@ const mod = {
 					}, 100);
 				});
 			});
+		}
+
+		if (inputData[JBXPlayLogic.JBXPlayInboxAnchor()]) {
+			return mod.ControlInboxAdd(JSON.parse(inputData[JBXPlayLogic.JBXPlayInboxAnchor()]).map(function (e) {
+				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(), true))), {
+					$JBXDocumentIsInbox: true,
+				});
+			}));
 		}
 	},
 

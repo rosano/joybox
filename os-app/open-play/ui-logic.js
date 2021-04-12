@@ -26,6 +26,10 @@ const mod = {
 	},
 
 	JBXPlaySortFunction (a, b, log) {
+		if (a.$JBXDocumentIsInbox !== b.$JBXDocumentIsInbox) {
+			return uDescending(!!a.$JBXDocumentIsInbox, !!b.$JBXDocumentIsInbox);
+		}
+
 		if (a.JBXDocumentIsArchived !== b.JBXDocumentIsArchived) {
 			return uAscending(!!a.JBXDocumentIsArchived, !!b.JBXDocumentIsArchived);
 		}
@@ -61,6 +65,10 @@ const mod = {
 
 	_JBXPlayChunk (inputData, OLSKLocalized) {
 		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
+
+		if (inputData.$JBXDocumentIsInbox) {
+			return OLSKLocalized('JBXPlayChunkInboxText');
+		}
 
 		if (inputData.JBXDocumentCreationDate >= today) {
 			return OLSKLocalized('JBXPlayChunkTodayText');

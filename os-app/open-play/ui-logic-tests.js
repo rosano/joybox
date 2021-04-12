@@ -57,6 +57,18 @@ describe('JBXPlaySortFunction', function test_JBXPlaySortFunction() {
 		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
 	});
 
+	it('sorts $JBXDocumentIsInbox above others', function() {
+		const item1 = {
+			JBXDocumentCreationDate: new Date(1),
+		};
+		const item2 = {
+			JBXDocumentCreationDate: new Date(0),
+			$JBXDocumentIsInbox: true,
+		};
+
+		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
+	});
+
 });
 
 describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
@@ -122,6 +134,15 @@ describe('JBXPlayChunkFunction', function test_JBXPlayChunkFunction() {
 
 	it('returns object', function() {
 		deepEqual(mod.JBXPlayChunkFunction([]), {});
+	});
+
+	it('groups if inbox', function() {
+		const item = {
+			$JBXDocumentIsInbox: true,
+		};
+		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
+			[uLocalized('JBXPlayChunkInboxText')]: [item],
+		});
 	});
 
 	it('groups if today', function() {
