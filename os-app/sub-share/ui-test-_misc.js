@@ -2,6 +2,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 const JBXPlayLogic = require('../open-play/ui-logic.js').default;
 const OLSKHash = require('OLSKHash');
+const OLSKObject = require('OLSKObject').default;
 
 describe('JBXPlayShare_Misc', function () {
 
@@ -9,7 +10,9 @@ describe('JBXPlayShare_Misc', function () {
 
 	const uValue = function (inputData) {
 		return browser.window.location.origin + require('../open-play/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath + '/#' + OLSKHash.OLSKHashString({
-			[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify(inputData))
+			[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify(inputData.map(function (e) {
+				return OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(e));
+			}))),
 		});
 	};
 

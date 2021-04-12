@@ -380,3 +380,22 @@ describe('JBXPlayInboxAnchor', function test_JBXPlayInboxAnchor() {
 	});
 
 });
+
+describe('JBXPlayRemap', function test_JBXPlayRemap() {
+
+	it('returns object', function() {
+		deepEqual(mod.JBXPlayRemap(), {
+			JBXDocumentID: 'id',
+			JBXDocumentCreationDate: 'dateCreated	',
+			JBXDocumentModificationDate: 'dateModified',
+			JBXDocumentNotes: 'description',
+			JBXDocumentURL: 'url',
+			JBXDocumentName: 'name',
+			JBXDocumentEmbedURL: 'embedUrl',
+			JBXDocumentImageURL: 'image',
+			JBXDocumentDidFetch: 'didFetch',
+			JBXDocumentIsArchived: 'isArchived',
+		});
+	});
+
+});

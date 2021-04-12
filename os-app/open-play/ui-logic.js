@@ -165,6 +165,21 @@ const mod = {
 		return kJBXPlayInboxAnchor;
 	},
 
+	JBXPlayRemap () {
+		return {
+			JBXDocumentID: 'id',
+			JBXDocumentCreationDate: 'dateCreated	',
+			JBXDocumentModificationDate: 'dateModified',
+			JBXDocumentNotes: 'description',
+			JBXDocumentURL: 'url',
+			JBXDocumentName: 'name',
+			JBXDocumentEmbedURL: 'embedUrl',
+			JBXDocumentImageURL: 'image',
+			JBXDocumentDidFetch: 'didFetch',
+			JBXDocumentIsArchived: 'isArchived',
+		};
+	},
+
 };
 
 export default mod;
