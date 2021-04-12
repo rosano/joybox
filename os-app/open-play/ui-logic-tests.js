@@ -357,10 +357,10 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 
 });
 
-describe('JBXPlayDataAnchor', function test_JBXPlayDataAnchor() {
+describe('JBXPlayCaptureAnchor', function test_JBXPlayCaptureAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayDataAnchor(), 'data');
+		deepEqual(mod.JBXPlayCaptureAnchor(), 'data');
 	});
 
 });

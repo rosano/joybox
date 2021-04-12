@@ -421,8 +421,8 @@ const mod = {
 	},
 
 	OLSKHashDispatchInitialize (inputData) {
-		if (inputData[JBXPlayLogic.JBXPlayDataAnchor()]) {
-			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayDataAnchor()], inputData[JBXPlayLogic.JBXPlayNameAnchor()]).then(function () {
+		if (inputData[JBXPlayLogic.JBXPlayCaptureAnchor()]) {
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayCaptureAnchor()], inputData[JBXPlayLogic.JBXPlayNameAnchor()]).then(function () {
 				return !OLSK_SPEC_UI() && new Promise(function () {
 					return setTimeout(function () {
 						return window.close();

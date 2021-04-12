@@ -3,7 +3,7 @@ import OLSKDOM from 'OLSKDOM';
 import OLSKMoment from 'OLSKMoment';
 import JBXDocument from '../_shared/JBXDocument/main.js';
 
-const kJBXPlayDataAnchor = 'data';
+const kJBXPlayCaptureAnchor = 'capture';
 const kJBXPlayNameAnchor = 'name';
 const kJBXPlayInboxAnchor = 'inbox';
 
@@ -153,8 +153,8 @@ const mod = {
 		});
 	},
 
-	JBXPlayDataAnchor () {
-		return kJBXPlayDataAnchor;
+	JBXPlayCaptureAnchor () {
+		return kJBXPlayCaptureAnchor;
 	},
 
 	JBXPlayNameAnchor () {

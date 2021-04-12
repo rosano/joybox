@@ -5,7 +5,7 @@ const JBXPlayLogic = require('./ui-logic.js').default;
 describe('JBXPlay_Hash', function () {
 
 	const OLSKRoutingHash = {
-		[JBXPlayLogic.JBXPlayDataAnchor()]: uLink(Math.random().toString()),
+		[JBXPlayLogic.JBXPlayCaptureAnchor()]: uLink(Math.random().toString()),
 		[JBXPlayLogic.JBXPlayNameAnchor()]: Math.random().toString(),
 	};
 
@@ -26,7 +26,7 @@ describe('JBXPlay_Hash', function () {
 		});
 
 		it('binds JBXDocumentURL', function () {
-			browser.assert.input(JBXPlayDetailMediaURLField, OLSKRoutingHash[JBXPlayLogic.JBXPlayDataAnchor()]);
+			browser.assert.input(JBXPlayDetailMediaURLField, OLSKRoutingHash[JBXPlayLogic.JBXPlayCaptureAnchor()]);
 		});
 
 		it('binds JBXDocumentName', function () {
