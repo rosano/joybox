@@ -360,7 +360,7 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 describe('JBXPlayCaptureAnchor', function test_JBXPlayCaptureAnchor() {
 
 	it('returns string', function() {
-		deepEqual(mod.JBXPlayCaptureAnchor(), 'data');
+		deepEqual(mod.JBXPlayCaptureAnchor(), 'capture');
 	});
 
 });
