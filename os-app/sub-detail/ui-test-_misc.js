@@ -409,4 +409,24 @@ describe('JBXPlayDetail_Misc', function () {
 
 	});
 
+	context('$JBXDocumentIsInbox', function() {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					$JBXDocumentIsInbox: true,
+				})),
+			});
+		});
+
+		it('disables JBXPlayDetailFormNameField', function () {
+			browser.assert.attribute(JBXPlayDetailFormNameField, 'disabled', '');
+		});
+
+		it('disables JBXPlayDetailFormNotesField', function () {
+			browser.assert.attribute(JBXPlayDetailFormNotesField, 'disabled', '');
+		});
+
+	});
+
 });

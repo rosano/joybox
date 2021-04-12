@@ -178,4 +178,40 @@ describe('JBXPlayDetail_Access', function () {
 
 	});
 
+	context('$JBXDocumentIsInbox', function() {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+					$JBXDocumentIsInbox: true,
+				})),
+			});
+		});
+
+		it('hides JBXPlayDetailToolbarArchiveButton', function () {
+			browser.assert.elements(JBXPlayDetailToolbarArchiveButton, 0);
+		});
+
+		it('hides JBXPlayDetailToolbarUnarchiveButton', function () {
+			browser.assert.elements(JBXPlayDetailToolbarUnarchiveButton, 0);
+		});
+
+		it('hides JBXPlayDetailToolbarDiscardButton', function () {
+			browser.assert.elements(JBXPlayDetailToolbarDiscardButton, 0);
+		});
+
+		it('hides JBXPlayDetailMediaFetchButton', function () {
+			browser.assert.elements(JBXPlayDetailMediaFetchButton, 0);
+		});
+
+		it('hides JBXPlayDetailLauncherItemArchive', function () {
+			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemArchive', 0);
+		});
+
+		it('hides JBXPlayDetailLauncherItemUnarchive', function () {
+			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemUnarchive', 0);
+		});
+
+	});
+
 });

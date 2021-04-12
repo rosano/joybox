@@ -26,7 +26,7 @@ const mod = {
 	DataPlayDetailRecipes () {
 		const outputData = [];
 
-		if (!JBXPlayDetailItem.JBXDocumentIsArchived) {
+		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && !JBXPlayDetailItem.JBXDocumentIsArchived) {
 			outputData.push({
 				LCHRecipeSignature: 'JBXPlayDetailLauncherItemArchive',
 				LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText'),
@@ -36,7 +36,7 @@ const mod = {
 			})
 		}
 
-		if (JBXPlayDetailItem.JBXDocumentIsArchived) {
+		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && JBXPlayDetailItem.JBXDocumentIsArchived) {
 			outputData.push({
 				LCHRecipeSignature: 'JBXPlayDetailLauncherItemUnarchive',
 				LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarUnarchiveButtonText'),
@@ -69,6 +69,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		</button>
 	</div>
 
+	{#if !JBXPlayDetailItem.$JBXDocumentIsInbox }
 	<div class="OLSKToolbarElementGroup">
 		{#if !JBXPlayDetailItem.JBXDocumentIsArchived }
 			<button class="JBXPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText') } on:click={ JBXPlayDetailDispatchArchive }>
@@ -86,6 +87,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			<div class="JBXPlayDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
 		</button>
 	</div>
+	{/if}
 </header>
 
 </div>
@@ -104,7 +106,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<p>
 		<a class="JBXPlayDetailMediaOpenButton OLSKDecorPress" href={ JBXPlayDetailItem.JBXDocumentURL } target="_blank">{ OLSKLocalized('JBXPlayDetailMediaOpenButtonText') }</a>
 
-		<button class="JBXPlayDetailMediaFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailMediaFetchButtonText') }</button>
+		{#if !JBXPlayDetailItem.$JBXDocumentIsInbox }
+			<button class="JBXPlayDetailMediaFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailMediaFetchButtonText') }</button>
+		{/if}
+
 	</p>
 
 	<hr role="presentation" />
@@ -115,10 +120,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 <div class="JBXPlayDetailForm OLSKDecor OLSKDecorBigForm">
 
 <p>
-	<input class="JBXPlayDetailFormNameField" placeholder={ OLSKLocalized('JBXPlayDetailFormNameFieldText') } type="text" bind:value={ JBXPlayDetailItem.JBXDocumentName } on:input={ JBXPlayDetailDispatchUpdate } />
+	<input class="JBXPlayDetailFormNameField" placeholder={ OLSKLocalized('JBXPlayDetailFormNameFieldText') } type="text" bind:value={ JBXPlayDetailItem.JBXDocumentName } on:input={ JBXPlayDetailDispatchUpdate } disabled={ JBXPlayDetailItem.$JBXDocumentIsInbox ? true : null } />
 </p>
 
-<textarea class="JBXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JBXPlayDetailFormNotesFieldText') }" bind:value={ JBXPlayDetailItem.JBXDocumentNotes } on:input={ JBXPlayDetailDispatchUpdate }></textarea>
+<textarea class="JBXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JBXPlayDetailFormNotesFieldText') }" bind:value={ JBXPlayDetailItem.JBXDocumentNotes } on:input={ JBXPlayDetailDispatchUpdate } disabled={ JBXPlayDetailItem.$JBXDocumentIsInbox ? true : null }></textarea>
 
 </div>
 
