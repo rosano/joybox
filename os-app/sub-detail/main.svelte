@@ -6,6 +6,7 @@ export let JBXPlayDetailDispatchUnarchive;
 export let JBXPlayDetailDispatchFetch;
 export let JBXPlayDetailDispatchUpdate;
 export let JBXPlayDetailDispatchDiscard;
+export let JBXPlayDetailDispatchQueue;
 export let _DebugLauncher = false;
 
 export const modPublic = {
@@ -69,7 +70,18 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		</button>
 	</div>
 
+	{#if JBXPlayDetailItem.$JBXDocumentIsInbox }
+
+	<div class="OLSKToolbarElementGroup">
+		<button class="JBXPlayDetailToolbarQueueButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarQueueButtonText') } on:click={ JBXPlayDetailDispatchQueue }>
+			<div class="JBXPlayDetailToolbarQueueButtonImage">{@html OLSKUIAssets._OLSKSharedClone }</div>
+		</button>
+	</div>
+
+	{/if}
+
 	{#if !JBXPlayDetailItem.$JBXDocumentIsInbox }
+
 	<div class="OLSKToolbarElementGroup">
 		{#if !JBXPlayDetailItem.JBXDocumentIsArchived }
 			<button class="JBXPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText') } on:click={ JBXPlayDetailDispatchArchive }>
@@ -87,6 +99,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			<div class="JBXPlayDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
 		</button>
 	</div>
+	
 	{/if}
 </header>
 

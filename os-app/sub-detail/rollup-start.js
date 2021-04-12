@@ -23,6 +23,9 @@ const JBXPlayDetail = new RollupStart({
 		JBXPlayDetailDispatchDiscard: (function  () {
 			window.TestJBXPlayDetailDispatchDiscard.innerHTML = parseInt(window.TestJBXPlayDetailDispatchDiscard.innerHTML) + 1;
 		}),
+		JBXPlayDetailDispatchQueue: (function  () {
+			window.TestJBXPlayDetailDispatchQueue.innerHTML = parseInt(window.TestJBXPlayDetailDispatchQueue.innerHTML) + 1;
+		}),
 		_DebugLauncher: true,
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
 		if (['JBXPlayDetailItem'].includes(e[0])) {

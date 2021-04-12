@@ -7,6 +7,9 @@ Object.entries({
 	
 	JBXPlayDetailToolbarBackButton: '.JBXPlayDetailToolbarBackButton',
 	JBXPlayDetailToolbarBackButtonImage: '.JBXPlayDetailToolbarBackButtonImage',
+
+	JBXPlayDetailToolbarQueueButton: '.JBXPlayDetailToolbarQueueButton',	
+	JBXPlayDetailToolbarQueueButtonImage: '.JBXPlayDetailToolbarQueueButtonImage',
 	
 	JBXPlayDetailToolbarArchiveButton: '.JBXPlayDetailToolbarArchiveButton',
 	JBXPlayDetailToolbarArchiveButtonImage: '.JBXPlayDetailToolbarArchiveButtonImage',
@@ -51,6 +54,10 @@ describe('JBXPlayDetail_Access', function () {
 
 	it('shows JBXPlayDetailToolbarBackButtonImage', function () {
 		browser.assert.elements(JBXPlayDetailToolbarBackButtonImage, 1);
+	});
+
+	it('hides JBXPlayDetailToolbarQueueButton', function () {
+		browser.assert.elements(JBXPlayDetailToolbarQueueButton, 0);
 	});
 
 	it('shows JBXPlayDetailToolbarArchiveButton', function () {
@@ -186,6 +193,14 @@ describe('JBXPlayDetail_Access', function () {
 					$JBXDocumentIsInbox: true,
 				})),
 			});
+		});
+
+		it('shows JBXPlayDetailToolbarQueueButton', function () {
+			browser.assert.elements(JBXPlayDetailToolbarQueueButton, 1);
+		});
+
+		it('shows JBXPlayDetailToolbarQueueButtonImage', function () {
+			browser.assert.elements(JBXPlayDetailToolbarQueueButtonImage, 1);
 		});
 
 		it('hides JBXPlayDetailToolbarArchiveButton', function () {

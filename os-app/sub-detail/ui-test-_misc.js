@@ -427,6 +427,46 @@ describe('JBXPlayDetail_Misc', function () {
 			browser.assert.attribute(JBXPlayDetailFormNotesField, 'disabled', '');
 		});
 
+		describe('JBXPlayDetailToolbarQueueButton', function test_JBXPlayDetailToolbarQueueButton () {
+			
+			it('classes OLSKDecorButtonNoStyle', function () {
+				browser.assert.hasClass(JBXPlayDetailToolbarQueueButton, 'OLSKDecorButtonNoStyle');
+			});
+
+			it('classes OLSKDecorTappable', function () {
+				browser.assert.hasClass(JBXPlayDetailToolbarQueueButton, 'OLSKDecorTappable');
+			});
+
+			it('classes OLSKToolbarButton', function () {
+				browser.assert.hasClass(JBXPlayDetailToolbarQueueButton, 'OLSKToolbarButton');
+			});
+
+			context('click', function () {
+				
+				before(function () {
+					browser.assert.text('#TestJBXPlayDetailDispatchQueue', '0');
+				});
+				
+				before(function () {
+					return browser.pressButton(JBXPlayDetailToolbarQueueButton);
+				});
+
+				it('sends JBXPlayDetailDispatchQueue', function () {
+					browser.assert.text('#TestJBXPlayDetailDispatchQueue', '1');
+				});
+			
+			});
+		
+		});
+
+		describe('JBXPlayDetailToolbarQueueButtonImage', function test_JBXPlayDetailToolbarQueueButtonImage () {
+
+			it('sets src', function () {
+				browser.assert.elements(`${ JBXPlayDetailToolbarQueueButtonImage } #_OLSKSharedClone`, 1);
+			});
+		
+		});
+
 	});
 
 });

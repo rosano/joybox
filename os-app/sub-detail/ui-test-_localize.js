@@ -85,6 +85,22 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				});
 
 			});
+
+			context('$JBXDocumentIsInbox', function() {
+
+				before(function() {
+					return browser.OLSKVisit(kDefaultRoute, {
+						JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
+							$JBXDocumentIsInbox: true,
+						})),
+					});
+				});
+
+				it('localizes JBXPlayDetailToolbarQueueButton', function () {
+					browser.assert.attribute(JBXPlayDetailToolbarQueueButton, 'title', uLocalized('JBXPlayDetailToolbarQueueButtonText'));
+				});
+
+			});
 		
 		});
 

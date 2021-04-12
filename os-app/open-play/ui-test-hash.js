@@ -42,20 +42,18 @@ describe('JBXPlay_Hash', function () {
 
 	describe('JBXPlayInboxAnchor', function test_JBXPlayInboxAnchor () {
 		
-		const item = StubDocumentObjectValid({
-			JBXDocumentURL: Math.random().toString(),
-			JBXDocumentName: Math.random().toString(),
+		const items = Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
+			return StubDocumentObjectValid({
+				JBXDocumentURL: Math.random().toString(),
+				JBXDocumentName: Math.random().toString(),
+			});
 		});
 		const OLSKRoutingHash = {
-			[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([item].map(function (e) {
-				return OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(e));
+			[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify(items.map(function (e) {
+				return OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap());
 			}))),
 		};
 		const OLSKRoutingLanguage = uRandomElement(kDefaultRoute.OLSKRouteLanguageCodes);
-
-		const uLocalized = function (inputData) {
-			return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
-		};
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -64,12 +62,12 @@ describe('JBXPlay_Hash', function () {
 			});
 		});
 
-		it('adds item', function () {
-			browser.assert.elements(JBXPlayListItem, 1);
+		it('adds items', function () {
+			browser.assert.elements(JBXPlayListItem, items.length);
 		});
 
 		it('chunks', function () {
-			browser.assert.text('.OLSKCollectionChunkHeading', uLocalized('JBXPlayChunkInboxText'));
+			browser.assert.text('.OLSKCollectionChunkHeading', OLSKTestingLocalized('JBXPlayChunkInboxText', OLSKRoutingLanguage));
 		});
 
 		context('select', function () {
@@ -79,11 +77,39 @@ describe('JBXPlay_Hash', function () {
 			});
 
 			it('binds JBXDocumentURL', function () {
-				browser.assert.input(JBXPlayDetailMediaURLField, item.JBXDocumentURL);
+				browser.assert.input('.JBXPlayDetailMediaURLField', items[0].JBXDocumentURL);
 			});
 
 			it('binds JBXDocumentName', function () {
-				browser.assert.input(JBXPlayDetailFormNameField, item.JBXDocumentName);
+				browser.assert.input('.JBXPlayDetailFormNameField', items[0].JBXDocumentName);
+			});
+		
+		});
+
+		context('JBXPlayDetailDispatchQueue', function () {
+			
+			before(function () {
+				return browser.pressButton('.JBXPlayDetailToolbarQueueButton');
+			});
+
+			it('adds item', function () {
+				browser.assert.elements(JBXPlayListItem, items.length + 1);
+			});
+
+			context('select', function () {
+
+				before(function () {
+					return browser.click('.OLSKCollectionChunk:nth-child(2) .OLSKCollectionItem');
+				});
+
+				it('binds JBXDocumentURL', function () {
+					browser.assert.input('.JBXPlayDetailMediaURLField', items[0].JBXDocumentURL);
+				});
+
+				it('binds JBXDocumentName', function () {
+					browser.assert.input('.JBXPlayDetailFormNameField', items[0].JBXDocumentName);
+				});
+			
 			});
 		
 		});

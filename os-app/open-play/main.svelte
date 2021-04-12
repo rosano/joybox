@@ -78,7 +78,7 @@ const mod = {
 				{
 					LCHRecipeName: 'FakeZDRSchemaDispatchSyncCreateDocument',
 					LCHRecipeCallback: async function FakeZDRSchemaDispatchSyncCreateDocument () {
-						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObjectValid({
+						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObject({
 							JBXDocumentNotes: 'FakeZDRSchemaDispatchSyncCreateDocument',
 						})));
 					},
@@ -168,13 +168,18 @@ const mod = {
 		return window.innerWidth <= 760;
 	},
 
-	DataStubDocumentObjectValid (inputData = {}) {
+	DataStubDocumentObject (inputData = {}) {
 		return Object.assign({
-			JBXDocumentID: Math.random().toString(),
 			JBXDocumentNotes: '',
+		}, inputData);
+	},
+
+	DataStubDocumentObjectValid (inputData = {}) {
+		return mod.DataStubDocumentObject(Object.assign({
+			JBXDocumentID: Math.random().toString(),
 			JBXDocumentCreationDate: new Date(),
 			JBXDocumentModificationDate: new Date(),
-		}, inputData);
+		}, inputData));
 	},
 
 	// INTERFACE
@@ -240,16 +245,20 @@ const mod = {
 	},
 
 	async ControlDocumentAdd (inputData) {
-		mod._OLSKCatalog.modPublic.OLSKCatalogInsert(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(inputData));
+		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(inputData));
 
 		if (OLSK_SPEC_UI()) {
+			return;
+		}
+
+		if (inputData.JBXDocumentDidFetch) {
 			return;
 		}
 
 		mod.ControlDocumentFetch(inputData);
 	},
 	
-	async ControlInboxAdd (inputData) {
+	ControlInboxAdd (inputData) {
 		inputData.map(mod._OLSKCatalog.modPublic.OLSKCatalogInsert);
 	},
 	
@@ -300,6 +309,16 @@ const mod = {
 		mod._OLSKCatalog.modPublic.OLSKCatalogRemove(inputData);
 
 		mod._ValueZDRWrap.App.JBXDocument.ZDRModelDeleteObject(inputData);
+	},
+
+	ControlDocumentQueue (inputData) {
+		mod.ControlDocumentAdd(Object.keys(mod.DataStubDocumentObjectValid()).concat('$JBXDocumentIsInbox').reduce(function (coll, item) {
+			if (!Object.keys(mod.DataStubDocumentObject()).includes(item)) {
+				delete coll[item];
+			}
+
+			return coll;
+		}, mod.DataStubDocumentObject(inputData)));
 	},
 
 	ControlRevealArchive () {
@@ -420,6 +439,10 @@ const mod = {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
+	JBXPlayDetailDispatchQueue () {
+		mod.ControlDocumentQueue(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
+	},
+
 	async OLSKTransportDispatchImportJSON (inputData) {
 		await mod._ValueZDRWrap.App.JBXTransport.JBXTransportImport(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(inputData));
 
@@ -445,7 +468,7 @@ const mod = {
 		}
 
 		if (inputData[JBXPlayLogic.JBXPlayInboxAnchor()]) {
-			return mod.ControlInboxAdd(JSON.parse(inputData[JBXPlayLogic.JBXPlayInboxAnchor()]).map(function (e) {
+			return mod.ControlInboxAdd(JSON.parse(inputData[JBXPlayLogic.JBXPlayInboxAnchor()]).reverse().map(function (e) {
 				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(), true))), {
 					$JBXDocumentIsInbox: true,
 				});
@@ -728,6 +751,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			JBXPlayDetailDispatchFetch={ mod.JBXPlayDetailDispatchFetch }
 			JBXPlayDetailDispatchUpdate={ mod.JBXPlayDetailDispatchUpdate }
 			JBXPlayDetailDispatchDiscard={ mod.JBXPlayDetailDispatchDiscard }
+			JBXPlayDetailDispatchQueue={ mod.JBXPlayDetailDispatchQueue }
 			bind:this={ mod._JBXPlayDetail }
 			/>
 	</div>
