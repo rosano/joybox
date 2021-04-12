@@ -372,3 +372,11 @@ describe('JBXPlayNameAnchor', function test_JBXPlayNameAnchor() {
 	});
 
 });
+
+describe('JBXPlayInboxAnchor', function test_JBXPlayInboxAnchor() {
+
+	it('returns string', function() {
+		deepEqual(mod.JBXPlayInboxAnchor(), 'inbox');
+	});
+
+});
