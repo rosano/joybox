@@ -170,6 +170,7 @@ const mod = {
 
 	DataStubDocumentObjectValid (inputData = {}) {
 		return Object.assign({
+			JBXDocumentID: Math.random().toString(),
 			JBXDocumentNotes: '',
 			JBXDocumentCreationDate: new Date(),
 			JBXDocumentModificationDate: new Date(),
