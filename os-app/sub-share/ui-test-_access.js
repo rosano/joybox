@@ -2,6 +2,8 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
 	JBXPlayShare: '.JBXPlayShare',
+	
+	JBXPlayShareLinkField: '.JBXPlayShareLinkField',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -24,6 +26,10 @@ describe('JBXPlayShare_Access', function () {
 
 	it('shows JBXPlayListItem', function () {
 		browser.assert.elements('.JBXPlayListItem', count);
+	});
+
+	it('shows JBXPlayShareLinkField', function () {
+		browser.assert.elements(JBXPlayShareLinkField, 1);
 	});
 
 });

@@ -1,17 +1,59 @@
 <script>
 export let JBXPlayShareItems;
 
+import { OLSKLocalized } from 'OLSKInternational';
+
+import OLSKHash from 'OLSKHash';
+import JBXPlayLogic from '../open-play/ui-logic.js';
+
+const mod = {
+
+	// VALUE
+
+	_ValueLink: '',
+
+	// CONTROL
+
+	ControlUpdateLink (inputData) {
+		mod._ValueLink = window.location.origin + window.OLSKCanonical('JBXPlayRoute') + '/#' + OLSKHash.OLSKHashString({
+			[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify(inputData))
+		});
+	},
+
+	// REACT
+
+	ReactItems (inputData) {
+		mod.ControlUpdateLink(inputData);
+	},
+
+};
+
+$: {
+	mod.ReactItems(JBXPlayShareItems);
+}
+
 import DragDrop from "svelte-dragdroplist";
 import JBXPlayListItem from '../sub-listing/main.svelte';
 </script>
 
 <div class="JBXPlayShare">
 
-<DragDrop bind:data={ JBXPlayShareItems } objectKey={ 'JBXDocumentID' }>
-	<div class="OLSKDecorTappable" slot="customView" let:item>
-		<JBXPlayListItem JBXPlayListItemObject={ item } />
+<div class="JBXPlayShareList">
+	<DragDrop bind:data={ JBXPlayShareItems } objectKey={ 'JBXDocumentID' }>
+		<div class="OLSKDecorTappable" slot="customView" let:item>
+			<JBXPlayListItem JBXPlayListItemObject={ item } />
+		</div>
+	</DragDrop>
+</div>
+
+<div class="JBXPlayShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor">
+	<div class="OLSKToolbarElementGroup">
 	</div>
-</DragDrop>
+
+	<div class="OLSKToolbarElementGroup">
+		<input class="JBXPlayShareLinkField" placeholder={ OLSKLocalized('JBXPlayShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
+	</div>
+</div>
 
 </div>
 
@@ -19,6 +61,9 @@ import JBXPlayListItem from '../sub-listing/main.svelte';
 .JBXPlayShare {
 	background: var(--OLSKCommonBackground);
 	height: 100%;
+
+	display: flex;
+	flex-direction: column;
 }
 
 .JBXPlayShare :global(.content) {
@@ -42,5 +87,9 @@ import JBXPlayListItem from '../sub-listing/main.svelte';
 
 .JBXPlayShare :global(.item svg > path:first-child) {
 	display: none;
+}
+
+.JBXPlayShareList {
+	flex-grow: 1;
 }
 </style>
