@@ -47,4 +47,12 @@ describe('JBXPlayShare_Misc', function () {
 		
 	});
 
+	describe('JBXPlayShareCopyButton', function test_JBXPlayShareCopyButton () {
+
+		it('sets data-clipboard-target', function () {
+			browser.assert.attribute(JBXPlayShareCopyButton, 'data-clipboard-target', '.JBXPlayShareLinkField');
+		});
+		
+	});
+
 });

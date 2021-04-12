@@ -18,6 +18,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.attribute(JBXPlayShareLinkField, 'placeholder', uLocalized('JBXPlayShareLinkFieldText'));
 		});
 
+		it('localizes JBXPlayShareCopyButton', function () {
+			browser.assert.text(JBXPlayShareCopyButton, uLocalized('JBXPlayShareCopyButtonText'));
+		});
+
 	});
 
 });

@@ -12,6 +12,18 @@ const mod = {
 
 	_ValueLink: '',
 
+	// INTERFACE
+
+	InterfaceCopyButtonDidClick () {
+		return Launchlet.LCHTasksRun([{
+			LCHRecipeCallback () {
+				return this.api.LCHCopyToClipboard(Math.random().toString());
+			},
+			LCHRecipeURLFilter: '*',
+		  LCHRecipeIsAutomatic: true,
+		}]);
+	},
+
 	// CONTROL
 
 	ControlUpdateLink (inputData) {
@@ -26,12 +38,22 @@ const mod = {
 		mod.ControlUpdateLink(inputData);
 	},
 
+	// LIFECYCLE
+
+	LifecycleModuleDidMount () {
+		new Clipboard('.JBXPlayShareCopyButton');
+	},
+
 };
+
+import { onMount } from 'svelte';
+onMount(mod.LifecycleModuleDidMount);
 
 $: {
 	mod.ReactItems(JBXPlayShareItems);
 }
 
+import Clipboard from 'clipboard';
 import DragDrop from "svelte-dragdroplist";
 import JBXPlayListItem from '../sub-listing/main.svelte';
 </script>
@@ -52,6 +74,8 @@ import JBXPlayListItem from '../sub-listing/main.svelte';
 
 	<div class="OLSKToolbarElementGroup">
 		<input class="JBXPlayShareLinkField" placeholder={ OLSKLocalized('JBXPlayShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
+
+		<button class="JBXPlayShareCopyButton" data-clipboard-target=".JBXPlayShareLinkField">{ OLSKLocalized('JBXPlayShareCopyButtonText') }</button>
 	</div>
 </div>
 

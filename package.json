@@ -59,6 +59,7 @@
 
     "// sub-share": null,
     "svelte-dragdroplist": "rosano/svelte-dragdroplist",
+    "clipboard": "latest",
 
     "// tech-robots": null,
     "OLSKRobots": "olsk/OLSKRobots",
