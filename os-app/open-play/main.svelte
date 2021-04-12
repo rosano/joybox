@@ -640,7 +640,7 @@ const mod = {
 		}
 
 		setTimeout(function () {
-			document.querySelector('.OLSKMasterListFilterField').focus();
+			document.querySelector('.OLSKNarrowFilterField').focus();
 		})
 	},
 
@@ -706,7 +706,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 	<!-- MASTER -->
 
-	<div class="OLSKToolbarElementGroup" slot="OLSKMasterListToolbarTail">
+	<div class="OLSKToolbarElementGroup" slot="OLSKNarrowToolbarTail">
 		<button class="JBXPlayStashButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayStashButtonText') } on:click={ mod.InterfaceStashButtonDidClick }>
 			<div class="JBXPlayStashButtonImage">{@html OLSKUIAssets._OLSKSharedStash }</div>
 		</button>
@@ -736,7 +736,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 	<!-- MASTER BODY TAIL -->
 
-	<div class="OLSKMasterListBodyTail" slot="OLSKMasterListBodyTail">{#if mod._ValueRevealArchiveIsVisible }
+	<div class="OLSKNarrowBodyTail" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
 		<button class="JBXPlayRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('JBXPlayRevealArchiveButtonText') }</button>
 	{/if}</div>
 
@@ -823,10 +823,10 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	margin-bottom: 0;
 }
 
-.OLSKMasterListBodyTail {
+.OLSKNarrowBodyTail {
 	padding: 10px;
 	
-	/* @OLSKMasterListBodyTailFlexbox:Parent */
+	/* @OLSKNarrowBodyTailFlexbox:Parent */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
