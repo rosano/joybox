@@ -326,6 +326,10 @@ const mod = {
 	OLSKCatalogDispatchQuantity () {},
 
 	OLSKCatalogDispatchStash (inputData) {
+		if (!inputData.length) {
+			return;
+		}
+
 		mod._JBXPlayShareItems = inputData;
 		
 		mod._JBXPlayShareModal.modPublic.OLSKModalViewShow();

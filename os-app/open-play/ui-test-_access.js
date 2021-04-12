@@ -276,7 +276,7 @@ describe('JBXPlay_Access', function () {
 
 	});
 
-	context('stash', function () {
+	context('stash', function test_stash () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute);
@@ -296,6 +296,10 @@ describe('JBXPlay_Access', function () {
 
 		before(function () {
 			return browser.pressButton(JBXPlayStashButton);
+		});
+
+		before(function () {
+			return browser.click('.OLSKCollectionItem');
 		});
 
 		before(function () {

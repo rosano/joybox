@@ -181,6 +181,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			before(function () {
+				return browser.click('.OLSKCollectionItem');
+			});
+
+			before(function () {
 				return browser.click('.OLSKCatalogStashDoneButton');
 			});
 
