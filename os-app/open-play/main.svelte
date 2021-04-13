@@ -58,6 +58,8 @@ const mod = {
 
 	_IsRunningDemo: false,
 
+	OLSKTaxonomySuggestionItems: [],
+
 	// DATA
 
 	DataSetting (inputData) {
@@ -117,6 +119,14 @@ const mod = {
 								JBXDocumentNotes: item.JBXDocumentNotes + '-remote',
 							}))),
 						});
+					},
+				},
+				{
+					LCHRecipeName: 'OLSKPlayLauncherFakeCreateTaggedItem',
+					LCHRecipeCallback: async function OLSKPlayLauncherFakeCreateTaggedItem () {
+						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObject({
+							JBXDocumentTags: [window.prompt()],
+						})));
 					},
 				},
 			]);
@@ -268,6 +278,10 @@ const mod = {
 	},
 	
 	ControlDocumentActivate(inputData) {
+		mod.OLSKTaxonomySuggestionItems = mod._OLSKTaxonomySuggestionItems.filter(function (e) {
+			return !(inputData.JBXDocumentTags || []).includes(e);
+		});
+		
 		mod._OLSKCatalog.modPublic.OLSKCatalogSelect(inputData);
 
 		if (!inputData) {
@@ -351,7 +365,13 @@ const mod = {
 		mod._ValueRevealArchiveIsVisible = false;
 	},
 
-	OLSKCatalogDispatchQuantity () {},
+	OLSKCatalogDispatchQuantity () {
+		mod._OLSKTaxonomySuggestionItems = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().reduce(function (coll, item) {
+			return coll.concat((item.JBXDocumentTags || []).filter(function (e) {
+				return !coll.includes(e);
+			}));
+		}, []);
+	},
 
 	OLSKCatalogDispatchStash (inputData) {
 		if (!inputData.length) {
@@ -744,6 +764,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<div class="JBXPlayDetailContainer" slot="OLSKCatalogDetailContent" let:OLSKCatalogItemSelected>
 		<JBXPlayDetail
 			JBXPlayDetailItem={ OLSKCatalogItemSelected }
+			OLSKTaxonomySuggestionItems={ mod.OLSKTaxonomySuggestionItems }
 			JBXPlayDetailDispatchBack={ mod.JBXPlayDetailDispatchBack }
 			JBXPlayDetailDispatchArchive={ mod.JBXPlayDetailDispatchArchive }
 			JBXPlayDetailDispatchUnarchive={ mod.JBXPlayDetailDispatchUnarchive }
