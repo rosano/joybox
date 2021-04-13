@@ -238,6 +238,34 @@ describe('JBXDocumentStub', function test_JBXDocumentStub() {
 
 });
 
+describe('_JBXDocumentProcess', function test__JBXDocumentProcess() {
+
+	it('throws if not object', function () {
+		throws(function () {
+			mod._JBXDocumentProcess(null)
+		}, /JBXErrorInputNotValid/);
+	});
+
+	it('returns inputData', function() {
+		const item = StubDocumentObjectValid();
+		strictEqual(mod._JBXDocumentProcess(item), item);
+	});
+
+	it('removes autoplay from vimeo', function() {
+		const JBXDocumentEmbedURL = 'https://player.vimeo.com/video/535982936?autoplay=1';
+		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
+			JBXDocumentEmbedURL,
+		})).JBXDocumentEmbedURL, JBXDocumentEmbedURL.replace('autoplay=1', 'autoplay=0'));
+	});
+
+	it('strips __JBXDocumentProcessTest', function() {
+		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
+			__JBXDocumentProcessTest: Math.random().toString(),
+		})).__JBXDocumentProcessTest, undefined);
+	});
+
+});
+
 describe('JBXDocumentCreate', function test_JBXDocumentCreate() {
 
 	it('throws if not object', function () {

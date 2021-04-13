@@ -112,6 +112,22 @@ const mod = {
 		};
 	},
 
+	_JBXDocumentProcess (inputData) {
+		if (typeof inputData !== 'object' || inputData === null) {
+			throw new Error('JBXErrorInputNotValid');
+		}
+
+		if ((inputData.JBXDocumentEmbedURL || '').match('vimeo')) {
+			Object.assign(inputData, {
+				JBXDocumentEmbedURL: inputData.JBXDocumentEmbedURL.replace('autoplay=1', 'autoplay=0'),
+			});
+		}
+
+		delete inputData.__JBXDocumentProcessTest;
+
+		return inputData;
+	},
+
 };
 
 export default Object.assign(mod, {
