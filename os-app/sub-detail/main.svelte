@@ -143,17 +143,14 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 		<iframe class="JBXPlayDetailMediaPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	{/if}
 
-	<p>
+	<p class="JBXPlayDetailLink">
 		<input class="JBXPlayDetailMediaURLField" placeholder={ OLSKLocalized('JBXPlayDetailMediaURLFieldText') } type="text" disabled bind:value={ JBXPlayDetailItem.JBXDocumentURL } />
-	</p>
 
-	<p>
 		<a class="JBXPlayDetailMediaOpenButton OLSKDecorPress" href={ JBXPlayDetailItem.JBXDocumentURL } target="_blank">{ OLSKLocalized('JBXPlayDetailMediaOpenButtonText') }</a>
 
 		{#if !JBXPlayDetailItem.$JBXDocumentIsInbox }
 			<button class="JBXPlayDetailMediaFetchButton" on:click={ JBXPlayDetailDispatchFetch }>{ OLSKLocalized('JBXPlayDetailMediaFetchButtonText') }</button>
 		{/if}
-
 	</p>
 
 	<hr role="presentation" />
@@ -188,3 +185,16 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 {#if _DebugLauncher && OLSK_SPEC_UI() }
 	<button class="OLSKAppToolbarLauncherButton" on:click={ () => window.Launchlet.LCHSingletonCreate({ LCHOptionRecipes: mod.DataPlayDetailRecipes() }) }></button>	
 {/if}
+
+<style>
+.JBXPlayDetailLink {
+	display: flex;
+	width: 90%;
+
+	align-items: center;
+}
+
+.JBXPlayDetailLink *:not(.JBXPlayDetailMediaURLField) {
+	margin-left: 10px;
+}
+</style>
