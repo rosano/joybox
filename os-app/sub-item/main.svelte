@@ -22,19 +22,8 @@ import JBXPlayListItemLogic from './ui-logic.js';
 .JBXPlayListItem {
 	min-height: 46px;
 	padding: 10px;
-	width: 300px;
 
 	color: var(--OLSKCommonForeground);
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-@media screen and (max-width: 760px) {
-
-.JBXPlayListItem {
-	width: calc(100vw - 10px * 2);
-}
-
 }
 
 .JBXPlayListItemArchived {
