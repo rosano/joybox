@@ -144,11 +144,11 @@ export default Object.assign(mod, {
 
 			const JBXDocumentCreationDate = new Date();
 
-			return this.App.JBXDocument.ZDRModelWriteObject(Object.assign(inputData, Object.assign({
+			return this.App.JBXDocument.ZDRModelWriteObject(mod._JBXDocumentProcess(Object.assign(inputData, Object.assign({
 				JBXDocumentID: uniqueID(),
 				JBXDocumentCreationDate,
 				JBXDocumentModificationDate: JBXDocumentCreationDate,
-			}, inputData)));
+			}, inputData))));
 		},
 
 		JBXDocumentUpdate (inputData) {
@@ -156,9 +156,9 @@ export default Object.assign(mod, {
 				throw new Error('JBXErrorInputNotValid');
 			}
 
-			return this.App.JBXDocument.ZDRModelWriteObject(Object.assign(inputData, {
+			return this.App.JBXDocument.ZDRModelWriteObject(mod._JBXDocumentProcess(Object.assign(inputData, {
 				JBXDocumentModificationDate: new Date(),
-			}));
+			})));
 		},
 
 		async JBXDocumentList () {

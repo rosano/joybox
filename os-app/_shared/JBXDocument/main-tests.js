@@ -309,6 +309,12 @@ describe('JBXDocumentCreate', function test_JBXDocumentCreate() {
 		deepEqual(await ZDRTestingWrap.App.JBXDocument.JBXDocumentCreate(Object.assign({}, item)), item);
 	});
 
+	it('calls _JBXDocumentProcess', async function() {
+		deepEqual((await ZDRTestingWrap.App.JBXDocument.JBXDocumentCreate(StubDocumentObjectValid({
+			__JBXDocumentProcessTest: Math.random().toString(),
+		}))).__JBXDocumentProcessTest, undefined);
+	});
+
 	context('relations', function () {
 
 		const memory = StubDocumentObjectValid({
@@ -376,6 +382,12 @@ describe('JBXDocumentUpdate', function test_JBXDocumentUpdate() {
 	it('writes inputData if not found', async function() {
 		const item = await ZDRTestingWrap.App.JBXDocument.JBXDocumentUpdate(StubDocumentObjectValid());
 		deepEqual(await ZDRTestingWrap.App.JBXDocument.JBXDocumentList(), [item]);
+	});
+
+	it('calls _JBXDocumentProcess', async function() {
+		deepEqual((await ZDRTestingWrap.App.JBXDocument.JBXDocumentUpdate(StubDocumentObjectValid({
+			__JBXDocumentProcessTest: Math.random().toString(),
+		}))).__JBXDocumentProcessTest, undefined);
 	});
 
 	context('relations', function () {
