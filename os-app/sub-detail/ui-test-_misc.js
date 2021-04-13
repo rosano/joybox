@@ -12,6 +12,10 @@ describe('JBXPlayDetail_Misc', function () {
 		}),
 	});
 
+	const OLSKTaxonomySuggestionItems = Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
+		return Math.random().toString();
+	});
+
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
 			JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
@@ -235,6 +239,7 @@ describe('JBXPlayDetail_Misc', function () {
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JBXPlayDetailItem: JSON.stringify(item),
+				OLSKTaxonomySuggestionItems: JSON.stringify(OLSKTaxonomySuggestionItems),
 			});
 		});
 
@@ -374,11 +379,15 @@ describe('JBXPlayDetail_Misc', function () {
 
 	describe('OLSKTaxonomy', function test_OLSKTaxonomy () {
 
-		it('binds JBXDocumentTags', function () {
+		it.skip('binds JBXDocumentTags', function () {
 			browser.assert.text('.OLSKTaxonomyItem', item.JBXDocumentTags.join(' '));
 		});
 
-		context('input', function () {
+		it('binds OLSKTaxonomySuggestionItems', function () {
+			browser.assert.text('.OLSKTaxonomySuggestion', OLSKTaxonomySuggestionItems.join(''));
+		});
+
+		context.skip('input', function () {
 
 			before(function () {
 				browser.fill('.OLSKTaxonomyField', Math.random().toString());

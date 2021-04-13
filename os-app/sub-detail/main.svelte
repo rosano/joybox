@@ -7,6 +7,7 @@ export let JBXPlayDetailDispatchFetch;
 export let JBXPlayDetailDispatchUpdate;
 export let JBXPlayDetailDispatchDiscard;
 export let JBXPlayDetailDispatchQueue;
+export let OLSKTaxonomySuggestionItems = [];
 export let _DebugLauncher = false;
 
 export const modPublic = {
@@ -153,7 +154,11 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 <hr role="presentation" />
 
 <p>
-	<OLSKTaxonomy OLSKTaxonomyItems={ JBXPlayDetailItem.JBXDocumentTags || [] } OLSKTaxonomyDispatchUpdate={ mod.OLSKTaxonomyDispatchUpdate } />
+	<OLSKTaxonomy
+		OLSKTaxonomyItems={ JBXPlayDetailItem.JBXDocumentTags || [] }
+		OLSKTaxonomySuggestionItems={ OLSKTaxonomySuggestionItems }
+		OLSKTaxonomyDispatchUpdate={ mod.OLSKTaxonomyDispatchUpdate }
+		/>
 </p>
 
 </div>

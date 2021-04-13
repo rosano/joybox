@@ -28,7 +28,7 @@ const JBXPlayDetail = new RollupStart({
 		}),
 		_DebugLauncher: true,
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
-		if (['JBXPlayDetailItem'].includes(e[0])) {
+		if (['JBXPlayDetailItem', 'OLSKTaxonomySuggestionItems'].includes(e[0])) {
 			e[1] = JSON.parse(e[1]);
 		}
 
