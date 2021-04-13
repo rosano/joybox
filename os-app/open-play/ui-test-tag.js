@@ -26,12 +26,20 @@ describe('JBXPlay_Tag', function () {
 		});
 	});
 
-	context('select', function () {
+	context('create', function () {
 
 		before(function () {
 			return browser.pressButton(JBXPlayToggleFormButton);
 		});
-		
+
+		it('binds OLSKTaxonomySuggestionItems', function () {
+			browser.assert.text('.OLSKTaxonomySuggestion', item);
+		});
+	
+	});
+
+	context('select', function () {
+
 		before(function () {
 			browser.fill(JBXPlayFormField, Math.random().toString());
 		});

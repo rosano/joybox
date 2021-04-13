@@ -11,6 +11,7 @@ Object.entries({
 
 	JBXPlayForm: '.JBXPlayForm',
 	JBXPlayFormField: '.JBXPlayFormField',
+	JBXPlayFormTaxonomy: '.JBXPlayForm .OLSKTaxonomy',
 	JBXPlayFormSubmitButton: '.JBXPlayFormSubmitButton',
 
 	JBXPlayListItem: '.JBXPlayListItem',
@@ -198,6 +199,10 @@ describe('JBXPlay_Access', function () {
 
 		it('shows JBXPlayFormField', function () {
 			browser.assert.elements(JBXPlayFormField, 1);
+		});
+
+		it('shows JBXPlayFormTaxonomy', function () {
+			browser.assert.elements(JBXPlayFormTaxonomy, 1);
 		});
 
 		it('shows JBXPlayFormSubmitButton', function () {

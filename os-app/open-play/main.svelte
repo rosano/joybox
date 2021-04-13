@@ -38,6 +38,7 @@ const mod = {
 
 	_ValueFormIsVisible: false,
 	_ValueFormData: '',
+	_ValueFormDataTags: [],
 
 	_ValueRevealArchiveIsVisible: false,
 
@@ -198,13 +199,20 @@ const mod = {
 		mod._ValueFormIsVisible = !mod._ValueFormIsVisible;
 	},
 
+	InterfaceFormDispatchTags (inputData) {
+		mod._ValueFormDataTags = inputData;
+	},
+
 	InterfaceFormSubmitButtonDidClick (event) {
 		event.preventDefault();
 
-		mod.ControlTextAdd(mod._ValueFormData);
+		mod.ControlTextAdd(mod._ValueFormData, mod._ValueFormDataTags.length ? {
+			JBXDocumentTags: mod._ValueFormDataTags,
+		} : {});
 
 		mod._ValueFormIsVisible = false;
 		mod._ValueFormData = '';
+		mod._ValueFormDataTags = [];
 	},
 
 	InterfaceWindowDidKeydown (event) {
@@ -236,7 +244,7 @@ const mod = {
 		}
 	},
 
-	ControlTextAdd (inputData, JBXDocumentName) {
+	ControlTextAdd (inputData, properties = {}) {
 		const disableDuplicateURLs = false;
 
 		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
@@ -246,9 +254,7 @@ const mod = {
 		});
 
 		return Promise.all(JBXPlayLogic.JBXPlayDocuments(inputData).map(function (e) {
-			return JBXDocumentName ? Object.assign(e, {
-				JBXDocumentName,
-			}) : e;
+			return Object.assign(e, properties);
 		}).filter(function (e) {
 			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
 		}).map(mod.ControlDocumentAdd));
@@ -478,7 +484,9 @@ const mod = {
 
 	OLSKHashDispatchInitialize (inputData) {
 		if (inputData[JBXPlayLogic.JBXPlayCaptureAnchor()]) {
-			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayCaptureAnchor()], inputData[JBXPlayLogic.JBXPlayNameAnchor()]).then(function () {
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayCaptureAnchor()], {
+				JBXDocumentName: inputData[JBXPlayLogic.JBXPlayNameAnchor()],
+			}).then(function () {
 				return !OLSK_SPEC_UI() && new Promise(function () {
 					return setTimeout(function () {
 						return window.close();
@@ -683,6 +691,7 @@ import OLSKCatalog from 'OLSKCatalog';
 import JBXPlayListItem from '../sub-item/main.svelte';
 import JBXPlayDetail from '../sub-detail/main.svelte';
 import JBXPlayShare from '../sub-share/main.svelte';
+import OLSKTaxonomy from 'OLSKTaxonomy';
 import OLSKAppToolbar from 'OLSKAppToolbar';
 import OLSKServiceWorkerView from '../../node_modules/OLSKServiceWorker/main.svelte';
 import OLSKInstall from 'OLSKInstall';
@@ -741,6 +750,19 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			<p>
 				<textarea class="JBXPlayFormField" placeholder={ OLSKLocalized('JBXPlayFormFieldText') } bind:value={ mod._ValueFormData } autofocus></textarea>
 			</p>
+			
+			<hr role="presentation" />
+			
+			<p>
+				<OLSKTaxonomy
+					OLSKTaxonomyItems={ [] }
+					OLSKTaxonomySuggestionItems={ mod._OLSKTaxonomySuggestionItems }
+					OLSKTaxonomyDispatchUpdate={ mod.InterfaceFormDispatchTags }
+					/>
+			</p>
+			
+			<hr role="presentation" />
+			
 			<p>
 				<button class="JBXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('JBXPlayFormSubmitButtonText') }</button>
 			</p>
