@@ -51,18 +51,6 @@ const mod = {
 		}).length;
 	},
 
-	JBXPlayExactSortFunction (needle, a, b) {
-		if (typeof needle !== 'string') {
-			throw new Error('JBXErrorInputNotValid');
-		}
-
-		return ['JBXDocumentName', 'JBXDocumentNotes'].reduce(function (coll, item) {
-			return coll.concat(uDescending(OLSKString.OLSKStringMatch(needle, a[item] || '', 'startsWith'), OLSKString.OLSKStringMatch(needle, b[item] || '', 'startsWith')));
-		}, []).filter(function (e) {
-			return e !== 0;
-		}).shift();
-	},
-
 	_JBXPlayChunk (inputData, OLSKLocalized) {
 		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
 

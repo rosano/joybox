@@ -688,7 +688,6 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	
 	OLSKCatalogSortFunction={ JBXPlayLogic.JBXPlaySortFunction }
 	OLSKCatalogIsMatch={ JBXPlayLogic.JBXPlayIsMatch }
-	OLSKCatalogExactSortFunction={ JBXPlayLogic.JBXPlayExactSortFunction }
 
 	_OLSKCatalogDispatchKey={ mod._OLSKCatalogDispatchKey }
 

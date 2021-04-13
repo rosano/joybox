@@ -93,33 +93,6 @@ describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
 
 });
 
-describe('JBXPlayExactSortFunction', function test_JBXPlayExactSortFunction() {
-
-	it('throws if param1 not string', function () {
-		throws(function () {
-			mod.JBXPlayExactSortFunction(null, Math.random().toString(), Math.random().toString());
-		}, /JBXErrorInputNotValid/);
-	});
-
-	it('bumps startsWith', function() {
-		const item = Math.random().toString();
-		deepEqual(mod.JBXPlayExactSortFunction(item, {
-			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: Math.random().toString() + item,
-		}, {
-			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: item + Math.random().toString(),
-		}), 1);
-	});
-
-	it('matches OLSKStringMatch', function() {
-		deepEqual(mod.JBXPlayExactSortFunction(uRandomElement('alf', 'alfa', 'ALF'), {
-			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: Math.random().toString(),
-		}, {
-			[uRandomElement('JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
-		}), 1);
-	});
-
-});
-
 describe('JBXPlayChunkFunction', function test_JBXPlayChunkFunction() {
 
 	const _JBXPlayChunkFunction = function (inputData) {
