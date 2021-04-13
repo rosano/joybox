@@ -11,6 +11,9 @@ describe('JBXPlayListItem_Misc', function () {
 		JBXDocumentURL: 'https://www.example.com/' + Math.random().toString(),
 		JBXDocumentImageURL: 'https://www.example.com/' + Math.random().toString(),
 		JBXDocumentNotes: Math.random().toString(),
+		JBXDocumentTags: Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
+			return Math.random().toString();
+		}),
 	});
 
 	before(function() {
@@ -51,6 +54,14 @@ describe('JBXPlayListItem_Misc', function () {
 		
 		it('binds JBXDocumentNotes', function () {
 			browser.assert.text(JBXPlayListItemSnippet, item.JBXDocumentNotes);
+		});
+	
+	});
+
+	describe('JBXPlayListItemTags', function test_JBXPlayListItemTags () {
+		
+		it('binds JBXDocumentTags', function () {
+			browser.assert.text(JBXPlayListItemTags, item.JBXDocumentTags.join(', '));
 		});
 	
 	});

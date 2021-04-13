@@ -14,6 +14,8 @@ import JBXPlayListItemLogic from './ui-logic.js';
 	<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '') }</span>
 
 	<span class="JBXPlayListItemSnippet">{ JBXPlayListItemObject.JBXDocumentNotes }</span>
+
+	<span class="JBXPlayListItemTags">{ (JBXPlayListItemObject.JBXDocumentTags || []).join(', ') }</span>
 </section>
 
 </div>
@@ -41,5 +43,9 @@ import JBXPlayListItemLogic from './ui-logic.js';
 	margin-top: 5px;
 
 	opacity: 0.5;
+}
+
+.JBXPlayListItemTags {
+	opacity: 0.4;
 }
 </style>

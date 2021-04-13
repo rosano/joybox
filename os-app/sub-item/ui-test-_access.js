@@ -8,6 +8,8 @@ Object.entries({
 	JBXPlayListItemTitle: '.JBXPlayListItemTitle',
 
 	JBXPlayListItemSnippet: '.JBXPlayListItemSnippet',
+
+	JBXPlayListItemTags: '.JBXPlayListItemTags',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -34,6 +36,10 @@ describe('JBXPlayListItem_Access', function () {
 
 	it('shows JBXPlayListItemSnippet', function () {
 		browser.assert.elements(JBXPlayListItemSnippet, 1);
+	});
+
+	it('shows JBXPlayListItemTags', function () {
+		browser.assert.elements(JBXPlayListItemTags, 1);
 	});
 
 	context('JBXDocumentImageURL', function () {
