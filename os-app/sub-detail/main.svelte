@@ -23,6 +23,8 @@ import { OLSK_SPEC_UI } from 'OLSKSpec';
 
 const mod = {
 
+	__HOTFIX_ITEM_IDS: [],
+
 	// DATA
 
 	DataPlayDetailRecipes () {
@@ -66,7 +68,25 @@ const mod = {
 		JBXPlayDetailDispatchUpdate();
 	},
 
+	// REACT
+
+	ReactItem (inputData) {
+		if (mod.__HOTFIX_ITEM_IDS.includes(inputData)) {
+			return;
+		}
+
+		mod.__HOTFIX_ITEM_IDS = [];
+
+		setTimeout(function () {
+			mod.__HOTFIX_ITEM_IDS = [inputData];
+		})
+	},
+
 };
+
+$: {
+	mod.ReactItem(JBXPlayDetailItem.JBXDocumentID)
+}
 
 import OLSKUIAssets from 'OLSKUIAssets';
 import OLSKTaxonomy from 'OLSKTaxonomy';
@@ -154,11 +174,13 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 <hr role="presentation" />
 
 <p>
-	<OLSKTaxonomy
-		OLSKTaxonomyItems={ JBXPlayDetailItem.JBXDocumentTags || [] }
-		OLSKTaxonomySuggestionItems={ OLSKTaxonomySuggestionItems }
-		OLSKTaxonomyDispatchUpdate={ mod.OLSKTaxonomyDispatchUpdate }
-		/>
+	{#each mod.__HOTFIX_ITEM_IDS as item }
+		<OLSKTaxonomy
+			OLSKTaxonomyItems={ JBXPlayDetailItem.JBXDocumentTags || [] }
+			OLSKTaxonomySuggestionItems={ OLSKTaxonomySuggestionItems }
+			OLSKTaxonomyDispatchUpdate={ mod.OLSKTaxonomyDispatchUpdate }
+			/>
+	{/each}
 </p>
 
 </div>
