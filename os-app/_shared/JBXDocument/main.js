@@ -87,6 +87,14 @@ const mod = {
 			}
 		}
 
+		if (inputData.JBXDocumentTags !== undefined) {
+			if (!Array.isArray(inputData.JBXDocumentTags)) {
+				errors.JBXDocumentTags = [
+					'JBXErrorNotArray',
+				];
+			}
+		}
+
 		return Object.entries(errors).length ? errors : null;
 	},
 	

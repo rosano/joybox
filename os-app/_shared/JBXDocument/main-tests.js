@@ -186,6 +186,26 @@ describe('JBXDocumentErrors', function test_JBXDocumentErrors() {
 
 	});
 
+	context('JBXDocumentTags', function () {
+
+		it('returns object if not array', function () {
+			deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
+				JBXDocumentTags: null,
+			})), {
+				JBXDocumentTags: [
+					'JBXErrorNotArray',
+				],
+			});
+		});
+
+		it('returns null', function () {
+			deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
+				JBXDocumentTags: [],
+			})), null);
+		});
+
+	});	
+
 });
 
 describe('JBXDocumentDirectory', function test_JBXDocumentDirectory() {
