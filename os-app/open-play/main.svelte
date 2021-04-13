@@ -660,7 +660,7 @@ import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleWillMount);
 
 import OLSKCatalog from 'OLSKCatalog';
-import JBXPlayListItem from '../sub-listing/main.svelte';
+import JBXPlayListItem from '../sub-item/main.svelte';
 import JBXPlayDetail from '../sub-detail/main.svelte';
 import JBXPlayShare from '../sub-share/main.svelte';
 import OLSKAppToolbar from 'OLSKAppToolbar';

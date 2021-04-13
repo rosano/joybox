@@ -58,7 +58,7 @@ $: {
 
 import Clipboard from 'clipboard';
 import DragDrop from "svelte-dragdroplist";
-import JBXPlayListItem from '../sub-listing/main.svelte';
+import JBXPlayListItem from '../sub-item/main.svelte';
 </script>
 
 <div class="JBXPlayShare">
