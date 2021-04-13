@@ -46,8 +46,8 @@ const mod = {
 			throw new Error('JBXErrorInputNotValid');
 		}
 
-		return ['JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes'].filter(function (e) {
-			return param1[e] && OLSKString.OLSKStringMatch(param2, param1[e]);
+		return [param1.JBXDocumentURL, param1.JBXDocumentName, param1.JBXDocumentNotes].concat(param1.JBXDocumentTags).filter(function (e) {
+			return !!e && OLSKString.OLSKStringMatch(param2, e);
 		}).length;
 	},
 

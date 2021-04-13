@@ -80,14 +80,18 @@ describe('JBXPlayIsMatch', function test_JBXPlayIsMatch() {
 	});
 
 	it('returns false if no match', function() {
+		const key = uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes', 'JBXDocumentTags');
+		const haystack = 'alfa';
 		deepEqual(mod.JBXPlayIsMatch({
-			[uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes')]: 'alfa',
+			[key]: key === 'JBXDocumentTags' ? [haystack] : haystack,
 		}, 'bravo'), false);
 	});
 
 	it('matches OLSKStringMatch', function() {
+		const key = uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes', 'JBXDocumentTags');
+		const haystack = uRandomElement('alfa', 'álfa');
 		deepEqual(mod.JBXPlayIsMatch({
-			[uRandomElement('JBXDocumentURL', 'JBXDocumentName', 'JBXDocumentNotes')]: uRandomElement('alfa', 'álfa'),
+			[key]: key === 'JBXDocumentTags' ? [haystack] : haystack,
 		}, uRandomElement('alf', 'alfa', 'ALF')), true);
 	});
 
