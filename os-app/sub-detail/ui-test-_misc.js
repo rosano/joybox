@@ -7,6 +7,9 @@ describe('JBXPlayDetail_Misc', function () {
 		JBXDocumentName: Math.random().toString(),
 		JBXDocumentURL: '/?' + Math.random().toString(),
 		JBXDocumentEmbedURL: '/?' + Math.random().toString(),
+		JBXDocumentTags: Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
+			return Math.random().toString();
+		}),
 	});
 
 	before(function() {
@@ -359,6 +362,30 @@ describe('JBXPlayDetail_Misc', function () {
 
 			before(function () {
 				browser.fill(JBXPlayDetailFormNotesField, Math.random().toString());
+			});
+
+			it('sends JBXPlayDetailDispatchUpdate', function () {
+				browser.assert.text('#TestJBXPlayDetailDispatchUpdate', '2');
+			});
+		
+		});
+	
+	});
+
+	describe('OLSKTaxonomy', function test_OLSKTaxonomy () {
+
+		it('binds JBXDocumentTags', function () {
+			browser.assert.text('.OLSKTaxonomyItem', item.JBXDocumentTags.join(' '));
+		});
+
+		context('input', function () {
+
+			before(function () {
+				browser.fill('.OLSKTaxonomyField', Math.random().toString());
+			});
+
+			before(function () {
+				return browser.fire('.OLSKTaxonomyField', 'submit');
 			});
 
 			it('sends JBXPlayDetailDispatchUpdate', function () {

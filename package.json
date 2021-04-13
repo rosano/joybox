@@ -25,6 +25,7 @@
     "OLSKDOM": "olsk/OLSKDOM",
     "OLSKHash": "olsk/OLSKHash",
     "OLSKMoment": "olsk/OLSKMoment",
+    "OLSKTaxonomy": "olsk/OLSKTaxonomy",
 
     "// sub-share": null,
     "svelte-dragdroplist": "rosano/svelte-dragdroplist",

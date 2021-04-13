@@ -96,6 +96,10 @@ describe('JBXPlayDetail_Access', function () {
 		browser.assert.elements(JBXPlayDetailFormNotesField, 1);
 	});
 
+	it('shows OLSKTaxonomy', function () {
+		browser.assert.elements('.OLSKTaxonomy', 1);
+	});
+
 	it('shows JBXPlayDetailLauncherItemArchive', function () {
 		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemArchive', 1);
 	});

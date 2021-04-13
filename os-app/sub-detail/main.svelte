@@ -57,8 +57,18 @@ const mod = {
 		return outputData;
 	},
 
+	// MESSAGE
+
+	OLSKTaxonomyDispatchUpdate (inputData) {
+		JBXPlayDetailItem.JBXDocumentTags = inputData;
+
+		JBXPlayDetailDispatchUpdate();
+	},
+
 };
+
 import OLSKUIAssets from 'OLSKUIAssets';
+import OLSKTaxonomy from 'OLSKTaxonomy';
 </script>
 
 <div class="JBXPlayDetail">
@@ -136,7 +146,15 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	<input class="JBXPlayDetailFormNameField" placeholder={ OLSKLocalized('JBXPlayDetailFormNameFieldText') } type="text" bind:value={ JBXPlayDetailItem.JBXDocumentName } on:input={ JBXPlayDetailDispatchUpdate } disabled={ JBXPlayDetailItem.$JBXDocumentIsInbox ? true : null } />
 </p>
 
-<textarea class="JBXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JBXPlayDetailFormNotesFieldText') }" bind:value={ JBXPlayDetailItem.JBXDocumentNotes } on:input={ JBXPlayDetailDispatchUpdate } disabled={ JBXPlayDetailItem.$JBXDocumentIsInbox ? true : null }></textarea>
+<p>
+	<textarea class="JBXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JBXPlayDetailFormNotesFieldText') }" bind:value={ JBXPlayDetailItem.JBXDocumentNotes } on:input={ JBXPlayDetailDispatchUpdate } disabled={ JBXPlayDetailItem.$JBXDocumentIsInbox ? true : null }></textarea>
+</p>
+
+<hr role="presentation" />
+
+<p>
+	<OLSKTaxonomy OLSKTaxonomyItems={ JBXPlayDetailItem.JBXDocumentTags || [] } OLSKTaxonomyDispatchUpdate={ mod.OLSKTaxonomyDispatchUpdate } />
+</p>
 
 </div>
 
