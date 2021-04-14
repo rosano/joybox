@@ -137,11 +137,12 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 </div>
 
 {#if JBXPlayDetailItem.JBXDocumentURL }
-<div class="JBXPlayDetailMedia OLSKDecor OLSKDecorBigForm">
 
-	{#if JBXPlayDetailItem.JBXDocumentEmbedURL }
-		<iframe class="JBXPlayDetailMediaPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	{/if}
+{#if JBXPlayDetailItem.JBXDocumentEmbedURL }
+	<iframe class="JBXPlayDetailMediaPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{/if}
+
+<div class="JBXPlayDetailMedia OLSKDecor OLSKDecorBigForm">
 
 	<p class="JBXPlayDetailLink">
 		<input class="JBXPlayDetailMediaURLField" placeholder={ OLSKLocalized('JBXPlayDetailMediaURLFieldText') } type="text" disabled bind:value={ JBXPlayDetailItem.JBXDocumentURL } />
