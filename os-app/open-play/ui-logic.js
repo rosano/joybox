@@ -172,6 +172,20 @@ const mod = {
 		};
 	},
 
+	JBXPlayDocumentCount (inputData) {
+		if (!Array.isArray(inputData)) {
+			throw new Error('JBXErrorInputNotValid');
+		}
+
+		return inputData.reduce(function (coll, item) {
+			if (!item || item.$JBXDocumentIsInbox) {
+				return coll;
+			}
+
+			return coll + 1;
+		}, 0);
+	},
+
 };
 
 export default mod;

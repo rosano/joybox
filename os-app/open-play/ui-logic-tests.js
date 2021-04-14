@@ -393,3 +393,36 @@ describe('JBXPlayRemap', function test_JBXPlayRemap() {
 	});
 
 });
+
+describe('JBXPlayDocumentCount', function test_JBXPlayDocumentCount() {
+
+	it('throws if not array', function () {
+		throws(function () {
+			mod.JBXPlayDocumentCount(null);
+		}, /JBXErrorInputNotValid/);
+	});
+
+	it('returns number', function () {
+		deepEqual(mod.JBXPlayDocumentCount([]), 0);
+	});
+
+	it('excludes if not invalid', function () {
+		deepEqual(mod.JBXPlayDocumentCount([null]), 0);
+	});
+
+	it('includes if valid', function () {
+		const item = uRandomInt();
+		deepEqual(mod.JBXPlayDocumentCount(Array.from(Array(item)).map(function () {
+			return StubDocumentObjectValid();
+		})), item);
+	});
+
+	it('excludes if $JBXDocumentIsInbox', function () {
+		deepEqual(mod.JBXPlayDocumentCount(Array.from(Array(uRandomInt())).map(function () {
+			return StubDocumentObjectValid({
+				$JBXDocumentIsInbox: true,
+			});
+		})), 0);
+	});
+
+});
