@@ -17,6 +17,12 @@ The following 'bookmarklets' can be dragged to your browser's favourites to do s
 
 `JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#PARAM=TEXT`
 
+<div class="OLSKDecorNotice">
+
+Note: this only works if there is a trailing slash before `#`.
+
+</div>
+
 | PARAM | TEXT |
 :--- | ---
 | `JBXPlayCaptureAnchor` | URL or plain text. |
