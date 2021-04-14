@@ -407,6 +407,12 @@ describe('JBXPlayDetail_Misc', function () {
 
 	describe('JBXPlayDetailLauncherItemArchive', function test_JBXPlayDetailLauncherItemArchive() {
 		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
+			});
+		});
+
 		before(function () {
 			browser.assert.text('#TestJBXPlayDetailDispatchArchive', '0');
 		});
