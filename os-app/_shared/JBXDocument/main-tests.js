@@ -265,6 +265,13 @@ describe('_JBXDocumentProcess', function test__JBXDocumentProcess() {
 		})).JBXDocumentEmbedURL, JBXDocumentEmbedURL.replace('youtube.com', 'youtube-nocookie.com'));
 	});
 
+	it('filters empty tags', function() {
+		const JBXDocumentTags = ['', ' ', null];
+		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
+			JBXDocumentTags,
+		})).JBXDocumentTags, []);
+	});
+
 	it('strips __JBXDocumentProcessTest', function() {
 		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
 			__JBXDocumentProcessTest: Math.random().toString(),

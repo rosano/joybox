@@ -129,6 +129,14 @@ const mod = {
 			});
 		}
 
+		if ((inputData.JBXDocumentTags || []).length) {
+			Object.assign(inputData, {
+				JBXDocumentTags: inputData.JBXDocumentTags.filter(function (e) {
+					return !!(e || '').trim();
+				}),
+			});
+		}
+
 		delete inputData.__JBXDocumentProcessTest;
 
 		return inputData;
