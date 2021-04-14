@@ -272,6 +272,13 @@ describe('_JBXDocumentProcess', function test__JBXDocumentProcess() {
 		})).JBXDocumentTags, []);
 	});
 
+	it('filters duplicate tags', function() {
+		const item = Math.random().toString();
+		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
+			JBXDocumentTags: [item, item],
+		})).JBXDocumentTags, [item]);
+	});
+
 	it('strips __JBXDocumentProcessTest', function() {
 		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
 			__JBXDocumentProcessTest: Math.random().toString(),

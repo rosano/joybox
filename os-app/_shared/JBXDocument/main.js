@@ -131,8 +131,8 @@ const mod = {
 
 		if ((inputData.JBXDocumentTags || []).length) {
 			Object.assign(inputData, {
-				JBXDocumentTags: inputData.JBXDocumentTags.filter(function (e) {
-					return !!(e || '').trim();
+				JBXDocumentTags: inputData.JBXDocumentTags.filter(function (e, i, coll) {
+					return !!(e || '').trim() && coll.indexOf(e) === i;
 				}),
 			});
 		}
