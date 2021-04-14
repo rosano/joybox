@@ -9,8 +9,8 @@ exports.OLSKControllerRoutes = function() {
 				short_name: 'Joybox',
 				start_url: res.locals.OLSKCanonical('JBXPlayRoute'),
 				display: 'standalone',
-				background_color: 'white',
-				theme_color: 'white',
+				background_color: 'black',
+				theme_color: 'black',
 				icons: [{
 					src: process.env.OLSK_LAYOUT_TOUCH_ICON_URL,
 					sizes: '600x600',

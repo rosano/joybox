@@ -8,8 +8,8 @@ describe('JBXManifest_Misc', function () {
 			short_name: 'Joybox',
 			start_url: require('../open-play/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath,
 			display: 'standalone',
-			background_color: 'white',
-			theme_color: 'white',
+			background_color: 'black',
+			theme_color: 'black',
 			icons: [{
 				src: process.env.OLSK_LAYOUT_TOUCH_ICON_URL,
 				sizes: '600x600',
