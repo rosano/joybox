@@ -90,6 +90,7 @@ $: {
 
 import OLSKUIAssets from 'OLSKUIAssets';
 import OLSKTaxonomy from 'OLSKTaxonomy';
+import { fade } from 'svelte/transition';
 </script>
 
 <div class="JBXPlayDetail">
@@ -139,7 +140,11 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 {#if JBXPlayDetailItem.JBXDocumentURL }
 
 {#if JBXPlayDetailItem.JBXDocumentEmbedURL }
-	<iframe class="JBXPlayDetailMediaPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	{#key JBXPlayDetailItem.JBXDocumentEmbedURL}
+		<div in:fade="{{ delay: OLSK_SPEC_UI() ? 0 : 250, duration: OLSK_SPEC_UI() ? 0 : 300 }}">
+			<iframe class="JBXPlayDetailMediaPlayer" width="100%" height="280" src={ JBXPlayDetailItem.JBXDocumentEmbedURL } frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	{/key}
 {/if}
 
 <div class="JBXPlayDetailMedia OLSKDecor OLSKDecorBigForm">
