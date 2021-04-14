@@ -123,6 +123,12 @@ const mod = {
 			});
 		}
 
+		if ((inputData.JBXDocumentEmbedURL || '').match('youtube.com')) {
+			Object.assign(inputData, {
+				JBXDocumentEmbedURL: inputData.JBXDocumentEmbedURL.replace('youtube.com', 'youtube-nocookie.com'),
+			});
+		}
+
 		delete inputData.__JBXDocumentProcessTest;
 
 		return inputData;

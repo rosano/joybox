@@ -258,6 +258,13 @@ describe('_JBXDocumentProcess', function test__JBXDocumentProcess() {
 		})).JBXDocumentEmbedURL, JBXDocumentEmbedURL.replace('autoplay=1', 'autoplay=0'));
 	});
 
+	it('renames youtube.com', function() {
+		const JBXDocumentEmbedURL = 'https://www.youtube.com/embed/q-ngFA8VBOM?list=OLAK5uy_nxjqj-pnNjTI2tfejntOuHILUVCtvO7Es';
+		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
+			JBXDocumentEmbedURL,
+		})).JBXDocumentEmbedURL, JBXDocumentEmbedURL.replace('youtube.com', 'youtube-nocookie.com'));
+	});
+
 	it('strips __JBXDocumentProcessTest', function() {
 		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
 			__JBXDocumentProcessTest: Math.random().toString(),
