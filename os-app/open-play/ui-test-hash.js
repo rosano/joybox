@@ -113,6 +113,18 @@ describe('JBXPlay_Hash', function () {
 			});
 		
 		});
+
+		context('JBXPlayClearInboxButton', function () {
+			
+			before(function () {
+				return browser.pressButton(JBXPlayClearInboxButton);
+			});
+
+			it('clears hash', function () {
+				browser.assert.deepEqual(browser.location.hash, '');
+			});
+		
+		});
 	
 	});
 

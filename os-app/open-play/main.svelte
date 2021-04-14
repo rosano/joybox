@@ -40,6 +40,8 @@ const mod = {
 	_ValueFormData: '',
 	_ValueFormDataTags: [],
 
+	_ValueInboxIsVisible: false,
+
 	_ValueRevealArchiveIsVisible: false,
 
 	async ValueSetting (param1, param2) {
@@ -213,6 +215,16 @@ const mod = {
 		mod._ValueFormIsVisible = false;
 		mod._ValueFormData = '';
 		mod._ValueFormDataTags = [];
+	},
+
+	InterfaceClearInboxButtonDidClick () {
+		mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().filter(function (e) {
+			return e.$JBXDocumentIsInbox;
+		}).map(mod._OLSKCatalog.modPublic.OLSKCatalogRemove);
+
+		mod._ValueInboxIsVisible = false;
+
+		window.location.hash = '';
 	},
 
 	InterfaceWindowDidKeydown (event) {
@@ -496,6 +508,8 @@ const mod = {
 		}
 
 		if (inputData[JBXPlayLogic.JBXPlayInboxAnchor()]) {
+			mod._ValueInboxIsVisible = true;
+
 			return mod.ControlInboxAdd(JSON.parse(inputData[JBXPlayLogic.JBXPlayInboxAnchor()]).reverse().map(function (e) {
 				return Object.assign(mod.DataStubDocumentObjectValid(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse(OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(), true))), {
 					$JBXDocumentIsInbox: true,
@@ -769,6 +783,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		</div>
 	{/if}
 
+	{#if mod._ValueInboxIsVisible }
+		<div class="JBXPlayClearInbox">
+			<button class="JBXPlayClearInboxButton OLSKDecorPress" on:click={ mod.InterfaceClearInboxButtonDidClick }>{ OLSKLocalized('JBXPlayClearInboxButtonText') }</button>
+		</div>
+	{/if}
+
 	<!-- MASTER LIST ITEM -->
 
 	<div slot="OLSKCollectionItem">
@@ -777,7 +797,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 	<!-- MASTER BODY TAIL -->
 
-	<div class="OLSKNarrowBodyTail" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
+	<div class="JBXPlayRevealArchive" slot="OLSKNarrowBodyTail">{#if mod._ValueRevealArchiveIsVisible }
 		<button class="JBXPlayRevealArchiveButton OLSKDecorPress" on:click={ mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive }>{ OLSKLocalized('JBXPlayRevealArchiveButtonText') }</button>
 	{/if}</div>
 
@@ -865,12 +885,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	margin-bottom: 0;
 }
 
-.OLSKNarrowBodyTail {
+.JBXPlayClearInbox, .JBXPlayRevealArchive {
 	padding: 10px;
 	
-	/* @OLSKNarrowBodyTailFlexbox:Parent */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	flex-shrink: 0;
 }
 </style>

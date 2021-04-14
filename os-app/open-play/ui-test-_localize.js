@@ -1,6 +1,7 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 const JBXPlayLogic = require('./ui-logic.js').default;
+const OLSKObject = require('OLSKObject').default;
 
 kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
@@ -192,6 +193,25 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				browser.assert.text('.OLSKModalViewTitle', uLocalized('JBXPlayShareModalTitleText'));
 			});
 
+		});
+
+		context('inbox', function test_inbox () {
+
+			before(function() {
+				return browser.OLSKVisit(kDefaultRoute, {
+					OLSKRoutingLanguage,
+					OLSKRoutingHash: {
+						[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+							JBXDocumentURL: Math.random().toString(),
+						}), JBXPlayLogic.JBXPlayRemap())])),
+					},
+				});
+			});
+
+			it('localizes JBXPlayClearInboxButton', function () {
+				browser.assert.text(JBXPlayClearInboxButton, uLocalized('JBXPlayClearInboxButtonText'));
+			});
+		
 		});
 
 	});

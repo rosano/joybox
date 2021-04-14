@@ -1,5 +1,8 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
+const JBXPlayLogic = require('./ui-logic.js').default;
+const OLSKObject = require('OLSKObject').default;
+
 Object.entries({
 	JBXPlay: '.JBXPlay',
 	
@@ -13,6 +16,8 @@ Object.entries({
 	JBXPlayFormField: '.JBXPlayFormField',
 	JBXPlayFormTaxonomy: '.JBXPlayForm .OLSKTaxonomy',
 	JBXPlayFormSubmitButton: '.JBXPlayFormSubmitButton',
+
+	JBXPlayClearInboxButton: '.JBXPlayClearInboxButton',
 
 	JBXPlayListItem: '.JBXPlayListItem',
 
@@ -59,6 +64,10 @@ describe('JBXPlay_Access', function () {
 
 	it('hides JBXPlayForm', function () {
 		browser.assert.elements(JBXPlayForm, 0);
+	});
+
+	it('hides JBXPlayClearInboxButton', function () {
+		browser.assert.elements(JBXPlayClearInboxButton, 0);
 	});
 
 	it('hides JBXPlayListItem', function () {
@@ -313,6 +322,44 @@ describe('JBXPlay_Access', function () {
 
 		it('shows JBXPlayShareModal', function () {
 			browser.assert.elements(JBXPlayShareModal, 1);
+		});
+	
+	});
+
+	context('inbox', function test_inbox () {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				OLSKRoutingHash: {
+					[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+						JBXDocumentURL: Math.random().toString(),
+					}), JBXPlayLogic.JBXPlayRemap())])),
+				},
+			});
+		});
+
+		it('shows JBXPlayClearInboxButton', function () {
+			browser.assert.elements(JBXPlayClearInboxButton, 1);
+		});
+
+		it('shows JBXPlayListItem', function () {
+			browser.assert.elements(JBXPlayListItem, 1);
+		});
+
+		context('click', function () {
+			
+			before(function () {
+				return browser.pressButton(JBXPlayClearInboxButton);
+			});
+
+			it('hides JBXPlayClearInboxButton', function () {
+				browser.assert.elements(JBXPlayClearInboxButton, 0);
+			});
+
+			it('hides JBXPlayListItem', function () {
+				browser.assert.elements(JBXPlayListItem, 0);
+			});
+		
 		});
 	
 	});

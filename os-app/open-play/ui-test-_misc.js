@@ -1,5 +1,8 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
+const JBXPlayLogic = require('./ui-logic.js').default;
+const OLSKObject = require('OLSKObject').default;
+
 describe('JBXPlay_Misc', function () {
 
 	before(function() {
@@ -180,6 +183,24 @@ describe('JBXPlay_Misc', function () {
 			browser.assert.hasClass(JBXPlayCloudToolbar, 'OLSKCommonEdgeTop');
 		});
 	
+	});
+
+	context('JBXPlayClearInboxButton', function test_JBXPlayClearInboxButton () {
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				OLSKRoutingHash: {
+					[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify([OLSKObject.OLSKObjectRemap(StubDocumentObjectValid({
+						JBXDocumentURL: Math.random().toString(),
+					}), JBXPlayLogic.JBXPlayRemap())])),
+				},
+			});
+		});
+
+		it('classes OLSKDecorPress', function () {
+			browser.assert.hasClass(JBXPlayClearInboxButton, 'OLSKDecorPress');
+		});
+
 	});
 
 });
