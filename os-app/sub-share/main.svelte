@@ -71,7 +71,7 @@ import JBXPlayListItem from '../sub-item/main.svelte';
 	</DragDrop>
 </div>
 
-<div class="JBXPlayShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor">
+<div class="JBXPlayShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">
 	<div class="OLSKToolbarElementGroup">
 	</div>
 
@@ -98,7 +98,7 @@ import JBXPlayListItem from '../sub-item/main.svelte';
 }
 
 .JBXPlayShare :global(.item) {
-	background: unset;
+	background: var(--OLSKCommonBackground);
 	border: unset;
 
 	border-bottom: var(--OLSKCommonEdgeBorder);
@@ -117,6 +117,15 @@ import JBXPlayListItem from '../sub-item/main.svelte';
 }
 
 .JBXPlayShareList {
+	padding-bottom: 65px;
+
 	flex-grow: 1;
+}
+
+.JBXPlayShareToolbar {
+	top: unset;
+	bottom: 0;
+	background: var(--OLSKCommonBackground);
+	z-index: 50;
 }
 </style>
