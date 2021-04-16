@@ -28,6 +28,8 @@ import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
 import OLSKQueue from 'OLSKQueue';
 import OLSKTransport from 'OLSKTransport';
 import OLSKHash from 'OLSKHash';
+import OLSKFund from 'OLSKFund';
+import OLSKPact from 'OLSKPact';
 import zerodatawrap from 'zerodatawrap';
 
 const mod = {
@@ -73,6 +75,16 @@ const mod = {
 		return navigator.serviceWorker ? navigator : {
 			serviceWorker: {},
 		};
+	},
+
+	DataIsEligible (inputData = {}) {
+		return OLSKFund.OLSKFundIsEligible(Object.assign({
+			ParamMinimumTier: 1,
+			ParamCurrentProject: 'RP_009',
+			ParamBundleProjects: ['RP_004', 'FakeBundleProject'],
+			ParamGrantTier: OLSKFund.OLSKFundTier('OLSK_FUND_PRICING_STRING_SWAP_TOKEN', mod._ValueOLSKFundGrant),
+			ParamGrantProject: mod._ValueOLSKFundGrant ? mod._ValueOLSKFundGrant.OLSKPactGrantProject : '',
+		}, inputData));
 	},
 
 	DataPlayRecipes () {
@@ -132,6 +144,18 @@ const mod = {
 						})));
 					},
 				},
+				{
+					LCHRecipeName: 'FakeFundDocumentLimit',
+					LCHRecipeCallback: async function FakeFundDocumentLimit () {
+						await Promise.all(Array.from(Array(mod._ValueDocumentRemainder)).map(function (e) {
+							return mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate({
+								JBXDocumentNotes: Math.random().toString(),
+							});
+						}));
+
+						return mod.SetupCatalog();
+					},
+				}
 			]);
 		}
 
@@ -157,6 +181,17 @@ const mod = {
 				ParamSpecUI: OLSK_SPEC_UI(),
 			}));
 		}
+
+		outputData.push(...OLSKFund.OLSKFundRecipes({
+			ParamWindow: window,
+			OLSKLocalized: OLSKLocalized,
+			ParamConnected: !!mod._ValueCloudIdentity,
+			ParamAuthorized: !!mod._ValueFundClue,
+			OLSKFundDispatchGrant: mod.OLSKFundDispatchGrant,
+			OLSKFundDispatchPersist: mod.OLSKFundDispatchPersist,
+			ParamMod: mod,
+			ParamSpecUI: OLSK_SPEC_UI(),
+		}));
 
 		outputData.push(...OLSKServiceWorker.OLSKServiceWorkerRecipes(window, mod.DataNavigator(), OLSKLocalized, OLSK_SPEC_UI()));
 
@@ -198,6 +233,10 @@ const mod = {
 	// INTERFACE
 
 	InterfaceAddButtonDidClick () {
+		if (!mod._ValueFormIsVisible && mod._ValueDocumentRemainder < 1 && !mod.DataIsEligible()) {
+			return mod.OLSKFundDocumentGate();
+		}
+
 		mod._ValueFormIsVisible = !mod._ValueFormIsVisible;
 	},
 
@@ -383,12 +422,14 @@ const mod = {
 		mod._ValueRevealArchiveIsVisible = false;
 	},
 
-	OLSKCatalogDispatchQuantity () {
+	OLSKCatalogDispatchQuantity (inputData) {
 		mod._OLSKTaxonomySuggestionItems = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().reduce(function (coll, item) {
 			return coll.concat((item.JBXDocumentTags || []).filter(function (e) {
 				return !coll.includes(e);
 			}));
 		}, []);
+
+		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(inputData);
 	},
 
 	OLSKCatalogDispatchStash (inputData) {
@@ -602,6 +643,34 @@ const mod = {
 		mod._ValueZDRWrap.ZDRStorageClient().stopSync();
 	},
 
+	OLSKFundSetupDispatchClue () {
+		return mod.DataSetting('JBXSettingFundClue') || null;
+	},
+	
+	_OLSKFundSetupDispatchUpdate (inputData) {
+		mod[inputData] = mod[inputData]; // #purge-svelte-force-update
+	},
+
+	OLSKFundDispatchPersist (inputData) {
+		mod._ValueFundClue = inputData; // #hotfix-missing-persist
+		
+		if (!inputData) {
+			return mod._ValueZDRWrap.App.JBXSetting.JBXSettingsDelete({
+				JBXSettingKey: 'JBXSettingFundClue',
+			});
+		}
+
+		return mod.ValueSetting('JBXSettingFundClue', inputData).then(function () {
+			if (OLSK_SPEC_UI()) {
+				return;
+			}
+
+			setTimeout(function () {
+				window.location.reload();
+			}, mod._ValueZDRWrap.ZDRStorageProtocol === zerodatawrap.ZDRProtocolFission() ? 1000 : 0); // #hotfix-fission-delay
+		});
+	},
+
 	// SETUP
 
 	DataStorageClient (inputData) {
@@ -672,6 +741,57 @@ const mod = {
 
 	SetupHash() {
 		return OLSKHash.OLSKHashSetup(mod);
+	},
+
+	async _SetupFund () {
+		OLSKFund.OLSKFundSetup({
+			ParamMod: mod,
+			OLSKLocalized,
+			ParamFormURL: 'OLSK_FUND_FORM_URL_SWAP_TOKEN',
+			ParamProject: 'RP_009',
+			ParamSpecUI: OLSK_SPEC_UI(),
+			ParamDocumentLimit: parseInt('OLSK_FUND_DOCUMENT_LIMIT_SWAP_TOKEN'),
+		});
+
+		mod.OLSKFundDocumentRemainder(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().length);
+
+		await OLSKFund.OLSKFundSetupPostPay(mod);
+
+		if (!mod._ValueCloudIdentity) {
+			return;
+		}
+
+		if (!mod._ValueFundClue) {
+			return;
+		}
+		
+		const item = {
+			OLSK_CRYPTO_PAIR_RECEIVER_PRIVATE: `OLSK_CRYPTO_PAIR_RECEIVER_PRIVATE_SWAP_TOKEN${ '' }`, // #purge
+			OLSK_CRYPTO_PAIR_SENDER_PUBLIC: 'OLSK_CRYPTO_PAIR_SENDER_PUBLIC_SWAP_TOKEN',
+			ParamWindow: window,
+			OLSK_FUND_API_URL: 'OLSK_FUND_API_URL_SWAP_TOKEN',
+			ParamBody: {
+				OLSKPactAuthType: mod._ValueZDRWrap.ZDRStorageProtocol === zerodatawrap.ZDRProtocolRemoteStorage() ? OLSKPact.OLSKPactAuthTypeRemoteStorage() : OLSKPact.OLSKPactAuthTypeFission(),
+				OLSKPactAuthIdentity: mod._ValueCloudIdentity,
+				OLSKPactAuthProof: mod._ValueCloudToken,
+				OLSKPactAuthMetadata: {
+					OLSKPactAuthMetadataModuleName: 'joybox',
+					OLSKPactAuthMetadataFolderPath: JBXDocument.JBXDocumentDirectory() + '/',
+				},
+				OLSKPactPayIdentity: mod._ValueCloudIdentity,
+				OLSKPactPayClue: mod._ValueFundClue,
+			},
+			OLSKLocalized,
+			OLSKFundDispatchProgress: mod.OLSKFundDispatchProgress,
+			OLSKFundDispatchFail: mod.OLSKFundDispatchFail,
+			OLSKFundDispatchGrant: mod.OLSKFundDispatchGrant,
+		};
+
+		return OLSKFund.OLSKFundSetupGrant(item);
+	},
+
+	SetupFund () {
+		mod._SetupFund();
 	},
 
 	SetupLoading () {
@@ -848,9 +968,12 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		OLSKAppToolbarDispatchApropos={ mod.OLSKAppToolbarDispatchApropos }
 		OLSKAppToolbarDispatchTongue={ mod.OLSKAppToolbarDispatchTongue }
 		OLSKAppToolbarGuideURL={ window.OLSKCanonical('JBXGuideRoute') }
+		OLSKAppToolbarFundShowProgress={ mod._ValueOLSKFundProgress }
+		OLSKAppToolbarFundLimitText={ mod._ValueDocumentRemainder }
 		OLSKAppToolbarCloudConnected={ !!mod._ValueCloudIdentity }
 		OLSKAppToolbarCloudOffline={ mod._ValueCloudIsOffline }
 		OLSKAppToolbarCloudError={ !!mod._ValueCloudErrorText }
+		OLSKAppToolbarDispatchFund={ mod._ValueOLSKFundGrant || OLSKFund.OLSKFundResponseIsPresent() ? null : mod.OLSKAppToolbarDispatchFund }
 		OLSKAppToolbarDispatchCloud={ mod.OLSKAppToolbarDispatchCloud }
 		OLSKAppToolbarDispatchLauncher={ mod.OLSKAppToolbarDispatchLauncher }
 		/>
@@ -864,9 +987,13 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 </div>
 
+{#if !!mod._ValueCloudIdentity }
+	<OLSKWebView OLSKModalViewTitleText={ OLSKLocalized('OLSKFundWebViewTitleText') } OLSKWebViewURL={ mod._ValueFundURL } bind:this={ mod._OLSKWebView } DEBUG_OLSKWebViewDataSource={ OLSK_SPEC_UI() } />
+{/if}
+
 <OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKAproposHeadingText') } bind:this={ mod._OLSKModalView } OLSKModalViewIsCapped={ true }>
 	<OLSKApropos
-		OLSKAproposFeedbackValue={ `javascript:window.location.href = window.atob('${ window.btoa(OLSKString.OLSKStringFormatted(window.atob('OLSK_APROPOS_FEEDBACK_EMAIL_SWAP_TOKEN'), 'RP_X' + (mod._ValueFundClue ? '+' + mod._ValueFundClue : ''))) }')` }
+		OLSKAproposFeedbackValue={ `javascript:window.location.href = window.atob('${ window.btoa(OLSKString.OLSKStringFormatted(window.atob('OLSK_APROPOS_FEEDBACK_EMAIL_SWAP_TOKEN'), 'RP_009' + (mod._ValueFundClue ? '+' + mod._ValueFundClue : ''))) }')` }
 		/>
 </OLSKModalView>
 
