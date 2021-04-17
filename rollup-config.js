@@ -3,7 +3,6 @@ export default require('OLSKRollupScaffold').OLSKRollupScaffoldScanStart(__dirna
 		JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN: process.env.JBX_PLAY_PROXY_URL_TEMPLATE,
 		OLSK_APROPOS_FEEDBACK_EMAIL_SWAP_TOKEN: Buffer.from(`mailto:${ process.env.OLSK_APROPOS_FEEDBACK_EMAIL }`).toString('base64'),
 
-
  		OLSK_FUND_API_URL_SWAP_TOKEN: process.env.OLSK_FUND_API_URL,
  		OLSK_FUND_FORM_URL_SWAP_TOKEN: process.env.OLSK_FUND_FORM_URL,
  		OLSK_FUND_PRICING_STRING_SWAP_TOKEN: process.env.OLSK_FUND_PRICING_STRING,
