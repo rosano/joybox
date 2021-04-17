@@ -3,6 +3,7 @@ const { rejects, throws, deepEqual, strictEqual, notStrictEqual } = require('ass
 const mod = require('./main.js').default;
 
 const OLSKObject = require('OLSKObject').default;
+const OLSKWash = require('OLSKWash');
 
 describe('JBXDocumentErrors', function test_JBXDocumentErrors() {
 
@@ -249,6 +250,14 @@ describe('_JBXDocumentProcess', function test__JBXDocumentProcess() {
 	it('returns inputData', function() {
 		const item = StubDocumentObjectValid();
 		strictEqual(mod._JBXDocumentProcess(item), item);
+	});
+
+	it('calls OLSKWash', function() {
+		const key = uRandomElement('JBXDocumentURL', 'JBXDocumentEmbedURL');
+		const value = 'https://player.vimeo.com/video/535982936';
+		deepEqual(mod._JBXDocumentProcess(StubDocumentObjectValid({
+			[key]: [value, '?', uRandomElement(OLSKWash._OLSKWashGlobalKeys()), '=', Math.random().toString()].join(''),
+		}))[key], value);
 	});
 
 	it('removes autoplay from vimeo', function() {

@@ -1,6 +1,7 @@
 import { factory } from 'ulid';
 const uniqueID = factory();
 import OLSKRemoteStorage from 'OLSKRemoteStorage';
+import OLSKWash from 'OLSKWash';
 
 const mod = {
 
@@ -116,6 +117,16 @@ const mod = {
 		if (typeof inputData !== 'object' || inputData === null) {
 			throw new Error('JBXErrorInputNotValid');
 		}
+
+		['JBXDocumentURL', 'JBXDocumentEmbedURL'].forEach(function (e) {
+			if (!inputData[e]) {
+				return;
+			}
+
+			Object.assign(inputData, {
+				[e]: OLSKWash.OLSKWash(inputData[e]),
+			});
+		});
 
 		if ((inputData.JBXDocumentEmbedURL || '').match('vimeo')) {
 			Object.assign(inputData, {

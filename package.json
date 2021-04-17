@@ -24,6 +24,7 @@
     "OLSKQueue": "olsk/OLSKQueue",
     "OLSKDOM": "olsk/OLSKDOM",
     "OLSKHash": "olsk/OLSKHash",
+    "OLSKWash": "olsk/OLSKWash",
     "OLSKMoment": "olsk/OLSKMoment",
     "OLSKTaxonomy": "olsk/OLSKTaxonomy",
 
