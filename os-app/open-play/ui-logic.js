@@ -87,9 +87,7 @@ const mod = {
 			throw new Error('JBXErrorInputNotValid');
 		}
 
-		return inputData.split('\n').filter(function (e) {
-			return !!e.trim();
-		}).reduce(function (coll, item) {
+		const recurse = function (coll, item) {
 			const urls = item.split(/\s/).filter(function (e) {
 				try {
 					const item = new URL('', e);
@@ -100,6 +98,10 @@ const mod = {
 					return false;
 				}
 			});
+
+			if (urls.length > 1 && item.includes('\n')) {
+				return item.split('\n').reduce(recurse, coll);
+			}
 
 			const JBXDocumentNotes = urls.reduce(function (coll, item) {
 				return coll.split(item).join(' ');
@@ -117,7 +119,11 @@ const mod = {
 					JBXDocumentURL,
 				};
 			}));
-		}, []);
+		};
+
+		return inputData.split('\n\n').filter(function (e) {
+			return !!e.trim();
+		}).reduce(recurse, []);
 	},
 
 	async JBXPlayFetch (inputData, debug = {}) {

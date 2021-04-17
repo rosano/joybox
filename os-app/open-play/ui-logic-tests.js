@@ -154,7 +154,7 @@ describe('JBXPlayChunkFunction', function test_JBXPlayChunkFunction() {
 describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 
 	const uItems = function (inputData) {
-		return Array.from(Array(Math.max(1, Date.now() % 10))).map(inputData);
+		return Array.from(Array(Math.max(2, uRandomInt(10)))).map(inputData);
 	};
 
 	it('throws if not string', function () {
@@ -171,7 +171,7 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 		const item = uItems(function () {
 			return Math.random().toString();
 		});
-		deepEqual(mod.JBXPlayDocuments(item.join('\n')), item.map(function (e) {
+		deepEqual(mod.JBXPlayDocuments(item.join('\n\n')), item.map(function (e) {
 			return {
 				JBXDocumentNotes: e,
 			};
@@ -235,6 +235,18 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 				JBXDocumentNotes,
 			};
 		}));
+	});
+
+	it('parses single-url block', function () {
+		const JBXDocumentNotes = uItems(function () {
+			return Math.random().toString();
+		}).join('\n');
+		const JBXDocumentURL = uLink();
+
+		deepEqual(mod.JBXPlayDocuments([JBXDocumentURL, JBXDocumentNotes].join('\n')), [{
+			JBXDocumentURL,
+			JBXDocumentNotes,
+		}]);
 	});
 
 });
