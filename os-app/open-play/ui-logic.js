@@ -89,10 +89,8 @@ const mod = {
 
 		return inputData.split('\n').filter(function (e) {
 			return !!e.trim();
-		}).map(function (e) {
-			const outputData = {};
-
-			const urls = e.split(/\s/).filter(function (e) {
+		}).reduce(function (coll, item) {
+			const urls = item.split(/\s/).filter(function (e) {
 				try {
 					const item = new URL('', e);
 					if (item.hostname) {
@@ -103,20 +101,23 @@ const mod = {
 				}
 			});
 
-			const text = urls.reduce(function (coll, item) {
+			const JBXDocumentNotes = urls.reduce(function (coll, item) {
 				return coll.split(item).join(' ');
-			}, e).trim();
+			}, item).trim();
 
-			if (urls.length) {
-				Object.assign(outputData, {
-					JBXDocumentURL: urls[0],
+			if (!urls.length) {
+				return coll.concat({
+					JBXDocumentNotes,
 				});
-			};
+			}
 
-			return Object.assign(outputData, {
-				JBXDocumentNotes: text,
-			});
-		});
+			return coll.concat(urls.map(function (JBXDocumentURL) {
+				return {
+					JBXDocumentNotes,
+					JBXDocumentURL,
+				};
+			}));
+		}, []);
 	},
 
 	async JBXPlayFetch (inputData, debug = {}) {

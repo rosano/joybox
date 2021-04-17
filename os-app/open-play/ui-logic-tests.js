@@ -208,6 +208,20 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 		}));
 	});
 
+	it('parses multi-url line', function () {
+		const JBXDocumentNotes = Math.random().toString();
+		const links = uItems(function () {
+			return uLink();
+		});
+
+		deepEqual(mod.JBXPlayDocuments([JBXDocumentNotes].concat(links).join(' ')), links.map(function (JBXDocumentURL) {
+			return {
+				JBXDocumentURL,
+				JBXDocumentNotes,
+			};
+		}));
+	});
+
 });
 
 describe('JBXPlayFetch', function test_JBXPlayFetch () {
