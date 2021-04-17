@@ -222,6 +222,21 @@ describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
 		}));
 	});
 
+	it('parses multi-url block', function () {
+		const items = uItems(function () {
+			return [Math.random().toString(), uLink()];
+		});
+
+		deepEqual(mod.JBXPlayDocuments(items.map(function ([text, link]) {
+			return [text, link].join(' ');
+		}).join('\n')), items.map(function ([JBXDocumentNotes, JBXDocumentURL]) {
+			return {
+				JBXDocumentURL,
+				JBXDocumentNotes,
+			};
+		}));
+	});
+
 });
 
 describe('JBXPlayFetch', function test_JBXPlayFetch () {
