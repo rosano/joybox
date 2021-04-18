@@ -19,7 +19,15 @@ locals.OLSKPageUseLivereload = process.env.NODE_ENV === 'development';
 </div>
 
 <div class="JBXGuideContent">
-<%- JBXGuideContent %>
+<%- OLSKStringReplaceTokens(JBXGuideContent, {
+	JBXGuideTokenTextbox1a: 'alfa\nbravo',
+	JBXGuideTokenTextbox1b: 'alfa\nbravo\nhttps://xyz.com',
+	JBXGuideTokenTextbox2a: 'alfa\n\nbravo',
+	JBXGuideTokenTextbox2b: 'alfa\nhttps://xyz.com/1\n\nbravo\nhttps://xyz.com/2',
+	JBXGuideTokenTextbox2c: 'alfa https://xyz.com/1\nbravo https://xyz.com/2',
+	JBXGuideTokenTextbox2d: 'alfa https://xyz.com/1 https://xy\nz.com/2',
+}) %>
+
 </div>
 
 <hr role="presentation" />

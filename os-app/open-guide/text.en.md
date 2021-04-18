@@ -4,6 +4,11 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 
 </div>
 
+
+Joybox helps you organize links audio and video links. You can add them to your collection, with tags if needed, and then go through them based on your mood.
+
+You can also share a playlist from multiple platforms in one place.
+
 # Add with one click
 
 The following 'bookmarklets' can be dragged to your browser's favourites to do something special.
@@ -12,6 +17,55 @@ The following 'bookmarklets' can be dragged to your browser's favourites to do s
 :--- | ---
 | <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(location.href)+'&JBXPlayNameAnchor='+encodeURIComponent(document.title),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
 | <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(window.prompt()),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
+
+# Add by pasting links or text
+
+Text input is interpreted based on how lines are spaced. The link can be at the beginning, middle, or end of a block of text.
+
+|||
+:--- | ---
+| **Two lines single-spaced:**<br><pre>JBXGuideTokenTextbox1a</pre> | Add one item. |
+| **Three lines single-spaced, including a link:**<br><pre>JBXGuideTokenTextbox1b</pre> | Add one item. |
+| **Two blocks double-spaced:**<br><pre>JBXGuideTokenTextbox2a</pre> | Add two items. |
+| **Two blocks double-spaced, each with a link:**<br><pre>JBXGuideTokenTextbox2b</pre> | Add two items. |
+| **Two lines single-spaced, each with a link:**<br><pre>JBXGuideTokenTextbox2c</pre> | Add two items. |
+| **Two links on the same line:**<br><pre>JBXGuideTokenTextbox2d</pre> | Add two items. |
+
+# Media browser
+
+On the left side of the interface, you can create, search, and select items. On the right side, you can edit the details.
+
+<div class="OLSKDecorNotice">
+
+Editing the same item on multiple devices at the same time can result in data loss. Editing different items or playing the game while editing items is safe.
+
+</div>
+
+*JBXPlayDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *JBXPlayRevealArchiveButtonText* button was pressed.
+
+*JBXPlayDetailMediaFetchButtonText* fetch the image, metadata, and embed url.
+
+*JBXPlayDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *JBXPlayDetailMediaFetchButtonText*.
+
+*JBXPlayDetailFormNotesFieldText* can be used for any personal comments. Any text from a capture box will be placed here.
+
+*OLSKTaxonomyFieldText* can be used to organize items and make them easier to find.
+
+# Sharing a playlist
+
+1. Press the *JBXPlayStashButtonText* button.
+2. Select one or more items from the list, then press OK.
+3. Re-order if necessary by dragging or pressing the arrow buttons, then press *JBXPlayShareCopyButtonText*.
+
+# Receiving a playlist
+
+The items are grouped at the top of the list in a section called *JBXPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link.
+
+Clear the inbox by pressing *JBXPlayClearInboxButtonText*.
+
+Add an inbox item to your collection by pressing *JBXPlayDetailToolbarQueueButtonText*.
+
+Here's a [sample playlist](JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayInboxAnchor=JBX_GUIDE_SAMPLE_INBOX) to try.
 
 # API Parameters
 
@@ -38,11 +92,11 @@ Note: this only works if there is a trailing slash before `#`.
 
 </div>
 
-| List of memos ||
+| List of items ||
 :--- | ---
-| Create new card | `AccessKey+n` |
-| Select previous or next card, if filter field is focused | `Up` or `Down` |
-| Clear filter text and selected card, focus filter field | `Escape` |
+| Create new item | `AccessKey+n` |
+| Select previous or next item, if filter field is focused | `Up` or `Down` |
+| Clear filter text and selected item, focus filter field | `Escape` |
 | Close, if filter field is focused | `Escape` |
 | `OLSKTransportLauncherItemImportJSONText` | Launcher |
 | `OLSKTransportLauncherItemExportJSONText` | Launcher |
