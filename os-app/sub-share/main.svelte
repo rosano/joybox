@@ -73,9 +73,6 @@ import JBXPlayListItem from '../sub-item/main.svelte';
 
 <div class="JBXPlayShareToolbar OLSKToolbar OLSKToolbarJustify OLSKCommonEdgeTop OLSKDecor OLSKDecorFixedHeader">
 	<div class="OLSKToolbarElementGroup">
-	</div>
-
-	<div class="OLSKToolbarElementGroup">
 		<input class="JBXPlayShareLinkField" placeholder={ OLSKLocalized('JBXPlayShareLinkFieldText') } type="text" bind:value={ mod._ValueLink } onClick="this.select()" />
 
 		<button class="JBXPlayShareCopyButton" data-clipboard-target=".JBXPlayShareLinkField">{ OLSKLocalized('JBXPlayShareCopyButtonText') }</button>
@@ -123,9 +120,23 @@ import JBXPlayListItem from '../sub-item/main.svelte';
 }
 
 .JBXPlayShareToolbar {
+	width: calc(100vw - 15px);
 	top: unset;
 	bottom: 0;
 	background: var(--OLSKCommonBackground);
 	z-index: 50;
+	display: flex;
+}
+
+.OLSKToolbarElementGroup {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.JBXPlayShareLinkField {
+	flex-grow: 1;
+	max-width: 400px;
+	margin-right: 10px;
 }
 </style>
