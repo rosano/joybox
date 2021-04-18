@@ -8,7 +8,7 @@ const mod = {
 			OLSKRouteFunction (req, res, next) {
 				return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'ui-view.ejs'));
 			},
-			OLSKRouteLanguageCodes: ['en', 'fr'],
+			OLSKRouteLanguageCodes: ['en', 'fr', 'es'],
 		}, {
 			OLSKRoutePath: '/proxy',
 			OLSKRouteMethod: 'get',

@@ -6,7 +6,7 @@ exports.OLSKControllerRoutes = function() {
 			return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'main'));
 		},
 		OLSKRouteSignature: 'JBXRootLinkStubRoute',
-		OLSKRouteLanguageCodes: ['en', 'fr'],
+		OLSKRouteLanguageCodes: ['en', 'fr', 'es'],
 		OLSKRouteIsHidden: process.env.NODE_ENV === 'production',
 	}];
 };
