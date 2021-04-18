@@ -426,7 +426,7 @@ const mod = {
 			}));
 		}, []);
 
-		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(inputData);
+		mod.ReactDocumentLimit();
 	},
 
 	OLSKCatalogDispatchStash (inputData) {
@@ -667,6 +667,12 @@ const mod = {
 		});
 	},
 
+	// REACT
+
+	ReactDocumentLimit () {
+		mod.OLSKFundDocumentRemainder && mod.OLSKFundDocumentRemainder(JBXPlayLogic.JBXPlayDocumentCount(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll()));
+	},
+
 	// SETUP
 
 	DataStorageClient (inputData) {
@@ -749,7 +755,7 @@ const mod = {
 			ParamDocumentLimit: parseInt('OLSK_FUND_DOCUMENT_LIMIT_SWAP_TOKEN'),
 		});
 
-		mod.OLSKFundDocumentRemainder(mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().length);
+		mod.ReactDocumentLimit();
 
 		await OLSKFund.OLSKFundSetupPostPay(mod);
 
