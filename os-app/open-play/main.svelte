@@ -201,7 +201,7 @@ const mod = {
 				LCHRecipeSignature: 'JBXPlayLauncherItemRevealArchive',
 				LCHRecipeName: OLSKLocalized('JBXPlayRevealArchiveButtonText'),
 				LCHRecipeCallback: function JBXPlayLauncherItemRevealArchive () {
-					mod.ControlRevealArchive();
+					mod._OLSKCatalog.modPublic.OLSKCatalogRevealArchive();
 				},
 			});
 		}
@@ -387,10 +387,6 @@ const mod = {
 
 			return coll;
 		}, mod.DataStubDocumentObject(inputData)));
-	},
-
-	ControlRevealArchive () {
-		mod._ValueRevealArchiveIsVisible = false;
 	},
 
 	// MESSAGE
