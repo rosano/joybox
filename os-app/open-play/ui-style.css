@@ -1,11 +1,11 @@
 :root {
 	--OLSKCommonBackground: #222;
-	--OLSKCommonForeground: #cfcca0;
+	--OLSKCommonForeground: #fee8b1;
 	--OLSKCommonBorderColor: #777;
 	--OLSKCommonEdgeColor: #444;
 
 	--OLSKCollectionItemsLocusColorDefault: #555;
-	--OLSKCollectionItemsLocusColorActive: rgba(243, 83, 35);
+	--OLSKCollectionItemsLocusColorActive: rgb(255, 93, 35);
 	--OLSKCollectionItemsLocusColorActiveInverse: white;
 
 	--OLSKChunkHeadingBorderColor: #555;
