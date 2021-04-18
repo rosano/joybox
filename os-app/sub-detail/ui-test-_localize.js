@@ -90,6 +90,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 				before(function() {
 					return browser.OLSKVisit(kDefaultRoute, {
+						OLSKRoutingLanguage,
 						JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
 							$JBXDocumentIsInbox: true,
 						})),
