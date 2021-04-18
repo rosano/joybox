@@ -97,7 +97,7 @@ describe('JBXPlay_Catalog', function () {
 		});
 
 		before(function () {
-			browser.fill(JBXPlayFormField, Math.random().toString() + '\n' + Math.random().toString());
+			browser.fill(JBXPlayFormField, Math.random().toString() + '\n\n' + Math.random().toString());
 		});
 
 		before(function () {

@@ -44,7 +44,7 @@ describe('JBXPlay_Hash', function () {
 		
 		const items = Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
 			return StubDocumentObjectValid({
-				JBXDocumentURL: Math.random().toString(),
+				JBXDocumentURL: uLink(),
 				JBXDocumentName: Math.random().toString(),
 			});
 		});

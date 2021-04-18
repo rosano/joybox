@@ -227,7 +227,7 @@ describe('JBXPlay_Access', function () {
 			});
 
 			before(function () {
-				browser.fill(JBXPlayFormField, Array.from(Array(count)).map(Math.random).join('\n'));
+				browser.fill(JBXPlayFormField, Array.from(Array(count)).map(Math.random).join('\n\n'));
 			});
 
 			before(function () {

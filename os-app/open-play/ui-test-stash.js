@@ -15,7 +15,7 @@ describe('JBXPlay_Stash', function () {
 	});
 
 	before(function () {
-		browser.fill(JBXPlayFormField, items.join('\n'));
+		browser.fill(JBXPlayFormField, items.join('\n\n'));
 	});
 
 	before(function () {
