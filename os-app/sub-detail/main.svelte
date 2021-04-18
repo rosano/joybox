@@ -135,8 +135,6 @@ import { fade } from 'svelte/transition';
 	{/if}
 </header>
 
-</div>
-
 {#if JBXPlayDetailItem.JBXDocumentURL }
 
 {#if JBXPlayDetailItem.JBXDocumentEmbedURL }
@@ -185,6 +183,8 @@ import { fade } from 'svelte/transition';
 			/>
 	{/each}
 </p>
+
+</div>
 
 </div>
 
