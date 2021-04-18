@@ -56,6 +56,10 @@ const mod = {
 	_JBXPlayChunk (inputData, OLSKLocalized) {
 		const today = OLSKMoment.OLSKMomentPerceptionDate(new Date());
 
+		if (inputData.JBXDocumentArchiveDate) {
+			return OLSKLocalized('JBXPlayChunkArchiveText');
+		}
+
 		if (inputData.$JBXDocumentIsInbox) {
 			return OLSKLocalized('JBXPlayChunkInboxText');
 		}
@@ -82,6 +86,16 @@ const mod = {
 				[group]: (coll[group] || []).concat(item),
 			});
 		}, {});
+	},
+
+	JBXPlayChunkKeySortFunction (OLSKLocalized) {
+		if (typeof OLSKLocalized !== 'function') {
+			throw new Error('JBXErrorInputNotValid');
+		}
+
+		return function (a, b) {
+			return uAscending(a === OLSKLocalized('JBXPlayChunkArchiveText'), b === OLSKLocalized('JBXPlayChunkArchiveText'));
+		};
 	},
 
 	JBXPlayDocuments (inputData) {

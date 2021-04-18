@@ -162,6 +162,37 @@ describe('JBXPlayChunkFunction', function test_JBXPlayChunkFunction() {
 		});
 	});
 
+	it('groups if archive', function() {
+		const item = {
+			JBXDocumentCreationDate: new Date(),
+			JBXDocumentArchiveDate: new Date(),
+		};
+		deepEqual(mod.JBXPlayChunkFunction([item], uLocalized), {
+			[uLocalized('JBXPlayChunkArchiveText')]: [item],
+		});
+	});
+
+});
+
+describe('JBXPlayChunkKeySortFunction', function test_JBXPlayChunkKeySortFunction() {
+
+	it('throws if not function', function () {
+		throws(function () {
+			mod.JBXPlayChunkKeySortFunction(null);
+		}, /JBXErrorInputNotValid/);
+	});
+
+	it('returns function', function () {
+		deepEqual(typeof mod.JBXPlayChunkKeySortFunction(function () {}), 'function');
+	});
+
+	it('sorts JBXPlayChunkArchiveText below others', function() {
+		const item1 = uLocalized('JBXPlayChunkArchiveText');
+		const item2 = Math.random().toString();
+
+		deepEqual([item1, item2].sort(mod.JBXPlayChunkKeySortFunction(uLocalized)), [item2, item1]);
+	});
+
 });
 
 describe('JBXPlayDocuments', function test_JBXPlayDocuments () {
