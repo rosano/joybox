@@ -350,7 +350,7 @@ const mod = {
 	},
 
 	ControlDocumentArchive (inputData) {
-		inputData.JBXDocumentIsArchived = true;
+		inputData.JBXDocumentArchiveDate = new Date();
 
 		mod.ControlDocumentSave(inputData);
 
@@ -358,7 +358,7 @@ const mod = {
 	},
 	
 	ControlDocumentUnarchive (inputData) {
-		delete inputData.JBXDocumentIsArchived;
+		delete inputData.JBXDocumentArchiveDate;
 
 		mod.ControlDocumentSave(inputData);
 
@@ -848,7 +848,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 	OLSKCollectionItemAccessibilitySummaryFunction={ JBXPlayLogic.JBXPlayAccessibilitySummary }
 	OLSKCollectionItemClass={ 'OLSKCommonEdgeBottom' }
 
-	_OLSKCatalogArchiveField={ 'JBXDocumentIsArchived' }
+	_OLSKCatalogArchiveField={ 'JBXDocumentArchiveDate' }
 	
 	OLSKCatalogSortFunction={ JBXPlayLogic.JBXPlaySortFunction }
 	OLSKCatalogIsMatch={ JBXPlayLogic.JBXPlayIsMatch }

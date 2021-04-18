@@ -131,7 +131,7 @@ describe('JBXPlayDetail_Misc', function () {
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentIsArchived: true,
+					JBXDocumentArchiveDate: new Date(),
 				})),
 			});
 		});
@@ -432,7 +432,7 @@ describe('JBXPlayDetail_Misc', function () {
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentIsArchived: true,
+					JBXDocumentArchiveDate: new Date(),
 				})),
 			});
 		});

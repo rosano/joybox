@@ -30,7 +30,7 @@ const mod = {
 	DataPlayDetailRecipes () {
 		const outputData = [];
 
-		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && !JBXPlayDetailItem.JBXDocumentIsArchived) {
+		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && !JBXPlayDetailItem.JBXDocumentArchiveDate) {
 			outputData.push({
 				LCHRecipeSignature: 'JBXPlayDetailLauncherItemArchive',
 				LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText'),
@@ -40,7 +40,7 @@ const mod = {
 			})
 		}
 
-		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && JBXPlayDetailItem.JBXDocumentIsArchived) {
+		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && JBXPlayDetailItem.JBXDocumentArchiveDate) {
 			outputData.push({
 				LCHRecipeSignature: 'JBXPlayDetailLauncherItemUnarchive',
 				LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarUnarchiveButtonText'),
@@ -115,13 +115,13 @@ import { fade } from 'svelte/transition';
 	{#if !JBXPlayDetailItem.$JBXDocumentIsInbox }
 
 	<div class="OLSKToolbarElementGroup">
-		{#if !JBXPlayDetailItem.JBXDocumentIsArchived }
+		{#if !JBXPlayDetailItem.JBXDocumentArchiveDate }
 			<button class="JBXPlayDetailToolbarArchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarArchiveButtonText') } on:click={ JBXPlayDetailDispatchArchive }>
 				<div class="JBXPlayDetailToolbarArchiveButtonImage">{@html OLSKUIAssets._OLSKSharedArchive }</div>
 			</button>
 		{/if}
 
-		{#if JBXPlayDetailItem.JBXDocumentIsArchived }
+		{#if JBXPlayDetailItem.JBXDocumentArchiveDate }
 			<button class="JBXPlayDetailToolbarUnarchiveButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarUnarchiveButtonText') } on:click={ JBXPlayDetailDispatchUnarchive }>
 				<div class="JBXPlayDetailToolbarUnarchiveButtonImage">{@html OLSKUIAssets._OLSKSharedUnarchive }</div>
 			</button>

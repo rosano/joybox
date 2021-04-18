@@ -65,13 +65,13 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		
 			});
 
-			context('JBXDocumentIsArchived', function() {
+			context('JBXDocumentArchiveDate', function() {
 
 				before(function() {
 					return browser.OLSKVisit(kDefaultRoute, {
 						OLSKRoutingLanguage,
 						JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-							JBXDocumentIsArchived: true,
+							JBXDocumentArchiveDate: new Date(),
 						})),
 					});
 				});

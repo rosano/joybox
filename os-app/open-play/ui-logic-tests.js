@@ -45,10 +45,10 @@ describe('JBXPlaySortFunction', function test_JBXPlaySortFunction() {
 		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
 	});
 
-	it('sorts JBXDocumentIsArchived below others', function() {
+	it('sorts JBXDocumentArchiveDate below others', function() {
 		const item1 = {
 			JBXDocumentCreationDate: new Date(0),
-			JBXDocumentIsArchived: true,
+			JBXDocumentArchiveDate: new Date(),
 		};
 		const item2 = {
 			JBXDocumentCreationDate: new Date(1),

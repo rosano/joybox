@@ -167,24 +167,14 @@ describe('JBXDocumentErrors', function test_JBXDocumentErrors() {
 
 	});
 
-	context('JBXDocumentIsArchived', function() {
-
-		it('returns object if not boolean', function() {
-			deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
-				JBXDocumentIsArchived: null,
-			})), {
-				JBXDocumentIsArchived: [
-					'JBXErrorNotBoolean',
-				],
-			});
+	it('returns object if JBXDocumentArchiveDate not date', function() {
+		deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
+			JBXDocumentArchiveDate: new Date('alfa'),
+		})), {
+			JBXDocumentArchiveDate: [
+				'JBXErrorNotDate',
+			],
 		});
-
-		it('returns null', function() {
-			deepEqual(mod.JBXDocumentErrors(StubDocumentObjectValid({
-				JBXDocumentIsArchived: true,
-			})), null);
-		});
-
 	});
 
 	context('JBXDocumentTags', function () {

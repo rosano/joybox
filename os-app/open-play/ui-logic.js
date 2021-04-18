@@ -30,8 +30,8 @@ const mod = {
 			return uDescending(!!a.$JBXDocumentIsInbox, !!b.$JBXDocumentIsInbox);
 		}
 
-		if (a.JBXDocumentIsArchived !== b.JBXDocumentIsArchived) {
-			return uAscending(!!a.JBXDocumentIsArchived, !!b.JBXDocumentIsArchived);
+		if (a.JBXDocumentArchiveDate !== b.JBXDocumentArchiveDate) {
+			return uAscending(!!a.JBXDocumentArchiveDate, !!b.JBXDocumentArchiveDate);
 		}
 
 		return (function(e) {

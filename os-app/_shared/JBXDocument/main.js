@@ -80,10 +80,10 @@ const mod = {
 			}
 		}
 
-		if (typeof inputData.JBXDocumentIsArchived !== 'undefined') {
-			if (typeof inputData.JBXDocumentIsArchived !== 'boolean') {
-				errors.JBXDocumentIsArchived = [
-					'JBXErrorNotBoolean',
+		if (typeof inputData.JBXDocumentArchiveDate !== 'undefined') {
+			if (!(inputData.JBXDocumentArchiveDate instanceof Date) || Number.isNaN(inputData.JBXDocumentArchiveDate.getTime())) {
+				errors.JBXDocumentArchiveDate = [
+					'JBXErrorNotDate',
 				];
 			}
 		}

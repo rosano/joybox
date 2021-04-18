@@ -66,12 +66,12 @@ describe('JBXPlayListItem_Misc', function () {
 	
 	});
 
-	context('JBXDocumentIsArchived', function () {
+	context('JBXDocumentArchiveDate', function () {
 		
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JBXPlayListItemObject: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentIsArchived: true,
+					JBXDocumentArchiveDate: new Date(),
 				})),
 			});
 		});

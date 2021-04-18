@@ -4,7 +4,7 @@ export let JBXPlayListItemObject;
 import JBXPlayListItemLogic from './ui-logic.js';
 </script>
 
-<div class="JBXPlayListItem OLSKCommonCard" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentIsArchived }>
+<div class="JBXPlayListItem OLSKCommonCard" class:JBXPlayListItemArchived={ JBXPlayListItemObject.JBXDocumentArchiveDate }>
 
 {#if JBXPlayListItemObject.JBXDocumentImageURL }
 	<img class="JBXPlayListItemImage" src={ JBXPlayListItemObject.JBXDocumentImageURL } role="presentation" />

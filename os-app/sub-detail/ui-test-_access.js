@@ -157,12 +157,12 @@ describe('JBXPlayDetail_Access', function () {
 
 	});
 
-	context('JBXDocumentIsArchived', function() {
+	context('JBXDocumentArchiveDate', function() {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid({
-					JBXDocumentIsArchived: true,
+					JBXDocumentArchiveDate: new Date(),
 				})),
 			});
 		});
