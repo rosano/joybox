@@ -57,6 +57,19 @@ describe('JBXPlaySortFunction', function test_JBXPlaySortFunction() {
 		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
 	});
 
+	it('sorts by JBXDocumentArchiveDate descending', function() {
+		const item1 = {
+			JBXDocumentCreationDate: new Date(1),
+			JBXDocumentArchiveDate: new Date(0),
+		};
+		const item2 = {
+			JBXDocumentCreationDate: new Date(0),
+			JBXDocumentArchiveDate: new Date(1),
+		};
+
+		deepEqual([item1, item2].sort(mod.JBXPlaySortFunction), [item2, item1]);
+	});
+
 	it('sorts $JBXDocumentIsInbox above others', function() {
 		const item1 = {
 			JBXDocumentCreationDate: new Date(1),

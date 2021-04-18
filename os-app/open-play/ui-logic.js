@@ -30,13 +30,15 @@ const mod = {
 			return uDescending(!!a.$JBXDocumentIsInbox, !!b.$JBXDocumentIsInbox);
 		}
 
-		if (a.JBXDocumentArchiveDate !== b.JBXDocumentArchiveDate) {
+		if ([a.JBXDocumentArchiveDate, b.JBXDocumentArchiveDate].filter(function (e) {
+			return !e;
+		}) === 1) {
 			return uAscending(!!a.JBXDocumentArchiveDate, !!b.JBXDocumentArchiveDate);
 		}
 
 		return (function(e) {
 			return uDescending(a[e], b[e]);
-		})(['JBXDocumentCreationDate'].filter(function (e) {
+		})(['JBXDocumentArchiveDate', 'JBXDocumentCreationDate'].filter(function (e) {
 			return a[e] && b[e];
 		}).shift());
 	},
