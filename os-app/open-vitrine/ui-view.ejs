@@ -28,6 +28,12 @@ locals.OLSKPagePublicConstants = {
 	OLSKLandingActionHref: OLSKCanonicalLocalized('JBXPlayRoute'),
 }) %>
 
+<div class="OLSKCommonVideoList">
+	<p class="JBXVitrineVideo OLSKCommonVideoListItem">
+		<iframe src="<%= process.env.JBX_VITRINE_VIDEO_URL %>" allowfullscreen></iframe>
+	</p>
+</div>
+
 <h1 class="JBXVitrineFeaturesHeading"><%= OLSKLocalized('OLSKWordingFeatures') %></h1>
 
 <%- include('../../node_modules/OLSKAppFeatureList/main.ejs', {

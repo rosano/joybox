@@ -1,0 +1,13 @@
+.JBXVitrineVideo {
+	--OLSKCommonVideoWide: 1500;
+	--OLSKCommonVideoHigh: 800;
+}
+@media screen and (min-width: 760px) {
+
+.JBXVitrineVideo {
+	--OLSKCommonVideoWide: 1200;
+	width: 400px;
+}
+
+}
+

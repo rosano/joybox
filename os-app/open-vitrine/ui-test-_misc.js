@@ -30,6 +30,18 @@ describe('JBXVitrine_Misc', function () {
 	
 	});
 
+	describe('JBXVitrineVideo', function () {
+
+		it('sets src', function () {
+			browser.assert.attribute(JBXVitrineVideo, 'src', process.env.JBX_VITRINE_VIDEO_URL);
+		});
+
+		it('sets allowfullscreen', function () {
+			browser.assert.attribute(JBXVitrineVideo, 'allowfullscreen', '');
+		});
+
+	});
+
 	describe('OLSKAppFeaturesList', function test_OLSKAppFeaturesList () {
 
 		it('shows OLSKAppFeatureOpenSource', function () {

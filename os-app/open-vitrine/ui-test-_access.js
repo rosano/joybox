@@ -3,6 +3,8 @@ const kDefaultRoutePath = require('./controller.js').OLSKControllerRoutes().shif
 Object.entries({
 	JBXVitrine: '.JBXVitrine',
 	
+	JBXVitrineVideo: '.OLSKCommonVideoList .OLSKCommonVideoListItem.JBXVitrineVideo iframe',
+
 	JBXVitrineFeaturesHeading: '.JBXVitrineFeaturesHeading',
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
@@ -31,6 +33,10 @@ describe('JBXVitrine_Access', function () {
 	
 	it('shows OLSKLanding', function() {
 		browser.assert.elements('.OLSKLanding', 1);
+	});
+
+	it('shows JBXVitrineVideo', function () {
+		browser.assert.elements(JBXVitrineVideo, 1);
 	});
 
 	it('shows JBXVitrineFeaturesHeading', function () {
