@@ -172,6 +172,7 @@ import { fade } from 'svelte/transition';
 	<textarea class="JBXPlayDetailFormNotesField" placeholder="{ OLSKLocalized('JBXPlayDetailFormNotesFieldText') }" bind:value={ JBXPlayDetailItem.JBXDocumentNotes } on:input={ JBXPlayDetailDispatchUpdate } disabled={ JBXPlayDetailItem.$JBXDocumentIsInbox ? true : null }></textarea>
 </p>
 
+{#if !JBXPlayDetailItem.$JBXDocumentIsInbox }
 <hr role="presentation" />
 
 <p>
@@ -183,6 +184,7 @@ import { fade } from 'svelte/transition';
 			/>
 	{/each}
 </p>
+{/if}
 
 </div>
 

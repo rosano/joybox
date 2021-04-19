@@ -223,6 +223,10 @@ describe('JBXPlayDetail_Access', function () {
 			browser.assert.elements(JBXPlayDetailMediaFetchButton, 0);
 		});
 
+		it('hides OLSKTaxonomy', function () {
+			browser.assert.elements('.OLSKTaxonomy', 0);
+		});
+
 		it('hides JBXPlayDetailLauncherItemArchive', function () {
 			return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemArchive', 0);
 		});
