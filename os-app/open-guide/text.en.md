@@ -15,7 +15,7 @@ The following 'bookmarklets' can be dragged to your browser's favourites to do s
 
 |||
 :--- | ---
-| <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(location.href)+'&JBXPlayNameAnchor='+encodeURIComponent(document.title),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
+| <a class="JBXGuideBookmarklet" href="javascript:i=document.querySelector('[property=%22og:image%22]');void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(location.href)+'&JBXPlayNameAnchor='+encodeURIComponent(document.title)+(!i?'':'&JBXPlayImageAnchor='+encodeURIComponent(i.getAttribute('content'))),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Queue</a> | Add the current page to your list silently and in the background. |
 | <a class="JBXGuideBookmarklet" href="javascript:void(t=open('JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayCaptureAnchor='+encodeURIComponent(window.prompt()),'Joybox','toolbar=no,width=100,height=100'));t.blur();">Capture</a> | Enter notes to be added your list. |
 
 # Add by pasting links or text

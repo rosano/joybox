@@ -456,6 +456,14 @@ describe('JBXPlayNameAnchor', function test_JBXPlayNameAnchor() {
 
 });
 
+describe('JBXPlayImageAnchor', function test_JBXPlayImageAnchor() {
+
+	it('returns string', function() {
+		deepEqual(mod.JBXPlayImageAnchor(), 'image');
+	});
+
+});
+
 describe('JBXPlayInboxAnchor', function test_JBXPlayInboxAnchor() {
 
 	it('returns string', function() {

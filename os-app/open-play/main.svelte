@@ -534,7 +534,8 @@ const mod = {
 	OLSKHashDispatchInitialize (inputData) {
 		if (inputData[JBXPlayLogic.JBXPlayCaptureAnchor()]) {
 			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayCaptureAnchor()], {
-				JBXDocumentName: inputData[JBXPlayLogic.JBXPlayNameAnchor()],
+				JBXDocumentName: inputData[JBXPlayLogic.JBXPlayNameAnchor()] || undefined,
+				JBXDocumentImageURL: inputData[JBXPlayLogic.JBXPlayImageAnchor()] || undefined,
 			}).then(function () {
 				return !OLSK_SPEC_UI() && new Promise(function () {
 					return setTimeout(function () {
