@@ -1,6 +1,7 @@
 <script>
 export let JBXPlayListItemObject;
 
+import OLSKString from 'OLSKString';
 import JBXPlayListItemLogic from './ui-logic.js';
 </script>
 
@@ -11,9 +12,9 @@ import JBXPlayListItemLogic from './ui-logic.js';
 {/if}
 
 <section>
-	<span class="JBXPlayListItemTitle">{ JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '') }</span>
+	<span class="JBXPlayListItemTitle">{ OLSKString.OLSKStringSnippet(JBXPlayListItemObject.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(JBXPlayListItemObject.JBXDocumentURL || '')) }</span>
 
-	<span class="JBXPlayListItemSnippet">{ JBXPlayListItemObject.JBXDocumentNotes }</span>
+	<span class="JBXPlayListItemSnippet">{ OLSKString.OLSKStringSnippet(JBXPlayListItemObject.JBXDocumentNotes) }</span>
 
 	<span class="JBXPlayListItemTags">{ (JBXPlayListItemObject.JBXDocumentTags || []).join(', ') }</span>
 </section>

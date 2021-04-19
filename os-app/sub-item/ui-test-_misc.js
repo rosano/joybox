@@ -4,13 +4,13 @@ const JBXPlayListItemLogic = require('./ui-logic.js').default;
 
 describe('JBXPlayListItem_Misc', function () {
 
-	const JBXDocumentName = uRandomElement(undefined, Math.random().toString());
+	const JBXDocumentName = uRandomElement(undefined, Array.from(Array(Math.max(2, uRandomInt(100)))).map(Math.random).toString());
 
 	const item = StubDocumentObjectValid({
 		JBXDocumentName,
 		JBXDocumentURL: 'https://www.example.com/' + Math.random().toString(),
 		JBXDocumentImageURL: 'https://www.example.com/' + Math.random().toString(),
-		JBXDocumentNotes: Math.random().toString(),
+		JBXDocumentNotes: Array.from(Array(Math.max(2, uRandomInt(100)))).map(Math.random).toString(),
 		JBXDocumentTags: Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
 			return Math.random().toString();
 		}),
@@ -44,8 +44,8 @@ describe('JBXPlayListItem_Misc', function () {
 
 	describe('JBXPlayListItemTitle', function test_JBXPlayListItemTitle () {
 		
-		it('binds JBXDocumentNotes', function () {
-			browser.assert.text(JBXPlayListItemTitle, item.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(item.JBXDocumentURL));
+		it('binds JBXDocumentName', function () {
+			browser.assert.text(JBXPlayListItemTitle, require('OLSKString').OLSKStringSnippet(item.JBXDocumentName || JBXPlayListItemLogic.JBXPlayListItemHumanURL(item.JBXDocumentURL)));
 		});
 	
 	});
@@ -53,7 +53,7 @@ describe('JBXPlayListItem_Misc', function () {
 	describe('JBXPlayListItemSnippet', function test_JBXPlayListItemSnippet () {
 		
 		it('binds JBXDocumentNotes', function () {
-			browser.assert.text(JBXPlayListItemSnippet, item.JBXDocumentNotes);
+			browser.assert.text(JBXPlayListItemSnippet, require('OLSKString').OLSKStringSnippet(item.JBXDocumentNotes));
 		});
 	
 	});
