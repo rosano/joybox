@@ -301,7 +301,7 @@ const mod = {
 			return !!e;
 		});
 
-		return Promise.all(JBXPlayLogic.JBXPlayDocuments(inputData).map(function (e) {
+		return Promise.all(JBXPlayLogic.JBXPlayDocuments(inputData).reverse().map(function (e) {
 			return Object.assign(e, properties);
 		}).filter(function (e) {
 			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
