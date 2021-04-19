@@ -5,7 +5,7 @@ This document is a work-in-progress. Feel free to reach out on [Mastodon](https:
 </div>
 
 
-Joybox helps you organize links audio and video links. You can add them to your collection, with tags if needed, and then go through them based on your mood.
+Joybox helps you organize audio and video links. You can add them to your collection, with tags if needed, and then go through them based on your mood.
 
 You can also share a playlist from multiple platforms in one place.
 
@@ -31,13 +31,13 @@ Text input is interpreted based on how lines are spaced. The link can be at the 
 | **Two lines single-spaced, each with a link:**<br><pre>JBXGuideTokenTextbox2c</pre> | Add two items. |
 | **Two links on the same line:**<br><pre>JBXGuideTokenTextbox2d</pre> | Add two items. |
 
-# Media browser
+# Item catalog
 
 On the left side of the interface, you can create, search, and select items. On the right side, you can edit the details.
 
 <div class="OLSKDecorNotice">
 
-Editing the same item on multiple devices at the same time can result in data loss. Editing different items or playing the game while editing items is safe.
+Editing the same item on multiple devices at the same time can result in data loss. Editing different items is safe.
 
 </div>
 
@@ -51,21 +51,21 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 *OLSKTaxonomyFieldText* can be used to organize items and make them easier to find.
 
-# Sharing a playlist
+# Sharing playlists
+
+## Sending a playlist
 
 1. Press the *JBXPlayStashButtonText* button.
 2. Select one or more items from the list, then press OK.
 3. Re-order if necessary by dragging or pressing the arrow buttons, then press *JBXPlayShareCopyButtonText*.
 
-# Receiving a playlist
+## Receiving a playlist
 
-The items are grouped at the top of the list in a section called *JBXPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link.
+The items are grouped at the top of the list in a section called *JBXPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayInboxAnchor=JBX_GUIDE_SAMPLE_INBOX).
 
 Clear the inbox by pressing *JBXPlayClearInboxButtonText*.
 
 Add an inbox item to your collection by pressing *JBXPlayDetailToolbarQueueButtonText*.
-
-Here's a [sample playlist](JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayInboxAnchor=JBX_GUIDE_SAMPLE_INBOX) to try.
 
 # API Parameters
 
@@ -73,7 +73,7 @@ Here's a [sample playlist](JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayInbo
 
 <div class="OLSKDecorNotice">
 
-Note: this only works if there is a trailing slash before `#`.
+Note: this only works with a trailing slash before `#`.
 
 </div>
 
@@ -81,6 +81,7 @@ Note: this only works if there is a trailing slash before `#`.
 :--- | ---
 | `JBXPlayCaptureAnchor` | URL or plain text. |
 | `JBXPlayNameAnchor` | Item name. Note if multiple items are present in `JBXPlayCaptureAnchor`, this will set the name for all items. |
+| `JBXPlayInboxAnchor` | URL-encoded JSON array of objects. |
 
 # Shortcuts
 
@@ -92,7 +93,7 @@ Note: this only works if there is a trailing slash before `#`.
 
 </div>
 
-| List of items ||
+| Item catalog ||
 :--- | ---
 | Create new item | `AccessKey+n` |
 | Select previous or next item, if filter field is focused | `Up` or `Down` |
