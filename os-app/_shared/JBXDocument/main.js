@@ -187,7 +187,9 @@ export default Object.assign(mod, {
 		},
 
 		async JBXDocumentList () {
-			return Object.values(await this.App.JBXDocument.ZDRModelListObjects()).map(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse);;
+			return Object.values(await this.App.JBXDocument.ZDRModelListObjects()).filter(function (e) {
+				return !!e;
+			}).map(OLSKRemoteStorage.OLSKRemoteStoragePostJSONParse);;
 		},
 
 	},
