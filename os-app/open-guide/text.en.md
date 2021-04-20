@@ -11,7 +11,7 @@ You can also share a playlist from multiple platforms in one place.
 
 # Add with one click
 
-The following 'bookmarklets' can be dragged to your browser's favourites to do something special.
+The following 'bookmarklets' can be dragged to your browser's favourites and will do something special on click.
 
 |||
 :--- | ---
@@ -65,7 +65,7 @@ The items are grouped at the top of the list in a section called *JBXPlayChunkIn
 
 Clear the inbox by pressing *JBXPlayClearInboxButtonText*.
 
-Add an inbox item to your collection by pressing *JBXPlayDetailToolbarQueueButtonText*.
+Add an inbox item to your collection by pressing the *JBXPlayDetailToolbarQueueButtonText* button.
 
 # API Parameters
 
@@ -80,7 +80,7 @@ Note: this only works with a trailing slash before `#`.
 | PARAM | TEXT |
 :--- | ---
 | `JBXPlayCaptureAnchor` | URL or plain text. |
-| `JBXPlayNameAnchor` | Item name. Note if multiple items are present in `JBXPlayCaptureAnchor`, this will set the name for all items. |
+| `JBXPlayNameAnchor` | Item name. Note: if multiple URLs are present in `JBXPlayCaptureAnchor`, this will set the name for all items. |
 | `JBXPlayInboxAnchor` | URL-encoded JSON array of objects. |
 
 # Shortcuts
