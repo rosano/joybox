@@ -2,6 +2,7 @@ const { throws, rejects, deepEqual } = require('assert');
 
 const mod = require('./ui-logic.js').default;
 const OLSKMoment = require('OLSKMoment');
+const OLSKEmbed = require('OLSKEmbed');
 import { JSDOM } from 'jsdom';
 
 const uLocalized = function (inputData) {
@@ -436,6 +437,87 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 			},
 			JSDOM: JSDOM.fragment,
 		})).JBXDocumentDidFetch, true);
+	});
+
+	context('oembed', function () {
+
+		it('fetch embed url', function () {
+			const JBXDocumentURL = OLSKEmbed._OLSKEmbedCanonicalURL();
+			deepEqual(uCapture(function (fetch) {
+				mod.JBXPlayFetch(StubDocumentObjectValid({
+					JBXDocumentURL,
+				}), {
+					window: {
+						fetch,
+					},
+				});
+			}), [OLSKEmbed.OLSKEmbedFetchURL(OLSKEmbed.OLSKEmbedEndpointURL(JBXDocumentURL), JBXDocumentURL)]);
+		});
+
+		it('sets JBXDocumentName', async function () {
+			const title = Math.random().toString();
+			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+				JBXDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
+			}), {
+				window: {
+					fetch: (function () {
+						return {
+							json: (function () {
+								return {
+									[Math.random().toString()]: Math.random().toString(),
+									title,
+								};
+							}),
+						};
+					}),
+				},
+				JSDOM: JSDOM.fragment,
+			})).JBXDocumentName, title);
+		});
+
+		it('sets JBXDocumentImageURL', async function () {
+			const thumbnail_url = Math.random().toString();
+			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+				JBXDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
+			}), {
+				window: {
+					fetch: (function () {
+						return {
+							json: (function () {
+								return {
+									[Math.random().toString()]: Math.random().toString(),
+									thumbnail_url,
+								};
+							}),
+						};
+					}),
+				},
+				JSDOM: JSDOM.fragment,
+			})).JBXDocumentImageURL, thumbnail_url);
+		});
+
+		it('sets JBXDocumentEmbedURL', async function () {
+			const url = 'https://www.youtube.com/embed/oKjXqck4AS8?feature=oembed';
+			const html = `"html":"\u003ciframe width=\u0022200\u0022 height=\u0022113\u0022 src=\u0022${ url }\u0022 frameborder=\u00220\u0022 allow=\u0022accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\u0022 allowfullscreen\u003e\u003c/iframe\u003e"}`;
+			deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
+				JBXDocumentURL: OLSKEmbed._OLSKEmbedCanonicalURL(),
+			}), {
+				window: {
+					fetch: (function () {
+						return {
+							json: (function () {
+								return {
+									[Math.random().toString()]: Math.random().toString(),
+									html,
+								};
+							}),
+						};
+					}),
+				},
+				JSDOM: JSDOM.fragment,
+			})).JBXDocumentEmbedURL, url);
+		});
+	
 	});
 
 });

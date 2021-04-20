@@ -22,6 +22,7 @@
     "OLSKPithApp": "olsk/OLSKPithApp",
     "OLSKCatalog": "olsk/OLSKCatalog",
     "OLSKQueue": "olsk/OLSKQueue",
+    "OLSKEmbed": "olsk/OLSKEmbed",
     "OLSKDOM": "olsk/OLSKDOM",
     "OLSKHash": "olsk/OLSKHash",
     "OLSKWash": "olsk/OLSKWash",

@@ -1,5 +1,6 @@
 import OLSKString from 'OLSKString';
 import OLSKDOM from 'OLSKDOM';
+import OLSKEmbed from 'OLSKEmbed';
 import OLSKMoment from 'OLSKMoment';
 import JBXDocument from '../_shared/JBXDocument/main.js';
 
@@ -152,11 +153,21 @@ const mod = {
 			return inputData;
 		}
 
-		const metadata = OLSKDOM.OLSKDOMMetadata((await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text()), debug);
+		const embed = OLSKEmbed.OLSKEmbedEndpointURL(inputData.JBXDocumentURL);
+
+		const metadata = {};
+
+		try {
+			Object.assign(metadata, await (await (debug.window || window).fetch(OLSKEmbed.OLSKEmbedFetchURL(embed, inputData.JBXDocumentURL))).json());
+		} catch {};
+
+		if (Object.keys(metadata).length <= 1) {
+			Object.assign(metadata, OLSKDOM.OLSKDOMMetadata(await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text(), debug));
+		}
 
 		return Object.assign(inputData, {
 			JBXDocumentName: inputData.JBXDocumentName || metadata.title,
-			JBXDocumentEmbedURL: [
+			JBXDocumentEmbedURL: metadata.html ? metadata.html.match(/src=\u0022(\S*)\u0022/)[1] : [
 				'og:video:secure_url',
 				'og:video:url',
 				'og:video',
@@ -165,6 +176,7 @@ const mod = {
 				return coll || metadata[item];
 			}, undefined),
 			JBXDocumentImageURL: [
+				'thumbnail_url',
 				'og:image',
 			].reduce(function (coll, item) {
 				return coll || metadata[item];
