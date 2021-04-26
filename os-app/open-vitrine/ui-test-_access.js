@@ -67,6 +67,10 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements(JBXVitrineSupportBlurb, 1);
 	});
 
+	it('shows OLSKFollow', function () {
+		browser.assert.elements('.OLSKFollow', 1);
+	});
+
 	it('shows OLSKGazette', function () {
 		browser.assert.elements('.OLSKGazette', 1);
 	});

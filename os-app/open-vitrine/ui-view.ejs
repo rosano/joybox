@@ -43,6 +43,7 @@ locals.OLSKPagePublicConstants = {
 <a class="JBXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JBXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
 
 <h1 class="JBXVitrineGazetteHeading"><%= OLSKLocalized('OLSKGazetteHeadingText') %></h1>
+<%- include('../../node_modules/OLSKFollow/main.ejs') %>
 <%- include('../../node_modules/OLSKGazette/main.ejs', {
 	OLSKGazetteProject: 'RP_X',
 }) %>
