@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe(`JBXPlayDetail_Localize-${ OLSKRoutingLanguage }`, function () {
+	describe('JBXPlayDetail_Localize-' + OLSKRoutingLanguage, function () {
 
 		context('JBXPlayDetailItem', function() {
 		
