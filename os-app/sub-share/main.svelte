@@ -4,6 +4,7 @@ export let JBXPlayShareItems;
 import { OLSKLocalized } from 'OLSKInternational';
 
 import JBXPlayLogic from '../open-play/ui-logic.js';
+import OLSKString from 'OLSKString';
 import OLSKHash from 'OLSKHash';
 import OLSKObject from 'OLSKObject';
 
@@ -29,7 +30,7 @@ const mod = {
 
 	ControlUpdateLink (inputData) {
 		mod._ValueLink = window.location.origin + window.OLSKCanonical('JBXPlayRoute') + '/#' + OLSKHash.OLSKHashString({
-			[JBXPlayLogic.JBXPlayInboxAnchor()]: encodeURIComponent(JSON.stringify(inputData.map(function (e) {
+			[JBXPlayLogic.JBXPlayInboxAnchor()]: OLSKString.OLSKStringEncode(JSON.stringify(inputData.map(function (e) {
 				return OLSKObject.OLSKObjectRemap(e, JBXPlayLogic.JBXPlayRemap(e));
 			}))),
 		});
