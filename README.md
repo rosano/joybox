@@ -1,4 +1,4 @@
-<a href="https://joybox.rosano.ca"><img alt="Project logo" src="https://rosano.s3.amazonaws.com/public/joybox/identity.svg" width="64" /></a>
+<a href="https://joybox.rosano.ca"><img alt="Project logo" src="https://static.rosano.ca/joybox/identity.svg" width="64" /></a>
 
 # Joybox
 
@@ -6,7 +6,7 @@ _A pinboard for audiovisual media_
 
 <a href="https://joybox.rosano.ca">Joybox</a> makes it simple to play media from multiple platforms in the same place. Read the <a href="https://joybox.rosano.ca/guide">guide</a> for more details.
 
-<a href="https://joybox.rosano.ca/play"><img alt="Open app" src="http://rosano.s3.amazonaws.com/public/_shared/_RCSAppButton.svg" /></a>
+<a href="https://joybox.rosano.ca/play"><img alt="Open app" src="http://static.rosano.ca/_shared/_RCSAppButton.svg" /></a>
 
 ## Architecture
 
