@@ -2,7 +2,7 @@
 
 # Joybox
 
-_A pinboard for media_
+_A pinboard for audiovisual media_
 
 <a href="https://joybox.rosano.ca">Joybox</a> makes it simple to play media from multiple platforms in the same place. Read the <a href="https://joybox.rosano.ca/guide">guide</a> for more details.
 
