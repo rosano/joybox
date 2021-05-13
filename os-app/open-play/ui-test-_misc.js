@@ -21,6 +21,10 @@ describe('JBXPlay_Misc', function () {
 		browser.assert.attribute('meta[name=apple-mobile-web-app-capable]', 'content', 'yes');
 	});
 
+	it('sets manifest', function () {
+		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
+	});
+
 	describe('JBXPlayStashButton', function test_JBXPlayStashButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {
