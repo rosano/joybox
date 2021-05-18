@@ -2,7 +2,7 @@
   "scripts": {
     "postinstall": "node ./package-postinstall.js",
     
-    "setup": "olsk-bundle",
+    "setup": "npm install --no-save && olsk-bundle",
     
     "start": "olsk-express",
 
