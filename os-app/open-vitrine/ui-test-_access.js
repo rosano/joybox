@@ -11,6 +11,8 @@ Object.entries({
 
 	JBXVitrineGazetteHeading: '.JBXVitrineGazetteHeading',
 
+	JBXVitrineJarHeading: '.JBXVitrineJarHeading',
+
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
 	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
 }).map(function (e) {
@@ -57,6 +59,14 @@ describe('JBXVitrine_Access', function () {
 
 	it('shows JBXVitrineGazetteHeading', function () {
 		browser.assert.elements(JBXVitrineGazetteHeading, 1);
+	});
+
+	it('shows JBXVitrineJarHeading', function () {
+		browser.assert.elements(JBXVitrineJarHeading, 1);
+	});
+
+	it('shows OLSKJar', function () {
+		browser.assert.elements('.OLSKJar', 1);
 	});
 
 	it('shows JBXVitrineSupportHeading', function () {
