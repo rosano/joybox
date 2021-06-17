@@ -17,6 +17,7 @@
 		'OLSKDecor',
 		'OLSKRouting',
 		'OLSKUIAssets',
+		'OLSKBanner',
 		'launchlet',
 		'ROCORootLink',
 		'webnative',
