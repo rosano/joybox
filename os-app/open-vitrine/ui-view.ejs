@@ -42,9 +42,8 @@ locals.OLSKPagePublicConstants = {
 
 <a class="JBXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JBXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
 
-<h1 class="JBXVitrineGazetteHeading"><%= OLSKLocalized('ROCOBulletinHeadingText') %></h1>
-<%- include('../../node_modules/OLSKFollow/main.ejs') %>
-<%- include('../../node_modules/ROCOBulletin/main.ejs', {
+<%- include('../../node_modules/ROCOGazette/main.ejs', {
+	_OLSKModulesDirPrefix: '../.',
 	ROCOBulletinProject: 'RP_009',
 }) %>
 

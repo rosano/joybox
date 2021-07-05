@@ -9,8 +9,6 @@ Object.entries({
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
 
-	JBXVitrineGazetteHeading: '.JBXVitrineGazetteHeading',
-
 	JBXVitrineJarHeading: '.JBXVitrineJarHeading',
 
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
@@ -57,8 +55,8 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements(JBXVitrineGuideButton, 1);
 	});
 
-	it('shows JBXVitrineGazetteHeading', function () {
-		browser.assert.elements(JBXVitrineGazetteHeading, 1);
+	it('shows ROCOGazette', function () {
+		browser.assert.elements('.ROCOGazette', 1);
 	});
 
 	it('shows JBXVitrineJarHeading', function () {
@@ -75,14 +73,6 @@ describe('JBXVitrine_Access', function () {
 
 	it('shows JBXVitrineSupportBlurb', function () {
 		browser.assert.elements(JBXVitrineSupportBlurb, 1);
-	});
-
-	it('shows OLSKFollow', function () {
-		browser.assert.elements('.OLSKFollow', 1);
-	});
-
-	it('shows ROCOBulletin', function () {
-		browser.assert.elements('.ROCOBulletin', 1);
 	});
 
 	it('shows ROCOEphemerataLink', function () {
