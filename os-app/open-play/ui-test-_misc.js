@@ -1,7 +1,7 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 const JBXPlayLogic = require('./ui-logic.js').default;
-const OLSKObject = require('OLSKObject').default;
+const OLSKObject = require('OLSKObject');
 
 describe('JBXPlay_Misc', function () {
 

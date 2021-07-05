@@ -2,7 +2,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 const JBXPlayLogic = require('../open-play/ui-logic.js').default;
 const OLSKHash = require('OLSKHash');
-const OLSKObject = require('OLSKObject').default;
+const OLSKObject = require('OLSKObject');
 
 describe('JBXPlayShare_Misc', function () {
 
