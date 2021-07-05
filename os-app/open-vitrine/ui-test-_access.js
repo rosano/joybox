@@ -9,8 +9,6 @@ Object.entries({
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
 
-	JBXVitrineJarHeading: '.JBXVitrineJarHeading',
-
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
 	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
 }).map(function (e) {
@@ -57,10 +55,6 @@ describe('JBXVitrine_Access', function () {
 
 	it('shows ROCOGazette', function () {
 		browser.assert.elements('.ROCOGazette', 1);
-	});
-
-	it('shows JBXVitrineJarHeading', function () {
-		browser.assert.elements(JBXVitrineJarHeading, 1);
 	});
 
 	it('shows OLSKJar', function () {
