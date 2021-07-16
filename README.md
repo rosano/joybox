@@ -1,6 +1,6 @@
 <a href="https://joybox.rosano.ca"><img alt="Project logo" src="https://static.rosano.ca/joybox/identity.svg" width="64" /></a>
 
-# Joybox
+# [Joybox](https://joybox.rosano.ca)
 
 _A pinboard for audiovisual media_
 
