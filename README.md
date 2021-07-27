@@ -72,7 +72,11 @@ npm test ui match='/(vitrine|guide)/'
 
 ## ❤️
 
-If you’re enjoying this, consider [contributing to my Open Collective](https://opencollective.com/rosano). Virtually everything I create is public, accessible for free, and open-source. Your support helps me keep adding to the commons and making it available for everyo## License
+If you’re enjoying this, consider contributing to my Open Collective. Virtually everything I create is public, accessible for free, and open-source. Your support helps me keep adding to the commons and making it available for everyone.
+
+<a href="https://opencollective.com/rosano"><img alt="Contribute" src="http://static.rosano.ca/_shared/_RCSContributeButton.svg" /></a>
+
+## License
 
 The code is released under a [Hippocratic License](https://firstdonoharm.dev), modified to exclude its use for surveillance capitalism and also to require large for-profit entities to purchase a paid license.
 
