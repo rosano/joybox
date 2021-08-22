@@ -2,7 +2,9 @@
 	--OLSKCommonBackground: #222;
 	--OLSKCommonForeground: #fee8b1;
 	--OLSKCommonBorderColor: #777;
-	--OLSKCommonEdgeColor: #444;
+	--OLSKDecorForegroundLight: #444;
+	--OLSKDecorFormBlendBackground: #333;
+	--OLSKDecorFormBlendBorderColor: var(--OLSKDecorForegroundLight);
 
 	--OLSKCollectionItemsLocusColorDefault: #555;
 	--OLSKCollectionItemsLocusColorActive: rgb(255, 93, 35);
@@ -10,8 +12,18 @@
 
 	--OLSKChunkHeadingBorderColor: #555;
 	--OLSKChunkHeadingBackground: #303030;
+}
 
-	--OLSKInputBackground: #333;
+input, textarea {
+	border-color: var(--OLSKDecorForegroundLight) !important;
+}
+
+.OLSKDecorBigForm button, .JBXPlayDetailMediaOpenButton {
+	border-color: unset !important;
+}
+
+hr {
+	opacity: 0.2 !important;
 }
 
 svg * {
@@ -21,10 +33,6 @@ svg * {
 #_OLSKSharedApropos * {
 	fill: var(--OLSKCommonForeground);
 	stroke: none;
-}
-
-.OLSKToolbar a {
-	color: var(--OLSKCommonForeground) !important;
 }
 
 body {

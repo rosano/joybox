@@ -25,6 +25,14 @@ describe('JBXPlay_Misc', function () {
 		browser.assert.attribute('link[rel="manifest"]', 'href', require('../tech-manifest/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath);
 	});
 
+	describe('JBXPlay', function test_JBXPlay () {
+		
+		it('classes OLSKDecorFormBlend', function () {
+			browser.assert.hasClass(JBXPlay, 'OLSKDecorFormBlend');
+		});
+
+	});
+
 	describe('JBXPlayStashButton', function test_JBXPlayStashButton () {
 		
 		it('classes OLSKDecorButtonNoStyle', function () {

@@ -839,7 +839,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 </script>
 <svelte:window on:keydown={ mod.InterfaceWindowDidKeydown } />
 
-<div class="JBXPlay OLSKViewport" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
+<div class="JBXPlay OLSKViewport OLSKDecorFormBlend" class:OLSKIsLoading={ mod._ValueIsLoading } class:OLSKIsDemoing={ mod._IsRunningDemo }>
 
 <div class="OLSKViewportContent">
 
