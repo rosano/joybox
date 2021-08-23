@@ -60,7 +60,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				it('localizes JBXPlayDetailDiscardConfirm', function() {
 					browser.assert.OLSKConfirmQuestion(function () {
 						return browser.pressButton(JBXPlayDetailToolbarDiscardButton);
-					}, uLocalized('JBXPlayDetailDiscardConfirmText'));
+					}, uLocalized('OLSKWordingConfirmText'));
 				});
 		
 			});

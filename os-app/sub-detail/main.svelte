@@ -127,7 +127,7 @@ import { fade } from 'svelte/transition';
 			</button>
 		{/if}
 
-		<button class="JBXPlayDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('JBXPlayDetailDiscardConfirmText')) && JBXPlayDetailDispatchDiscard() }>
+		<button class="JBXPlayDetailToolbarDiscardButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton" title={ OLSKLocalized('JBXPlayDetailToolbarDiscardButtonText') } on:click={ () => window.confirm(OLSKLocalized('OLSKWordingConfirmText')) && JBXPlayDetailDispatchDiscard() }>
 			<div class="JBXPlayDetailToolbarDiscardButtonImage">{@html OLSKUIAssets._OLSKSharedDiscard }</div>
 		</button>
 	</div>
