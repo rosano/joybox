@@ -93,9 +93,9 @@ import OLSKTaxonomy from 'OLSKTaxonomy';
 import { fade } from 'svelte/transition';
 </script>
 
-<div class="JBXPlayDetail">
+<div class="JBXPlayDetail ROCOStandardView">
 
-<header class="JBXPlayDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom">
+<header class="JBXPlayDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom ROCOStandardViewHead">
 	<div class="OLSKToolbarElementGroup">
 		<button class="JBXPlayDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile" title={ OLSKLocalized('JBXPlayDetailToolbarBackButtonText') } on:click={ JBXPlayDetailDispatchBack }>
 			<div class="JBXPlayDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
@@ -134,6 +134,8 @@ import { fade } from 'svelte/transition';
 	
 	{/if}
 </header>
+
+<div class="ROCOStandardViewBody">
 
 {#if JBXPlayDetailItem.JBXDocumentURL }
 
@@ -188,6 +190,8 @@ import { fade } from 'svelte/transition';
 
 </div>
 
+</div>
+	
 </div>
 
 {#if _DebugLauncher && OLSK_SPEC_UI() }

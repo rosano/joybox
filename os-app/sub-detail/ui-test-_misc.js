@@ -22,6 +22,14 @@ describe('JBXPlayDetail_Misc', function () {
 		});
 	});
 
+	describe('JBXPlayDetail', function test_JBXPlayDetail () {
+
+		it('classes ROCOStandardView', function () {
+			browser.assert.hasClass(JBXPlayDetail, 'ROCOStandardView');
+		});
+
+	});
+
 	describe('JBXPlayDetailToolbar', function test_JBXPlayDetailToolbar () {
 
 		it('classes OLSKToolbar', function () {
@@ -38,6 +46,10 @@ describe('JBXPlayDetail_Misc', function () {
 		
 		it('classes OLSKCommonEdgeBottom', function () {
 			browser.assert.hasClass(JBXPlayDetailToolbar, 'OLSKCommonEdgeBottom');
+		});
+		
+		it('classes ROCOStandardViewHead', function () {
+			browser.assert.hasClass(JBXPlayDetailToolbar, 'ROCOStandardViewHead');
 		});
 		
 	});
