@@ -244,13 +244,7 @@ const mod = {
 	InterfaceFormSubmitButtonDidClick (event) {
 		event.preventDefault();
 
-		mod.ControlTextAdd(mod._ValueFormData, mod._ValueFormDataTags.length ? {
-			JBXDocumentTags: mod._ValueFormDataTags,
-		} : {});
-
-		mod._ValueFormIsVisible = false;
-		mod._ValueFormData = '';
-		mod._ValueFormDataTags = [];
+		mod.ControlFormSubmit();
 	},
 
 	InterfaceClearInboxButtonDidClick () {
@@ -387,6 +381,16 @@ const mod = {
 
 			return coll;
 		}, mod.DataStubDocumentObject(inputData)));
+	},
+
+	ControlFormSubmit () {
+		mod.ControlTextAdd(mod._ValueFormData, mod._ValueFormDataTags.length ? {
+			JBXDocumentTags: mod._ValueFormDataTags,
+		} : {});
+
+		mod._ValueFormIsVisible = false;
+		mod._ValueFormData = '';
+		mod._ValueFormDataTags = [];
 	},
 
 	// MESSAGE
