@@ -262,7 +262,17 @@ const mod = {
 			return;
 		}
 
-		const handlerFunctions = {};
+		const handlerFunctions = {
+			Enter () {
+				if (!mod._ValueFormIsVisible) {
+					return;
+				}
+
+				if (event.ctrlKey || event.metaKey) {
+					return mod.ControlFormSubmit();
+				}
+			},
+		};
 
 		handlerFunctions[event.key] && handlerFunctions[event.key]();
 	},
