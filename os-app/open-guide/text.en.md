@@ -37,7 +37,7 @@ On the left side of the interface, you can create, search, and select items. On 
 
 <div class="OLSKDecorNotice">
 
-Editing the same item on multiple devices at the same time can result in data loss. Editing different items is safe.
+Editing the same item on multiple devices at the same time can result in data loss. Editing different items should be safe.
 
 </div>
 
