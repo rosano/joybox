@@ -43,7 +43,7 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 *JBXPlayDetailToolbarArchiveButtonText* hides the item from the list unless there is filter text or the *JBXPlayRevealArchiveButtonText* button was pressed.
 
-*JBXPlayDetailMediaFetchButtonText* fetch the image, metadata, and embed url.
+*JBXPlayDetailMediaFetchButtonText* fetches the image, metadata, and embed url.
 
 *JBXPlayDetailFormNameFieldText* is the name for the item. If this is empty, it will be overwritten when pressing *JBXPlayDetailMediaFetchButtonText*.
 
