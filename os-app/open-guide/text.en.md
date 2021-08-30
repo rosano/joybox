@@ -95,7 +95,7 @@ Note: this only works with a trailing slash before `#`.
 
 | Item catalog ||
 :--- | ---
-| Create new item | `AccessKey+n` |
+| Open capture box | `AccessKey+n` |
 | Select previous or next item, if filter field is focused | `Up` or `Down` |
 | Clear filter text and selected item, focus filter field | `Escape` |
 | Close, if filter field is focused | `Escape` |
