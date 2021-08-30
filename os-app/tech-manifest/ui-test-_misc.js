@@ -3,7 +3,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 describe('JBXManifest_Misc', function () {
 
 	it('sends json', async function () {
-		browser.assert.deepEqual(await (await browser.fetch('http://loc.tests' + kDefaultRoute.OLSKRoutePath)).json(), {
+		browser.assert.deepEqual(await (await browser.fetch('http://localhost' + kDefaultRoute.OLSKRoutePath)).json(), {
 			name: 'Joybox',
 			short_name: 'Joybox',
 			start_url: require('../open-play/controller.js').OLSKControllerRoutes().shift().OLSKRoutePath,
