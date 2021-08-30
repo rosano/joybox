@@ -61,7 +61,7 @@ Editing the same item on multiple devices at the same time can result in data lo
 
 ## Receiving a playlist
 
-The items are grouped at the top of the list in a section called *JBXPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](JBX_GUIDE_BOOKMARKLET_ORIGINJBXPlayRoute/#JBXPlayInboxAnchor=JBX_GUIDE_SAMPLE_INBOX).
+The items are grouped at the top of the list in a section called *JBXPlayChunkInboxText*. These mostly behave like any other item, but they are not editable and will not appear without clicking the shared link. Try a [sample playlist](https://go.rosano.ca/joybox-sample-playlist).
 
 Clear the inbox by pressing *JBXPlayClearInboxButtonText*.
 

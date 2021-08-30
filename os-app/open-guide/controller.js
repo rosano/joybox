@@ -13,7 +13,6 @@ exports.OLSKControllerRoutes = function () {
 				}, {}), {
 					JBXPlayRoute: res.locals.OLSKCanonical('JBXPlayRoute'),
 					JBX_GUIDE_BOOKMARKLET_ORIGIN: process.env.JBX_GUIDE_BOOKMARKLET_ORIGIN,
-					JBX_GUIDE_SAMPLE_INBOX: process.env.JBX_GUIDE_SAMPLE_INBOX,
 				})),
 				OLSKStringReplaceTokens: require('OLSKString').OLSKStringReplaceTokens,
 			});
