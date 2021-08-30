@@ -5,7 +5,7 @@ describe('JBXPlay_Fund', function () {
 	require('OLSKFund/ui-test_template').default({
 		kDefaultRoute,
 
-		ParamProject: 'RP_009',
+		ParamProject: process.env.ROCO_SHARED_PROJECT_ID,
 		
 		ParamTriggerGate () {
 			return browser.pressButton('.JBXPlayToggleFormButton');

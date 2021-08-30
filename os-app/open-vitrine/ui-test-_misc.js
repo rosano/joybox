@@ -73,7 +73,7 @@ describe('JBXVitrine_Misc', function () {
 	describe('ROCOGazette', function test_ROCOGazette () {
 
 		it('sets ROCOBulletinProject', function () {
-			browser.assert.attribute('.ROCOBulletinProjectField', 'value', 'RP_009');
+			browser.assert.attribute('.ROCOBulletinProjectField', 'value', process.env.ROCO_SHARED_PROJECT_ID);
 		});
 
 	});
