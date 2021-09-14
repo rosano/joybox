@@ -115,6 +115,14 @@ describe('JBXTransportExport', function test_JBXTransportExport() {
 			})).JBXDocument.shift(), item);
 		});
 
+		it('excludes if $JBXDocumentIsInbox', function () {
+			deepEqual((ZDRTestingWrap.App.JBXTransport.JBXTransportExport({
+				JBXDocument: [StubDocumentObjectValid({
+					$JBXDocumentIsInbox: true,
+				})],
+			})).JBXDocument, []);
+		});
+
 		it('strips dynamic attributes', function () {
 			const item = StubDocumentObjectValid({
 				$alfa: Math.random().toString(),

@@ -53,7 +53,9 @@ export default {
 				}
 				
 				return Object.assign(coll, {
-					[key]: value.map(OLSKRemoteStorage.OLSKRemoteStorageSafeCopy),
+					[key]: value.filter(function (e) {
+						return !e.$JBXDocumentIsInbox;
+					}).map(OLSKRemoteStorage.OLSKRemoteStorageSafeCopy),
 				});
 			}, {});
 		},
