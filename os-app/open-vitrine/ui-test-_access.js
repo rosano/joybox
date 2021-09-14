@@ -9,7 +9,7 @@ Object.entries({
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
 
-	JBXVitrineGlossaryHeading: '.JBXVitrineGlossaryHeading',
+	JBXVitrineDeeperHeading: '.JBXVitrineDeeperHeading',
 	JBXVitrineGlossary: '.JBXVitrineGlossary',
 	JBXVitrineGlossaryEphemerataLink: '.JBXVitrineGlossaryEphemerataLink',
 	JBXVitrineGlossaryEphemerataBlurb: '.JBXVitrineGlossaryEphemerataBlurb',
@@ -58,8 +58,8 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements(JBXVitrineGuideButton, 1);
 	});
 
-	it('shows JBXVitrineGlossaryHeading', function () {
-		browser.assert.elements(JBXVitrineGlossaryHeading, 1);
+	it('shows JBXVitrineDeeperHeading', function () {
+		browser.assert.elements(JBXVitrineDeeperHeading, 1);
 	});
 
 	it('shows JBXVitrineGlossary', function () {
