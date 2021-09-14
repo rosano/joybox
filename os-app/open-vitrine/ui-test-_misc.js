@@ -70,6 +70,30 @@ describe('JBXVitrine_Misc', function () {
 	
 	});
 
+	describe('JBXVitrineGlossary', function test_JBXVitrineGlossary () {
+
+		it('classes OLSKDecorGlossary', function () {
+			browser.assert.hasClass(JBXVitrineGlossary, 'OLSKDecorGlossary');
+		});
+		
+	});
+
+	describe('JBXVitrineGlossaryEphemerataLink', function test_JBXVitrineGlossaryEphemerataLink () {
+
+		it('sets href', function () {
+			browser.assert.attribute(JBXVitrineGlossaryEphemerataLink, 'href', process.env.JBX_VITRINE_EPHEMERATA_URL);
+		});
+
+		it('sets target', function () {
+			browser.assert.attribute(JBXVitrineGlossaryEphemerataLink, 'target', 	'_blank');
+		});
+
+		it('sets text', function () {
+			browser.assert.text(JBXVitrineGlossaryEphemerataLink, 'Ephemerata');
+		});
+	
+	});
+
 	describe('ROCOGazette', function test_ROCOGazette () {
 
 		it('sets ROCOBulletinProject', function () {

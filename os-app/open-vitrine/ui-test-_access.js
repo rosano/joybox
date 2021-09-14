@@ -9,6 +9,10 @@ Object.entries({
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
 
+	JBXVitrineGlossary: '.JBXVitrineGlossary',
+	JBXVitrineGlossaryEphemerataLink: '.JBXVitrineGlossaryEphemerataLink',
+	JBXVitrineGlossaryEphemerataBlurb: '.JBXVitrineGlossaryEphemerataBlurb',
+
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
 	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
 }).map(function (e) {
@@ -51,6 +55,18 @@ describe('JBXVitrine_Access', function () {
 
 	it('shows JBXVitrineGuideButton', function () {
 		browser.assert.elements(JBXVitrineGuideButton, 1);
+	});
+
+	it('shows JBXVitrineGlossary', function () {
+		browser.assert.elements(JBXVitrineGlossary, 1);
+	});
+
+	it('shows JBXVitrineGlossaryEphemerataLink', function () {
+		browser.assert.elements(JBXVitrineGlossaryEphemerataLink, 1);
+	});
+
+	it('shows JBXVitrineGlossaryEphemerataBlurb', function () {
+		browser.assert.elements(JBXVitrineGlossaryEphemerataBlurb, 1);
 	});
 
 	it('shows ROCOGazette', function () {
