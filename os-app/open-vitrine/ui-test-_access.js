@@ -9,6 +9,7 @@ Object.entries({
 
 	JBXVitrineGuideButton: '.JBXVitrineGuideButton',
 
+	JBXVitrineGlossaryHeading: '.JBXVitrineGlossaryHeading',
 	JBXVitrineGlossary: '.JBXVitrineGlossary',
 	JBXVitrineGlossaryEphemerataLink: '.JBXVitrineGlossaryEphemerataLink',
 	JBXVitrineGlossaryEphemerataBlurb: '.JBXVitrineGlossaryEphemerataBlurb',
@@ -57,6 +58,10 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements(JBXVitrineGuideButton, 1);
 	});
 
+	it('shows JBXVitrineGlossaryHeading', function () {
+		browser.assert.elements(JBXVitrineGlossaryHeading, 1);
+	});
+
 	it('shows JBXVitrineGlossary', function () {
 		browser.assert.elements(JBXVitrineGlossary, 1);
 	});
@@ -67,6 +72,10 @@ describe('JBXVitrine_Access', function () {
 
 	it('shows JBXVitrineGlossaryEphemerataBlurb', function () {
 		browser.assert.elements(JBXVitrineGlossaryEphemerataBlurb, 1);
+	});
+
+	it('shows ROCOGlossary', function () {
+		browser.assert.elements('.ROCOGlossary', 1);
 	});
 
 	it('shows ROCOGazette', function () {

@@ -30,6 +30,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(JBXVitrineGuideButton, uLocalized('OLSKWordingOpenGuide'));
 		});
 
+		it('localizes JBXVitrineGlossaryHeading', function () {
+			browser.assert.text(JBXVitrineGlossaryHeading, uLocalized('OLSKWordingGlossaryHeading'));
+		});
+
 		it('localizes JBXVitrineGlossaryEphemerataBlurb', function () {
 			browser.assert.text(JBXVitrineGlossaryEphemerataBlurb, uLocalized('JBXVitrineGlossaryEphemerataBlurbText'));
 		});

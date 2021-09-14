@@ -41,9 +41,12 @@ locals.OLSKPagePublicConstants = {
 
 <a class="JBXVitrineGuideButton OLSKDecorPress OLSKDecorPressCall" href="<%= OLSKCanonical('JBXGuideRoute') %>"><%= OLSKLocalized('OLSKWordingOpenGuide') %></a>
 
+<h1 class="JBXVitrineGlossaryHeading"><%= OLSKLocalized('OLSKWordingGlossaryHeading') %></h1>
+
 <dl class="JBXVitrineGlossary OLSKDecorGlossary">
 	<dt><a class="JBXVitrineGlossaryEphemerataLink" href="<%= process.env.JBX_VITRINE_EPHEMERATA_URL %>" target="_blank">Ephemerata</a></dt>
 	<dd class="JBXVitrineGlossaryEphemerataBlurb"><%= OLSKLocalized('JBXVitrineGlossaryEphemerataBlurbText') %></dd>
+	<%- include('../../node_modules/ROCOGlossary/main.ejs') %>
 </dl>
 
 <%- include('../../node_modules/ROCOGazette/main.ejs', {
