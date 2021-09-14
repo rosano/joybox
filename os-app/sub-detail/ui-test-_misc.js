@@ -295,7 +295,7 @@ describe('JBXPlayDetail_Misc', function () {
 			browser.assert.attribute(JBXPlayDetailMediaOpenButton, 'href', item.JBXDocumentURL);
 		});
 		
-		it('sets _target', function () {
+		it('sets target', function () {
 			browser.assert.attribute(JBXPlayDetailMediaOpenButton, 'target', 	'_blank');
 		});
 
