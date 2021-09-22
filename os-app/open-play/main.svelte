@@ -351,6 +351,8 @@ const mod = {
 		if (mod.DataIsMobile()) {
 			return;
 		}
+		
+		mod._OLSKCatalog.modPublic.OLSKCatalogActivateDetail();
 	},
 
 	ControlDocumentArchive (inputData) {
@@ -425,6 +427,10 @@ const mod = {
 		mod._OLSKCatalog.modPublic.OLSKCatalogSelect(inputData);
 	},
 
+	OLSKCatalogDispatchDetailActivate () {
+		document.querySelector('.JBXPlayDetailToolbarBackButton').focus();
+	},
+	
 	OLSKCatalogDispatchArchivedHide () {
 		mod._ValueRevealArchiveIsVisible = true;
 	},
@@ -877,6 +883,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 
 	OLSKCollectionDispatchClick={ mod.OLSKCollectionDispatchClick }
 	OLSKCollectionDispatchArrow={ mod.OLSKCollectionDispatchArrow }
+	OLSKCatalogDispatchDetailActivate={ mod.OLSKCatalogDispatchDetailActivate }
 	OLSKCatalogDispatchArchivedHide={ mod.OLSKCatalogDispatchArchivedHide }
 	OLSKCatalogDispatchArchivedShow={ mod.OLSKCatalogDispatchArchivedShow }
 	OLSKCatalogDispatchQuantity={ mod.OLSKCatalogDispatchQuantity }
