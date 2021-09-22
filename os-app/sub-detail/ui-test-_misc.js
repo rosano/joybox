@@ -72,6 +72,10 @@ describe('JBXPlayDetail_Misc', function () {
 			browser.assert.hasClass(JBXPlayDetailToolbarBackButton, 'OLSKVisibilityMobile');
 		});
 
+		it('classes OLSKVisibilityScreenreader', function () {
+			browser.assert.hasClass(JBXPlayDetailToolbarBackButton, 'OLSKVisibilityScreenreader');
+		});
+
 		context('click', function () {
 			
 			before(function () {

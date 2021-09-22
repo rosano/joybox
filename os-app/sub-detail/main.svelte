@@ -97,7 +97,7 @@ import { fade } from 'svelte/transition';
 
 <header class="JBXPlayDetailToolbar OLSKToolbar OLSKToolbarJustify OLSKMobileViewHeader OLSKCommonEdgeBottom ROCOStandardViewHead">
 	<div class="OLSKToolbarElementGroup">
-		<button class="JBXPlayDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile" title={ OLSKLocalized('JBXPlayDetailToolbarBackButtonText') } on:click={ JBXPlayDetailDispatchBack }>
+		<button class="JBXPlayDetailToolbarBackButton OLSKDecorButtonNoStyle OLSKDecorTappable OLSKToolbarButton OLSKVisibilityMobile OLSKVisibilityScreenreader" title={ OLSKLocalized('JBXPlayDetailToolbarBackButtonText') } on:click={ JBXPlayDetailDispatchBack }>
 			<div class="JBXPlayDetailToolbarBackButtonImage">{@html OLSKUIAssets._OLSKSharedBack }</div>
 		</button>
 	</div>
