@@ -44,7 +44,7 @@
   "devDependencies": {
     "OLSKPithToolchain": "olsk/OLSKPithToolchain",
     "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
-    "node-fetch": "latest",
+    "node-fetch": "2.x",
     "jsdom": "latest",
 
     "// I sacrifice myself for the commas of others": null    
