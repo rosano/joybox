@@ -48,6 +48,6 @@ body {
 	background: linear-gradient(to right, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0));
 }
 
-.OLSKBanner {
+:global(.OLSKBanner) {
 	display: none;
 }
