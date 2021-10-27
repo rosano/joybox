@@ -90,7 +90,7 @@ describe('JBXPlay_Sync', function () {
 
 	});
 
-	describe('ZDRSchemaDispatchSyncConflictDocument', function test_ZDRSchemaDispatchSyncConflictDocument () {
+	describe.skip('ZDRSchemaDispatchSyncConflictDocument', function test_ZDRSchemaDispatchSyncConflictDocument () {
 
 		before(function () {
 			return browser.pressButton(JBXPlayToggleFormButton);
