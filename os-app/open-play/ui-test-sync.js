@@ -105,7 +105,7 @@ describe('JBXPlay_Sync', function () {
 		});
 
 		before(function () {
-			return browser.click(JBXPlayListItem);
+			return browser.click('.JBXPlayListItem');
 		});
 
 		before(function () {
