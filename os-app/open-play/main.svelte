@@ -127,10 +127,10 @@ const mod = {
 						
 						return mod.ZDRSchemaDispatchSyncConflictDocument({
 							origin: 'conflict',
-							oldValue: JSON.parse(JSON.stringify(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentUpdate(Object.assign({}, item, {
+							oldValue: JSON.parse(JSON.stringify(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentUpdate(Object.assign(Object.assign({}, item), {
 								JBXDocumentNotes: item.JBXDocumentNotes + '-local',
 							})))),
-							newValue: JSON.parse(JSON.stringify(Object.assign({}, item, {
+							newValue: JSON.parse(JSON.stringify(Object.assign(Object.assign({}, item), {
 								JBXDocumentNotes: item.JBXDocumentNotes + '-remote',
 							}))),
 						});
