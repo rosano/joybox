@@ -17,7 +17,7 @@ Object.entries({
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
 	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('JBXVitrine_Access', function () {

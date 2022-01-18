@@ -29,7 +29,7 @@ Object.entries({
 	JBXPlayDetailFormNameField: '.JBXPlayDetailFormNameField',
 	JBXPlayDetailFormNotesField: '.JBXPlayDetailFormNotesField',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('JBXPlayDetail_Access', function () {

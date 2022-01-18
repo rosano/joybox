@@ -29,7 +29,7 @@ Object.entries({
 	
 	JBXPlayShareModal: '.OLSKModalView .JBXPlayShare',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('JBXPlay_Access', function () {

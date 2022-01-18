@@ -6,7 +6,7 @@ Object.entries({
 	JBXPlayShareLinkField: '.JBXPlayShareLinkField',
 	JBXPlayShareCopyButton: '.JBXPlayShareCopyButton',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('JBXPlayShare_Access', function () {

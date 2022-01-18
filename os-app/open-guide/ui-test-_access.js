@@ -8,7 +8,7 @@ Object.entries({
 
 	JBXGuideContent: '.JBXGuideContent',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('JBXGuide_Access', function () {

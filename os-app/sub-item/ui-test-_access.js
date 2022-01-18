@@ -11,7 +11,7 @@ Object.entries({
 
 	JBXPlayListItemTags: '.JBXPlayListItemTags',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('JBXPlayListItem_Access', function () {
