@@ -39,7 +39,7 @@
     "// tech-serviceworker": null,
     "OLSKServiceWorker": "olsk/OLSKServiceWorker",
 
-    "// I sacrifice myself for the commas of others": null
+    "//": "I sacrifice myself for the commas of others"
   },
   "devDependencies": {
     "OLSKPithToolchain": "olsk/OLSKPithToolchain",
@@ -47,6 +47,6 @@
     "node-fetch": "2.x",
     "jsdom": "latest",
 
-    "// I sacrifice myself for the commas of others": null
+    "//": "I sacrifice myself for the commas of others"
   }
 }
