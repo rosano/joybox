@@ -12,13 +12,10 @@
     "watch": "olsk-rollup-watch"
   },
   "dependencies": {
-    "//": "open-vitrine",
     "OLSKPithVitrine": "olsk/OLSKPithVitrine",
 
-    "//": "open-guide",
     "OLSKPithGuide": "olsk/OLSKPithGuide",
 
-    "//": "open-play",
     "OLSKPithApp": "olsk/OLSKPithApp",
     "OLSKCatalog": "olsk/OLSKCatalog",
     "OLSKQueue": "olsk/OLSKQueue",
@@ -29,14 +26,11 @@
     "OLSKMoment": "olsk/OLSKMoment",
     "OLSKTaxonomy": "olsk/OLSKTaxonomy",
 
-    "//": "sub-share",
     "svelte-dragdroplist": "rosano/svelte-dragdroplist",
     "clipboard": "latest",
 
-    "//": "tech-robots",
     "OLSKRobots": "olsk/OLSKRobots",
 
-    "//": "tech-serviceworker",
     "OLSKServiceWorker": "olsk/OLSKServiceWorker"
   },
   "devDependencies": {
