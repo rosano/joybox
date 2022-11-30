@@ -13,7 +13,7 @@ describe('JBXPlay_Tag', function () {
 	});
 
 	before(function () {
-		return browser.fill('.LCHLauncherFilterInput', 'OLSKPlayLauncherFakeCreateTaggedItem');
+		return browser.fill('.LCHLauncherFilterInput', 'JBXPlayLauncherFakeCreateTaggedItem');
 	});
 
 	before(function () {

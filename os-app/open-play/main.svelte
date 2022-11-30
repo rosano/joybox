@@ -59,8 +59,6 @@ const mod = {
 
 	_ValueSaveDocumentThrottleMap: {},
 
-	_ValueSavePublishThrottleMap: {},
-
 	_IsRunningDemo: false,
 
 	OLSKTaxonomySuggestionItems: [],
@@ -137,8 +135,8 @@ const mod = {
 					},
 				},
 				{
-					LCHRecipeName: 'OLSKPlayLauncherFakeCreateTaggedItem',
-					LCHRecipeCallback: async function OLSKPlayLauncherFakeCreateTaggedItem () {
+					LCHRecipeName: 'JBXPlayLauncherFakeCreateTaggedItem',
+					LCHRecipeCallback: async function JBXPlayLauncherFakeCreateTaggedItem () {
 						return mod.ZDRSchemaDispatchSyncCreateDocument(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(mod.DataStubDocumentObject({
 							JBXDocumentTags: [window.prompt()],
 						})));
