@@ -1,6 +1,7 @@
 import OLSKString from 'OLSKString';
 import OLSKDOM from 'OLSKDOM';
 import OLSKEmbed from 'OLSKEmbed';
+import OLSKLink from 'OLSKLink';
 import OLSKMoment from 'OLSKMoment';
 import JBXDocument from '../_shared/JBXDocument/main.js';
 
@@ -106,16 +107,7 @@ const mod = {
 		}
 
 		const recurse = function (coll, item) {
-			const urls = item.split(/\s/).filter(function (e) {
-				try {
-					const item = new URL('', e);
-					if (item.hostname) {
-						return true;
-					}
-				} catch (err) {
-					return false;
-				}
-			});
+			const urls = item.split(/\s/).filter(OLSKLink.OLSKLinkValid);
 
 			if (urls.length > 1 && item.includes('\n')) {
 				return item.split('\n').reduce(recurse, coll);

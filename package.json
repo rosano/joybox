@@ -20,6 +20,7 @@
     "OLSKCatalog": "olsk/OLSKCatalog",
     "OLSKQueue": "olsk/OLSKQueue",
     "OLSKEmbed": "olsk/OLSKEmbed",
+    "OLSKLink": "olsk/OLSKLink",
     "OLSKDOM": "olsk/OLSKDOM",
     "OLSKHash": "olsk/OLSKHash",
     "OLSKWash": "olsk/OLSKWash",
