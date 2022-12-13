@@ -13,6 +13,8 @@ Object.entries({
 	JBXVitrineGlossary: '.JBXVitrineGlossary',
 	JBXVitrineGlossaryFleetingArrivalsLink: '.JBXVitrineGlossaryFleetingArrivalsLink',
 	JBXVitrineGlossaryFleetingArrivalsBlurb: '.JBXVitrineGlossaryFleetingArrivalsBlurb',
+	JBXVitrineGlossaryWetwareLink: '.JBXVitrineGlossaryWetwareLink',
+	JBXVitrineGlossaryWetwareBlurb: '.JBXVitrineGlossaryWetwareBlurb',
 
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
 	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
@@ -72,6 +74,14 @@ describe('JBXVitrine_Access', function () {
 
 	it('shows JBXVitrineGlossaryFleetingArrivalsBlurb', function () {
 		browser.assert.elements(JBXVitrineGlossaryFleetingArrivalsBlurb, 1);
+	});
+
+	it('shows JBXVitrineGlossaryWetwareLink', function () {
+		browser.assert.elements(JBXVitrineGlossaryWetwareLink, 1);
+	});
+
+	it('shows JBXVitrineGlossaryWetwareBlurb', function () {
+		browser.assert.elements(JBXVitrineGlossaryWetwareBlurb, 1);
 	});
 
 	it('shows ROCOGlossary', function () {
