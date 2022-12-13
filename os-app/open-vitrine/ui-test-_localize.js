@@ -34,8 +34,8 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(JBXVitrineDeeperHeading, uLocalized('OLSKWordingDeeperHeading'));
 		});
 
-		it('localizes JBXVitrineGlossaryEphemerataBlurb', function () {
-			browser.assert.text(JBXVitrineGlossaryEphemerataBlurb, uLocalized('JBXVitrineGlossaryEphemerataBlurbText'));
+		it('localizes JBXVitrineGlossaryFleetingArrivalsBlurb', function () {
+			browser.assert.text(JBXVitrineGlossaryFleetingArrivalsBlurb, uLocalized('JBXVitrineGlossaryFleetingArrivalsBlurbText'));
 		});
 
 		it('localizes JBXVitrineSupportHeading', function () {

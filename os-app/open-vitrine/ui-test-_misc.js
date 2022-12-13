@@ -78,18 +78,18 @@ describe('JBXVitrine_Misc', function () {
 		
 	});
 
-	describe('JBXVitrineGlossaryEphemerataLink', function test_JBXVitrineGlossaryEphemerataLink () {
+	describe('JBXVitrineGlossaryFleetingArrivalsLink', function test_JBXVitrineGlossaryFleetingArrivalsLink () {
 
 		it('sets href', function () {
-			browser.assert.attribute(JBXVitrineGlossaryEphemerataLink, 'href', process.env.JBX_VITRINE_EPHEMERATA_URL);
+			browser.assert.attribute(JBXVitrineGlossaryFleetingArrivalsLink, 'href', process.env.JBX_VITRINE_FLEETING_ARRIVALS_URL);
 		});
 
 		it('sets target', function () {
-			browser.assert.attribute(JBXVitrineGlossaryEphemerataLink, 'target', 	'_blank');
+			browser.assert.attribute(JBXVitrineGlossaryFleetingArrivalsLink, 'target', 	'_blank');
 		});
 
 		it('sets text', function () {
-			browser.assert.text(JBXVitrineGlossaryEphemerataLink, 'Ephemerata');
+			browser.assert.text(JBXVitrineGlossaryFleetingArrivalsLink, 'Fleeting Arrivals');
 		});
 	
 	});

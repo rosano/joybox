@@ -11,8 +11,8 @@ Object.entries({
 
 	JBXVitrineDeeperHeading: '.JBXVitrineDeeperHeading',
 	JBXVitrineGlossary: '.JBXVitrineGlossary',
-	JBXVitrineGlossaryEphemerataLink: '.JBXVitrineGlossaryEphemerataLink',
-	JBXVitrineGlossaryEphemerataBlurb: '.JBXVitrineGlossaryEphemerataBlurb',
+	JBXVitrineGlossaryFleetingArrivalsLink: '.JBXVitrineGlossaryFleetingArrivalsLink',
+	JBXVitrineGlossaryFleetingArrivalsBlurb: '.JBXVitrineGlossaryFleetingArrivalsBlurb',
 
 	JBXVitrineSupportHeading: '.JBXVitrineSupportHeading',
 	JBXVitrineSupportBlurb: '.JBXVitrineSupportBlurb',
@@ -66,12 +66,12 @@ describe('JBXVitrine_Access', function () {
 		browser.assert.elements(JBXVitrineGlossary, 1);
 	});
 
-	it('shows JBXVitrineGlossaryEphemerataLink', function () {
-		browser.assert.elements(JBXVitrineGlossaryEphemerataLink, 1);
+	it('shows JBXVitrineGlossaryFleetingArrivalsLink', function () {
+		browser.assert.elements(JBXVitrineGlossaryFleetingArrivalsLink, 1);
 	});
 
-	it('shows JBXVitrineGlossaryEphemerataBlurb', function () {
-		browser.assert.elements(JBXVitrineGlossaryEphemerataBlurb, 1);
+	it('shows JBXVitrineGlossaryFleetingArrivalsBlurb', function () {
+		browser.assert.elements(JBXVitrineGlossaryFleetingArrivalsBlurb, 1);
 	});
 
 	it('shows ROCOGlossary', function () {
