@@ -96,16 +96,16 @@ describe('JBXVitrine_Misc', function () {
 
 	describe('JBXVitrineGlossaryWetwareLink', function test_JBXVitrineGlossaryWetwareLink () {
 
+		it('sets lang', function () {
+			browser.assert.attribute(JBXVitrineGlossaryWetwareLink, 'lang', 	'en');
+		});
+
 		it('sets href', function () {
 			browser.assert.attribute(JBXVitrineGlossaryWetwareLink, 'href', process.env.JBX_VITRINE_Wetware_URL);
 		});
 
 		it('sets target', function () {
 			browser.assert.attribute(JBXVitrineGlossaryWetwareLink, 'target', 	'_blank');
-		});
-
-		it('sets text', function () {
-			browser.assert.text(JBXVitrineGlossaryWetwareLink, 'Wetware');
 		});
 	
 	});
