@@ -34,10 +34,14 @@ describe('JBXVitrine_Misc', function () {
 	
 	});
 
-	describe('JBXVitrineVideo', function () {
+	describe('JBXVitrineVideo', function test_JBXVitrineVideo () {
 
 		it('sets src', function () {
 			browser.assert.attribute(JBXVitrineVideo, 'src', process.env.JBX_VITRINE_VIDEO_URL);
+		});
+
+		it('sets allow', function () {
+			browser.assert.attribute(JBXVitrineVideo, 'allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
 		});
 
 		it('sets allowfullscreen', function () {
