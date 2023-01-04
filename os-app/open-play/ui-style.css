@@ -3,6 +3,8 @@
 	--OLSKCommonForeground: #fee8b1;
 	--OLSKCommonBorderColor: #777;
 	--OLSKDecorForegroundLight: #444;
+	--OLSKDecorBackgroundDeep: black;
+	--OLSKDecorBackgroundDeepEdge: var(--OLSKDecorForegroundLight);
 	--OLSKDecorFormBlendBackground: #333;
 	--OLSKDecorFormBlendBorderColor: var(--OLSKDecorForegroundLight);
 
