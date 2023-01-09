@@ -76,7 +76,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		describe('JBXPlayFormSubmitButton', function test_JBXPlayFormSubmitButton () {
 
 			it('localizes JBXPlayFormSubmitButton', function () {
-				browser.assert.text(JBXPlayFormSubmitButton, uLocalized('JBXPlayFormSubmitButtonText'));
+				browser.assert.text(JBXPlayFormSubmitButton, uLocalized('OLSKWordingSubmitText'));
 			});
 			
 		});

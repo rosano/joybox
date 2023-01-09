@@ -922,7 +922,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			<hr role="presentation" />
 			
 			<p>
-				<button class="JBXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('JBXPlayFormSubmitButtonText') }</button>
+				<button class="JBXPlayFormSubmitButton" on:click={ mod.InterfaceFormSubmitButtonDidClick }>{ OLSKLocalized('OLSKWordingSubmitText') }</button>
 			</p>
 		</div>
 	{/if}
