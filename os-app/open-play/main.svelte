@@ -622,9 +622,7 @@ const mod = {
 	},
 
 	ZDRParamDispatchWriteError (error) {
-		mod.ZDRParamDispatchError(error);
-
-		window.alert(error.message);
+		window.alert(mod._OLSKAppToolbarErrorText = error.message);
 	},
 
 	ZDRParamDispatchConnected (identity, token) {
@@ -1001,6 +999,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 		OLSKAppToolbarGuideURL={ window.OLSKCanonical('JBXGuideRoute') }
 		OLSKAppToolbarFundShowProgress={ mod._ValueOLSKFundProgress }
 		OLSKAppToolbarFundLimitText={ mod._ValueDocumentRemainder }
+		OLSKAppToolbarErrorText={ mod._OLSKAppToolbarErrorText }
 		OLSKAppToolbarCloudConnected={ !!mod._ValueCloudIdentity }
 		OLSKAppToolbarCloudOffline={ mod._ValueCloudIsOffline }
 		OLSKAppToolbarCloudError={ !!mod._ValueCloudErrorText }
