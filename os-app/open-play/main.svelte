@@ -618,7 +618,13 @@ const mod = {
 	},
 
 	ZDRParamDispatchError (error) {
-		mod._ValueCloudErrorText = error.toString();
+		mod._ValueCloudErrorText = error.message;
+	},
+
+	ZDRParamDispatchWriteError (error) {
+		mod.ZDRParamDispatchError(error);
+
+		window.alert(error.message);
 	},
 
 	ZDRParamDispatchConnected (identity, token) {
@@ -721,6 +727,7 @@ const mod = {
 					],
 			}],
 			ZDRParamDispatchError: mod.ZDRParamDispatchError,
+			ZDRParamDispatchWriteError: mod.ZDRParamDispatchWriteError,
 			ZDRParamDispatchConnected: mod.ZDRParamDispatchConnected,
 			ZDRParamDispatchOnline: mod.ZDRParamDispatchOnline,
 			ZDRParamDispatchOffline: mod.ZDRParamDispatchOffline,
