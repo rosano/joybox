@@ -701,7 +701,7 @@ const mod = {
 	SetupCleanup() {
 		window.localStorage.removeItem('OLSK_FUND_GRANT_DATA');
 
-		return mod._ValueSettingsAll.JBXSettingFundClue && mod._ValueZDRWrap.App.JBXSetting.JBXSettingsDelete({
+		return mod._ValueSettingsAll.JBXSettingFundClue && mod._ValueZDRWrap.App.JBXSetting.ZDRModelDeleteObject({
 			JBXSettingKey: 'JBXSettingFundClue',
 		});
 	},
