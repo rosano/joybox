@@ -113,8 +113,6 @@ Note: this only works with a trailing slash before `#`.
 | Global (when cloud is connected) ||
 :--- | ---
 | `OLSKRemoteStorageLauncherItemCopyLoginLinkText` | Launcher |
-| `OLSKFundLauncherItemEnterClueText` | Launcher |
-| `OLSKFundLauncherItemClearClueText` | Launcher |
 | `OLSKRemoteStorageLauncherItemDebugFlushDataText` | Launcher |
 
 # Add to Home screen on mobile and tablet devices
