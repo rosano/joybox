@@ -38,6 +38,6 @@
     "OLSKPithToolchain": "olsk/OLSKPithToolchain",
     "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
     "node-fetch": "2.x",
-    "jsdom": "latest"
+    "jsdom": "21.x"
   }
 }
