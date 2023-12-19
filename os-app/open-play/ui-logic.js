@@ -154,7 +154,7 @@ const mod = {
 		} catch {};
 
 		if (Object.keys(metadata).length <= 1) {
-			Object.assign(metadata, OLSKDOM.OLSKDOMMetadata(await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + encodeURIComponent(inputData.JBXDocumentURL))).text(), debug));
+			Object.assign(metadata, OLSKDOM.OLSKDOMMetadata(await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + inputData.JBXDocumentURL)).text(), debug));
 		}
 
 		return Object.assign(inputData, {
