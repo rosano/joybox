@@ -493,6 +493,17 @@ const mod = {
 		mod.ControlDocumentDiscard(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
 
+	JBXPlayDetailDispatchDebug () {
+		const url = `https://inspektor.5apps.com/inspect?path=joybox%2F${ encodeURIComponent(JBXDocument.JBXDocumentObjectPath(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected())) }`;
+
+		if (OLSK_SPEC_UI()) {
+			window.FakeWindowOpen = url;
+			return;
+		}
+
+		window.open(url)
+	},
+
 	JBXPlayDetailDispatchQueue () {
 		mod.ControlDocumentQueue(mod._OLSKCatalog.modPublic.OLSKCatalogDataItemSelected());
 	},
@@ -847,6 +858,7 @@ import OLSKUIAssets from 'OLSKUIAssets';
 			JBXPlayDetailDispatchFetch={ mod.JBXPlayDetailDispatchFetch }
 			JBXPlayDetailDispatchUpdate={ mod.JBXPlayDetailDispatchUpdate }
 			JBXPlayDetailDispatchDiscard={ mod.JBXPlayDetailDispatchDiscard }
+			JBXPlayDetailDispatchDebug={ mod.JBXPlayDetailDispatchDebug }
 			JBXPlayDetailDispatchQueue={ mod.JBXPlayDetailDispatchQueue }
 			bind:this={ mod._JBXPlayDetail }
 			/>

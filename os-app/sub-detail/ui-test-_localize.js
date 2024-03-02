@@ -55,6 +55,10 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 				return browser.assert.OLSKLauncherItemText('JBXPlayDetailLauncherItemArchive', uLocalized('JBXPlayDetailToolbarArchiveButtonText'));
 			});
 
+			it('localizes JBXPlayDetailLauncherItemDebug', function () {
+				return browser.assert.OLSKLauncherItemText('JBXPlayDetailLauncherItemDebug', uLocalized('JBXPlayDetailToolbarDebugButtonText'));
+			});
+
 			context('discard', function () {
 			
 				it('localizes JBXPlayDetailDiscardConfirm', function() {

@@ -467,6 +467,28 @@ describe('JBXPlayDetail_Misc', function () {
 
 	});
 
+	describe('JBXPlayDetailLauncherItemDebug', function test_JBXPlayDetailLauncherItemDebug() {
+		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				JBXPlayDetailItem: JSON.stringify(StubDocumentObjectValid()),
+			});
+		});
+
+		before(function () {
+			browser.assert.text('#TestJBXPlayDetailDispatchDebug', '0');
+		});
+		
+		before(function () {
+			return browser.OLSKLauncherRun('JBXPlayDetailLauncherItemDebug');
+		});
+
+		it('sends JBXPlayDetailDispatchDebug', function () {
+			browser.assert.text('#TestJBXPlayDetailDispatchDebug', '1');
+		});
+
+	});
+
 	context('$JBXDocumentIsInbox', function() {
 
 		before(function() {

@@ -99,6 +99,7 @@ Note: this only works with a trailing slash before `#`.
 | Submit capture box | `Control+Enter` or `Command+Enter` |
 | `JBXPlayDetailToolbarArchiveButtonText` | Launcher |
 | `JBXPlayDetailToolbarUnarchiveButtonText` | Launcher |
+| `JBXPlayDetailToolbarDebugButtonText` | Launcher |
 | Select previous or next item, if filter field is focused | `Up` or `Down` |
 | Clear filter text and selected item, focus filter field | `Escape` |
 | Close, if filter field is focused | `Escape` |

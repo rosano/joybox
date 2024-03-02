@@ -108,6 +108,10 @@ describe('JBXPlayDetail_Access', function () {
 		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemUnarchive', 0);
 	});
 
+	it('shows JBXPlayDetailLauncherItemDebug', function () {
+		return browser.assert.OLSKLauncherItems('JBXPlayDetailLauncherItemDebug', 1);
+	});
+
 	context('JBXDocumentURL', function() {
 
 		before(function() {

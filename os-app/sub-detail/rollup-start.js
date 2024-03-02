@@ -23,6 +23,9 @@ const JBXPlayDetail = new RollupStart({
 		JBXPlayDetailDispatchDiscard: (function  () {
 			window.TestJBXPlayDetailDispatchDiscard.innerHTML = parseInt(window.TestJBXPlayDetailDispatchDiscard.innerHTML) + 1;
 		}),
+		JBXPlayDetailDispatchDebug: (function  () {
+			window.TestJBXPlayDetailDispatchDebug.innerHTML = parseInt(window.TestJBXPlayDetailDispatchDebug.innerHTML) + 1;
+		}),
 		JBXPlayDetailDispatchQueue: (function  () {
 			window.TestJBXPlayDetailDispatchQueue.innerHTML = parseInt(window.TestJBXPlayDetailDispatchQueue.innerHTML) + 1;
 		}),

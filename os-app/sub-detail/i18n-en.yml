@@ -3,6 +3,7 @@ JBXPlayDetailToolbarQueueButtonText: Add to collection
 JBXPlayDetailToolbarArchiveButtonText: Archive
 JBXPlayDetailToolbarUnarchiveButtonText: Unarchive
 JBXPlayDetailToolbarDiscardButtonText: Discard
+JBXPlayDetailToolbarDebugButtonText: Debug
 JBXPlayDetailMediaURLFieldText: URL
 JBXPlayDetailMediaOpenButtonText: Open
 JBXPlayDetailMediaFetchButtonText: Fetch

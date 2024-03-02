@@ -2,6 +2,7 @@
 export let JBXPlayDetailItem;
 export let JBXPlayDetailDispatchBack;
 export let JBXPlayDetailDispatchArchive;
+export let JBXPlayDetailDispatchDebug;
 export let JBXPlayDetailDispatchUnarchive;
 export let JBXPlayDetailDispatchFetch;
 export let JBXPlayDetailDispatchUpdate;
@@ -28,7 +29,13 @@ const mod = {
 	// DATA
 
 	DataPlayDetailRecipes () {
-		const outputData = [];
+		const outputData = [{
+			LCHRecipeSignature: 'JBXPlayDetailLauncherItemDebug',
+			LCHRecipeName: OLSKLocalized('JBXPlayDetailToolbarDebugButtonText'),
+			LCHRecipeCallback: function JBXPlayDetailLauncherItemDebug () {
+				JBXPlayDetailDispatchDebug()
+			},
+		}];
 
 		if (!JBXPlayDetailItem.$JBXDocumentIsInbox && !JBXPlayDetailItem.JBXDocumentArchiveDate) {
 			outputData.push({
