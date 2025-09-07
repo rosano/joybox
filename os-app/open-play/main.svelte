@@ -28,7 +28,7 @@ import OLSKLanguageSwitcher from 'OLSKLanguageSwitcher';
 import OLSKQueue from 'OLSKQueue';
 import OLSKTransport from 'OLSKTransport';
 import OLSKHash from 'OLSKHash';
-import OLSKPact from 'OLSKPact';
+
 import zerodatawrap from 'zerodatawrap';
 
 const mod = {
