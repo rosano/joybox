@@ -8,6 +8,7 @@ import JBXDocument from '../_shared/JBXDocument/main.js';
 const kJBXPlayCaptureAnchor = 'capture';
 const kJBXPlayNameAnchor = 'name';
 const kJBXPlayImageAnchor = 'image';
+const kJBXPlayLinksAnchor = 'links';
 const kJBXPlayInboxAnchor = 'inbox';
 
 const uAscending = function (a, b) {
@@ -187,6 +188,10 @@ const mod = {
 
 	JBXPlayImageAnchor () {
 		return kJBXPlayImageAnchor;
+	},
+
+	JBXPlayLinksAnchor () {
+		return kJBXPlayLinksAnchor;
 	},
 
 	JBXPlayInboxAnchor () {

@@ -257,9 +257,7 @@ const mod = {
 		}
 	},
 
-	ControlTextAdd (inputData, properties = {}) {
-		const disableDuplicateURLs = false;
-
+	ControlTextAdd (inputData, properties = {}, disableDuplicateURLs = false) {
 		const urls = mod._OLSKCatalog.modPublic._OLSKCatalogDataItemsAll().map(function (e) {
 			return e.JBXDocumentURL;
 		}).filter(function (e) {
@@ -270,11 +268,15 @@ const mod = {
 			return Object.assign(e, properties);
 		}).filter(function (e) {
 			return !disableDuplicateURLs || (disableDuplicateURLs && !urls.includes(e.JBXDocumentURL));
+		}).filter(function (e) {
+			return !disableDuplicateURLs || (disableDuplicateURLs && e.JBXDocumentURL);
 		}).map(mod.ControlDocumentAdd));
 	},
 
 	async ControlDocumentAdd (inputData) {
 		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(inputData));
+
+		console.log(inputData);
 
 		if (OLSK_SPEC_UI()) {
 			return;
@@ -522,6 +524,10 @@ const mod = {
 	},
 
 	OLSKHashDispatchInitialize (inputData) {
+		if (inputData[JBXPlayLogic.JBXPlayLinksAnchor()]) {
+			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayLinksAnchor()].split(',').join('\n\n'), {}, true);
+		}
+
 		if (inputData[JBXPlayLogic.JBXPlayCaptureAnchor()]) {
 			return mod.ControlTextAdd(inputData[JBXPlayLogic.JBXPlayCaptureAnchor()], {
 				JBXDocumentName: inputData[JBXPlayLogic.JBXPlayNameAnchor()] || undefined,

@@ -80,6 +80,7 @@ Note: this only works with a trailing slash before `#`.
 | PARAM | TEXT |
 :--- | ---
 | `JBXPlayCaptureAnchor` | URL or plain text. |
+| `JBXPlayLinksAnchor` | comma separated URLs. |
 | `JBXPlayNameAnchor` | Item name. Note: if multiple URLs are present in `JBXPlayCaptureAnchor`, this will set the name for all items. |
 | `JBXPlayInboxAnchor` | URL-encoded JSON array of objects. |
 

@@ -40,6 +40,38 @@ describe('JBXPlay_Hash', function () {
 	
 	});
 
+	describe('JBXPlayLinksAnchor', function test_JBXPlayLinksAnchor () {
+
+		const links = [uLink(Math.random().toString()), uLink(Math.random().toString())];
+		
+		const OLSKRoutingHash = {
+			[JBXPlayLogic.JBXPlayLinksAnchor()]: links.map(e => encodeURIComponent(e)).join(','),
+		};
+
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				OLSKRoutingHash,
+			});
+		});
+
+		it('adds item', function () {
+			browser.assert.elements(JBXPlayListItem, links.length);
+		});
+
+		context('select', function () {
+
+			before(function () {
+				return browser.click(JBXPlayListItem);
+			});
+
+			it('binds JBXDocumentURL', function () {
+				browser.assert.input(JBXPlayDetailMediaURLField, links[0]);
+			});
+		
+		});
+	
+	});
+
 	describe('JBXPlayInboxAnchor', function test_JBXPlayInboxAnchor () {
 		
 		const items = Array.from(Array(Math.max(2, uRandomInt(10)))).map(function () {
