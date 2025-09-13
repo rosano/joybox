@@ -276,8 +276,6 @@ const mod = {
 	async ControlDocumentAdd (inputData) {
 		mod._OLSKCatalog.modPublic._OLSKCatalogInsertAndSort(await mod._ValueZDRWrap.App.JBXDocument.JBXDocumentCreate(inputData));
 
-		console.log(inputData);
-
 		if (OLSK_SPEC_UI()) {
 			return;
 		}
