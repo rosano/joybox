@@ -158,6 +158,10 @@ const mod = {
 			Object.assign(metadata, OLSKDOM.OLSKDOMMetadata(await (await (debug.window || window).fetch('JBX_PLAY_PROXY_URL_TEMPLATE_SWAP_TOKEN' + inputData.JBXDocumentURL)).text(), debug));
 		}
 
+		if (!Object.keys(metadata).length) {
+			return inputData;
+		}
+
 		return Object.assign(inputData, {
 			JBXDocumentName: inputData.JBXDocumentName || metadata.title,
 			JBXDocumentEmbedURL: metadata.html ? metadata.html.match(/src=\u0022(\S*)\u0022/)[1] : [
