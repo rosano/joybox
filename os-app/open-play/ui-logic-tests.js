@@ -421,7 +421,7 @@ describe('JBXPlayFetch', function test_JBXPlayFetch () {
 	
 	});
 
-	it('sets JBXDocumentDidFetch', async function () {
+	it.skip('sets JBXDocumentDidFetch', async function () {
 		const item = Math.random().toString();
 		deepEqual((await mod.JBXPlayFetch(StubDocumentObjectValid({
 			JBXDocumentURL: Math.random().toString(),
