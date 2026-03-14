@@ -146,6 +146,13 @@ const mod = {
 			return inputData;
 		}
 
+		const directURL = OLSKEmbed.OLSKEmbedDirect(inputData.JBXDocumentURL)
+		if (directURL)
+			Object.assign(inputData, {
+				JBXDocumentEmbedURL: directURL,
+				JBXDocumentName: inputData.JBXDocumentName || new URL(inputData.JBXDocumentURL).hostname.replace('www.', ''),
+			});
+
 		const embed = OLSKEmbed.OLSKEmbedEndpointURL(inputData.JBXDocumentURL);
 
 		const metadata = {};
