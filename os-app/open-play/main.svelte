@@ -536,7 +536,7 @@ const mod = {
 				return !OLSK_SPEC_UI() && new Promise(function () {
 					return setTimeout(function () {
 						return window.close();
-					}, 100);
+					}, 500);
 				});
 			});
 		}
