@@ -284,7 +284,7 @@ const mod = {
 			return;
 		}
 
-		mod.ControlDocumentFetch(inputData);
+		await mod.ControlDocumentFetch(inputData);
 	},
 	
 	ControlInboxAdd (inputData) {
