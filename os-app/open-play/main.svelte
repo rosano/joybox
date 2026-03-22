@@ -333,11 +333,13 @@ const mod = {
 	},
 	
 	async ControlDocumentFetch (inputData) {
-		mod.ControlDocumentSave(await mod._ValueFetchQueue.OLSKQueueAdd(function () {
+		const promise = mod.ControlDocumentSave(await mod._ValueFetchQueue.OLSKQueueAdd(function () {
 			return JBXPlayLogic.JBXPlayFetch(inputData);
 		}));
 
 		mod._OLSKCatalog.modPublic.OLSKCatalogUpdate(inputData);
+
+		await promise;
 	},
 	
 	ControlDocumentDiscard (inputData) {
